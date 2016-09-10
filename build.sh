@@ -6,7 +6,7 @@ mkdocs build --clean
 
 
 # Checkout gh-pages
-git clone --branch gh-pages git@github.com:Excape/hsr-docs-fs16.git gh-pages
+git clone --branch gh-pages git@github.com:Excape/hsr-docs-hs16.git gh-pages
 
 #sync site
 rsync -av site/ gh-pages/

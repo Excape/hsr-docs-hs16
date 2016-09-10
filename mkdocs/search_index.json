@@ -1,0 +1,124 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "HSR Notizen\n\n\nHerbstsemester 16\n\n\n\n\nAlgorithmen und Datenstrukturen 2\n\n\nBusiness und Recht 1\n\n\nRecht\n\n\nBusiness-Plan\n\n\n\n\n\n\nC++\n\n\nEnglish: How Things Work\n\n\nMobile and GUI Engineering\n\n\n.NET Technologien\n\n\nSoftware Engineering 1\n\n\nWeb Engineering + Design 2\n\n\n\n\nLinks\n\n\n\n\nSlack: \nhttps://hsr-students.slack.com\n\n\nMathJax Syntax\n\n\nMkDocs User-Guide\n\n\nMarkdown Cheatsheet", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#hsr-notizen", 
+            "text": "", 
+            "title": "HSR Notizen"
+        }, 
+        {
+            "location": "/#herbstsemester-16", 
+            "text": "Algorithmen und Datenstrukturen 2  Business und Recht 1  Recht  Business-Plan    C++  English: How Things Work  Mobile and GUI Engineering  .NET Technologien  Software Engineering 1  Web Engineering + Design 2", 
+            "title": "Herbstsemester 16"
+        }, 
+        {
+            "location": "/#links", 
+            "text": "Slack:  https://hsr-students.slack.com  MathJax Syntax  MkDocs User-Guide  Markdown Cheatsheet", 
+            "title": "Links"
+        }, 
+        {
+            "location": "/hs16/ad2/", 
+            "text": "Algorithmen und Datenstrukturen 2", 
+            "title": "AD2"
+        }, 
+        {
+            "location": "/hs16/ad2/#algorithmen-und-datenstrukturen-2", 
+            "text": "", 
+            "title": "Algorithmen und Datenstrukturen 2"
+        }, 
+        {
+            "location": "/hs16/reing/", 
+            "text": "Recht", 
+            "title": "ReIng"
+        }, 
+        {
+            "location": "/hs16/reing/#recht", 
+            "text": "", 
+            "title": "Recht"
+        }, 
+        {
+            "location": "/hs16/bupl/", 
+            "text": "Business Plan", 
+            "title": "BuPl"
+        }, 
+        {
+            "location": "/hs16/bupl/#business-plan", 
+            "text": "", 
+            "title": "Business Plan"
+        }, 
+        {
+            "location": "/hs16/cpi/", 
+            "text": "C++", 
+            "title": "C++"
+        }, 
+        {
+            "location": "/hs16/cpi/#c", 
+            "text": "", 
+            "title": "C++"
+        }, 
+        {
+            "location": "/hs16/englhtw/", 
+            "text": "English: How Things Work", 
+            "title": "EnglHTw"
+        }, 
+        {
+            "location": "/hs16/englhtw/#english-how-things-work", 
+            "text": "", 
+            "title": "English: How Things Work"
+        }, 
+        {
+            "location": "/hs16/mge/", 
+            "text": "Mobile and GUI Engineering", 
+            "title": "MGE"
+        }, 
+        {
+            "location": "/hs16/mge/#mobile-and-gui-engineering", 
+            "text": "", 
+            "title": "Mobile and GUI Engineering"
+        }, 
+        {
+            "location": "/hs16/mste/", 
+            "text": ".NET Technologien", 
+            "title": "MsTe"
+        }, 
+        {
+            "location": "/hs16/mste/#net-technologien", 
+            "text": "", 
+            "title": ".NET Technologien"
+        }, 
+        {
+            "location": "/hs16/se1/", 
+            "text": "Software Engineering 1", 
+            "title": "SE1"
+        }, 
+        {
+            "location": "/hs16/se1/#software-engineering-1", 
+            "text": "", 
+            "title": "Software Engineering 1"
+        }, 
+        {
+            "location": "/hs16/wed2/", 
+            "text": "Web Engineering + Design 2", 
+            "title": "WED2"
+        }, 
+        {
+            "location": "/hs16/wed2/#web-engineering-design-2", 
+            "text": "", 
+            "title": "Web Engineering + Design 2"
+        }, 
+        {
+            "location": "/playground/", 
+            "text": "Markdown Playground\n\n\nDies ist etwas normaler Text mit etwas \nkursiver\n schrift und etwas \nbold\n schrift\n\n\n\n\nDies ist Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text\nzweite Zeile\n\n\n\n\n  public class TestClass() {\n    int var = 1;\n    public method() {\n      return var;\n    }\n  }\n\n\n\n\n\n\n\n\n\n\n1\n\n\n2\n\n\n3\n\n\n\n\n\n\n\n\n\n\n1\n\n\netwas\n\n\nanderes\n\n\n\n\n\n\n2\n\n\nals\n\n\nhier\n\n\n\n\n\n\n\n\n\n\nNotiz\n\n\nTest Notiz mit etwas Text drin\n\n\n\n\n\n\nDanger\n\n\nGefahr!\n\n\n\n\n\n\nWarning\n\n\nWarnung!\n\n\n\n\nInline Math: \n x_i^2 * \\frac{(n^2 * n) - 1}{\\Omega} \n\n\n\n\nDisplay Math:\n\n\\sum_{i=0}^n i^2\n\n\n\n\nGruppen mit \n{}\n: \n{10}^5\n\n\n\n\n\n\nA \\rightarrow B \n\n\n\\lim_{x\\to \\infty} \\sin x", 
+            "title": "Playground"
+        }, 
+        {
+            "location": "/playground/#markdown-playground", 
+            "text": "Dies ist etwas normaler Text mit etwas  kursiver  schrift und etwas  bold  schrift   Dies ist Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text\nzweite Zeile    public class TestClass() {\n    int var = 1;\n    public method() {\n      return var;\n    }\n  }     1  2  3      1  etwas  anderes    2  als  hier      Notiz  Test Notiz mit etwas Text drin    Danger  Gefahr!    Warning  Warnung!   Inline Math:   x_i^2 * \\frac{(n^2 * n) - 1}{\\Omega}    Display Math: \\sum_{i=0}^n i^2   Gruppen mit  {} :  {10}^5    A \\rightarrow B   \\lim_{x\\to \\infty} \\sin x", 
+            "title": "Markdown Playground"
+        }
+    ]
+}

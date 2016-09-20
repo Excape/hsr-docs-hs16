@@ -22,13 +22,18 @@
         }, 
         {
             "location": "/hs16/ad2/", 
-            "text": "Algorithmen und Datenstrukturen 2", 
+            "text": "Algorithmen und Datenstrukturen 2\n\n\nVorlesung 1 - Binary Search Tree\n\n\n\n\nEin Heap hat das kleinste oder gr\u00f6sste Element als Root\n\n\nEine Suche auf einem Heap w\u00fcrde mit \nO(n)\n laufen, da man nicht weiss, welches Child jeweils kleiner / gr\u00f6sser ist\n\n\nMultimaps: Pro Key sind mehrere Values erlaubt\n\n\n\n\nFolie 5\n\nVoraussetzung: Random Access, Daten m\u00fcssen sortiert sein\n\n\nFolie 6\n\n- Insert: Finden der richtigen Position: \nO(log(n))\n, Rest verschieben: \nO(n)\n\n\n\n- Remove gleich wie Insert\n\n\nFolie 7\n\n- Der Baum muss so aufgebaut sein, dass der linke Child-Knoten immer \n= Parent-Node ist\n- Externe Knoten speichern keine Daten. Wenn man beim Suchen einen Blattknoten erreicht, ist der Key nicht gefunden\n- Eine Inorder Traversierung besucht die Keys in aufsteigender Reihenfolge\n\n\nEinf\u00fcgen\n\n- Suchen nach dem einzuf\u00fcgenden Key\n- Man wird auf einen \"Sentinel\" external Node treffen\n- Dort den neuen Key einf\u00fcgen und in einen internen Knoten umwandeln\n- Bei einer \nMultimap\n kann es mehrere gleiche Keys geben. Dann:\n    - find, bis man auf den Knoten trifft\n    - nach links weiter suchen bis man auf einen external Node trifft\n    - Dort einf\u00fcgen und in internen Node umwandeln\n\n\nL\u00f6schen\n\n- Knoten hat zwei Blatt-Kinder:\n    - L\u00f6sche v und sein linkes Child, rechtes Child rutscht nach oben\n- Knoten hat ein Blatt-Kind:\n    - L\u00f6sche v und den Blatt-Knoten (links oder rechts), der andere Knoten (mit einem Key) rutscht nach oben\n- Knoten hat keine Blatt-Kinder:\n    - Finde den Knoten \nw\n, der \nv\n in der Inorder-Traversierung folgt (\"links unten des rechten Teilbaums von \nv\n\")\n    - Kopiere den Key von \nw\n zu \nV\n\n    - L\u00f6sche \nw\n mit dem gleichen Algorithmus wie bei Fall 1 und 2\n- \nF\u00fcr die ersten beiden F\u00e4lle ist der Algorithmus derselbe\n\n\nPerformance\n\n- Worst Case: Komplett unbalancierter Baum (z.B. Einf\u00fcgen mit \nsortiertem\n Input). H\u00f6he ist \nO(n)\n. Dann ist es eine Linked-List\n- Best Case: Mit der Mitte beginnen, komplett Balanciert. H\u00f6he \nlog(n)\n\n- Balanciert sich nicht selbst (wie andere B\u00e4ume, s. sp\u00e4ter)", 
             "title": "AD2"
         }, 
         {
             "location": "/hs16/ad2/#algorithmen-und-datenstrukturen-2", 
             "text": "", 
             "title": "Algorithmen und Datenstrukturen 2"
+        }, 
+        {
+            "location": "/hs16/ad2/#vorlesung-1-binary-search-tree", 
+            "text": "Ein Heap hat das kleinste oder gr\u00f6sste Element als Root  Eine Suche auf einem Heap w\u00fcrde mit  O(n)  laufen, da man nicht weiss, welches Child jeweils kleiner / gr\u00f6sser ist  Multimaps: Pro Key sind mehrere Values erlaubt   Folie 5 \nVoraussetzung: Random Access, Daten m\u00fcssen sortiert sein  Folie 6 \n- Insert: Finden der richtigen Position:  O(log(n)) , Rest verschieben:  O(n)  \n- Remove gleich wie Insert  Folie 7 \n- Der Baum muss so aufgebaut sein, dass der linke Child-Knoten immer  = Parent-Node ist\n- Externe Knoten speichern keine Daten. Wenn man beim Suchen einen Blattknoten erreicht, ist der Key nicht gefunden\n- Eine Inorder Traversierung besucht die Keys in aufsteigender Reihenfolge  Einf\u00fcgen \n- Suchen nach dem einzuf\u00fcgenden Key\n- Man wird auf einen \"Sentinel\" external Node treffen\n- Dort den neuen Key einf\u00fcgen und in einen internen Knoten umwandeln\n- Bei einer  Multimap  kann es mehrere gleiche Keys geben. Dann:\n    - find, bis man auf den Knoten trifft\n    - nach links weiter suchen bis man auf einen external Node trifft\n    - Dort einf\u00fcgen und in internen Node umwandeln  L\u00f6schen \n- Knoten hat zwei Blatt-Kinder:\n    - L\u00f6sche v und sein linkes Child, rechtes Child rutscht nach oben\n- Knoten hat ein Blatt-Kind:\n    - L\u00f6sche v und den Blatt-Knoten (links oder rechts), der andere Knoten (mit einem Key) rutscht nach oben\n- Knoten hat keine Blatt-Kinder:\n    - Finde den Knoten  w , der  v  in der Inorder-Traversierung folgt (\"links unten des rechten Teilbaums von  v \")\n    - Kopiere den Key von  w  zu  V \n    - L\u00f6sche  w  mit dem gleichen Algorithmus wie bei Fall 1 und 2\n-  F\u00fcr die ersten beiden F\u00e4lle ist der Algorithmus derselbe  Performance \n- Worst Case: Komplett unbalancierter Baum (z.B. Einf\u00fcgen mit  sortiertem  Input). H\u00f6he ist  O(n) . Dann ist es eine Linked-List\n- Best Case: Mit der Mitte beginnen, komplett Balanciert. H\u00f6he  log(n) \n- Balanciert sich nicht selbst (wie andere B\u00e4ume, s. sp\u00e4ter)", 
+            "title": "Vorlesung 1 - Binary Search Tree"
         }, 
         {
             "location": "/hs16/reing/", 
@@ -72,13 +77,23 @@
         }, 
         {
             "location": "/hs16/mge/", 
-            "text": "Mobile and GUI Engineering", 
+            "text": "Mobile and GUI Engineering\n\n\nPr\u00fcfung\n\n\n\n\nPro Teil 1h\n\n\nPro Teil 10 A4-Seiten Zusammenfassung\n\n\n\n\nVorlesung 1 - Einf\u00fchrung Android\n\n\n\n\n\n\nMiniprojekt Abgabe Woche 7 und Woche 14\n\n\n\n\n\n\nAndroid Basics\n\n\n\n\nJava 7 auf Android\n\n\nActivities sind ~\"Screens\"\n\n\nApps werden automatisch geschlossen\n\n\nAllgemein wird der Lifecylce stark vom System gesteuert\n\n\nEine Activity sollte eine einzelne Aufgabe realisieren\n\n\nActivity kann sich in verschiedenen Zust\u00e4nden befinden: Wird gestartet, ist aktiv, wird in den Hintergrund gehen, etc.\n\n\nDie einzelnen Methoden werden \u00fcberschrieben (z.B. \nonCreate()\n)\n\n\nStart einer Activity: \nonCreate()\n, \nonStart()\n, \nonResume()\n, erst dann ist sie interagierbar\n\n\nWird eine Activity \u00fcberdeckt, wird sie pausiert \nonPause()\n. Kommt sie wieder in den Vordergrund, wird nur \nonResume()\n aufgerufen\n\n\nonDestroy()\n k\u00f6nnte auch direkt anderen Zust\u00e4nden aufgerufen werden!\n\n\nBei Konfigurations\u00e4nderungen wird die Activity neu gestartet (zerst\u00f6rt und neu aufgebaut). Also auch z.B. beim Drehen des Screens!\n\n\nDaten in \nonPause()\n sichern\n\n\nActivities werden in einem Stack verwaltet (muss nicht von gleicher App sein)\n\n\nDer Back-Button poped normalerweise die oberste Activity auf dem Stack\n\n\nEine Gruppe von Activities (= Activity Stack) heissen \"Task\"\n\n\nEine ge\u00f6ffnete App ist ein Task, bzw. ist ein Eintrag im \"Overview Screen\" ein Task\n\n\n\n\n\n\nSystemsicht\n\n\nPro APK wird ein Prozess mit einem Thread gestartet\n\n\nJede APK wird unter eigenem Linux User installiert\n\n\nAPKs sind quasi JARs (= Zip-Files) \n\n\n\n\n\n\nIntents\n\n\nAlle Intents werden \u00fcber das System verwaltet\n\n\nExpliziter Intent: Eine bestimmte Klasse ansprechen\n\n\nImpliziter Intent: z.B. \"Absicht, Bild aufzunehmen\"\n\n\nExplizite Intents normalerweise f\u00fcr interne Activities, implizite f\u00fcr generische Aktionen\n\n\n\n\n\n\nViews\n\n\nAlles, was der Benutzer sieht\n\n\nJede Activity hat eine View\n\n\nGUI kann deklarativ mit XMl oder imperativ mit Java Code erstellt werden", 
             "title": "MGE"
         }, 
         {
             "location": "/hs16/mge/#mobile-and-gui-engineering", 
             "text": "", 
             "title": "Mobile and GUI Engineering"
+        }, 
+        {
+            "location": "/hs16/mge/#prufung", 
+            "text": "Pro Teil 1h  Pro Teil 10 A4-Seiten Zusammenfassung", 
+            "title": "Pr\u00fcfung"
+        }, 
+        {
+            "location": "/hs16/mge/#vorlesung-1-einfuhrung-android", 
+            "text": "Miniprojekt Abgabe Woche 7 und Woche 14    Android Basics   Java 7 auf Android  Activities sind ~\"Screens\"  Apps werden automatisch geschlossen  Allgemein wird der Lifecylce stark vom System gesteuert  Eine Activity sollte eine einzelne Aufgabe realisieren  Activity kann sich in verschiedenen Zust\u00e4nden befinden: Wird gestartet, ist aktiv, wird in den Hintergrund gehen, etc.  Die einzelnen Methoden werden \u00fcberschrieben (z.B.  onCreate() )  Start einer Activity:  onCreate() ,  onStart() ,  onResume() , erst dann ist sie interagierbar  Wird eine Activity \u00fcberdeckt, wird sie pausiert  onPause() . Kommt sie wieder in den Vordergrund, wird nur  onResume()  aufgerufen  onDestroy()  k\u00f6nnte auch direkt anderen Zust\u00e4nden aufgerufen werden!  Bei Konfigurations\u00e4nderungen wird die Activity neu gestartet (zerst\u00f6rt und neu aufgebaut). Also auch z.B. beim Drehen des Screens!  Daten in  onPause()  sichern  Activities werden in einem Stack verwaltet (muss nicht von gleicher App sein)  Der Back-Button poped normalerweise die oberste Activity auf dem Stack  Eine Gruppe von Activities (= Activity Stack) heissen \"Task\"  Eine ge\u00f6ffnete App ist ein Task, bzw. ist ein Eintrag im \"Overview Screen\" ein Task    Systemsicht  Pro APK wird ein Prozess mit einem Thread gestartet  Jede APK wird unter eigenem Linux User installiert  APKs sind quasi JARs (= Zip-Files)     Intents  Alle Intents werden \u00fcber das System verwaltet  Expliziter Intent: Eine bestimmte Klasse ansprechen  Impliziter Intent: z.B. \"Absicht, Bild aufzunehmen\"  Explizite Intents normalerweise f\u00fcr interne Activities, implizite f\u00fcr generische Aktionen    Views  Alles, was der Benutzer sieht  Jede Activity hat eine View  GUI kann deklarativ mit XMl oder imperativ mit Java Code erstellt werden", 
+            "title": "Vorlesung 1 - Einf\u00fchrung Android"
         }, 
         {
             "location": "/hs16/mste/", 
@@ -92,7 +107,7 @@
         }, 
         {
             "location": "/hs16/se1/", 
-            "text": "Software Engineering 1", 
+            "text": "Software Engineering 1\n\n\nAllgemein\n\n\n\n\nPr\u00fcfung closed book\n\n\nAbgabe von 3 von 4 Testat-\u00dcbungen\n\n\nSelbststudium: Jede Woche in Buch lesen, nach Lektionsplan sheet\n\n\n\n\nVorlesung 1\n\n\n\n\nCa. 70% aller IT-Projekte laufen schief\n\n\nErwartungskonflikt Kunde - Programmierer, ...\n\n\nOOA nach Larman: Statisches Domain Model ohne Funktionen, Black-Box Sequenzdiagramm\n\n\n\"Klassisch\": Statisches Model mit Funktionen, White-Box Sequzendiagrammsa", 
             "title": "SE1"
         }, 
         {
@@ -101,14 +116,29 @@
             "title": "Software Engineering 1"
         }, 
         {
+            "location": "/hs16/se1/#allgemein", 
+            "text": "Pr\u00fcfung closed book  Abgabe von 3 von 4 Testat-\u00dcbungen  Selbststudium: Jede Woche in Buch lesen, nach Lektionsplan sheet", 
+            "title": "Allgemein"
+        }, 
+        {
+            "location": "/hs16/se1/#vorlesung-1", 
+            "text": "Ca. 70% aller IT-Projekte laufen schief  Erwartungskonflikt Kunde - Programmierer, ...  OOA nach Larman: Statisches Domain Model ohne Funktionen, Black-Box Sequenzdiagramm  \"Klassisch\": Statisches Model mit Funktionen, White-Box Sequzendiagrammsa", 
+            "title": "Vorlesung 1"
+        }, 
+        {
             "location": "/hs16/wed2/", 
-            "text": "Web Engineering + Design 2", 
+            "text": "Web Engineering + Design 2\n\n\nPr\u00fcfung\n\n\n\n\n2h, closed book\n\n\nZusammenfassung 1 A4 Seite (muss abgegeben werden)", 
             "title": "WED2"
         }, 
         {
             "location": "/hs16/wed2/#web-engineering-design-2", 
             "text": "", 
             "title": "Web Engineering + Design 2"
+        }, 
+        {
+            "location": "/hs16/wed2/#prufung", 
+            "text": "2h, closed book  Zusammenfassung 1 A4 Seite (muss abgegeben werden)", 
+            "title": "Pr\u00fcfung"
         }, 
         {
             "location": "/playground/", 

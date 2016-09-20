@@ -119,6 +119,10 @@
             
                 <li class="toctree-l3"><a href="#mobile-and-gui-engineering">Mobile and GUI Engineering</a></li>
                 
+                    <li><a class="toctree-l4" href="#prufung">Prüfung</a></li>
+                
+                    <li><a class="toctree-l4" href="#vorlesung-1-einfuhrung-android">Vorlesung 1 - Einführung Android</a></li>
+                
             
             </ul>
         
@@ -197,6 +201,57 @@
             <div class="section">
               
                 <h1 id="mobile-and-gui-engineering">Mobile and GUI Engineering</h1>
+<h2 id="prufung">Prüfung</h2>
+<ul>
+<li>Pro Teil 1h</li>
+<li>Pro Teil 10 A4-Seiten Zusammenfassung</li>
+</ul>
+<h2 id="vorlesung-1-einfuhrung-android">Vorlesung 1 - Einführung Android</h2>
+<ul>
+<li>
+<p>Miniprojekt Abgabe Woche 7 und Woche 14</p>
+</li>
+<li>
+<p><strong>Android Basics</strong></p>
+<ul>
+<li>Java 7 auf Android</li>
+<li>Activities sind ~"Screens"</li>
+<li>Apps werden automatisch geschlossen</li>
+<li>Allgemein wird der Lifecylce stark vom System gesteuert</li>
+<li>Eine Activity sollte eine einzelne Aufgabe realisieren</li>
+<li>Activity kann sich in verschiedenen Zuständen befinden: Wird gestartet, ist aktiv, wird in den Hintergrund gehen, etc.</li>
+<li>Die einzelnen Methoden werden überschrieben (z.B. <code>onCreate()</code>)</li>
+<li>Start einer Activity: <code>onCreate()</code>, <code>onStart()</code>, <code>onResume()</code>, erst dann ist sie interagierbar</li>
+<li>Wird eine Activity überdeckt, wird sie pausiert <code>onPause()</code>. Kommt sie wieder in den Vordergrund, wird nur <code>onResume()</code> aufgerufen</li>
+<li><code>onDestroy()</code> könnte auch direkt anderen Zuständen aufgerufen werden!</li>
+<li>Bei Konfigurationsänderungen wird die Activity neu gestartet (zerstört und neu aufgebaut). Also auch z.B. beim Drehen des Screens!</li>
+<li>Daten in <code>onPause()</code> sichern</li>
+<li>Activities werden in einem Stack verwaltet (muss nicht von gleicher App sein)</li>
+<li>Der Back-Button poped normalerweise die oberste Activity auf dem Stack</li>
+<li>Eine Gruppe von Activities (= Activity Stack) heissen "Task"</li>
+<li>Eine geöffnete App ist ein Task, bzw. ist ein Eintrag im "Overview Screen" ein Task</li>
+</ul>
+</li>
+<li><strong>Systemsicht</strong><ul>
+<li>Pro APK wird ein Prozess mit einem Thread gestartet</li>
+<li>Jede APK wird unter eigenem Linux User installiert</li>
+<li>APKs sind quasi JARs (= Zip-Files) </li>
+</ul>
+</li>
+<li><strong>Intents</strong><ul>
+<li>Alle Intents werden über das System verwaltet</li>
+<li>Expliziter Intent: Eine bestimmte Klasse ansprechen</li>
+<li>Impliziter Intent: z.B. "Absicht, Bild aufzunehmen"</li>
+<li>Explizite Intents normalerweise für interne Activities, implizite für generische Aktionen</li>
+</ul>
+</li>
+<li><strong>Views</strong><ul>
+<li>Alles, was der Benutzer sieht</li>
+<li>Jede Activity hat eine View</li>
+<li>GUI kann deklarativ mit XMl oder imperativ mit Java Code erstellt werden</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>

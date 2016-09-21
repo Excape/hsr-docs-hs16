@@ -47,7 +47,7 @@
         }, 
         {
             "location": "/hs16/bupl/", 
-            "text": "Business Plan", 
+            "text": "Business Plan\n\n\nModularbeit\n\n\n\n\nAbgabe Mittwoch, 21. Dez\n\n\nAufbau aus 1. Vorlesung Folie 10 \u00fcbernehmen\n\n\nca. 20 Seiten\n\n\nEigenst\u00e4ndigkeitserkl\u00e4rung\n\n\nGebunden\n\n\nKurzbeschreibung auf Deckblatt\n\n\n\n\nGesch\u00e4ftsidee\n\n\n\n\nMarktorientierte Definition: Was ist der Kundennutze?\n\n\nMarket Pull: Es gibt einen markt daf\u00fcr (ungel\u00f6stes Problem), das man l\u00f6sen m\u00f6chte\n\n\nTechnology Push: Neue Technologien bringen neue Dienstleistungen, der Markt muss sich zuerst entwickeln\n\n\n\"Copycat\" Z.b. auch Ideen, die in Japan/USA schon funktionieren, aber noch nicht hier sind\n\n\n\n\nElevator Pitch\n\n\n\n\nWhat is your product?\n\n\nWho is your market?\n\n\nWhat is your revenue model? (How do you expect to make money?)\n\n\nWho is behind the company?\n\n\nWho is your competition?\n\n\nWhat is your competitive advantage?\n\n\n\n\nBusiness Modell", 
             "title": "BuPl"
         }, 
         {
@@ -56,14 +56,39 @@
             "title": "Business Plan"
         }, 
         {
+            "location": "/hs16/bupl/#modularbeit", 
+            "text": "Abgabe Mittwoch, 21. Dez  Aufbau aus 1. Vorlesung Folie 10 \u00fcbernehmen  ca. 20 Seiten  Eigenst\u00e4ndigkeitserkl\u00e4rung  Gebunden  Kurzbeschreibung auf Deckblatt", 
+            "title": "Modularbeit"
+        }, 
+        {
+            "location": "/hs16/bupl/#geschaftsidee", 
+            "text": "Marktorientierte Definition: Was ist der Kundennutze?  Market Pull: Es gibt einen markt daf\u00fcr (ungel\u00f6stes Problem), das man l\u00f6sen m\u00f6chte  Technology Push: Neue Technologien bringen neue Dienstleistungen, der Markt muss sich zuerst entwickeln  \"Copycat\" Z.b. auch Ideen, die in Japan/USA schon funktionieren, aber noch nicht hier sind", 
+            "title": "Gesch\u00e4ftsidee"
+        }, 
+        {
+            "location": "/hs16/bupl/#elevator-pitch", 
+            "text": "What is your product?  Who is your market?  What is your revenue model? (How do you expect to make money?)  Who is behind the company?  Who is your competition?  What is your competitive advantage?", 
+            "title": "Elevator Pitch"
+        }, 
+        {
+            "location": "/hs16/bupl/#business-modell", 
+            "text": "", 
+            "title": "Business Modell"
+        }, 
+        {
             "location": "/hs16/cpi/", 
-            "text": "C++", 
+            "text": "C++\n\n\nWiki: https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus\nC++ Referenz: http://en.cppreference.com/w/cpp\n\n\nVorlesung 1\n\n\n\n\n\"Undefined Behaviour\": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault (\"Es kann alles passieren\"). Schlimmster Fall: Es l\u00e4uft!\n\n\nHelloWorld:\n\n\n#include\n: Pr\u00e4prozessor Anweisung\n\n\nusing namespace std;\n: Kann alle Namen ohne \nstd::\n benutzen. Man kann dann nicht sagen, aus welchem Namespace eine Anweisung kommt, oder ob es eine Variable oder Funktion etc. ist\n\n\n: Links Shift, ist Teil der Bibliothek (Operator Overloading). Quasi Funktionsaufruf mit string-literal als Argument\n\n\ncout\n: Ein Stream von \nstd\n\n\nendl\n ist eine Funktion, flusht den Stream\n\n\n\n\n\n\nCompilation\n\n\nIm Header (z.B. \niostream\n) stehen die Definitionen (z.B. dass es \ncout\n gibt)\n\n\nDer Linker linkt die standard library (dort ist \ncout\n implementiert)\n\n\n\n\n\n\nStrings z.B. werden im Unterschied zu Java direkt auf dem Stack abgelegt\n\n\nKlassen: \nstruct\n heisst public, \nclass\n privat\n\n\nEin private bzw. public block mit \npublic:\n, \nprivate:\n bezeichnen, alles ab dort hat dann den Scope\n\n\nNach Klassendefinition ein \n;\n: \nsruct Hello {...};", 
             "title": "C++"
         }, 
         {
             "location": "/hs16/cpi/#c", 
-            "text": "", 
+            "text": "Wiki: https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus\nC++ Referenz: http://en.cppreference.com/w/cpp", 
             "title": "C++"
+        }, 
+        {
+            "location": "/hs16/cpi/#vorlesung-1", 
+            "text": "\"Undefined Behaviour\": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault (\"Es kann alles passieren\"). Schlimmster Fall: Es l\u00e4uft!  HelloWorld:  #include : Pr\u00e4prozessor Anweisung  using namespace std; : Kann alle Namen ohne  std::  benutzen. Man kann dann nicht sagen, aus welchem Namespace eine Anweisung kommt, oder ob es eine Variable oder Funktion etc. ist  : Links Shift, ist Teil der Bibliothek (Operator Overloading). Quasi Funktionsaufruf mit string-literal als Argument  cout : Ein Stream von  std  endl  ist eine Funktion, flusht den Stream    Compilation  Im Header (z.B.  iostream ) stehen die Definitionen (z.B. dass es  cout  gibt)  Der Linker linkt die standard library (dort ist  cout  implementiert)    Strings z.B. werden im Unterschied zu Java direkt auf dem Stack abgelegt  Klassen:  struct  heisst public,  class  privat  Ein private bzw. public block mit  public: ,  private:  bezeichnen, alles ab dort hat dann den Scope  Nach Klassendefinition ein  ; :  sruct Hello {...};", 
+            "title": "Vorlesung 1"
         }, 
         {
             "location": "/hs16/englhtw/", 

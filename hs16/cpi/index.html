@@ -105,6 +105,8 @@
             
                 <li class="toctree-l3"><a href="#c">C++</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-1">Vorlesung 1</a></li>
+                
             
             </ul>
         
@@ -197,6 +199,31 @@
             <div class="section">
               
                 <h1 id="c">C++</h1>
+<p>Wiki: https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus
+C++ Referenz: http://en.cppreference.com/w/cpp</p>
+<h2 id="vorlesung-1">Vorlesung 1</h2>
+<ul>
+<li>"Undefined Behaviour": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault ("Es kann alles passieren"). Schlimmster Fall: Es läuft!</li>
+<li>HelloWorld:<ul>
+<li><code>#include</code>: Präprozessor Anweisung</li>
+<li><code>using namespace std;</code>: Kann alle Namen ohne <code>std::</code> benutzen. Man kann dann nicht sagen, aus welchem Namespace eine Anweisung kommt, oder ob es eine Variable oder Funktion etc. ist</li>
+<li><code>&lt;&lt;</code>: Links Shift, ist Teil der Bibliothek (Operator Overloading). Quasi Funktionsaufruf mit string-literal als Argument</li>
+<li><code>cout</code>: Ein Stream von <code>std</code></li>
+<li><code>endl</code> ist eine Funktion, flusht den Stream</li>
+</ul>
+</li>
+<li>Compilation<ul>
+<li>Im Header (z.B. <code>iostream</code>) stehen die Definitionen (z.B. dass es <code>cout</code> gibt)</li>
+<li>Der Linker linkt die standard library (dort ist <code>cout</code> implementiert)</li>
+</ul>
+</li>
+<li>Strings z.B. werden im Unterschied zu Java direkt auf dem Stack abgelegt</li>
+<li>Klassen: <code>struct</code> heisst public, <code>class</code> privat<ul>
+<li>Ein private bzw. public block mit <code>public:</code>, <code>private:</code> bezeichnen, alles ab dort hat dann den Scope</li>
+<li>Nach Klassendefinition ein <code>;</code>: <code>sruct Hello {...};</code></li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>

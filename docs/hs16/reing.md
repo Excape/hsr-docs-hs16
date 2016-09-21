@@ -1,1 +1,65 @@
 # Recht
+## Vorlesung 1 - Vertragsrecht
+- Öffentliches Recht: Vom Staat aus, Staat handelt hoheitlich
+    - Bundesstaatsrecht, Verwaltungsrecht, Strafrecht, etc.
+- Privatrecht: Zwei private (sind gleichgestellt)
+    - ZGB, OR
+### Schuldverhältnis
+- Obligation = Schuldverhältnis
+- Wichtigste Grundsätze basieren auf römischem Recht
+- Mind. 1 Person muss etwas leisten, mind. 1 Person darf etwas fordern
+- Entstehungsgründe
+    - Gesetz
+        - unerlaubte Handlung (OR 41, 58)
+        - ungerechtfertigte Bereicherung (62 II, 63 I OR), z.B. Fehlüberweisung
+    - Rechtsgeschäft
+        - Schuldverhältnis aufgrund einer (privaten) Willensäusserung
+        - Einseitiges Rechtsgeschäft: Willensäusserung einer Person (z.B. Testament)
+        - zwei- oder mehrseitige Rechtsgeschäfte, Wissensäusserung mehrerer Personen, z.B. **Verträge**
+- Willensäusserung
+    - Je nach Art ist die Äusserung unterschiedlich lang gültig
+    - ausdrücklich / stillschweigend (konkludente)
+    - unmittelbare / mittelbare: Direkter Dialog beider Parteien. Mittelbar: E-mail oder Brief (länger gültig)
+    - empfangsbedürftige / nicht empfangsbedürftige
+
+### Vertragsschluss
+- Es braucht gegenseitige Willensäusserung (Antrag -> Annahme)
+- Antrag kann mit oder ohne Annahmefrist gestellt werden
+    - ohne Annahmefrist: Unterscheidung unter A**n**wesenden oder unter A**b**wesenden
+- **Folie 16**
+    - Befristeter Antrag (Zeitzone des Antragstellers)
+    - Antrag unter Anwesenden ("Haustürgeschäft" kann widerrufen werden innert 7 Tagen)
+    - Antrag unter Abwesenden (ca 5 Tage Frist)
+    - Bei niedrigem Wert darf das Buch behalten werden ("Die unbestelle Zustellung einer Sache stellt *kein Antrag* dar")
+- Voraussetzungen
+    - handlungsfähige Personen (ZGB 12) (mündig und handlungsfähig)
+    - übereinstimmende Willensäusserung (Antrag / Annahme)
+    - Einigung über wesentliche Punkte
+- Einseitige Verträge: z.B. Schenkung
+- zweiseitige Verträge: Beiden Parteien haben Leitsungspflicht
+    - volkommen zweiseitig: Miete, Kauf
+    - unvolkommen zweiseitig: z.B. unentgeltlicher Auftrag, eine Leistung wird höher gewichtet als die andere
+- Nomninatverträge: Im Gesetzt (OR) geregelt, z.B. Kauf
+- Innominatverträge: gesetzlich nicht geregelt, z.B. Leasing
+- Beispiele *Folie 21*
+    - Miete: *Nominatvertrag* (viele zwingende Bestimmunge zum Schutz des Mieters)
+    - Werkvertrag: *Nominatertrag* (Im Unterschied zum Kaufvertrag exisitert das Produkt bei Vertragsabschluss noch nicht, Erstellung eines Werkes)
+    - Franchising: *Innominatvertrag*
+    - Factoring: *Innominatvertrag* (Zahlungsschuld/Inkasso verkaufen an einen Factor)
+    - Arbeitsvertrag: *Nominatvertrag*
+    - Sponsoring: *Innominatvertrag*
+- Vertragsfreiheit
+    - Die Form und der Inhalt ist frei wählbar
+    - Er kann nachträglich verändert oder aufgehoben werden (beidseitig)
+- Schranken der Vertragsfreiheit
+    - Widerrechtlichkeit: Verstoss gegen zwingendes Gesetz
+    - öffentliche Ordnung
+    - Sittenwidrigkeit
+    - Verstoss gegen Persönlichkeitsrecht
+    - Unmöglichkeit (z.B. Grundstück auf dem Mond)
+    - -> Folge: Vertrag ist nichtig
+    - Beispiele *Folie 24*
+        - Widerrechtlich
+        - Wenn zwischen H und Z bereits ein Kaufvertrag besteht -> Doppelverkauf. H muss zweites Abendkleid oder Schadenersatz leisten
+        - Nichtig, Verstoss gegen Persönlichkeitsrecht
+        - Nichtig. Kann gegen Persönlichkeitsrecht verstossen, wegem langer Vertragslaufzeit (ab 20 Jahre nach BG)

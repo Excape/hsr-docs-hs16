@@ -203,40 +203,73 @@
 <ul>
 <li>Ein Heap hat das kleinste oder grösste Element als Root</li>
 <li>Eine Suche auf einem Heap würde mit <script type="math/tex">O(n)</script> laufen, da man nicht weiss, welches Child jeweils kleiner / grösser ist</li>
-<li>Multimaps: Pro Key sind mehrere Values erlaubt</li>
-</ul>
+<li>
+<p>Multimaps: Pro Key sind mehrere Values erlaubt</p>
+</li>
+<li>
 <p><strong>Folie 5</strong><br />
 Voraussetzung: Random Access, Daten müssen sortiert sein</p>
-<p><strong>Folie 6</strong><br />
-- Insert: Finden der richtigen Position: <script type="math/tex">O(log(n))</script>, Rest verschieben: <script type="math/tex">O(n)</script>
-<br />
-- Remove gleich wie Insert</p>
-<p><strong>Folie 7</strong><br />
-- Der Baum muss so aufgebaut sein, dass der linke Child-Knoten immer &lt;= Parent-Node ist
-- Externe Knoten speichern keine Daten. Wenn man beim Suchen einen Blattknoten erreicht, ist der Key nicht gefunden
-- Eine Inorder Traversierung besucht die Keys in aufsteigender Reihenfolge</p>
-<p><strong>Einfügen</strong><br />
-- Suchen nach dem einzufügenden Key
-- Man wird auf einen "Sentinel" external Node treffen
-- Dort den neuen Key einfügen und in einen internen Knoten umwandeln
-- Bei einer <em>Multimap</em> kann es mehrere gleiche Keys geben. Dann:
-    - find, bis man auf den Knoten trifft
-    - nach links weiter suchen bis man auf einen external Node trifft
-    - Dort einfügen und in internen Node umwandeln</p>
-<p><strong>Löschen</strong><br />
-- Knoten hat zwei Blatt-Kinder:
-    - Lösche v und sein linkes Child, rechtes Child rutscht nach oben
-- Knoten hat ein Blatt-Kind:
-    - Lösche v und den Blatt-Knoten (links oder rechts), der andere Knoten (mit einem Key) rutscht nach oben
-- Knoten hat keine Blatt-Kinder:
-    - Finde den Knoten <code>w</code>, der <code>v</code> in der Inorder-Traversierung folgt ("links unten des rechten Teilbaums von <code>v</code>")
-    - Kopiere den Key von <code>w</code> zu <code>V</code>
-    - Lösche <code>w</code> mit dem gleichen Algorithmus wie bei Fall 1 und 2
-- <em>Für die ersten beiden Fälle ist der Algorithmus derselbe</em></p>
-<p><strong>Performance</strong><br />
-- Worst Case: Komplett unbalancierter Baum (z.B. Einfügen mit <em>sortiertem</em> Input). Höhe ist <script type="math/tex">O(n)</script>. Dann ist es eine Linked-List
-- Best Case: Mit der Mitte beginnen, komplett Balanciert. Höhe <script type="math/tex">log(n)</script>
-- Balanciert sich nicht selbst (wie andere Bäume, s. später)</p>
+</li>
+<li>
+<p><strong>Folie 6</strong> </p>
+<ul>
+<li>Insert: Finden der richtigen Position: <script type="math/tex">O(log(n))</script>, Rest verschieben: <script type="math/tex">O(n)</script>
+</li>
+<li>Remove gleich wie Insert</li>
+</ul>
+</li>
+<li>
+<p><strong>Folie 7</strong>  </p>
+<ul>
+<li>Der Baum muss so aufgebaut sein, dass der linke Child-Knoten immer &lt;= Parent-Node ist</li>
+<li>Externe Knoten speichern keine Daten. Wenn man beim Suchen einen Blattknoten erreicht, ist der Key nicht gefunden</li>
+<li>Eine Inorder Traversierung besucht die Keys in aufsteigender Reihenfolge</li>
+</ul>
+</li>
+<li>
+<p><strong>Einfügen</strong>  </p>
+<ul>
+<li>Suchen nach dem einzufügenden Key</li>
+<li>Man wird auf einen "Sentinel" external Node treffen</li>
+<li>Dort den neuen Key einfügen und in einen internen Knoten umwandeln</li>
+<li>Bei einer <em>Multimap</em> kann es mehrere gleiche Keys geben. Dann:<ul>
+<li>find, bis man auf den Knoten trifft</li>
+<li>nach links weiter suchen bis man auf einen external Node trifft</li>
+<li>Dort einfügen und in internen Node umwandeln</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Löschen</strong>  </p>
+<ul>
+<li>Knoten hat zwei Blatt-Kinder:<ul>
+<li>Lösche v und sein linkes Child, rechtes Child rutscht nach oben</li>
+</ul>
+</li>
+<li>Knoten hat ein Blatt-Kind:<ul>
+<li>Lösche v und den Blatt-Knoten (links oder rechts), der andere Knoten (mit einem Key) rutscht nach oben</li>
+</ul>
+</li>
+<li>Knoten hat keine Blatt-Kinder:<ul>
+<li>Finde den Knoten <code>w</code>, der <code>v</code> in der Inorder-Traversierung folgt ("links unten des rechten Teilbaums von <code>v</code>")</li>
+<li>Kopiere den Key von <code>w</code> zu <code>V</code></li>
+<li>Lösche <code>w</code> mit dem gleichen Algorithmus wie bei Fall 1 und 2</li>
+</ul>
+</li>
+<li><em>Für die ersten beiden Fälle ist der Algorithmus derselbe</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Performance</strong>  </p>
+<ul>
+<li>Worst Case: Komplett unbalancierter Baum (z.B. Einfügen mit <em>sortiertem</em> Input). Höhe ist <script type="math/tex">O(n)</script>. Dann ist es eine Linked-List</li>
+<li>Best Case: Mit der Mitte beginnen, komplett Balanciert. Höhe <script type="math/tex">log(n)</script>
+</li>
+<li>Balanciert sich nicht selbst (wie andere Bäume, s. später)</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>

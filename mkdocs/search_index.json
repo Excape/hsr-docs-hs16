@@ -97,13 +97,23 @@
         }, 
         {
             "location": "/hs16/mste/", 
-            "text": ".NET Technologien", 
+            "text": ".NET Technologien\n\n\nPr\u00fcfung\n\n\n\n\nVoraussetzung: Miniprojekt abschliessen\n\n\n120 Min, alle Unterlagen (ausser Musterpr\u00fcfungen)\n\n\n\n\nVorlesung 1 - .NET Grundlagen\n\n\n\n\n.NET-Framework\n\n\nTypen sind im Laufzeitsystem (CLR) nicht wie im Java\n\n\nEine Class Library f\u00fcr alle .NET-Sprachen\n\n\nCompiler erstellen Assemly IL (Intermediate Language) Code, auf der CLR wird er mit einem JIT-Compiler in nativen Code generiert\n\n\nIL l\u00e4uft auf virtueller Stack-Maschine (ohne Register)\n\n\nJIT-Compiler kompiliert erst auf Zielsystem (Platform-Abh\u00e4ngig)\n\n\nJIT\n\n\nEs wird nur der Code \u00fcbersetzt, der ben\u00f6tigt wird, also z.B. beim erstem Methodenaufruf\n\n\nAssembly\n\n\nBlack Box mit definierten Schnittstellen\n\n\nIm Manifest ist metadata\n\n\nEs gibt darin Resourcen und Module\n\n\nPrivate Assembly: Wird direkt \u00fcber Pfad referenziert\n\n\nShared Assembly: Sind im Global Assembly Cache, stehen allen Applikationen zur Verf\u00fcgung", 
             "title": "MsTe"
         }, 
         {
             "location": "/hs16/mste/#net-technologien", 
             "text": "", 
             "title": ".NET Technologien"
+        }, 
+        {
+            "location": "/hs16/mste/#prufung", 
+            "text": "Voraussetzung: Miniprojekt abschliessen  120 Min, alle Unterlagen (ausser Musterpr\u00fcfungen)", 
+            "title": "Pr\u00fcfung"
+        }, 
+        {
+            "location": "/hs16/mste/#vorlesung-1-net-grundlagen", 
+            "text": ".NET-Framework  Typen sind im Laufzeitsystem (CLR) nicht wie im Java  Eine Class Library f\u00fcr alle .NET-Sprachen  Compiler erstellen Assemly IL (Intermediate Language) Code, auf der CLR wird er mit einem JIT-Compiler in nativen Code generiert  IL l\u00e4uft auf virtueller Stack-Maschine (ohne Register)  JIT-Compiler kompiliert erst auf Zielsystem (Platform-Abh\u00e4ngig)  JIT  Es wird nur der Code \u00fcbersetzt, der ben\u00f6tigt wird, also z.B. beim erstem Methodenaufruf  Assembly  Black Box mit definierten Schnittstellen  Im Manifest ist metadata  Es gibt darin Resourcen und Module  Private Assembly: Wird direkt \u00fcber Pfad referenziert  Shared Assembly: Sind im Global Assembly Cache, stehen allen Applikationen zur Verf\u00fcgung", 
+            "title": "Vorlesung 1 - .NET Grundlagen"
         }, 
         {
             "location": "/hs16/se1/", 

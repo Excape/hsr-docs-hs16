@@ -1,6 +1,6 @@
 # C++
-Wiki: https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus
-C++ Referenz: http://en.cppreference.com/w/cpp
+- Wiki: <https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus>
+- C++ Referenz: <http://en.cppreference.com/w/cpp>
 
 ## Vorlesung 1
 - "Undefined Behaviour": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault ("Es kann alles passieren"). Schlimmster Fall: Es läuft!

@@ -37,3 +37,23 @@
     - Alles, was der Benutzer sieht
     - Jede Activity hat eine View
     - GUI kann deklarativ mit XMl oder imperativ mit Java Code erstellt werden
+
+## Vorlesung 2 - Grundlagen GUI
+- Eine **View** ist immer eine Rechteckige Fläche, für die die View verantwortlich ist
+- Widgets sind fertige Komponenten (buttons, images, checkboxes, ...)
+- ViewGroup ist eine Unterklasse von View
+- Layouts können ineinander verschachtelt werden (auch unterschiedliche)
+- `match_parent`: Nimm den ganzen Platz ein
+- `wrap_content`: Nur so viel Platz wie nötig
+- Linear-Layout: Wenn kein Gewicht angegeben wird, wird möglichst wenig Platz verwendet. Mit Gewicht entsprechend dem Werten (mehr Gewicht -> mehr Platz)
+- Neu gibt es `ConstraintLayout`, das auf den GUI-Builder optimiert wurde. Ist allerdings noch in Alpha
+- Die `R` Klasse enthält Konstanten für alle XML-Files im res-Ordner (wird vom Compiler generiert) und bildet dessen Ordnerstruktur ab
+- `@+` ist die Definition einer Ressource, `@` ein Verweis darauf
+- `mipmap`: Launcher-Icon der App
+- Strings mit `getString(R.string.string_name)` abrufen
+- `dimens.xml` enthält Dimensionen für Layouts, z.B. `16dp` und werden über einen Namen aufgerufen
+- `dp`: Density-independent-pixels: Unabhängig von Screen-dpi. Der Basis-Faktor wird von 160dpi berechnet ("mdpi")
+- Für verschiedene Screen-Grössen, Sprachen, Versionen, etc. werden verschiedene XML-Files angelegt
+- Die App hat nach den Lifecycle-Aufrufen keine Kontrolle mehr. Das System sendet Events (ausgelöst durch User oder z.B. Sensoren), die dann behandelt werden (Event-Listener)
+- Auch Widgets können Events auslösen (-> `TextWatcher`)
+- 

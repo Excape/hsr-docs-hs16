@@ -137,6 +137,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-1">Vorlesung 1</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-2-domain-modellierung">Vorlesung 2 - Domain-Modellierung</a></li>
+                
             
             </ul>
         
@@ -212,7 +214,21 @@
 <li>Ca. 70% aller IT-Projekte laufen schief</li>
 <li>Erwartungskonflikt Kunde - Programmierer, ...</li>
 <li>OOA nach Larman: Statisches Domain Model ohne Funktionen, Black-Box Sequenzdiagramm</li>
-<li>"Klassisch": Statisches Model mit Funktionen, White-Box Sequzendiagrammsa</li>
+<li>"Klassisch": Statisches Model mit Funktionen, White-Box Sequzendiagramms</li>
+</ul>
+<hr />
+<h2 id="vorlesung-2-domain-modellierung">Vorlesung 2 - Domain-Modellierung</h2>
+<ul>
+<li>Design-Modell zeigt eine Realisation, ein Domain-Modell auch Dinge, die nicht realisiert werden (Domain-Modell ist Inspiration für Design-Modell)</li>
+<li>Entitäten (Konzepte) finden: <ul>
+<li>Keine Implementations-Konzepte verwenen (z.B. "Datenbank", "Webserver", etc.)</li>
+<li>Keine abgeleiteten Konzepte (Dinge, die durch andere Dinge berechnet werden kann, z.B. ein Logfile)</li>
+</ul>
+</li>
+<li>Semantic Gap: Unterschied zwischen realer Welt bzw. Domain Model und Design Model bzw. Code. Diese Gap ist bei OO-Design sehr klein, z.B. bei Assembler sehr gross</li>
+<li>n-m-Assoziationen sind im Domain Modell erlaubt, aber oft nich richtig, da die Assoziation eigene Attribute hat</li>
+<li>Sobald ein Attribut eine gewisse Komplexität hat, in eigenes Konzept auslagern (im Zweifelsfall Konzept!)</li>
+<li>Abstrakte Superclasses werden <em>kursiv</em> geschrieben (= Es gibt keine Instanzen der abstrakten Klasse)</li>
 </ul>
               
             </div>

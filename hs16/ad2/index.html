@@ -78,6 +78,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-1-binary-search-tree">Vorlesung 1 - Binary Search Tree</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-2-avl-trees-1">Vorlesung 2 - AVL-Trees (1)</a></li>
+                
             
             </ul>
         
@@ -264,12 +266,21 @@ Voraussetzung: Random Access, Daten müssen sortiert sein</p>
 <p><strong>Performance</strong>  </p>
 <ul>
 <li>Worst Case: Komplett unbalancierter Baum (z.B. Einfügen mit <em>sortiertem</em> Input). Höhe ist <script type="math/tex">O(n)</script>. Dann ist es eine Linked-List</li>
-<li>Best Case: Mit der Mitte beginnen, komplett Balanciert. Höhe <script type="math/tex">log(n)</script>
+<li>Best Case: Mit der Mitte beginnen, komplett Balanciert.</li>
+<li>Höhe <script type="math/tex">log(n)</script>
 </li>
 <li>Balanciert sich nicht selbst (wie andere Bäume, s. später)</li>
 </ul>
 </li>
+<li><strong>Implementierung</strong><ul>
+<li>Hier haben die Attribute der Klasse <code>Knoten</code> die Visibility <code>package</code>, d.h es kann direkt darauf zugegriffen werden</li>
+<li>Einfügen: Map (nicht Multimap). Wenn der Key schon vorhanden ist, bleibt er einfach bestehen (key wird zurück gegeben)</li>
 </ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-2-avl-trees-1">Vorlesung 2 - AVL-Trees (1)</h2>
+<p>Bei einem AVL Tree muss für jeden Teilbaum gelten, dass die Kinder maximal einen Höhenunterschied von 1 haben.</p>
               
             </div>
           </div>

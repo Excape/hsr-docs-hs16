@@ -39,5 +39,12 @@ Voraussetzung: Random Access, Daten müssen sortiert sein
 
 - **Performance**  
     - Worst Case: Komplett unbalancierter Baum (z.B. Einfügen mit *sortiertem* Input). Höhe ist \(O(n)\). Dann ist es eine Linked-List
-    - Best Case: Mit der Mitte beginnen, komplett Balanciert. Höhe \(log(n)\)
+    - Best Case: Mit der Mitte beginnen, komplett Balanciert.
+    -  Höhe \(log(n)\)
     - Balanciert sich nicht selbst (wie andere Bäume, s. später)
+- **Implementierung**
+    - Hier haben die Attribute der Klasse `Knoten` die Visibility `package`, d.h es kann direkt darauf zugegriffen werden
+    - Einfügen: Map (nicht Multimap). Wenn der Key schon vorhanden ist, bleibt er einfach bestehen (key wird zurück gegeben)
+---
+## Vorlesung 2 - AVL-Trees (1)
+Bei einem AVL Tree muss für jeden Teilbaum gelten, dass die Kinder maximal einen Höhenunterschied von 1 haben.

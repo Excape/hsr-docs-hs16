@@ -142,6 +142,8 @@
                 
                     <li><a class="toctree-l4" href="#prufung">Prüfung</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-2-nodejs">Vorlesung 2 - NodeJS</a></li>
+                
             
             </ul>
         
@@ -203,6 +205,30 @@
 <ul>
 <li>2h, closed book</li>
 <li>Zusammenfassung 1 A4 Seite (muss abgegeben werden)</li>
+</ul>
+<h2 id="vorlesung-2-nodejs">Vorlesung 2 - NodeJS</h2>
+<ul>
+<li>"Klassischer" Webserver<ul>
+<li>Bei jeder Anfrage wird die Seite auf dem Server neu aufgebaut</li>
+<li>z.B. PHP, ASP...</li>
+</ul>
+</li>
+<li>Event-driven, non-blocking<ul>
+<li>Bei einem Prozess (Thread) kann nur eine Anfrage gleichzeitig bearbeitet werden (blocking)</li>
+<li>Mehrere Threads (ASP, ...): Mehrere Anfragen gleichzeitig bearbeiten (feste Anzahl mögliche Threads)</li>
+<li>Event-driven (node): Es gibt einen Thread, der den Task "abliefert" und benachrichtigt wird, sobald er bearbeitet wurde (callback, asynchron). Die Antwort wird dann wieder über den einen Thread ausgeliefert</li>
+</ul>
+</li>
+<li>Folie 17: Die Funktion wird 1 Sec verzögert aufgerufen (asynchron), d.h. sie blockiert den Ablauf nicht</li>
+<li>Callback: 1:1-Verbindung</li>
+<li>Event: 1 : * Verbindungen (Es können z.B. mehrere sich auf einem Event "anmelden", -&gt; "Newsfeed")</li>
+<li><em>Tipp</em>: Bei <code>server.listen(port, hostname, fn)</code> den Hostnamen weglassen, dann wird auf jede NIC gehört</li>
+<li>Query parsen mit <code>url.parse(request.url, true).query</code> (<code>true</code> gibt gerade JSON-object zurück)</li>
+<li>Die <code>handler</code> Funktion von Node ist blockierend, sollte also möglichst schnell sein</li>
+<li>Ein Modul wird nur einmal durchlaufen. D.h. wenn man zwei mal <code>require()</code> auf das selbe Modul aufruft, ist das Objekt dasselbe</li>
+<li>Modul als requirement hinzufügen: <code>npm install &lt;name&gt; --save</code></li>
+<li>Folie 28: Bei Zyklen macht Node eine Kopie eines Moduls, sollte aber vermieden werden</li>
+<li>Folie 33: Variante mit Streams zu bevorzugen, weil sonst das ganze File ins Memory geladen werden muss. Beim Stream werden vorzu die Daten zum Client geschickt</li>
 </ul>
               
             </div>

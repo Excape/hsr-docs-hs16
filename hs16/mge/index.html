@@ -123,6 +123,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-1-einfuhrung-android">Vorlesung 1 - Einführung Android</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-2-grundlagen-gui">Vorlesung 2 - Grundlagen GUI</a></li>
+                
             
             </ul>
         
@@ -251,6 +253,27 @@
 <li>GUI kann deklarativ mit XMl oder imperativ mit Java Code erstellt werden</li>
 </ul>
 </li>
+</ul>
+<h2 id="vorlesung-2-grundlagen-gui">Vorlesung 2 - Grundlagen GUI</h2>
+<ul>
+<li>Eine <strong>View</strong> ist immer eine Rechteckige Fläche, für die die View verantwortlich ist</li>
+<li>Widgets sind fertige Komponenten (buttons, images, checkboxes, ...)</li>
+<li>ViewGroup ist eine Unterklasse von View</li>
+<li>Layouts können ineinander verschachtelt werden (auch unterschiedliche)</li>
+<li><code>match_parent</code>: Nimm den ganzen Platz ein</li>
+<li><code>wrap_content</code>: Nur so viel Platz wie nötig</li>
+<li>Linear-Layout: Wenn kein Gewicht angegeben wird, wird möglichst wenig Platz verwendet. Mit Gewicht entsprechend dem Werten (mehr Gewicht -&gt; mehr Platz)</li>
+<li>Neu gibt es <code>ConstraintLayout</code>, das auf den GUI-Builder optimiert wurde. Ist allerdings noch in Alpha</li>
+<li>Die <code>R</code> Klasse enthält Konstanten für alle XML-Files im res-Ordner (wird vom Compiler generiert) und bildet dessen Ordnerstruktur ab</li>
+<li><code>@+</code> ist die Definition einer Ressource, <code>@</code> ein Verweis darauf</li>
+<li><code>mipmap</code>: Launcher-Icon der App</li>
+<li>Strings mit <code>getString(R.string.string_name)</code> abrufen</li>
+<li><code>dimens.xml</code> enthält Dimensionen für Layouts, z.B. <code>16dp</code> und werden über einen Namen aufgerufen</li>
+<li><code>dp</code>: Density-independent-pixels: Unabhängig von Screen-dpi. Der Basis-Faktor wird von 160dpi berechnet ("mdpi")</li>
+<li>Für verschiedene Screen-Grössen, Sprachen, Versionen, etc. werden verschiedene XML-Files angelegt</li>
+<li>Die App hat nach den Lifecycle-Aufrufen keine Kontrolle mehr. Das System sendet Events (ausgelöst durch User oder z.B. Sensoren), die dann behandelt werden (Event-Listener)</li>
+<li>Auch Widgets können Events auslösen (-&gt; <code>TextWatcher</code>)</li>
+<li></li>
 </ul>
               
             </div>

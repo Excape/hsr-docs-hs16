@@ -107,6 +107,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-1">Vorlesung 1</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-2">Vorlesung 2</a></li>
+                
             
             </ul>
         
@@ -225,6 +227,68 @@
 <li>Nach Klassendefinition ein <code>;</code>: <code>sruct Hello {...};</code></li>
 </ul>
 </li>
+</ul>
+<hr />
+<h2 id="vorlesung-2">Vorlesung 2</h2>
+<p>Repetition: 
+- Wir trennen Header von Source-Files, um die Deklaration von der Implementierung zu trennen
+- <code>iostream</code>, <code>iosfwd</code> und <code>ostream</code> sind Libraries mit unterschiedlichem Umfang. <code>iosfwd</code> ist die Kleinste, <code>iostream</code> die Grösste (mit u.a. <code>std::cout</code>)</p>
+<h3 id="variablen-datentypen">Variablen / Datentypen</h3>
+<ul>
+<li><code>&lt;type&gt; &lt;name&gt; {&lt;value&gt;}</code></li>
+<li>Wenn eine Klasse mit <code>const</code> initialisiert wird, dürfen darauf nur Member-Funktionen aufgerufen werden, die <code>const</code> sind (<code>void helloWorld() const {...}</code>)</li>
+<li><code>constexpr</code> berechnet den Wert zu Compilezeit: <code>double constexpr pi{3.14}</code></li>
+<li><strong>Immer <code>const</code> verwenden wenn möglich!</strong></li>
+<li>Variablendefinitionen "close to use"</li>
+<li><code>bool</code> und <code>char</code> sind im Hintergrund Integers</li>
+<li><code>string</code> und <code>vector</code> sind in der Standardbibliothek und müssen importiert werden</li>
+<li>Länge von int, long, etc sind nicht fix definiert (nur short &lt; int &lt; long &lt; long long)</li>
+<li>Gleitkommazahlen sind <code>double</code> wenn nicht explizit angegeben</li>
+<li>String-Literale sind char-Arrays (nicht <code>std::string</code>). Umwandlung mit <code>"string"s</code> mit <code>using namespace std::literals</code></li>
+<li><code>R"&lt;string&gt;"</code> sind Raw-Strings. Zeichen müssen nicht escaped werden (wie <code>@""</code> in C#)</li>
+<li>Alles != 0 -&gt; true, 0 -&gt; false</li>
+<li>Float nur verwenden, wenn Speicher knapp ist</li>
+<li>NaN ist ungleich jeder Zahl</li>
+<li>Strings (std::string) sind mutable, können also verändert werden</li>
+<li>Argumente werden normalerweise "by-value" übergeben. Für "by-reference" als Argument ein <code>&amp;</code> vor den Namen setzen</li>
+<li>Folie 20: Reihenfolge der Aufrufe in den Funktionsargumenten ist nicht definiert (welches <code>inputName()</code> hier zuerst ausgeführt wird)</li>
+<li>Streams: Wenn ein stream erst mal "kaputt" geht (!stream.good()) muss er zuerst zurück gesetzt werden mit clear()</li>
+<li><code>&lt;iomanip&gt;</code>: z.B. <code>std::oct</code>: Alle folgenden Zeichen, die in den Stream geschrieben werden, werden als oktal interpretiert</li>
+</ul>
+<h3 id="ubung-2">Übung 2</h3>
+<h4 id="std-library">Std-Library</h4>
+<ul>
+<li><code>std::cin</code>: iostream</li>
+<li><code>std:endl</code>: endl</li>
+<li><code>std::tolower</code>: cctype</li>
+<li><code>std::string</code>: string</li>
+<li><code>std::distance</code>: iterator</li>
+<li><code>std::istream_iterator</code>: iterator</li>
+<li><code>std::size_t</code>: cstddef</li>
+<li><code>std::vector</code>: vector</li>
+</ul>
+<h4 id="types">Types</h4>
+<ul>
+<li>45: int</li>
+<li>0XDULL: unsigned long long 0xd (=13)</li>
+<li>5.75: double 5.57</li>
+<li>.2f: 0.2 float</li>
+<li>"string": char-Array</li>
+<li>'': char</li>
+</ul>
+<h4 id="streams">streams</h4>
+<pre><code class="c++">int i{};
+std::cin &gt;&gt; i;
+std::cout &lt;&lt; &quot;input: &quot; &lt;&lt; i &lt;&lt; &quot;\n&quot;;
+std::cout &lt;&lt; &quot;fail: &quot; &lt;&lt; std::cin.fail() &lt;&lt; &quot;\n&quot;;
+std::cout &lt;&lt; &quot;eof: &quot; &lt;&lt; std::cin.eof() &lt;&lt; &quot;\n&quot;;
+std::cout &lt;&lt; &quot;bad: &quot; &lt;&lt; std::cin.bad() &lt;&lt; &quot;\n&quot;;
+</code></pre>
+
+<ul>
+<li>Wenn man ein Zeichen (keine Zahl eingibt), wird <code>fail()</code> = 1</li>
+<li>Wenn man Enter drückt, wird es ignoriert und weiter auf einen input gewartet</li>
+<li>Whitespace wird ignoriert</li>
 </ul>
               
             </div>

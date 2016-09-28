@@ -130,6 +130,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-1-net-grundlagen">Vorlesung 1 - .NET Grundlagen</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-2-c-grundlagen-selbststudium">Vorlesung 2 - C# Grundlagen (Selbststudium)</a></li>
+                
             
             </ul>
         
@@ -222,6 +224,50 @@
 <li>Es gibt darin Resourcen und Module</li>
 <li>Private Assembly: Wird direkt über Pfad referenziert</li>
 <li>Shared Assembly: Sind im Global Assembly Cache, stehen allen Applikationen zur Verfügung</li>
+</ul>
+<h2 id="vorlesung-2-c-grundlagen-selbststudium">Vorlesung 2 - C# Grundlagen (Selbststudium)</h2>
+<ul>
+<li>Methoden, Klassen, Interfaces, Properties, etc: PascalCase</li>
+<li>Felder: camelCase</li>
+<li>unsigned Datentypen: <code>uint</code>, <code>ulong</code>, <code>ushort</code></li>
+<li><code>///</code> für Dokumentation</li>
+<li>"Raw-Strings": <code>@"string"</code></li>
+<li><code>decimal</code> Typ für präzise Gleitkommazahlen</li>
+<li><code>internal</code>: In diesem Assembly sichtbar. Standard für alle Klassen, interfaces, enums etc.</li>
+<li><code>protected</code>: Wie <code>private</code>, aber auch in abgeleiteter Klasse sichtbar</li>
+<li>Abgeleitete Klassen dürfen nicht "sichtbarer" sein als der Basistyp</li>
+<li>Namespaces<ul>
+<li>Wie Packages in java</li>
+<li>Ein Namespace ist ein Code block mit <code>namespace {}</code> eingeschränkt</li>
+<li>Unabhängig von Files und Assemblies</li>
+<li>Alias: <code>using &lt;alias&gt; = System.&lt;...&gt;</code></li>
+<li>Ein File kann mehrere Namespaces beinhalten, ein Namespace kann über mehrere Files definiert sein</li>
+</ul>
+</li>
+<li>Enums<ul>
+<li><code>enum Days {Monday, Tuesday, ...}</code></li>
+<li>Implizit erhält jeder Wert einen Int (von 0 beginnend)</li>
+<li>Explizit: <code>enum Days {Sunday = 10, Monday = 11}</code></li>
+<li>Wenn bei einem Element Wert nicht explizit angegeben, ist es <code>letztes Element + 1</code></li>
+<li>Muss nicht zwingend int sein: <code>enum Days : byte {Sunday, ...}</code></li>
+</ul>
+</li>
+<li>Arrays<ul>
+<li>Rechteckig Multidimensional: <code>new int[3, 2]</code></li>
+<li>Jagged (Array in Array): <code>new int[2][]</code></li>
+</ul>
+</li>
+<li>Strings<ul>
+<li>ist ein Referenztyp <code>System.String</code></li>
+<li>immutable</li>
+<li>Verketten mit <code>+</code></li>
+<li>Vergleiche mit <code>==</code> möglich</li>
+<li>Formatierung: <code>string.format("{0}, {1}", var1, var2)</code></li>
+<li>Interpolation: string s = <code>$"var1: {var1}, var2: {var2}"</code></li>
+<li>Intern gibt es String "Interning" (=String Pooling in Java)</li>
+<li></li>
+</ul>
+</li>
 </ul>
               
             </div>

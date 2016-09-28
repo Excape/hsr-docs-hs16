@@ -1,5 +1,5 @@
 # Recht
-## Vorlesung 1 - Vertragsrecht
+## Vorlesung 1 - Vertragsrecht (I)
 - Öffentliches Recht: Vom Staat aus, Staat handelt hoheitlich
     - Bundesstaatsrecht, Verwaltungsrecht, Strafrecht, etc.
 - Privatrecht: Zwei private (sind gleichgestellt)
@@ -62,4 +62,51 @@
         - Widerrechtlich
         - Wenn zwischen H und Z bereits ein Kaufvertrag besteht -> Doppelverkauf. H muss zweites Abendkleid oder Schadenersatz leisten
         - Nichtig, Verstoss gegen Persönlichkeitsrecht
-        - Nichtig. Kann gegen Persönlichkeitsrecht verstossen, wegem langer Vertragslaufzeit (ab 20 Jahre nach BG)
+        - Nichtig. Kann gegen Persönlichkeitsrecht verstossen, wegem langer Vertragslaufzeit (ab 20 Jahre nach BG). Auch juristische Personen können sich auf das Persönlichkeitsrecht verstossen
+
+## Vorlesung 2 - Vertragsrecht (II)
+- Anwendung
+    - In jedem Fall sind die zwingenden Gesetze anzuwenden, keine Abweichung möglich
+    - Wo das Gesetzt nicht zwingend ist, kann vertraglich etwas anderes vereinbar werden
+    - Wenn nichts vereinbart, gelten nicht zwingende Gesetzesnormen
+
+### Formvorschriften
+- Vertrag kann auch ohne Form zustande kommen, z.B. etwas mit einem Preisschild ausstellen oder "self-checkout"
+- Gesetz kann eine Form vorschreiben
+    - z.B. Grundstückkaufvertrag muss im Grundbuchregister eingetragen und von einem Notar beglaubigt werden (öffentliche Beurkundung)
+- Formvorschriften
+    - einfache Schriftlichkeit: Unterschrift oder digitale Signatur
+    - qualifizierte Schriftlichkeit (zusätzliche Anforderungen)
+    - öffentliche Beurkundung: Normalerweise durch Notariat
+- Beispiele Folie 30
+    - Ehevertrag (nicht die Eheschliessung, sondern z.B. Gütertrennung): *öffentliche Beurkundung*
+    - Auftrag: *Keine Formvorschriften*
+    - Erbvertrag (im Unterschied zum Testament zweiseitiges Rechtsgeschäft): *öffentliche Beurkundung*
+    - Arbeitsvertrag: *Keine Form vorgeschrieben*
+    - Mietvertrag: *Keine Form vorgeschrieben*
+- *Grundsatz*: Vertrag muss eingehalten werden und kann nicht einseitig aufgelöst werden. Ausnahme bei Streitfall (Zivilprozess)
+
+### Vertragserfüllung
+- Wer? höchspersönliche Leistung (v.a. Dienstleistung) durch Schuldner, andere Leistungen auch durch Dritte (Sach- und Geldleistungen)
+- Was? *vertraglich* vereinbarte Leistung oder *gesetzlich* geschuldete Leistung
+- Wo? Erfüllungsort (vertraglich vereinbart oder gesetzlich). Geldschulden sind Bringschulden, alle übrigen Holschulden
+- Wann? zur Erfüllungszeit (vertraglich vereinbart oder gesetzlich). Lohn z.B. Ende Monat, ansonsten normalerweise sofort / unmittelbar
+- Beispiele Folie 37
+    - Wenn der Chefarzt beauftragt wurde, kann es nur von ihm erfüllt werden
+    - Wein hat je nach Jahrgang unterschiedlicher Preis. Evtl. wurde dann nicht die geschuldete Leistung erbracht
+    - Keine Gelschuld, also *Hol*schuld. Ausser es wurde eine Lieferung vereinbart
+    - Häufig wird Fälligkeitsdatum vereinbart. Gesetzt schreibt nichts vor, sie wäre erst Ende Monat geschuldet
+
+### Leistungsstörung, Verzugsfolgen, Durchsetzung der Forderung
+- Nichtleistung: Kommt darauf an, ob der Schuldner es selbst zu verschulden kan
+- Schlechtleistung: Das falsche geleistet oder Verletzung einer Nebenpflicht (z.B. Lieferung)
+- Spätleistung: Nicht rechtzeitige Erfüllung
+- positivies Interesse: So, wie der Vertrag erfüllt worden wäre
+- negatives Interesse: so, als ob der Vertrag nie stattgefunden hätte
+- Betreibungsverfahren: Am Wohnsitz des Schuldners -> Betreibungsbegehren. Wenn vom Schuldner Rechtsvorschlag erhoben wird, muss der Gläubiger die Rechtfertigkeit beweisen
+- Wenn der Schuldner im Ausland wohnt, muss er auch im Ausland betrieben werden (Konsumentenvorschrift im Raum EU)
+- Verjährung
+    - Forderung besteht noch, ist aber nicht mehr zwangsweise durchzusetzen (bei Betreibung)
+    - Meist nach 10 Jahren verjährt
+    - Periodische Forderungen verjähren nach 5 Jahren
+    - Zweck: Erhaltung der Rechtssicherheit und des Rechtsfriedens

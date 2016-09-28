@@ -22,4 +22,5 @@
 - Who is behind the company?
 - Who is your competition?
 - What is your competitive advantage?
-## Business Modell
+
+## Geschäftsmodelle

@@ -281,6 +281,76 @@ Voraussetzung: Random Access, Daten müssen sortiert sein</p>
 <hr />
 <h2 id="vorlesung-2-avl-trees-1">Vorlesung 2 - AVL-Trees (1)</h2>
 <p>Bei einem AVL Tree muss für jeden Teilbaum gelten, dass die Kinder maximal einen Höhenunterschied von 1 haben.</p>
+<p>Beweis: Jeder AVL-Baum mit minimalen Anzahl Knoten <script type="math/tex">n</script> bei Höhe <script type="math/tex">h</script> hat einen linken und rechten Teilbaum. Der eine Teilbaum hat Höhe <script type="math/tex">h - 1 </script> und der rechte <script type="math/tex">h - 2</script>
+</p>
+<p>
+<script type="math/tex; mode=display">n(h) = 1 + n(h-1) + n(h-2)</script>
+<script type="math/tex; mode=display">n(h) > 2n(h-2)</script>
+<script type="math/tex; mode=display">n(h-2) = 1 + n(h-3) + n(h-4)</script>
+<script type="math/tex; mode=display">n(h-2) > 2n(h-4)</script>
+<script type="math/tex; mode=display">n(h) > 4n(h-4)</script>
+<script type="math/tex; mode=display">n(h-4) = 1 + n(h-5) + n(h-6)</script>
+<script type="math/tex; mode=display">n(h-4) > 2n(h-6)</script>
+<script type="math/tex; mode=display">n(h) > 8n(h-6)</script>
+<script type="math/tex; mode=display">\ldots</script>
+<script type="math/tex; mode=display">n(h) > 16n(h-8)</script>
+<script type="math/tex; mode=display">n(h) > 2^i n(h-2i)</script>
+</p>
+<p>
+<script type="math/tex; mode=display">n_{min}(h=1) = 1</script>
+<script type="math/tex; mode=display">n_{min}(h=2) = 2</script>
+</p>
+<p>
+<script type="math/tex; mode=display">i: h-2i = (1 | 2)</script>
+<script type="math/tex; mode=display">h = (1 | 2) + 2i</script>
+<script type="math/tex; mode=display">\text{bsp.:}</script>
+<script type="math/tex; mode=display">i = 1 : h = 3 | 4</script>
+<script type="math/tex; mode=display">i = 2 : h = 5 | 6</script>
+<script type="math/tex; mode=display">i = 3 : h = 7 | 8</script>
+<script type="math/tex; mode=display"> i = \frac h2 - 1 \text{ wobei h/2 gerundet}</script>
+Einsetzen in <script type="math/tex">n(h) > 2^i n(h-2i)</script>:
+<script type="math/tex; mode=display">n > 2^{\frac h2 - 1} \cdot (1 | 2)</script>
+Konstanten heraus streichen:
+<script type="math/tex; mode=display">n > 2^{\frac h2-1}</script>
+<script type="math/tex; mode=display">log(n) > \frac h2 - 1</script>
+<script type="math/tex; mode=display">h < 2\cdot log(n) + 2</script>
+<script type="math/tex; mode=display">\rightarrow h \in O(log(n))</script>
+</p>
+<ul>
+<li>Einfügen:<ul>
+<li>Den neuen Knoten wie bei einem BST einfügen</li>
+<li>Prüfen, ob AVL-Bedingungen verletzt wurden</li>
+<li>Aus dem neuen Knoten aus solange nach oben wandern, bis man auf einen Eltern-Knoten eines unbalancierten Teilbaums trifft</li>
+</ul>
+</li>
+<li>Umstrukturierung:<ul>
+<li>x, y, z: Aufgrund des Suchpfades Kind, Eltern, Grosseltern</li>
+<li>a, b, c: Inorder-Reihenfolge</li>
+<li>Wenn es von x bis z nur in eine Richtung geht: Rotation um b (= y)</li>
+<li>Bei Richtungsänderung von x bis z:<ul>
+<li>Zuerst den Teilbaum b und c (x und y) rotieren, so dass a, b, c wieder in einer Richtung ist wie oben</li>
+<li>Wieder wie oben um b rotieren</li>
+</ul>
+</li>
+<li><em>(Tipp:)</em> Jeweils nach Rotation mit Inorder Traversierung prüfen</li>
+<li>Eine Restrukturierung mit Cut/Link muss nicht den gleichen Baum ergeben wie mit dem Rotationsverfahren!</li>
+</ul>
+</li>
+<li>Löschen<ul>
+<li>Löschen wie bei BST</li>
+<li>Die Balance kann verletzt werden</li>
+<li>Die Knoten x, y, z sollten im höheren Teilbaum sein (beim Einfügen automatisch gegeben)</li>
+<li>Nach dem Restrukturierung kann eine neue Unbalance entstehen! (Im Gegensatz zum Einfügen). Man muss bis zur Root weiter nach Unbalancierten Teilbäumen suchen</li>
+</ul>
+</li>
+<li>Implementierung<ul>
+<li>Mit einer AVL-Node wird dessen Höhe gespeichert</li>
+<li><code>actionPos</code>: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse</li>
+<li>Nach dem Einfügen wird die (BST-)Node (<code>Item</code>) mit einer Instanz von <code>AVLItem</code> ersetzt</li>
+<li>Besser: Funktion <code>newNode()</code> des BST überschreiben</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>

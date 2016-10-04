@@ -125,6 +125,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-2-grundlagen-gui">Vorlesung 2 - Grundlagen GUI</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-3-strukturierung-und-navigation">Vorlesung 3 - Strukturierung und Navigation</a></li>
+                
             
             </ul>
         
@@ -273,7 +275,84 @@
 <li>Für verschiedene Screen-Grössen, Sprachen, Versionen, etc. werden verschiedene XML-Files angelegt</li>
 <li>Die App hat nach den Lifecycle-Aufrufen keine Kontrolle mehr. Das System sendet Events (ausgelöst durch User oder z.B. Sensoren), die dann behandelt werden (Event-Listener)</li>
 <li>Auch Widgets können Events auslösen (-&gt; <code>TextWatcher</code>)</li>
-<li></li>
+</ul>
+<h2 id="vorlesung-3-strukturierung-und-navigation">Vorlesung 3 - Strukturierung und Navigation</h2>
+<h3 id="navigations-design">Navigations-Design</h3>
+<ul>
+<li>Für einen ersten App-Entwurf ein Domain-Modell erstellen</li>
+<li>"Screen Map" - Beziehungen zwischen Screens erstellen</li>
+<li>Screens gruppieren, z.B. mehrere Screens mit Tabs (Panes) trennen</li>
+<li>Navigation: Parent-Child-Beziehung (Hierarchisch) oder "lateral Navigation" (zwischen zwei Kindern)</li>
+<li>Beispiel HSR-App: Home -&gt; Cafeteria ist hierarchisch, einzelne Wochentage lateral</li>
+<li>Back-Button macht "zeitliche Navigation" (vorheriges Kind oder Parent)</li>
+<li>Button oben links sollte immer zum Parent zurück gehen</li>
+<li>Für eine Gesamtübersicht Wireframes / Storyboards erstellen</li>
+</ul>
+<h3 id="fragments">Fragments</h3>
+<ul>
+<li>Es kann nur immer eine Activity gleichzeitig aktiv sein.</li>
+<li>Fragment hat eigenen Lifecycle</li>
+<li>Ein Fragment kann in mehrere Activities eingebunden werden und eine Activity kann mehrere Fragments beinhalten</li>
+<li>Kann zur Laufzeit in Activity eingebunden (<code>onAttach()</code>) und wieder entfernt werden (<code>onDetach()</code>)</li>
+<li>Fragments können fix eingebunden werden, direkt als <code>&lt;fragment&gt;</code> Tag im XML der Activity (mit <code>name</code> die Klasse angeben). Der Code der Activity ändert sich dabei nicht</li>
+<li>Oder dynamisch: Normalerweise mit Frame-Layout</li>
+</ul>
+<pre><code class="java">public class MainActivity extends Activity {
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+
+       FragmentManager fragmentManager = getFragmentManager();
+       FragmentTransaction fragmentTransaction = 
+                               fragmentManager.beginTransaction();
+
+       MainActivityFragment fragment = new MainActivityFragment();
+       fragmentTransaction.add(R.id.fragment_container, fragment);
+       fragmentTransaction.commit();
+   }
+}
+</code></pre>
+
+<ul>
+<li>Im Unterschied zur Activity wird hier das Fragment selbst instanziert</li>
+<li>Fragment sollte unabhängig von der Activity sein</li>
+<li>Zur Kommunikation zwischen Fragment und Activity definiert das Fragment ein Interface, dass die Activity implementiert</li>
+</ul>
+<h3 id="master-detail-navigation">Master-Detail Navigation</h3>
+<ul>
+<li>Ein Pattern, z.B. eine Liste mit Mails -&gt; einzelne Mail</li>
+<li>z.B. hat das Phone-Design nur ein einzelnes Fragment pro Activity, das Tablet-layout zeigt beide Layouts auf der gleichen Activity an</li>
+<li>Wenn Activity einen Einstiegspunkt in die App sein kann, muss es eine Activity sein, kein Fragment</li>
+</ul>
+<h3 id="menus">Menüs</h3>
+<p>Programmatisch:</p>
+<pre><code class="java">public boolean onCreateOptionsMenu(Menu menu) {
+    menu.add(0, START_MENU_ITEM, 0, &quot;Start&quot;);
+    menu.add(0, SUBMIT_MENU_ITEM, 0, &quot;Submit&quot;);
+    return true;
+}
+public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case START_MENU_ITEM:
+            // handle start
+            return true;
+        case SUBMIT_MENU_ITEM:
+            // handle submit
+            return true;
+    }
+    return super.onOptionsItemSelected(item);
+}
+</code></pre>
+
+<ul>
+<li>Deklarativ: als menu-File in XML</li>
+<li>Einbinden mit <code>getMenuInflater().inflate(id, Menu)</code> in der <code>onCreateOptionsMenu()</code> Methode</li>
+<li>Mit dem "PreferenceScreen" kann ein Settings-Menü gebaut werden</li>
+<li>Auch das Fragment kann ein Menü steuern</li>
+<li>Nach Android 5.0 ist die "ActionBar" deprecated, neu ist die "Toolbar"</li>
+<li>Navigation Drawer ("Hamburger Menu") hat schlechte usability</li>
 </ul>
               
             </div>

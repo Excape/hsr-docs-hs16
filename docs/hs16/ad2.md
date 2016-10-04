@@ -48,3 +48,59 @@ Voraussetzung: Random Access, Daten müssen sortiert sein
 ---
 ## Vorlesung 2 - AVL-Trees (1)
 Bei einem AVL Tree muss für jeden Teilbaum gelten, dass die Kinder maximal einen Höhenunterschied von 1 haben.
+
+Beweis: Jeder AVL-Baum mit minimalen Anzahl Knoten \(n\) bei Höhe \(h\) hat einen linken und rechten Teilbaum. Der eine Teilbaum hat Höhe \(h - 1 \) und der rechte \(h - 2\)
+
+$$n(h) = 1 + n(h-1) + n(h-2)$$
+$$n(h) > 2n(h-2)$$
+$$n(h-2) = 1 + n(h-3) + n(h-4)$$
+$$n(h-2) > 2n(h-4)$$
+$$n(h) > 4n(h-4)$$
+$$n(h-4) = 1 + n(h-5) + n(h-6)$$
+$$n(h-4) > 2n(h-6)$$
+$$n(h) > 8n(h-6)$$
+$$\ldots$$
+$$n(h) > 16n(h-8)$$
+$$n(h) > 2^i n(h-2i)$$
+
+$$n_{min}(h=1) = 1$$
+$$n_{min}(h=2) = 2$$
+
+$$i: h-2i = (1 | 2)$$
+$$h = (1 | 2) + 2i$$
+$$\text{bsp.:}$$
+$$i = 1 : h = 3 | 4$$
+$$i = 2 : h = 5 | 6$$
+$$i = 3 : h = 7 | 8$$
+$$ i = \frac h2 - 1 \text{ wobei h/2 gerundet}$$
+Einsetzen in \(n(h) > 2^i n(h-2i)\):
+$$n > 2^{\frac h2 - 1} \cdot (1 | 2)$$
+Konstanten heraus streichen:
+$$n > 2^{\frac h2-1}$$
+$$log(n) > \frac h2 - 1$$
+$$h < 2\cdot log(n) + 2$$
+$$\rightarrow h \in O(log(n))$$
+
+- Einfügen:
+    - Den neuen Knoten wie bei einem BST einfügen
+    - Prüfen, ob AVL-Bedingungen verletzt wurden
+    - Aus dem neuen Knoten aus solange nach oben wandern, bis man auf einen Eltern-Knoten eines unbalancierten Teilbaums trifft
+- Umstrukturierung:
+    - x, y, z: Aufgrund des Suchpfades Kind, Eltern, Grosseltern
+    - a, b, c: Inorder-Reihenfolge
+    - Wenn es von x bis z nur in eine Richtung geht: Rotation um b (= y)
+    - Bei Richtungsänderung von x bis z:
+        - Zuerst den Teilbaum b und c (x und y) rotieren, so dass a, b, c wieder in einer Richtung ist wie oben
+        - Wieder wie oben um b rotieren
+    - *(Tipp:)* Jeweils nach Rotation mit Inorder Traversierung prüfen
+    - Eine Restrukturierung mit Cut/Link muss nicht den gleichen Baum ergeben wie mit dem Rotationsverfahren!
+- Löschen
+    - Löschen wie bei BST
+    - Die Balance kann verletzt werden
+    - Die Knoten x, y, z sollten im höheren Teilbaum sein (beim Einfügen automatisch gegeben)
+    - Nach dem Restrukturierung kann eine neue Unbalance entstehen! (Im Gegensatz zum Einfügen). Man muss bis zur Root weiter nach Unbalancierten Teilbäumen suchen
+- Implementierung
+    - Mit einer AVL-Node wird dessen Höhe gespeichert
+    - `actionPos`: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse
+    - Nach dem Einfügen wird die (BST-)Node (`Item`) mit einer Instanz von `AVLItem` ersetzt
+    - Besser: Funktion `newNode()` des BST überschreiben

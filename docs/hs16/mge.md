@@ -56,4 +56,76 @@
 - Für verschiedene Screen-Grössen, Sprachen, Versionen, etc. werden verschiedene XML-Files angelegt
 - Die App hat nach den Lifecycle-Aufrufen keine Kontrolle mehr. Das System sendet Events (ausgelöst durch User oder z.B. Sensoren), die dann behandelt werden (Event-Listener)
 - Auch Widgets können Events auslösen (-> `TextWatcher`)
-- 
+
+## Vorlesung 3 - Strukturierung und Navigation
+### Navigations-Design
+- Für einen ersten App-Entwurf ein Domain-Modell erstellen
+- "Screen Map" - Beziehungen zwischen Screens erstellen
+- Screens gruppieren, z.B. mehrere Screens mit Tabs (Panes) trennen
+- Navigation: Parent-Child-Beziehung (Hierarchisch) oder "lateral Navigation" (zwischen zwei Kindern)
+- Beispiel HSR-App: Home -> Cafeteria ist hierarchisch, einzelne Wochentage lateral
+- Back-Button macht "zeitliche Navigation" (vorheriges Kind oder Parent)
+- Button oben links sollte immer zum Parent zurück gehen
+- Für eine Gesamtübersicht Wireframes / Storyboards erstellen
+
+### Fragments
+- Es kann nur immer eine Activity gleichzeitig aktiv sein.
+- Fragment hat eigenen Lifecycle
+- Ein Fragment kann in mehrere Activities eingebunden werden und eine Activity kann mehrere Fragments beinhalten
+- Kann zur Laufzeit in Activity eingebunden (`onAttach()`) und wieder entfernt werden (`onDetach()`)
+- Fragments können fix eingebunden werden, direkt als `<fragment>` Tag im XML der Activity (mit `name` die Klasse angeben). Der Code der Activity ändert sich dabei nicht
+- Oder dynamisch: Normalerweise mit Frame-Layout
+
+``` java
+public class MainActivity extends Activity {
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+
+       FragmentManager fragmentManager = getFragmentManager();
+       FragmentTransaction fragmentTransaction = 
+                               fragmentManager.beginTransaction();
+
+       MainActivityFragment fragment = new MainActivityFragment();
+       fragmentTransaction.add(R.id.fragment_container, fragment);
+       fragmentTransaction.commit();
+   }
+}
+```
+- Im Unterschied zur Activity wird hier das Fragment selbst instanziert
+- Fragment sollte unabhängig von der Activity sein
+- Zur Kommunikation zwischen Fragment und Activity definiert das Fragment ein Interface, dass die Activity implementiert
+
+### Master-Detail Navigation
+- Ein Pattern, z.B. eine Liste mit Mails -> einzelne Mail
+- z.B. hat das Phone-Design nur ein einzelnes Fragment pro Activity, das Tablet-layout zeigt beide Layouts auf der gleichen Activity an
+- Wenn Activity einen Einstiegspunkt in die App sein kann, muss es eine Activity sein, kein Fragment
+
+### Menüs
+Programmatisch:
+``` java
+public boolean onCreateOptionsMenu(Menu menu) {
+    menu.add(0, START_MENU_ITEM, 0, "Start");
+    menu.add(0, SUBMIT_MENU_ITEM, 0, "Submit");
+    return true;
+}
+public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case START_MENU_ITEM:
+            // handle start
+            return true;
+        case SUBMIT_MENU_ITEM:
+            // handle submit
+            return true;
+    }
+    return super.onOptionsItemSelected(item);
+}
+```
+- Deklarativ: als menu-File in XML
+- Einbinden mit `getMenuInflater().inflate(id, Menu)` in der `onCreateOptionsMenu()` Methode
+- Mit dem "PreferenceScreen" kann ein Settings-Menü gebaut werden
+- Auch das Fragment kann ein Menü steuern
+- Nach Android 5.0 ist die "ActionBar" deprecated, neu ist die "Toolbar"
+- Navigation Drawer ("Hamburger Menu") hat schlechte usability

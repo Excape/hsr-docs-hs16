@@ -132,6 +132,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-2-c-grundlagen-selbststudium">Vorlesung 2 - C# Grundlagen (Selbststudium)</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-3-klassen-und-structs">Vorlesung 3 - Klassen und Structs</a></li>
+                
             
             </ul>
         
@@ -265,9 +267,83 @@
 <li>Formatierung: <code>string.format("{0}, {1}", var1, var2)</code></li>
 <li>Interpolation: string s = <code>$"var1: {var1}, var2: {var2}"</code></li>
 <li>Intern gibt es String "Interning" (=String Pooling in Java)</li>
-<li></li>
 </ul>
 </li>
+</ul>
+<h2 id="vorlesung-3-klassen-und-structs">Vorlesung 3 - Klassen und Structs</h2>
+<h3 id="structs">Structs</h3>
+<ul>
+<li>Ein Value Type auf dem Stack abgelegt</li>
+<li>Structs können nicht voneinander abgeleitet werden</li>
+<li>Structs können aber Interfaces implementieren</li>
+<li>Initialisierung von Feldern nicht erlaubt (Bei Klassen schon)</li>
+<li>Konstruktur <em>muss</em> Parameter haben</li>
+<li>Struct benutzen für einzelnen Wert (z.B. Point), max. 16B, immutable types, sollte nicht häufig geboxed werden</li>
+<li>Struct sollte entweder kurzlebig sein oder in andere Objekte eingebettet (damit Stack nicht zu gross wird)</li>
+</ul>
+<h3 id="klassen">Klassen</h3>
+<ul>
+<li>Const-Wert muss initialisiert werden (und zur Compilezeit berechenbar)</li>
+<li>Read-only Feld <code>readonly</code> muss nicht zur Compilezeit berechenbar sein aber auch nicht initialisiert. Darf später nicht mehr verändert werden</li>
+<li>Nested Types als innere Klassen<ul>
+<li>Äussere Klasse hat nur Zugriff auf public Member der inneren Klasse</li>
+<li>innere Klasse kann auch auf private Members der äusseren Klasse zugreifen</li>
+<li>Fremde Klassen haben auch Zugriff auf public Member der inneren Klasse</li>
+<li>Mit <code>static using &lt;static Class&gt;</code> können Funktionen von static Classes direkt verwendet werden</li>
+</ul>
+</li>
+<li>Methoden-Parameter<ul>
+<li>Value-Types werden normalerweise by-value übergeben</li>
+<li>Mit <code>ref</code> keyword den parameter by-reference übergeben. Beim Aufruf muss auch <code>ref</code> angegeben werden, sonst wird eine Referenz auf eine Kopie übergeben</li>
+<li><code>out</code>: Wie <code>ref</code>, aber für Rückgabe von Werten. Das Argument darf beim Aufruf aber noch nicht initialisiert sein.</li>
+<li>mit <code>params</code> in der Funktionsdefinition können n weitere Argumente verwendet werden beim Aufruf, die dann in einem Array landen, das mit <code>params</code> gekennzeichnet wurde</li>
+<li>optionale Parameter: <code>void fn(int arg1 int arg2 = 0)</code>. Optionale Parameter müssen am Ende der Liste stehen!</li>
+<li>Named Parameter bei Übergabe von optionalen Parameter: <code>fn(2, arg2: 3)</code></li>
+</ul>
+</li>
+<li>Properties<ul>
+<li>Wrapper für Getter / Setter</li>
+<li>Sieht aus wie public field auf Klasse</li>
+<li>Im Setter enthält <code>value</code> den zuzuweisenden Wert</li>
+<li>Property-namen in PascalCase</li>
+<li>Der Compiler wandelt Getter und Setter in normale Methoden um, sie werden als Property markiert</li>
+<li>Getter oder Setter können weggelassen werden, um read-only bzw. write-only Properties zu erstellen</li>
+<li>Sichtbarkeiten von Getter und Setter können verändert werden</li>
+<li>Auto-Properties<ul>
+<li>Properties mit einfachem getter und Setter, das Backing field wird auch automatisch generiert</li>
+<li><code>public int Length {get; set;}</code></li>
+<li>Seit C# 6.0 kann der Setter weggelassen werden, der Wert muss aber danach mit <code>=</code> zugewiesen werden (oder im Konstruktor)</li>
+</ul>
+</li>
+<li>Objekt Instanzierung<ul>
+<li>Properties können direkt initialisiert werden: <code>MyClass mc = new MyClass() { Length = 1, Width: 2 };</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Indexer<ul>
+<li>Ähnlich wie Properties kann eine Klassen-Instanz indexiert werden: <code>MyClass mc = new MyClass(); mc[0]; mc[1]...</code></li>
+<li>Definition in Klasse: <code>public string this[int index] { get {...} set {...}};</code></li>
+<li>Auch mehrdimensionale Indices möglich</li>
+</ul>
+</li>
+<li>Konstruktoren<ul>
+<li>Leerer Default-Konstruktor wird automatisch generiert (aber nur, falls keiner definiert wurde!)</li>
+<li>Statische Konstruktoren werden nur 1x aufgerufen<ul>
+<li>Zwingend ohne Parameter</li>
+<li>Wird bei erster Instanzierung des Typs aufgerufen, danach nicht mehr</li>
+</ul>
+</li>
+<li>Aufruf anderer Konstruktoren mit <code>this</code>, von Basis-Klassen mit <code>base</code>: <code>public myClass() : this(0, 0) {...}</code></li>
+</ul>
+</li>
+<li>Destruktoren<ul>
+<li><code>~MyClass() {...}</code></li>
+<li>Wird vom GC aufgerufen</li>
+</ul>
+</li>
+<li><em>Evtl. Prüfungsaufgabe zu Initialisierungs-Reihenfolge</em></li>
+<li></li>
 </ul>
               
             </div>

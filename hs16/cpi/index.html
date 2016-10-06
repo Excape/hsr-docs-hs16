@@ -109,6 +109,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-2">Vorlesung 2</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-3-simple-sequences">Vorlesung 3 - Simple Sequences</a></li>
+                
             
             </ul>
         
@@ -289,6 +291,74 @@ std::cout &lt;&lt; &quot;bad: &quot; &lt;&lt; std::cin.bad() &lt;&lt; &quot;\n&q
 <li>Wenn man ein Zeichen (keine Zahl eingibt), wird <code>fail()</code> = 1</li>
 <li>Wenn man Enter drückt, wird es ignoriert und weiter auf einen input gewartet</li>
 <li>Whitespace wird ignoriert</li>
+</ul>
+<h2 id="vorlesung-3-simple-sequences">Vorlesung 3 - Simple Sequences</h2>
+<h3 id="vectors">Vectors</h3>
+<ul>
+<li>Wie in Java generischer Datentyp: <code>std::vector&lt;T&gt;</code></li>
+<li>Muss aber nicht "geboxed" werden</li>
+<li>Initialisierung in geschweiften Klammern: <code>std::vector&lt;int&gt; v{1, 2, 3}</code></li>
+<li>Mit Runden Klammern Parameter an den Konstruktor geben: Anzahl Elemente: <code>std::vector&lt;int&gt; v(6)</code> für vector mit Grösse 6</li>
+<li><code>front()</code>: Erstes Element</li>
+<li><code>back()</code>: Letztes Element</li>
+<li>front und back können auch lvalues sein</li>
+<li>vector kann auch wachsen. Mit <code>pushback(x)</code> Element anfügen</li>
+<li><code>begin()</code>, <code>end()</code> etc sind Iteratoren</li>
+<li><code>at(i)</code> gibt das i-te Element zurück, ist aber bounds-checked</li>
+<li>index out of bounds ist undefined behaviour!</li>
+<li><code>size_t</code> ist vorzeichenloser Datentyp, gross genug für indices aller möglichen vectors</li>
+<li>Iteration (einzige sinnvolle for-Schleife)</li>
+</ul>
+<pre><code class="c++">for (auto const i: v) {
+    std::cout &lt;&lt; &quot;element &quot; &lt;&lt; i &lt;&lt; '\n';
+}
+</code></pre>
+
+<ul>
+<li>Die Laufvariable erhält eine Kopie, sonst per Referenz übergeben: <code>for(auto &amp;i: v)</code></li>
+<li>So const wie möglich (<strong>Prüfungsthema</strong>)</li>
+</ul>
+<h3 id="iterators">Iterators</h3>
+<ul>
+<li>Man braucht immer ein Paar von Iteratoren</li>
+<li>Start Iterator <code>begin()</code> mit End-Iterator <code>end()</code> vergleichen. Wenn gleich, ist es <em>hinter</em> dem Ende</li>
+<li>Zugriff mit <code>*iterator</code></li>
+<li>mit <code>cbegin()</code> und <code>cend()</code> ist der Wert const</li>
+</ul>
+<pre><code class="c++">for (auto it=cbegin(v); it != cend(v); ++it) {
+    std::cout &lt;&lt; *it &lt;&lt; &quot;, &quot;;
+}
+</code></pre>
+
+<ul>
+<li>Mit <code>rend()</code> und <code>rbegin()</code> rückwärts iterieren (aber auch jeweils inkrementieren!)</li>
+<li>Für Schleifen grundsätzlich algorithms verwenden</li>
+<li>containers ausgeben mit <code>ostream_iterator</code></li>
+<li>Iterator um einem Array zu erweitern: <code>back_inserter(v)</code></li>
+</ul>
+<h3 id="algorithms">Algorithms</h3>
+<ul>
+<li>Bsp Leerzeichen zählen: <code>count(begin(s), end(s), ' ')</code></li>
+<li><code>distance(b, e)</code> gibt Distanz zwischen zwei iteratoren</li>
+</ul>
+<h3 id="lambdas">Lambdas</h3>
+<ul>
+<li><code>for_each(b, e, fn)</code> mit fn als Lambda oder funktionsname</li>
+<li><code>[] (parameters)-&gt;return_type{statements}</code></li>
+<li>return type und runde Klammer sind optional. <code>[]{}</code> ist eine gültige Lambda Expression</li>
+<li>Aufruf mit runden Klammern: bsp. <code>[]{}()</code></li>
+<li><code>auto</code> als Parameter-Typ erlaubt (im Gegensatz zu normalen Funktionen)</li>
+<li>Lambda-Funktion kann auch in eine Variable geschrieben werden: <code>auto l = []{}; l();</code></li>
+<li><code>[]</code> wird für Capture verwendet. Was in den Klammern definiert ist, ist auch ausserhalb des Lambda-Scopes noch gültig. Referenz mit <code>&amp;</code> angeben</li>
+</ul>
+<h3 id="iterators-for-io">Iterators for IO</h3>
+<ul>
+<li><code>ostream_iterator&lt;T&gt;{std::out, ", "}</code> gibt Werte auf <code>std::out</code> mit Trennzeichen <code>,</code> aus</li>
+<li><code>istream_iterator&lt;T&gt;{}</code> wird als Enditerator beim Input verwendet</li>
+<li>type alias: <code>using name=type;</code>, dann kann ein Alias für den Type verwendet werden</li>
+<li><code>ostream_iterator</code> und <code>istream_iterator</code> benutzt <code>&lt;&lt;</code> und <code>&gt;&gt;</code> für Ein- und Ausgabe</li>
+<li>Normalerweise werden Leerzeichen ignoriert</li>
+<li>für char-Types gibt es dafür <code>istreambuf_iterator</code>. Einlesen mit <code>istream::get()</code></li>
 </ul>
               
             </div>

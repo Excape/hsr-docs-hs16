@@ -33,6 +33,20 @@
 24. government
 
 
+## 2.4
+1. research, banking
+2. ??
+3. batch processing
+4. remote connection
+5. share 1 pc with mult. users
+6. defense advanced defencse agency, cold war
+7. ??
+8. military network in US (RAND), commercial netowrk for national physical labaratory in eng, scientific network "cyclades" in france
+9. shielding of network
+10. ncp: network control protocol
+11. break up files into packets to avoid congestion
+12. standarddize, osi model
+
 ## Book Questions
 ### Chapter 1
 **How does a telegraph work?**

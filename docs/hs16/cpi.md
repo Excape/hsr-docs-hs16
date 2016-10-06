@@ -76,3 +76,62 @@ std::cout << "bad: " << std::cin.bad() << "\n";
 - Wenn man ein Zeichen (keine Zahl eingibt), wird `fail()` = 1
 - Wenn man Enter drückt, wird es ignoriert und weiter auf einen input gewartet
 - Whitespace wird ignoriert
+
+## Vorlesung 3 - Simple Sequences
+### Vectors
+- Wie in Java generischer Datentyp: `std::vector<T>`
+- Muss aber nicht "geboxed" werden
+- Initialisierung in geschweiften Klammern: `std::vector<int> v{1, 2, 3}`
+- Mit Runden Klammern Parameter an den Konstruktor geben: Anzahl Elemente: `std::vector<int> v(6)` für vector mit Grösse 6
+- `front()`: Erstes Element
+- `back()`: Letztes Element
+- front und back können auch lvalues sein
+- vector kann auch wachsen. Mit `pushback(x)` Element anfügen
+- `begin()`, `end()` etc sind Iteratoren
+- `at(i)` gibt das i-te Element zurück, ist aber bounds-checked
+- index out of bounds ist undefined behaviour!
+- `size_t` ist vorzeichenloser Datentyp, gross genug für indices aller möglichen vectors
+- Iteration (einzige sinnvolle for-Schleife)
+```c++
+for (auto const i: v) {
+    std::cout << "element " << i << '\n';
+}
+```
+- Die Laufvariable erhält eine Kopie, sonst per Referenz übergeben: `for(auto &i: v)`
+- So const wie möglich (**Prüfungsthema**)
+
+### Iterators
+- Man braucht immer ein Paar von Iteratoren
+- Start Iterator `begin()` mit End-Iterator `end()` vergleichen. Wenn gleich, ist es *hinter* dem Ende
+- Zugriff mit `*iterator`
+- mit `cbegin()` und `cend()` ist der Wert const
+```c++
+for (auto it=cbegin(v); it != cend(v); ++it) {
+    std::cout << *it << ", ";
+}
+```
+- Mit `rend()` und `rbegin()` rückwärts iterieren (aber auch jeweils inkrementieren!)
+- Für Schleifen grundsätzlich algorithms verwenden
+- containers ausgeben mit `ostream_iterator`
+- Iterator um einem Array zu erweitern: `back_inserter(v)`
+
+### Algorithms
+- Bsp Leerzeichen zählen: `count(begin(s), end(s), ' ')`
+- `distance(b, e)` gibt Distanz zwischen zwei iteratoren
+
+### Lambdas
+- `for_each(b, e, fn)` mit fn als Lambda oder funktionsname
+- `[] (parameters)->return_type{statements}`
+- return type und runde Klammer sind optional. `[]{}` ist eine gültige Lambda Expression
+- Aufruf mit runden Klammern: bsp. `[]{}()`
+- `auto` als Parameter-Typ erlaubt (im Gegensatz zu normalen Funktionen)
+- Lambda-Funktion kann auch in eine Variable geschrieben werden: `auto l = []{}; l();`
+- `[]` wird für Capture verwendet. Was in den Klammern definiert ist, ist auch ausserhalb des Lambda-Scopes noch gültig. Referenz mit `&` angeben
+
+### Iterators for IO
+- `ostream_iterator<T>{std::out, ", "}` gibt Werte auf `std::out` mit Trennzeichen `, ` aus
+- `istream_iterator<T>{}` wird als Enditerator beim Input verwendet
+- type alias: `using name=type;`, dann kann ein Alias für den Type verwendet werden
+- `ostream_iterator` und `istream_iterator` benutzt `<<` und `>>` für Ein- und Ausgabe
+- Normalerweise werden Leerzeichen ignoriert
+- für char-Types gibt es dafür `istreambuf_iterator`. Einlesen mit `istream::get()`

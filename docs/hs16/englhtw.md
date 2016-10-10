@@ -51,11 +51,19 @@
 ### Chapter 1
 **How does a telegraph work?**
 
+An electromagnet is on one end, a battery on the other. When the battery is connected, current flows, it activates the magnet (coil) and produces a mechanical click. *Samuel Morse* invented the Morse alphabet to transmit letters
+
 **How did the telegraph change the world?**
+
+It connected cities and countries, making it possible to e.g. synchronize time, financial information and trains
 
 **Discuss Bodanis’ statement that the telegraph was “an early form of globalization”. (p. 26)**
 
+The telegraph made transportation of information instant (before it was very slow). Now not every city was its own world, but everything was synchronized throughout the world
+
 **Discuss the last sentences of the chapter: “The result was a dynamic  immigrant- rich America. It was everything Joseph Henry loved. It was everything Samuel Morse hated.” (p.26) and describe the characters of Joseph Henry and Samuel Morse.**
+
+Samuel Morse was a conspiracy theorist, believing the world was controlled by catholics and jesuits. On the other hand, Henry was more open
 
 ### Chapter 2
 ### Chapter 3

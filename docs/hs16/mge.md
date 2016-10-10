@@ -129,3 +129,126 @@ public boolean onOptionsItemSelected(MenuItem item) {
 - Auch das Fragment kann ein Menü steuern
 - Nach Android 5.0 ist die "ActionBar" deprecated, neu ist die "Toolbar"
 - Navigation Drawer ("Hamburger Menu") hat schlechte usability
+
+---
+## Vorlesung 4 - Listen und Persistenz
+### Listen
+- ListView
+```xml
+<ListView
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:id="@+id/listView"/>
+```
+- Folie 12: "Klient" ist ListView und "Dienst" unsere Klasse
+- Die ListView nutzt einen Adapter über ein Interface, der die Klassen an das Interface anpasst
+- Adapter muss wissen, wieviele Elemente es gibt (`getCount()`) und ein bestimmtes Element zurückgeben (`getView()`)
+- Layout der jeweiligen Einträge sind in eigenem Layout definiert
+- `getView()` in eigenem Adapter überschreiben
+```java
+public View getView(int position, View convertView, ViewGroup parent) {
+   final Module module = modulList.get(position);
+
+   if (convertView == null) {
+       LayoutInflater layoutInflater = (...) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+       convertView = layoutInflater.inflate(R.layout.rowlayout, null);
+   }
+   // Get views with findViewByID, display data and set listeners
+   return convertView;
+}
+```
+- Demo: <https://github.com/HSR-MGE/W04-CustomArrayAdapterDemo>
+- An einer View kann ein Tag angehängt werden (beliebiges `Object`)
+- Für Performance-Optimierung: `findViewByID()` nur beim ersten Mal aufrufen und im Tag speichern
+
+```java
+if (convertView == null) {
+   ...
+
+   TextView textView = (TextView) convertView.findViewById(R.id.textView);
+   CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.checkBox);
+
+   Pair<TextView, CheckBox> views = new Pair<>(textView, checkBox);
+   convertView.setTag(views);
+}
+
+Pair<TextView, CheckBox> views = (Pair<TextView, CheckBox>) convertView.getTag();
+TextView textView = views.first;
+CheckBox checkBox = views.second;
+```
+
+- In `RecyclerView` ist das bereits eingebaut
+    - In `onBindViewHolder()` sind die UI-Elemente schon drin im ViewHolder und müssen nur noch abgefüllt werden
+    - Variante mit ListView quasi aufgeteilt in zwei Methoden
+
+### Persistenz
+- `onSaveInstanceState()` speichert per default alle Views mit einer ID im Bundle gespeichert
+    - Wird aber nicht immer ausgeführt (z.B. über Back-Button verlassen)
+- `onCreate()` erhält das Bundle von `onSaveInstanceState()`
+- Konsequenz: Daten immer in `onPause()` sichern
+- Shared Preferences (nur bool, float, int, long, String, Set<String>)
+
+```java
+SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+SharedPreferences.Editor editor = settings.edit();
+editor.putBoolean("disabled", false);
+
+boolean isDisabled = settings.getBoolean("disabled", false);
+
+editor.commit();
+```
+- SQLite Helper trackt die Version. Wenn z.B. das Schema geändert wird, kann bei einem Update der App eine neue Version angegeben werden, um die Daten zu migrieren (in `onUpgrade`)
+
+### Hintergrundaktionen
+- Mit `Runnable` die Methode `run()` überschreiben
+- Einen neuen Threat starten
+
+```java
+public void onClick(View v) {
+
+   Runnable runnable = new Runnable() {
+       @Override
+       public void run() {
+           final Bitmap bitmap = download("http://slow.hsr.ch/hsr_cat.bmp");
+
+           Runnable command = new Runnable() {
+               @Override
+               public void run() {
+                   imageView.setImageBitmap(bitmap);
+               }
+           };
+           imageView.post(command);
+       }
+   };
+   Thread thread = new Thread(runnable);
+   thread.start();
+}
+
+```
+- Views dürfen nur aus dem Main-Thread verändert werden, darum `imageView.post()`. Dies setzt einen neuen Task in die Event-Queue
+- OK für einfache Tasks, besser mit AsyncTask
+    - `onPreExecute()`: Vorbereitung im UI-Thread
+    - `doInBackground()`: In eigemen Thread ausgeführt
+    - `onPostExecute()`: Resultat setzen, wieder im GUI-Thread
+
+```java
+class DownloadBitmapTask extends AsyncTask<String, Void, Bitmap> {
+
+   @Override
+   protected void onPreExecute() {
+       super.onPreExecute();
+   }
+
+   @Override
+   protected Bitmap doInBackground(String... params) {
+       return download(params[0]);
+   }
+
+   @Override
+   protected void onPostExecute(Bitmap bitmap) {
+       imageView.setImageBitmap(bitmap);
+   }
+}
+
+new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
+```

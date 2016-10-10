@@ -144,6 +144,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-2-nodejs">Vorlesung 2 - NodeJS</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-4-rest">Vorlesung 4 - REST</a></li>
+                
             
             </ul>
         
@@ -206,6 +208,7 @@
 <li>2h, closed book</li>
 <li>Zusammenfassung 1 A4 Seite (muss abgegeben werden)</li>
 </ul>
+<hr />
 <h2 id="vorlesung-2-nodejs">Vorlesung 2 - NodeJS</h2>
 <ul>
 <li>"Klassischer" Webserver<ul>
@@ -229,6 +232,34 @@
 <li>Modul als requirement hinzufügen: <code>npm install &lt;name&gt; --save</code></li>
 <li>Folie 28: Bei Zyklen macht Node eine Kopie eines Moduls, sollte aber vermieden werden</li>
 <li>Folie 33: Variante mit Streams zu bevorzugen, weil sonst das ganze File ins Memory geladen werden muss. Beim Stream werden vorzu die Daten zum Client geschickt</li>
+</ul>
+<hr />
+<h2 id="vorlesung-4-rest">Vorlesung 4 - REST</h2>
+<ul>
+<li>REST ist eine Guideline / Best Practices, wie Daten von Client zu Server gesendet werden</li>
+<li>Je mehr Richardson's Maturity Model Level umgesetzt werden, desto besser</li>
+<li>Vor REST gab es viele unterschiedliche Standards</li>
+<li>RESTful Services sollten <em>statuslos</em> sein. D.h. bei jeder Anfrage teilt der Client mit, wer er ist und was er will. Dadurch kann man die Server beliebig skalieren</li>
+<li>Eine REST-Schnittstelle sollte selbstbeschreibend sein. z.B. Ressource über ID abrufbar</li>
+<li><strong>ROA</strong>: Ressource oriented Architecture:<ul>
+<li>z.B. GET auf /orders zeigt alle orders, /orders/1 zeigt order mit ID 1</li>
+<li>Jede Ressource hat eine URL</li>
+<li>Query-Parameter nur für Suchen oder Filter verwenden</li>
+<li>Referenzen auf andere Ressourcen werden über hyperlinks (HTTP-Pfad) angegeben</li>
+<li><em>POST</em> erstellt eine neue Ressource (ID automatisch vergeben)</li>
+<li><em>PUT</em> geht direkt auf eine ID und aktualisiert eine Ressource, oder erstellt sie, falls noch nicht vorhanden</li>
+<li><em>HEAD</em> liefert nur der Header eines <em>GET</em>. Wird verwendet, um z.B. zu prüfen, ob es Änderungen gab (caching)</li>
+</ul>
+</li>
+<li>Im Request Header wird mit <code>Accept</code> angegeben, in welchem Format (JSON, XML, ...) die Antwort sein sollte</li>
+<li><a href="https://www.getpostman.com/">https://www.getpostman.com/</a> zum Testen von APIs</li>
+<li><strong>HATEOAS</strong><ul>
+<li>"Oberste Stufe" einer REST API</li>
+<li>Übergänge zu anderen States werden in Antwort mitgeschickt (in Form von URIs)</li>
+<li>Aufgrund der Antwort kann der Client dann schliessen, wie er weiter machen muss (z.B. continue, cancel) und den entsprechenden Links folgen</li>
+<li>URI kann serverseitig geändert werden</li>
+</ul>
+</li>
 </ul>
               
             </div>

@@ -1,4 +1,5 @@
 # Algorithmen und Datenstrukturen 2
+- Visualisierungen: <http://visualgo.net/>
 
 ## Vorlesung 1 - Binary Search Tree
 - Ein Heap hat das kleinste oder grösste Element als Root
@@ -104,3 +105,64 @@ $$\rightarrow h \in O(log(n))$$
     - `actionPos`: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse
     - Nach dem Einfügen wird die (BST-)Node (`Item`) mit einer Instanz von `AVLItem` ersetzt
     - Besser: Funktion `newNode()` des BST überschreiben
+
+---
+## Vorlesung 4 - Splay-Trees / Merge-Sort
+### Splay-Trees
+- Nach dem Einfügen ist der eingefügte Knoten immer Root
+- Beim Suchen wird der Baum auch restrukturiert, der gesuchte Knoten ist danach Root
+- Knoten mit gleichem Wert können weit auseinander sein
+- Suchen gleich wie bei BST
+- Muss nicht Balanced sein wie AVL!
+
+#### Splay-Operation
+- Wird nach *jeder* Operation (auch Suchen) ausgeführt
+- rechts und links Rotation gleich wie bei AV"L
+- "zig" -> linkes Kind, "zag" -> rechtes Kind
+- x: betroffener Knoten, y: parent von x, z: parent-parent von x
+- Rotationen solange wiederholen, bis x Root wird
+
+#### Löschen
+- Wie bei BST
+- Bei "Fall 3": Ersetze Knoten durch inorder-Nachfolger
+- Splayen mit tiefstem internem *zugegriffenem* Knoten (Elternknoten des gelöschten)
+
+#### Performance
+- Splaying: \(O(h)\)
+    - Durchschnittlich \(O(\logn)\)
+    - Worst case ist Höhe h = n, d.h. \(O(n)\)
+- Oft besuchte Knoten kommen immer näher an die Root, d.h es wird schneller
+- Anwendung z.B. bei Suchmaschinen
+
+#### Splay-Entscheid
+- Wenn mit find() nicht gefunden wird, der letzte gefunden Knoten nehmen
+
+### Merge-Sort
+- Divide and Conquer Prinzip
+    - Daten in zwei Teilmengen aufteilen
+    - Problem rekursiv für beide Teilmengen lösen
+    - Conquer: Lösungen mischen
+    - Verankerung ist Inputgrösse 1 oder 0
+- Merge-Sort sortiert Rekursiv die halbe Menge und "merged" die beiden sortierten Teilmengen zusammen
+- Merge()
+    - Beide Listen von vorne her leeren
+    - Wenn A kleiner ist, A in S einfügen, sonst B in S einfügen
+    - wenn eine Liste leer, der Rest der anderen an S anfügen
+    - \(O(n)\) mit double-linked-List
+- Performance
+    - Die Höhe des Rerkursionsbaums ist \(O(log n)\)
+    - Jede Rekursion braucht \(O(n)\)
+    - Total \(O(n log n)\)
+- Java.util.sort ist ein modifizierter Merge-Sort
+    - Wenn das grösste Element der ersten Liste kleiner als das kleinste Element der zweiten Liste ist, kann man einfach die beiden Listen aneinander hängen (keine Vergleiche nötig)
+    - Garantiert \(O(n log n)\)
+
+![Vergleich Sortieralgorithmen](img/sort_vergleiche.png)
+
+- Implementierung nicht-rekursiv
+    - mit i = 1: Zweier-Pärchen sortieren und in out schreiben
+    - in und out swappen
+    - Nun Vierer-Gruppen (zwei Pärchen) sortiert in out schreiben
+    - in und out swappen
+    - usw... Es wird immer verdoppelt
+    - Quasi im rekurvis-Baum "Bottom up"

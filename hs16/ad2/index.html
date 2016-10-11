@@ -80,6 +80,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-2-avl-trees-1">Vorlesung 2 - AVL-Trees (1)</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-4-splay-trees-merge-sort">Vorlesung 4 - Splay-Trees / Merge-Sort</a></li>
+                
             
             </ul>
         
@@ -201,6 +203,9 @@
             <div class="section">
               
                 <h1 id="algorithmen-und-datenstrukturen-2">Algorithmen und Datenstrukturen 2</h1>
+<ul>
+<li>Visualisierungen: <a href="http://visualgo.net/">http://visualgo.net/</a></li>
+</ul>
 <h2 id="vorlesung-1-binary-search-tree">Vorlesung 1 - Binary Search Tree</h2>
 <ul>
 <li>Ein Heap hat das kleinste oder grösste Element als Root</li>
@@ -348,6 +353,93 @@ Konstanten heraus streichen:
 <li><code>actionPos</code>: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse</li>
 <li>Nach dem Einfügen wird die (BST-)Node (<code>Item</code>) mit einer Instanz von <code>AVLItem</code> ersetzt</li>
 <li>Besser: Funktion <code>newNode()</code> des BST überschreiben</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-4-splay-trees-merge-sort">Vorlesung 4 - Splay-Trees / Merge-Sort</h2>
+<h3 id="splay-trees">Splay-Trees</h3>
+<ul>
+<li>Nach dem Einfügen ist der eingefügte Knoten immer Root</li>
+<li>Beim Suchen wird der Baum auch restrukturiert, der gesuchte Knoten ist danach Root</li>
+<li>Knoten mit gleichem Wert können weit auseinander sein</li>
+<li>Suchen gleich wie bei BST</li>
+<li>Muss nicht Balanced sein wie AVL!</li>
+</ul>
+<h4 id="splay-operation">Splay-Operation</h4>
+<ul>
+<li>Wird nach <em>jeder</em> Operation (auch Suchen) ausgeführt</li>
+<li>rechts und links Rotation gleich wie bei AV"L</li>
+<li>"zig" -&gt; linkes Kind, "zag" -&gt; rechtes Kind</li>
+<li>x: betroffener Knoten, y: parent von x, z: parent-parent von x</li>
+<li>Rotationen solange wiederholen, bis x Root wird</li>
+</ul>
+<h4 id="loschen">Löschen</h4>
+<ul>
+<li>Wie bei BST</li>
+<li>Bei "Fall 3": Ersetze Knoten durch inorder-Nachfolger</li>
+<li>Splayen mit tiefstem internem <em>zugegriffenem</em> Knoten (Elternknoten des gelöschten)</li>
+</ul>
+<h4 id="performance">Performance</h4>
+<ul>
+<li>Splaying: <script type="math/tex">O(h)</script>
+<ul>
+<li>Durchschnittlich <script type="math/tex">O(\logn)</script>
+</li>
+<li>Worst case ist Höhe h = n, d.h. <script type="math/tex">O(n)</script>
+</li>
+</ul>
+</li>
+<li>Oft besuchte Knoten kommen immer näher an die Root, d.h es wird schneller</li>
+<li>Anwendung z.B. bei Suchmaschinen</li>
+</ul>
+<h4 id="splay-entscheid">Splay-Entscheid</h4>
+<ul>
+<li>Wenn mit find() nicht gefunden wird, der letzte gefunden Knoten nehmen</li>
+</ul>
+<h3 id="merge-sort">Merge-Sort</h3>
+<ul>
+<li>Divide and Conquer Prinzip<ul>
+<li>Daten in zwei Teilmengen aufteilen</li>
+<li>Problem rekursiv für beide Teilmengen lösen</li>
+<li>Conquer: Lösungen mischen</li>
+<li>Verankerung ist Inputgrösse 1 oder 0</li>
+</ul>
+</li>
+<li>Merge-Sort sortiert Rekursiv die halbe Menge und "merged" die beiden sortierten Teilmengen zusammen</li>
+<li>Merge()<ul>
+<li>Beide Listen von vorne her leeren</li>
+<li>Wenn A kleiner ist, A in S einfügen, sonst B in S einfügen</li>
+<li>wenn eine Liste leer, der Rest der anderen an S anfügen</li>
+<li>
+<script type="math/tex">O(n)</script> mit double-linked-List</li>
+</ul>
+</li>
+<li>Performance<ul>
+<li>Die Höhe des Rerkursionsbaums ist <script type="math/tex">O(log n)</script>
+</li>
+<li>Jede Rekursion braucht <script type="math/tex">O(n)</script>
+</li>
+<li>Total <script type="math/tex">O(n log n)</script>
+</li>
+</ul>
+</li>
+<li>Java.util.sort ist ein modifizierter Merge-Sort<ul>
+<li>Wenn das grösste Element der ersten Liste kleiner als das kleinste Element der zweiten Liste ist, kann man einfach die beiden Listen aneinander hängen (keine Vergleiche nötig)</li>
+<li>Garantiert <script type="math/tex">O(n log n)</script>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Vergleich Sortieralgorithmen" src="../img/sort_vergleiche.png" /></p>
+<ul>
+<li>Implementierung nicht-rekursiv<ul>
+<li>mit i = 1: Zweier-Pärchen sortieren und in out schreiben</li>
+<li>in und out swappen</li>
+<li>Nun Vierer-Gruppen (zwei Pärchen) sortiert in out schreiben</li>
+<li>in und out swappen</li>
+<li>usw... Es wird immer verdoppelt</li>
+<li>Quasi im rekurvis-Baum "Bottom up"</li>
 </ul>
 </li>
 </ul>

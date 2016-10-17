@@ -111,6 +111,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-3-simple-sequences">Vorlesung 3 - Simple Sequences</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-4">Vorlesung 4</a></li>
+                
             
             </ul>
         
@@ -359,6 +361,75 @@ std::cout &lt;&lt; &quot;bad: &quot; &lt;&lt; std::cin.bad() &lt;&lt; &quot;\n&q
 <li><code>ostream_iterator</code> und <code>istream_iterator</code> benutzt <code>&lt;&lt;</code> und <code>&gt;&gt;</code> für Ein- und Ausgabe</li>
 <li>Normalerweise werden Leerzeichen ignoriert</li>
 <li>für char-Types gibt es dafür <code>istreambuf_iterator</code>. Einlesen mit <code>istream::get()</code></li>
+</ul>
+<hr />
+<h2 id="vorlesung-4">Vorlesung 4</h2>
+<ul>
+<li>Gute Funktion:<ul>
+<li>Macht nur etwas</li>
+<li>Möglichst wenig Parameter</li>
+<li>Garantiertes Resultat</li>
+</ul>
+</li>
+<li>Lambdas<ul>
+<li>Funktion (oder Lambda) als Parameter übergeben</li>
+</ul>
+</li>
+</ul>
+<pre><code class="c++">void foo(std::function&lt;char(char)&gt; function) {
+    std:cout &lt;&lt; function('a');
+}
+// main
+auto const g = [](char c) { return c + 1; }
+foo(g);
+</code></pre>
+
+<pre><code>- Scopes werden mit `{}` definiert
+- Nach dem `}` wird aufgeräumt, auch Objekte!
+</code></pre>
+<ul>
+<li>Namespaces<ul>
+<li>namespace grenzt ein Scope ein</li>
+<li><code>std::</code> ist Namespace-Prefix</li>
+<li>Globaler Namespace ist unter <code>::</code></li>
+<li>Definition mit <code>namespace myNamespace{..}</code></li>
+<li>Namespace mit gleichem Name kann mehrmals "geöffnet" werden. Er wird dann erweitert;</li>
+<li>"Importieren" (ohne Prefix benutzen) mit <code>using myNamespace;</code></li>
+<li>Alias mit <code>using str=std::string; str t{"myString"};</code></li>
+<li>Namespace ohne Namensangabe ist anonym. Braucht man, um eigene Funktionen zu "verstecken" und ist nicht von anderen Files aufrufbar</li>
+</ul>
+</li>
+<li>Referenzen<ul>
+<li>Achtung, wenn Referenz noch benutzt wird, aber die referenzierte Variable nicht mehr existiert! -&gt; undefined behaviour</li>
+<li>Wenn eine referenz <code>const</code> wird, darf die variable darunter auch nicht mehr verändert werden</li>
+<li><code>&amp;var</code> ist <em>lvalue</em>-Referenz</li>
+<li>Referenzen zurück geben<ul>
+<li>Für chaining nützlich, wenn Parameter schon ref ist</li>
+<li>Niemals referenz auf lokale variable zurück geben, nicht mehr gültig!</li>
+</ul>
+</li>
+<li>Streams by value kopieren mit rvalue-Referenzen (<code>&amp;&amp;</code>)</li>
+<li><code>&amp;&amp;</code> "saugt" den Wert heraus, ist im Original (caller) dann nicht mehr verwendbar</li>
+</ul>
+</li>
+<li>Overloading wie in Java, return-type wird nicht beachtet</li>
+<li>Default Arguments wie in C# (ist ein impliziter overload) und muss im Header-File definiert sein</li>
+<li>Funktionen als Parameter: <code>void func(double x, double f(double)) {...}</code></li>
+<li>Error-Handling<ul>
+<li>z.B. zusätzliches funktionsargument per referenz mitgeben (z.B. boolean)</li>
+<li>oder komplizierterer Rückgabewert</li>
+<li>Am besten: Exception</li>
+<li>Ignorieren des Fehlers (-&gt; undefined behaviour) kann Sinn machen, wenn es schnell sein muss (Aufrufer muss dann Preconditions erfüllen)</li>
+<li>exceptions<ul>
+<li>Mit <code>throw</code> kann jeder (kopierbare) typ geworfen werden</li>
+<li>Per default keine meta-infos wie stacktrace</li>
+<li><code>try {...} catch (type const &amp;e) {...}</code></li>
+<li>Catchen immer mit Referenz auf exception ("Throw by value, catch by const ref")</li>
+<li>Catch all: <code>catch(...)</code> &lt;- Mit 3 Punkten!</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
               
             </div>

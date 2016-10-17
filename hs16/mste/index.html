@@ -134,6 +134,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-3-klassen-und-structs">Vorlesung 3 - Klassen und Structs</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-4-vererbung-selbststudium">Vorlesung 4 - Vererbung (Selbststudium)</a></li>
+                
             
             </ul>
         
@@ -343,8 +345,79 @@
 </ul>
 </li>
 <li><em>Evtl. Prüfungsaufgabe zu Initialisierungs-Reihenfolge</em></li>
-<li></li>
 </ul>
+<h2 id="vorlesung-4-vererbung-selbststudium">Vorlesung 4 - Vererbung (Selbststudium)</h2>
+<ul>
+<li>Structs sind nicht vererbbar, können aber interfaces implementieren</li>
+<li>Prüfen ("instanceof"): <code>obj is T</code></li>
+<li>Explizit casten<ul>
+<li><code>(T) obj</code>, bei Fehler zur RuntimeInvalidCastException</li>
+<li><code>obj as T</code>, bei Fehler zur Runtime <code>null</code></li>
+</ul>
+</li>
+<li>Methode muss <code>virtual</code> markiert werden, damit sie überschrieben werden kann</li>
+<li>überschreiben mit <code>public virtual void method1()...</code></li>
+<li>Per default sind Methoden nicht überschreibbar und überschreiben nicht implizit eine virtual Methode</li>
+<li><code>override</code> Methoden sind aus Subklassen weiter überschreibbar</li>
+<li><code>abstract</code>-Methoden sind implizit <code>virtual</code></li>
+<li>Wenn eine Methode aus der Basisklass neu definiert wird (nicht mit <code>override</code>), überdeckt sie die Methode der Basisklasse<ul>
+<li>Mit <code>public new void ...</code> markieren, sonst gibt es eine Compilerwarnung</li>
+<li>Dies unterbricht Dynamic binding. Von der Base-Klasse her wird die letzte überschriebene genommen</li>
+</ul>
+</li>
+</ul>
+<pre><code class="csharp">Base b1 = new SubSub();
+b1.J();
+// Base.J()
+((Sub)b1).J();
+// Sub.J()
+((SubSub)b1).J();
+// SubSub.J()
+</code></pre>
+
+<ul>
+<li><code>sealed</code> Classes verhindern, abgeleitet zu werden</li>
+<li>überschriebene Methoden, die <code>seal</code> verwenden, können von einer weiteren Subklasse nicht mehr überschrieben werden </li>
+<li>Mit <code>new</code> können sie aber weiterhin überdeckt werden</li>
+<li>Interface Name-Clash<ul>
+<li>Wenn Signatur und Rückgabetyp identisch: Eine Implementierung für beide Interfaces</li>
+<li>Sonst Methode für jedes Interface explizit implementieren mit <code>&lt;iface&gt;.&lt;method&gt;</code></li>
+<li>Es kann auch eine Default-Implementation verwendet werden und für bestimmte Interfaces eine explizite</li>
+</ul>
+</li>
+<li>Garbage Collection<ul>
+<li><code>~MyClass() {}</code> ist Destruktor<ul>
+<li>Syntactic Sugar für <code>Finalize()</code></li>
+</ul>
+</li>
+<li>Finalize wird vom GC aufgerufen, sollte möglichst schnell sein</li>
+<li><code>IDisposable</code> implementieren, um Freigabe selbst zu implementieren</li>
+<li>Mit <code>using () {...}</code> wird am Ende <code>Dispose()</code> aufgerufen</li>
+<li>Dispose pattern</li>
+</ul>
+</li>
+</ul>
+<pre><code class="csharp">~DataAccess()
+{ Dispose(false); }
+public void Dispose()
+{
+    Dispose(true);
+    System.GC.SuppressFinalize(this);
+}
+protected virtual void Dispose(bool disposing)
+{
+    if (disposing)
+    {
+        // Dispose managed ressources
+        if (connection != null)
+        { connection.Dispose(); }
+    }
+    // Dispose unmanaged resources
+    }
+</code></pre>
+
+<pre><code>- So werden managed ressourcen von Dispose() aufgerufen, und unmanaged vom Finalize / Destruktor
+</code></pre>
               
             </div>
           </div>

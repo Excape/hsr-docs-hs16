@@ -110,3 +110,27 @@
     - Meist nach 10 Jahren verjährt
     - Periodische Forderungen verjähren nach 5 Jahren
     - Zweck: Erhaltung der Rechtssicherheit und des Rechtsfriedens
+
+---
+## Vorlesung 4
+### Einführung in die Rechtsordnung
+- (Ab Folie 10)
+- Anforderung an die Rechtsordnung
+    - Muss sich verändern, anpassen
+    - Recht muss durchgesetzt werden können
+- Objektives Recht
+    - Öffentliches Recht (z.B. Bundesverfassung)
+        - ist zwingend
+        - regelt Beziehung Staat <-> Gesellschaft
+        - regelt Organisation des Staates
+        - Der Staat ist mit hoheiltichen Befugnissen ausgestattet (*Subordinationsprinzip*)
+        - *Legalitätsprinzip*: "Prinzip der Gesetzmässigkeit". Staatliches Handeln muss immer eine gesetzliche Grundlage haben
+        - *Offizialmaxime*: Es gibt Rechtsgegenstände, die von Amtes wegen verfolgt werden müssen (z.B. Tötungsdelikt)
+    - Privatrecht (z.B. ZGB, OR)
+        - Regelt Beziehung zwischen einzelnen Mitglieder der Gesellschaft
+        - Zwischen zwei gleichberechtigten Rechtssubjekten
+        - Auch der Staat kann im Privatrecht agieren
+        - Grundsätzlich abänderbar (dispositiv)
+        - *Privatautonomie*: Parteien sind frei im Handeln. z.B. Vertragsfreiheit (OR 19). Solange es nicht gegen öffentliches / persönliches Recht verstösst oder "gegen die guten Sitten"
+        - *Koordinationsprinzip*: 
+    - 

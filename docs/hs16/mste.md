@@ -106,4 +106,61 @@
     - `~MyClass() {...}`
     - Wird vom GC aufgerufen
 - *Evtl. Prüfungsaufgabe zu Initialisierungs-Reihenfolge*
-- 
+
+## Vorlesung 4 - Vererbung (Selbststudium)
+- Structs sind nicht vererbbar, können aber interfaces implementieren
+- Prüfen ("instanceof"): `obj is T`
+- Explizit casten
+    - `(T) obj`, bei Fehler zur RuntimeInvalidCastException
+    - `obj as T`, bei Fehler zur Runtime `null`
+- Methode muss `virtual` markiert werden, damit sie überschrieben werden kann
+- überschreiben mit `public virtual void method1()...`
+- Per default sind Methoden nicht überschreibbar und überschreiben nicht implizit eine virtual Methode
+- `override` Methoden sind aus Subklassen weiter überschreibbar
+- `abstract`-Methoden sind implizit `virtual`
+- Wenn eine Methode aus der Basisklass neu definiert wird (nicht mit `override`), überdeckt sie die Methode der Basisklasse
+    - Mit `public new void ...` markieren, sonst gibt es eine Compilerwarnung
+    - Dies unterbricht Dynamic binding. Von der Base-Klasse her wird die letzte überschriebene genommen
+```csharp
+Base b1 = new SubSub();
+b1.J();
+// Base.J()
+((Sub)b1).J();
+// Sub.J()
+((SubSub)b1).J();
+// SubSub.J()
+```
+- `sealed` Classes verhindern, abgeleitet zu werden
+- überschriebene Methoden, die `seal` verwenden, können von einer weiteren Subklasse nicht mehr überschrieben werden 
+- Mit `new` können sie aber weiterhin überdeckt werden
+- Interface Name-Clash
+    - Wenn Signatur und Rückgabetyp identisch: Eine Implementierung für beide Interfaces
+    - Sonst Methode für jedes Interface explizit implementieren mit `<iface>.<method>`
+    - Es kann auch eine Default-Implementation verwendet werden und für bestimmte Interfaces eine explizite
+- Garbage Collection
+    - `~MyClass() {}` ist Destruktor
+        - Syntactic Sugar für `Finalize()`
+    - Finalize wird vom GC aufgerufen, sollte möglichst schnell sein
+    - `IDisposable` implementieren, um Freigabe selbst zu implementieren
+    - Mit `using () {...}` wird am Ende `Dispose()` aufgerufen
+    - Dispose pattern
+``` csharp
+~DataAccess()
+{ Dispose(false); }
+public void Dispose()
+{
+    Dispose(true);
+    System.GC.SuppressFinalize(this);
+}
+protected virtual void Dispose(bool disposing)
+{
+    if (disposing)
+    {
+        // Dispose managed ressources
+        if (connection != null)
+        { connection.Dispose(); }
+    }
+    // Dispose unmanaged resources
+    }
+```
+    - So werden managed ressourcen von Dispose() aufgerufen, und unmanaged vom Finalize / Destruktor

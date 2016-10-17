@@ -135,3 +135,54 @@ for (auto it=cbegin(v); it != cend(v); ++it) {
 - `ostream_iterator` und `istream_iterator` benutzt `<<` und `>>` für Ein- und Ausgabe
 - Normalerweise werden Leerzeichen ignoriert
 - für char-Types gibt es dafür `istreambuf_iterator`. Einlesen mit `istream::get()`
+
+---
+## Vorlesung 4
+- Gute Funktion:
+    - Macht nur etwas
+    - Möglichst wenig Parameter
+    - Garantiertes Resultat
+- Lambdas
+    - Funktion (oder Lambda) als Parameter übergeben
+```c++
+void foo(std::function<char(char)> function) {
+    std:cout << function('a');
+}
+// main
+auto const g = [](char c) { return c + 1; }
+foo(g);
+```
+    - Scopes werden mit `{}` definiert
+    - Nach dem `}` wird aufgeräumt, auch Objekte!
+- Namespaces
+    - namespace grenzt ein Scope ein
+    - `std::` ist Namespace-Prefix
+    - Globaler Namespace ist unter `::`
+    - Definition mit `namespace myNamespace{..}`
+    - Namespace mit gleichem Name kann mehrmals "geöffnet" werden. Er wird dann erweitert;
+    - "Importieren" (ohne Prefix benutzen) mit `using myNamespace;`
+    - Alias mit `using str=std::string; str t{"myString"};`
+    - Namespace ohne Namensangabe ist anonym. Braucht man, um eigene Funktionen zu "verstecken" und ist nicht von anderen Files aufrufbar
+- Referenzen
+    - Achtung, wenn Referenz noch benutzt wird, aber die referenzierte Variable nicht mehr existiert! -> undefined behaviour
+    - Wenn eine referenz `const` wird, darf die variable darunter auch nicht mehr verändert werden
+    - `&var` ist *lvalue*-Referenz
+    - Referenzen zurück geben
+        - Für chaining nützlich, wenn Parameter schon ref ist
+        - Niemals referenz auf lokale variable zurück geben, nicht mehr gültig!
+    - Streams by value kopieren mit rvalue-Referenzen (`&&`)
+    - `&&` "saugt" den Wert heraus, ist im Original (caller) dann nicht mehr verwendbar
+- Overloading wie in Java, return-type wird nicht beachtet
+- Default Arguments wie in C# (ist ein impliziter overload) und muss im Header-File definiert sein
+- Funktionen als Parameter: `void func(double x, double f(double)) {...}`
+- Error-Handling
+    - z.B. zusätzliches funktionsargument per referenz mitgeben (z.B. boolean)
+    - oder komplizierterer Rückgabewert
+    - Am besten: Exception
+    - Ignorieren des Fehlers (-> undefined behaviour) kann Sinn machen, wenn es schnell sein muss (Aufrufer muss dann Preconditions erfüllen)
+    - exceptions
+        - Mit `throw` kann jeder (kopierbare) typ geworfen werden
+        - Per default keine meta-infos wie stacktrace
+        - `try {...} catch (type const &e) {...}`
+        - Catchen immer mit Referenz auf exception ("Throw by value, catch by const ref")
+        - Catch all: `catch(...)` <- Mit 3 Punkten!

@@ -2,6 +2,8 @@
 ## Presentation
 - 10min
 - Technical Process
+- Structure!
+- Free Speech!
 - Ideas
     - What it takes to go to space / to mars
 
@@ -48,6 +50,16 @@
 12. standarddize, osi model
 
 ## Book Questions
+### People
+- Joseph Henry
+- William Surgeon
+    - Invented Electromagnet
+- Samuel Morse
+
+### INtroduction
+**What would happen if all electrons stopped?**
+
+See Page 3/4
 ### Chapter 1
 **How does a telegraph work?**
 

@@ -48,3 +48,29 @@
 - Use-Case ist *textuelle* Beschreibung "Actor tut das, dann macht das System ..."
 - Geschichte aus Benutzersicht
 - Aktor kann auch externes System sein (als Box dargestellt)
+
+---
+## Vorlesung 5 - NF, SRS, Modelling Behaviour
+- Nichtfunktionale Anforderungen sind Qualitätmerkmale, Randbedingungen, Leistung, Mengen, ...
+- Geht oft vergessen, weil die Anforderung aus Kundensicht angesehen werden muss
+- Sind oft auch implizit / unbewusst
+- "Other Requirements" können solche sein, die in vielen UCs vorkommen bzw. sehr allgemein sind
+
+### Modelling Behaviour
+- Sind formale Beschreibungen (können auch maschineninterpretiert werden)
+#### Zustandsdiagramme
+- Kreis zeigt Initial State
+- Boxen sind Zustände
+    - Name ist Adjektiv
+    - Kann entry und exit-Acitivites haben
+    - do-Acitivty läuft, solange System im Zustand ist
+    - Kann auch interne Events / Übergänge haben (wiee ein Loop zu sich selbst)
+- Übergänge mit angeschriebenen Pfeilen ("Events")
+    - `event [guard] / activity`
+    - `guard` ist Bedingung (precondition)
+    - `activity` wird ausgeführt
+    - Werden "augenblicklich" ausgeführt
+- Endzustand eingerahmter Kreis (à la DEA)
+- Zustände können verschachtelt werden, dass ein einzelner Zustand wieder ein kompletter Ablauf darstellt
+- In einem nested State kann von jedem Zustand aus der nested State verlassen werden (in Folie 15 kann aus jedem Zustand "on hook" ausgelöst werden)
+#### Activity-Diagramme

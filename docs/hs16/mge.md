@@ -3,6 +3,8 @@
 ## Prüfung
 - Pro Teil 1h
 - Pro Teil 10 A4-Seiten Zusammenfassung
+- Teil Android
+    - Kein XML selber schreiben, aber lesen können
 
 ## Vorlesung 1 - Einführung Android
 - Miniprojekt Abgabe Woche 7 und Woche 14
@@ -252,3 +254,10 @@ class DownloadBitmapTask extends AsyncTask<String, Void, Bitmap> {
 
 new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
 ```
+
+---
+## Vorlesung 5 - Material Design
+- Material Design styleguide: <https://material.google.com/>
+- Alle Elemente sollten auf einem Grid von 8dp angeordnet werden
+    - -> Abstand immer Vielfaches von 8
+- Farbkombinationen: <https://material.google.com/style/color.html#color-color-palette>

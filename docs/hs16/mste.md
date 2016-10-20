@@ -164,3 +164,47 @@ protected virtual void Dispose(bool disposing)
     }
 ```
     - So werden managed ressourcen von Dispose() aufgerufen, und unmanaged vom Finalize / Destruktor
+
+
+---
+## Vorlesung 5 - Delegates & Events
+### Delegates
+- Typsichere function-Pointer
+- Rerence-Type, um Methoden als Parameter zu übergeben
+- Delegate kann 0 bis n Methoden beinhalten
+- Definition eines Delegates ist die Deklaration eines neuen Reference-Types (normalerweise ausserhalb von Klassen definieren!)
+- Initialisieren mit `new <delegate-name>(<method-name>)`
+    - Kurzform: Direkt Methode zuweisen: `<var> = <method-name>`
+- Delegate-Instanz kann ausgeführt werden mit `()`
+- Signatur von Methoden wird in Delegate-Definition festgelegt
+- Jede Methode mit richtiger Signatur kann zu Delegate zugewiesen werden
+- Methode kann instanzbezogen sein: `obj.Method`, `obj` ist eine Instanz
+- Es sollte vor dem Aufruf geprüft werden, ob das Delegate != null ist
+    - Ab C# 6.0 `delegateVar?.Invoke(params)`
+
+#### Multicast-Delegates
+- Jedem Delegate können mehrere Methoden hinterlegt werden
+- Zuweisung mit `+=` und `-=`
+- Beim Ausführen werden die Methoden sequentiell ausgeführt
+- Im Hintergrund baut der compiler eine Klasse, die von `MulticastDelegate` erbt
+- Wenn mehrere Delegate-Methoden einen Rückgabewert geben, wird der letzte genommen
+- Anwendung z.B. bei `List.Sort(Comparison<T>)`
+
+### Events
+- Compiler-Feature für Delegates
+- Bei Instanzierung von Delegate `public event <Delegate> <var>` verwenden
+- Delegate wird intern private deklariert
+- generiert Methoden für Subscribe und Unsubscribe
+- Observers anmelden mit += und -=
+- Verhält sich gleich, als ob man einfach das Delegate-Feld in der Klasse public macht, aber von aussen kann das Delegate nicht ausgeführt werden (wäre sehr schlecht)
+- Best Practice:
+    - `public delegate void AnyHandler(object sender, AnyEventArgs e);`
+    - `AnyEventArgs` ist eine Subklasse von `EventArgs`
+    - Grund: Wenn z.B. Library erweitert wird, ändert sich Delegate-Signatur nicht, es wird nur die EventArgs-Klasse erweitert. Der Client-Code funktioniert weiterhin
+
+### Anonyme Methoden
+```cs
+list.ForEach(delegate(int i)
+    { Console.WriteLine(i); }
+);
+```

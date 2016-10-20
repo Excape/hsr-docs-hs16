@@ -45,3 +45,36 @@
     - Übergänge zu anderen States werden in Antwort mitgeschickt (in Form von URIs)
     - Aufgrund der Antwort kann der Client dann schliessen, wie er weiter machen muss (z.B. continue, cancel) und den entsprechenden Links folgen
     - URI kann serverseitig geändert werden
+
+---
+## Vorlesung 5 - Flexibles Layout
+- Flexibles Layout: Seite passt sich Geräte-Grösse an, z.B. fliesst der Text automatisch
+- Responsive Design: Auf unterschiedlichen Grössen werden verschiedene layouts eingesetzt (mit bestimmten Break-Points)
+- `content-box`: Höhe und Breite bezieht sich nur auf den content
+- `border-box`: Höhe und Breite bezieht sich auf content + padding + border
+- `overflow`: Verhalten, wenn der Text zu viel Platz für die Box beansprucht ("overflowed")
+    - Default `visible`: Text fliesst über Box hinaus
+    - `hidden`: überfliessender Text wird abgeschnitten
+    - `scroll`: Scroll-Balken anzeigen
+- position `absolute`: Position ist relativ zum ersten Parent (das `relative` oder `absolute` ist, spätestens body)
+- position `fixed`: Feste Position auf dem Screen
+- Bei beiden `top`, `left`, `bottom`, `right` für die Abstände
+- default ist `position: static`
+- Kombination: Einige Elemente absolute positionieren, und dann z.B. Elemente im Flow lassen, aber die margin entsprechend vergrössern
+- `inline-block`: Ein Block mit margin / padding, width / height, der Inline dargestellt wird
+    - Anordnung zu anderen Blocks in gleicher Zeile mit `vertical-align`
+
+### Flexbox
+<https://css-tricks.com/snippets/css/a-guide-to-flexbox/>
+
+- Definiert mit `display: flex` bzw. `inline-flex`
+- Alle Blocks innerhalb einer Flexbox sind "inline blocks"
+- `flex-direction`: `column` für Elemente untereinander, `row` für Elemente in einer Zeile
+- `flex: <flex-grow> <flex-shrink> <flex-basis>`
+    - grow, shrink: Faktor, wie die Box verkleinert / vergrössert werden kann
+- `flex: 0 0 50px` heisst eine fixe Grösse von 50px
+- `justify-content`
+    - `flex-start`: An start positionieren (links bzw. oben)
+    - `space-between`: Gleicher Abstand zwischen Elementen
+    - `space-around`: Gleicher Abstand um Elemente herum
+- 

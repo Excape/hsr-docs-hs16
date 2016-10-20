@@ -129,7 +129,7 @@ $$\rightarrow h \in O(log(n))$$
 
 #### Performance
 - Splaying: \(O(h)\)
-    - Durchschnittlich \(O(\logn)\)
+    - Durchschnittlich \(O(logn)\)
     - Worst case ist Höhe h = n, d.h. \(O(n)\)
 - Oft besuchte Knoten kommen immer näher an die Root, d.h es wird schneller
 - Anwendung z.B. bei Suchmaschinen
@@ -166,3 +166,39 @@ $$\rightarrow h \in O(log(n))$$
     - in und out swappen
     - usw... Es wird immer verdoppelt
     - Quasi im rekurvis-Baum "Bottom up"
+
+---
+## Vorlesung 5 - Quick-Sort
+- Vergleich Insertion-Sort (\(O(n^2)\)) und Merge-Sort (\(O(n log n)): Bei \(2^{14}\) Elementen ist Merge-Sort 100x schneller, bei 1 Mio. Elementen ist es 6'400x schneller
+- Insertion Sort würde für 1 Mio. Elemente ca. 1h 47' benötigen, merge-Sort nur einige Sekunden
+
+### Quick-Sort
+- Partitionierung in 3 Mengen: Less, Equal und Greater mit einem Pivot x
+    - Jedes Element in die richtige Menge kopieren -> \(O(n)\)
+- Rekursiver Aufruf mit L und G
+- Zusammensetzen: L, E, G hintereinander wieder einfügen
+
+![Vergleich Sortieralgorithmen](img/quicksort_tree.png)
+
+- Wenn der Pivot immer das minimum oder maximum ist, gibt es einen einseitigen "tree", d.h Worst-Case ist \(O(n^2)\)
+- Der optimale Pivot wäre der mittlere Wert
+- Wenn die Daten normalverteilt sind, gibt es zu 50% "bad-calls" bei zufälliger Wahl des Pivots (1. und 4. Viertel)
+- Erwartet wird ein Baum mit Höhe \(log n\). Jedes Level benötigt \(O(n)\), also total \(O(n log n)\)
+- In-Place Quicksort
+    - Worst-Case: Wenn die Liste bereits sortiert ist
+
+### Sorting Lower Bound
+- Jede Permutation von Daten zeigt einen Pfad durch den Entscheidungsbaum
+- Das gibt n! Permutationen, also ist die Höhe des Baumes log(n!)
+$$n^n > n! > {\frac n2}^{\frac n2}$$
+- Die Untere Grenze für *Vergleichs*algorithmen ist \(O(n log(n))\)
+
+### Bucket-Sort
+- Eine Sequenz mit Key-Value-Paaren
+- Jedes Item in ein Array mit dem Key als Index kopieren
+    - Genauer ein Array von Listen, Elemente mit gleichem Key werden der Liste angehängt
+- Array durch iterieren und der Reihe nach ausgeben
+- Laufzeit: \(O(n + N)\), wobei N der grösstmögliche Wert der Keys ist
+    - Kein Widerspruch zu oben, weil Algorithmus nicht vergleichs-basiert ist
+- Eingeschränkt auf ganze, positive Zahlen
+- *Stabile* Sort-Eigenschaft: die relative Ordnung von Items mit gleichem Wert wird nicht verändert

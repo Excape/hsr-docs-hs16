@@ -186,3 +186,75 @@ foo(g);
         - `try {...} catch (type const &e) {...}`
         - Catchen immer mit Referenz auf exception ("Throw by value, catch by const ref")
         - Catch all: `catch(...)` <- Mit 3 Punkten!
+        - In `stdexcept` sind exception types, z.B. `std::logic_error` und `std::runtime_error`
+        - Message in Konstruktor mitgeben, im catch mit `e.what()` aufrufen
+        - Testen in CUTE mit `ASSERT_THROWS(<code>, <expected exception type>)`
+```c++
+try {
+    // throwing code
+    throw <value>;
+} catch (<type> const & e) {
+    // Exception handling
+}
+```
+
+---
+## Vorlesung 5 - Classes and Enums
+- Eine gute Klasse hat eine Invariant, eine Garantie über den Status der Klasse
+- Klasse wird normalerweise im Header definiert mit `Class <name> {...};`
+    - Ein Verwender der Klasse muss wissen, wie der Speicher der Klasse aufgebaut ist, darum ist die Klasse mit Members im Header definiert
+    - Einzelne Sektionen `public:`, `private:`, `protected:`
+    - Bei Klassen sind funktionen implizit private, bei structs public
+- Konstruktor: `Class(value1, value2) : member{value1}, member2{value2}`
+    - In Reihenfolge der Member-Deklaration
+- Kopier-Konstruktor: Wird dann ausgeführt, wenn einer instanzierung der eigene Typ als argument mitgegeben wird: `Date d2{d1}`
+    - Ist implizit verfügbar: `Date(Date const &)`
+- Move-Konstruktor ebenfalls implizit vorhanden
+- `explicit Date(std::string const &)`, um dem Konstruktor einen anderen Datentyp mitzugeben, um sie in den Typ zu verwandeln
+- Destruktor: `~Date();` ist implizit vorhanden, sollte selten explizit implementiert werden. Wird beim Aufräumen aufgerufen
+- Vererbung mit `class Sub : public Base {...};` angeben
+    - Folie 19: onyInBase ist private
+    - Wenn `private` geerbt wird, kann man in Sub auf die private Member von Base zugreifen, aber nicht ausserhalb von Sub
+    - Mehrfachvererbung möglich
+- Implementierung: Jeweils `<type>::<function> {...}`
+- Statische Funktionen aufrufen mit `type::function`
+- `const` Funktionen können keine Klassen-Felder verändern
+- Im Konstruktor prüfen, ob die Daten (z.B. das Datum) gültig ist
+    - Establishes invariant
+- Konstruktoren delegieren: `Date::Date() : Date{1980, 1, 1}` wie `this()` in Java
+- member-Funktionen darf invarianz nicht kaputt machen
+- Expliziter Zugriff auf Felder mit `this-><member>`
+- Static Functions brauchen keine static-Deklartion in der Implementierung
+    - Können nicht `const` sein
+- `static const`-Felder können direkt im Header initialisiert werden
+- Operator-Overloading
+    - `<returntype> operator<op> (<parameters>)`
+    - Ein Parameter für unäre Operatoren, zwei für binäre
+    - Ausnahme: inkrement, dekrement prefix nimmt zwei parameter, um prefix und suffix zu unterscheiden
+    - Wenn overloading im header-File implementiert wird, mit `inline` deklarieren
+    - Problem mit "free" Operator (ausserhalb der Klasse): Kein Zugriff auf private Members
+    - Alternative: Operator Overloading als Member in die Klasse hinein nehmen. Nur noch 1 Parameter für right-hand-side (linke Seite ist this-Objekt). Ist implizit `inline`
+    - `std::tie()` vergleicht komponentenweise zwei Elemente
+```c++
+bool Date::operator<(Date const & rhs) const {
+    return std::tie(year, month, day) <
+    std::tie(rhs.year, rhs.month, rhs.day);
+}
+```
+    - Mit boost kann man z.B. `<` implementieren, und bekommt dann `>, <= und >=` (Erben von `boost::less_than_comparable<myType>`)
+    - `<<` überschreiben für Ausgabe
+        - Problem: in Member-Funktion ist das linke Argument vorgegeben mit `this`, dann müsste der Stream rechts von `<<` sein
+        - Lösung: Hilfsfunktion `print()` in der Klasse, die von freier Funktion aufgerufen wird
+```c++
+class Date {
+    int year, month, day;
+public:
+    std::ostream & print(std::ostream & os) const {
+        os << year << "/" << month << "/" << day;
+        return os;
+    }
+};
+inline std::ostream & operator<<(std::ostream & os, Date const & date){
+    return date.print(os);
+}
+```

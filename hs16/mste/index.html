@@ -136,6 +136,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-4-vererbung-selbststudium">Vorlesung 4 - Vererbung (Selbststudium)</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-5-delegates-events">Vorlesung 5 - Delegates &amp; Events</a></li>
+                
             
             </ul>
         
@@ -417,6 +419,56 @@ protected virtual void Dispose(bool disposing)
 </code></pre>
 
 <pre><code>- So werden managed ressourcen von Dispose() aufgerufen, und unmanaged vom Finalize / Destruktor
+</code></pre>
+<hr />
+<h2 id="vorlesung-5-delegates-events">Vorlesung 5 - Delegates &amp; Events</h2>
+<h3 id="delegates">Delegates</h3>
+<ul>
+<li>Typsichere function-Pointer</li>
+<li>Rerence-Type, um Methoden als Parameter zu übergeben</li>
+<li>Delegate kann 0 bis n Methoden beinhalten</li>
+<li>Definition eines Delegates ist die Deklaration eines neuen Reference-Types (normalerweise ausserhalb von Klassen definieren!)</li>
+<li>Initialisieren mit <code>new &lt;delegate-name&gt;(&lt;method-name&gt;)</code><ul>
+<li>Kurzform: Direkt Methode zuweisen: <code>&lt;var&gt; = &lt;method-name&gt;</code></li>
+</ul>
+</li>
+<li>Delegate-Instanz kann ausgeführt werden mit <code>()</code></li>
+<li>Signatur von Methoden wird in Delegate-Definition festgelegt</li>
+<li>Jede Methode mit richtiger Signatur kann zu Delegate zugewiesen werden</li>
+<li>Methode kann instanzbezogen sein: <code>obj.Method</code>, <code>obj</code> ist eine Instanz</li>
+<li>Es sollte vor dem Aufruf geprüft werden, ob das Delegate != null ist<ul>
+<li>Ab C# 6.0 <code>delegateVar?.Invoke(params)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="multicast-delegates">Multicast-Delegates</h4>
+<ul>
+<li>Jedem Delegate können mehrere Methoden hinterlegt werden</li>
+<li>Zuweisung mit <code>+=</code> und <code>-=</code></li>
+<li>Beim Ausführen werden die Methoden sequentiell ausgeführt</li>
+<li>Im Hintergrund baut der compiler eine Klasse, die von <code>MulticastDelegate</code> erbt</li>
+<li>Wenn mehrere Delegate-Methoden einen Rückgabewert geben, wird der letzte genommen</li>
+<li>Anwendung z.B. bei <code>List.Sort(Comparison&lt;T&gt;)</code></li>
+</ul>
+<h3 id="events">Events</h3>
+<ul>
+<li>Compiler-Feature für Delegates</li>
+<li>Bei Instanzierung von Delegate <code>public event &lt;Delegate&gt; &lt;var&gt;</code> verwenden</li>
+<li>Delegate wird intern private deklariert</li>
+<li>generiert Methoden für Subscribe und Unsubscribe</li>
+<li>Observers anmelden mit += und -=</li>
+<li>Verhält sich gleich, als ob man einfach das Delegate-Feld in der Klasse public macht, aber von aussen kann das Delegate nicht ausgeführt werden (wäre sehr schlecht)</li>
+<li>Best Practice:<ul>
+<li><code>public delegate void AnyHandler(object sender, AnyEventArgs e);</code></li>
+<li><code>AnyEventArgs</code> ist eine Subklasse von <code>EventArgs</code></li>
+<li>Grund: Wenn z.B. Library erweitert wird, ändert sich Delegate-Signatur nicht, es wird nur die EventArgs-Klasse erweitert. Der Client-Code funktioniert weiterhin</li>
+</ul>
+</li>
+</ul>
+<h3 id="anonyme-methoden">Anonyme Methoden</h3>
+<pre><code class="cs">list.ForEach(delegate(int i)
+    { Console.WriteLine(i); }
+);
 </code></pre>
               
             </div>

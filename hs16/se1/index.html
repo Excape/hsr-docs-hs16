@@ -141,6 +141,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-4-requirements">Vorlesung 4 - Requirements</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-5-nf-srs-modelling-behaviour">Vorlesung 5 - NF, SRS, Modelling Behaviour</a></li>
+                
             
             </ul>
         
@@ -270,6 +272,40 @@
 <li>Geschichte aus Benutzersicht</li>
 <li>Aktor kann auch externes System sein (als Box dargestellt)</li>
 </ul>
+<hr />
+<h2 id="vorlesung-5-nf-srs-modelling-behaviour">Vorlesung 5 - NF, SRS, Modelling Behaviour</h2>
+<ul>
+<li>Nichtfunktionale Anforderungen sind Qualitätmerkmale, Randbedingungen, Leistung, Mengen, ...</li>
+<li>Geht oft vergessen, weil die Anforderung aus Kundensicht angesehen werden muss</li>
+<li>Sind oft auch implizit / unbewusst</li>
+<li>"Other Requirements" können solche sein, die in vielen UCs vorkommen bzw. sehr allgemein sind</li>
+</ul>
+<h3 id="modelling-behaviour">Modelling Behaviour</h3>
+<ul>
+<li>Sind formale Beschreibungen (können auch maschineninterpretiert werden)</li>
+</ul>
+<h4 id="zustandsdiagramme">Zustandsdiagramme</h4>
+<ul>
+<li>Kreis zeigt Initial State</li>
+<li>Boxen sind Zustände<ul>
+<li>Name ist Adjektiv</li>
+<li>Kann entry und exit-Acitivites haben</li>
+<li>do-Acitivty läuft, solange System im Zustand ist</li>
+<li>Kann auch interne Events / Übergänge haben (wiee ein Loop zu sich selbst)</li>
+</ul>
+</li>
+<li>Übergänge mit angeschriebenen Pfeilen ("Events")<ul>
+<li><code>event [guard] / activity</code></li>
+<li><code>guard</code> ist Bedingung (precondition)</li>
+<li><code>activity</code> wird ausgeführt</li>
+<li>Werden "augenblicklich" ausgeführt</li>
+</ul>
+</li>
+<li>Endzustand eingerahmter Kreis (à la DEA)</li>
+<li>Zustände können verschachtelt werden, dass ein einzelner Zustand wieder ein kompletter Ablauf darstellt</li>
+<li>In einem nested State kann von jedem Zustand aus der nested State verlassen werden (in Folie 15 kann aus jedem Zustand "on hook" ausgelöst werden)</li>
+</ul>
+<h4 id="activity-diagramme">Activity-Diagramme</h4>
               
             </div>
           </div>

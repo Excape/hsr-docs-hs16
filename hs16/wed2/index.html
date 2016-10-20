@@ -146,6 +146,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-4-rest">Vorlesung 4 - REST</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-5-flexibles-layout">Vorlesung 5 - Flexibles Layout</a></li>
+                
             
             </ul>
         
@@ -260,6 +262,48 @@
 <li>URI kann serverseitig geändert werden</li>
 </ul>
 </li>
+</ul>
+<hr />
+<h2 id="vorlesung-5-flexibles-layout">Vorlesung 5 - Flexibles Layout</h2>
+<ul>
+<li>Flexibles Layout: Seite passt sich Geräte-Grösse an, z.B. fliesst der Text automatisch</li>
+<li>Responsive Design: Auf unterschiedlichen Grössen werden verschiedene layouts eingesetzt (mit bestimmten Break-Points)</li>
+<li><code>content-box</code>: Höhe und Breite bezieht sich nur auf den content</li>
+<li><code>border-box</code>: Höhe und Breite bezieht sich auf content + padding + border</li>
+<li><code>overflow</code>: Verhalten, wenn der Text zu viel Platz für die Box beansprucht ("overflowed")<ul>
+<li>Default <code>visible</code>: Text fliesst über Box hinaus</li>
+<li><code>hidden</code>: überfliessender Text wird abgeschnitten</li>
+<li><code>scroll</code>: Scroll-Balken anzeigen</li>
+</ul>
+</li>
+<li>position <code>absolute</code>: Position ist relativ zum ersten Parent (das <code>relative</code> oder <code>absolute</code> ist, spätestens body)</li>
+<li>position <code>fixed</code>: Feste Position auf dem Screen</li>
+<li>Bei beiden <code>top</code>, <code>left</code>, <code>bottom</code>, <code>right</code> für die Abstände</li>
+<li>default ist <code>position: static</code></li>
+<li>Kombination: Einige Elemente absolute positionieren, und dann z.B. Elemente im Flow lassen, aber die margin entsprechend vergrössern</li>
+<li><code>inline-block</code>: Ein Block mit margin / padding, width / height, der Inline dargestellt wird<ul>
+<li>Anordnung zu anderen Blocks in gleicher Zeile mit <code>vertical-align</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="flexbox">Flexbox</h3>
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></p>
+<ul>
+<li>Definiert mit <code>display: flex</code> bzw. <code>inline-flex</code></li>
+<li>Alle Blocks innerhalb einer Flexbox sind "inline blocks"</li>
+<li><code>flex-direction</code>: <code>column</code> für Elemente untereinander, <code>row</code> für Elemente in einer Zeile</li>
+<li><code>flex: &lt;flex-grow&gt; &lt;flex-shrink&gt; &lt;flex-basis&gt;</code><ul>
+<li>grow, shrink: Faktor, wie die Box verkleinert / vergrössert werden kann</li>
+</ul>
+</li>
+<li><code>flex: 0 0 50px</code> heisst eine fixe Grösse von 50px</li>
+<li><code>justify-content</code><ul>
+<li><code>flex-start</code>: An start positionieren (links bzw. oben)</li>
+<li><code>space-between</code>: Gleicher Abstand zwischen Elementen</li>
+<li><code>space-around</code>: Gleicher Abstand um Elemente herum</li>
+</ul>
+</li>
+<li></li>
 </ul>
               
             </div>

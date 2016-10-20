@@ -82,6 +82,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-4-splay-trees-merge-sort">Vorlesung 4 - Splay-Trees / Merge-Sort</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-5-quick-sort">Vorlesung 5 - Quick-Sort</a></li>
+                
             
             </ul>
         
@@ -384,7 +386,7 @@ Konstanten heraus streichen:
 <ul>
 <li>Splaying: <script type="math/tex">O(h)</script>
 <ul>
-<li>Durchschnittlich <script type="math/tex">O(\logn)</script>
+<li>Durchschnittlich <script type="math/tex">O(logn)</script>
 </li>
 <li>Worst case ist Höhe h = n, d.h. <script type="math/tex">O(n)</script>
 </li>
@@ -442,6 +444,59 @@ Konstanten heraus streichen:
 <li>Quasi im rekurvis-Baum "Bottom up"</li>
 </ul>
 </li>
+</ul>
+<hr />
+<h2 id="vorlesung-5-quick-sort">Vorlesung 5 - Quick-Sort</h2>
+<ul>
+<li>Vergleich Insertion-Sort (<script type="math/tex">O(n^2)</script>) und Merge-Sort (<script type="math/tex">O(n log n)): Bei \(2^{14}</script> Elementen ist Merge-Sort 100x schneller, bei 1 Mio. Elementen ist es 6'400x schneller</li>
+<li>Insertion Sort würde für 1 Mio. Elemente ca. 1h 47' benötigen, merge-Sort nur einige Sekunden</li>
+</ul>
+<h3 id="quick-sort">Quick-Sort</h3>
+<ul>
+<li>Partitionierung in 3 Mengen: Less, Equal und Greater mit einem Pivot x<ul>
+<li>Jedes Element in die richtige Menge kopieren -&gt; <script type="math/tex">O(n)</script>
+</li>
+</ul>
+</li>
+<li>Rekursiver Aufruf mit L und G</li>
+<li>Zusammensetzen: L, E, G hintereinander wieder einfügen</li>
+</ul>
+<p><img alt="Vergleich Sortieralgorithmen" src="../img/quicksort_tree.png" /></p>
+<ul>
+<li>Wenn der Pivot immer das minimum oder maximum ist, gibt es einen einseitigen "tree", d.h Worst-Case ist <script type="math/tex">O(n^2)</script>
+</li>
+<li>Der optimale Pivot wäre der mittlere Wert</li>
+<li>Wenn die Daten normalverteilt sind, gibt es zu 50% "bad-calls" bei zufälliger Wahl des Pivots (1. und 4. Viertel)</li>
+<li>Erwartet wird ein Baum mit Höhe <script type="math/tex">log n</script>. Jedes Level benötigt <script type="math/tex">O(n)</script>, also total <script type="math/tex">O(n log n)</script>
+</li>
+<li>In-Place Quicksort<ul>
+<li>Worst-Case: Wenn die Liste bereits sortiert ist</li>
+</ul>
+</li>
+</ul>
+<h3 id="sorting-lower-bound">Sorting Lower Bound</h3>
+<ul>
+<li>Jede Permutation von Daten zeigt einen Pfad durch den Entscheidungsbaum</li>
+<li>Das gibt n! Permutationen, also ist die Höhe des Baumes log(n!)
+<script type="math/tex; mode=display">n^n > n! > {\frac n2}^{\frac n2}</script>
+</li>
+<li>Die Untere Grenze für <em>Vergleichs</em>algorithmen ist <script type="math/tex">O(n log(n))</script>
+</li>
+</ul>
+<h3 id="bucket-sort">Bucket-Sort</h3>
+<ul>
+<li>Eine Sequenz mit Key-Value-Paaren</li>
+<li>Jedes Item in ein Array mit dem Key als Index kopieren<ul>
+<li>Genauer ein Array von Listen, Elemente mit gleichem Key werden der Liste angehängt</li>
+</ul>
+</li>
+<li>Array durch iterieren und der Reihe nach ausgeben</li>
+<li>Laufzeit: <script type="math/tex">O(n + N)</script>, wobei N der grösstmögliche Wert der Keys ist<ul>
+<li>Kein Widerspruch zu oben, weil Algorithmus nicht vergleichs-basiert ist</li>
+</ul>
+</li>
+<li>Eingeschränkt auf ganze, positive Zahlen</li>
+<li><em>Stabile</em> Sort-Eigenschaft: die relative Ordnung von Items mit gleichem Wert wird nicht verändert</li>
 </ul>
               
             </div>

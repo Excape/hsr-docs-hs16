@@ -113,6 +113,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-4">Vorlesung 4</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-5-classes-and-enums">Vorlesung 5 - Classes and Enums</a></li>
+                
             
             </ul>
         
@@ -426,11 +428,98 @@ foo(g);
 <li><code>try {...} catch (type const &amp;e) {...}</code></li>
 <li>Catchen immer mit Referenz auf exception ("Throw by value, catch by const ref")</li>
 <li>Catch all: <code>catch(...)</code> &lt;- Mit 3 Punkten!</li>
+<li>In <code>stdexcept</code> sind exception types, z.B. <code>std::logic_error</code> und <code>std::runtime_error</code></li>
+<li>Message in Konstruktor mitgeben, im catch mit <code>e.what()</code> aufrufen</li>
+<li>Testen in CUTE mit <code>ASSERT_THROWS(&lt;code&gt;, &lt;expected exception type&gt;)</code></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<pre><code class="c++">try {
+    // throwing code
+    throw &lt;value&gt;;
+} catch (&lt;type&gt; const &amp; e) {
+    // Exception handling
+}
+</code></pre>
+
+<hr />
+<h2 id="vorlesung-5-classes-and-enums">Vorlesung 5 - Classes and Enums</h2>
+<ul>
+<li>Eine gute Klasse hat eine Invariant, eine Garantie über den Status der Klasse</li>
+<li>Klasse wird normalerweise im Header definiert mit <code>Class &lt;name&gt; {...};</code><ul>
+<li>Ein Verwender der Klasse muss wissen, wie der Speicher der Klasse aufgebaut ist, darum ist die Klasse mit Members im Header definiert</li>
+<li>Einzelne Sektionen <code>public:</code>, <code>private:</code>, <code>protected:</code></li>
+<li>Bei Klassen sind funktionen implizit private, bei structs public</li>
+</ul>
+</li>
+<li>Konstruktor: <code>Class(value1, value2) : member{value1}, member2{value2}</code><ul>
+<li>In Reihenfolge der Member-Deklaration</li>
+</ul>
+</li>
+<li>Kopier-Konstruktor: Wird dann ausgeführt, wenn einer instanzierung der eigene Typ als argument mitgegeben wird: <code>Date d2{d1}</code><ul>
+<li>Ist implizit verfügbar: <code>Date(Date const &amp;)</code></li>
+</ul>
+</li>
+<li>Move-Konstruktor ebenfalls implizit vorhanden</li>
+<li><code>explicit Date(std::string const &amp;)</code>, um dem Konstruktor einen anderen Datentyp mitzugeben, um sie in den Typ zu verwandeln</li>
+<li>Destruktor: <code>~Date();</code> ist implizit vorhanden, sollte selten explizit implementiert werden. Wird beim Aufräumen aufgerufen</li>
+<li>Vererbung mit <code>class Sub : public Base {...};</code> angeben<ul>
+<li>Folie 19: onyInBase ist private</li>
+<li>Wenn <code>private</code> geerbt wird, kann man in Sub auf die private Member von Base zugreifen, aber nicht ausserhalb von Sub</li>
+<li>Mehrfachvererbung möglich</li>
+</ul>
+</li>
+<li>Implementierung: Jeweils <code>&lt;type&gt;::&lt;function&gt; {...}</code></li>
+<li>Statische Funktionen aufrufen mit <code>type::function</code></li>
+<li><code>const</code> Funktionen können keine Klassen-Felder verändern</li>
+<li>Im Konstruktor prüfen, ob die Daten (z.B. das Datum) gültig ist<ul>
+<li>Establishes invariant</li>
+</ul>
+</li>
+<li>Konstruktoren delegieren: <code>Date::Date() : Date{1980, 1, 1}</code> wie <code>this()</code> in Java</li>
+<li>member-Funktionen darf invarianz nicht kaputt machen</li>
+<li>Expliziter Zugriff auf Felder mit <code>this-&gt;&lt;member&gt;</code></li>
+<li>Static Functions brauchen keine static-Deklartion in der Implementierung<ul>
+<li>Können nicht <code>const</code> sein</li>
+</ul>
+</li>
+<li><code>static const</code>-Felder können direkt im Header initialisiert werden</li>
+<li>Operator-Overloading<ul>
+<li><code>&lt;returntype&gt; operator&lt;op&gt; (&lt;parameters&gt;)</code></li>
+<li>Ein Parameter für unäre Operatoren, zwei für binäre</li>
+<li>Ausnahme: inkrement, dekrement prefix nimmt zwei parameter, um prefix und suffix zu unterscheiden</li>
+<li>Wenn overloading im header-File implementiert wird, mit <code>inline</code> deklarieren</li>
+<li>Problem mit "free" Operator (ausserhalb der Klasse): Kein Zugriff auf private Members</li>
+<li>Alternative: Operator Overloading als Member in die Klasse hinein nehmen. Nur noch 1 Parameter für right-hand-side (linke Seite ist this-Objekt). Ist implizit <code>inline</code></li>
+<li><code>std::tie()</code> vergleicht komponentenweise zwei Elemente</li>
+</ul>
+</li>
+</ul>
+<pre><code class="c++">bool Date::operator&lt;(Date const &amp; rhs) const {
+    return std::tie(year, month, day) &lt;
+    std::tie(rhs.year, rhs.month, rhs.day);
+}
+</code></pre>
+
+<pre><code>- Mit boost kann man z.B. `&lt;` implementieren, und bekommt dann `&gt;, &lt;= und &gt;=` (Erben von `boost::less_than_comparable&lt;myType&gt;`)
+- `&lt;&lt;` überschreiben für Ausgabe
+    - Problem: in Member-Funktion ist das linke Argument vorgegeben mit `this`, dann müsste der Stream rechts von `&lt;&lt;` sein
+    - Lösung: Hilfsfunktion `print()` in der Klasse, die von freier Funktion aufgerufen wird
+</code></pre>
+<pre><code class="c++">class Date {
+    int year, month, day;
+public:
+    std::ostream &amp; print(std::ostream &amp; os) const {
+        os &lt;&lt; year &lt;&lt; &quot;/&quot; &lt;&lt; month &lt;&lt; &quot;/&quot; &lt;&lt; day;
+        return os;
+    }
+};
+inline std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, Date const &amp; date){
+    return date.print(os);
+}
+</code></pre>
               
             </div>
           </div>

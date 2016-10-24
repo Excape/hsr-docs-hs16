@@ -140,6 +140,8 @@
             
                 <li class="toctree-l3"><a href="#web-engineering-design-2">Web Engineering + Design 2</a></li>
                 
+                    <li><a class="toctree-l4" href="#links">Links</a></li>
+                
                     <li><a class="toctree-l4" href="#prufung">Prüfung</a></li>
                 
                     <li><a class="toctree-l4" href="#vorlesung-2-nodejs">Vorlesung 2 - NodeJS</a></li>
@@ -147,6 +149,8 @@
                     <li><a class="toctree-l4" href="#vorlesung-4-rest">Vorlesung 4 - REST</a></li>
                 
                     <li><a class="toctree-l4" href="#vorlesung-5-flexibles-layout">Vorlesung 5 - Flexibles Layout</a></li>
+                
+                    <li><a class="toctree-l4" href="#vorlesung-6-responsive-layout">Vorlesung 6 - Responsive Layout</a></li>
                 
             
             </ul>
@@ -205,6 +209,10 @@
             <div class="section">
               
                 <h1 id="web-engineering-design-2">Web Engineering + Design 2</h1>
+<h2 id="links">Links</h2>
+<ul>
+<li>CSS-Elemente zentrieren: <a href="https://wiki.selfhtml.org/wiki/CSS/Anwendung_und_Praxis/Inhalte_zentrieren">https://wiki.selfhtml.org/wiki/CSS/Anwendung_und_Praxis/Inhalte_zentrieren</a></li>
+</ul>
 <h2 id="prufung">Prüfung</h2>
 <ul>
 <li>2h, closed book</li>
@@ -303,7 +311,63 @@
 <li><code>space-around</code>: Gleicher Abstand um Elemente herum</li>
 </ul>
 </li>
-<li></li>
+</ul>
+<h3 id="analyse-realistischer-layouts">Analyse realistischer layouts</h3>
+<ul>
+<li>Mobile Layout mit <code>display:block</code><ul>
+<li>Elemente werden in Reihenfolge des HTML angezeigt</li>
+</ul>
+</li>
+<li>Mobile layout mit <code>flex</code><ul>
+<li>Reihenfolge kann verändert werden</li>
+<li>Braucht media queries für flexible layouts</li>
+</ul>
+</li>
+</ul>
+<h3 id="browser-support">Browser support</h3>
+<ul>
+<li>Graceful Degredation: Alle modernen Features nutzen, wenn nicht vorhanden, alternativen anbieten oder Hinweise einblenden</li>
+<li>Progressive Enhancement: Starten mit Grundfunktionalität für alle Browser, dann darauf aufbauen mit CSS und JS</li>
+<li>"Graceful Degradation" ist günstiger für die Entwicklung aber
+normalerweise teurer als "Progressive Enhancement" in der Wartung.</li>
+</ul>
+<hr />
+<h2 id="vorlesung-6-responsive-layout">Vorlesung 6 - Responsive Layout</h2>
+<h3 id="media-queries">Media Queries</h3>
+<ul>
+<li>Für unterschiedliche Medien<ul>
+<li><code>@media screen {}</code></li>
+<li><code>@media print {}</code></li>
+</ul>
+</li>
+<li>Für Dimensionen<table>
+<thead>
+<tr>
+<th>- <code>@media ([width|min-width|max-width]: 375px) {}</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- <code>@media ([device-width|min-device-width|max-device-width]: 375px) {}</code></td>
+</tr>
+<tr>
+<td>- <code>@media ([device-height|min-device-height|max-device-height]: 667px) {}</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Spec: <a href="https://www.w3.org/TR/css3-mediaqueries/">https://www.w3.org/TR/css3-mediaqueries/</a></li>
+<li>Kann auch direkt als sepparates Stylesheet geladen werden (HTML5): <code>&lt;link rel="stylesheet“ href=“LargeScreenLayout.css" media="(min-width: 30em)"&gt;</code></li>
+<li>Mobile First Approach: HTML für Mobile Layout schreiben, dann für grössere Displays mit Media Queries anpassen</li>
+</ul>
+<h3 id="viewport">Viewport</h3>
+<pre><code class="html">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+</code></pre>
+
+<ul>
+<li>Deaktiviert die "Intelligenz" von mobilen Browsern</li>
+<li>Sonst funktionieren Media Queries nicht richtig, da der Viewport skaliert wird vom Browser</li>
+<li>Details: <a href="https://vimeo.com/100523275">https://vimeo.com/100523275</a></li>
 </ul>
               
             </div>

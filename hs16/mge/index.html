@@ -131,6 +131,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-5-material-design">Vorlesung 5 - Material Design</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-6-patterns-serivces">Vorlesung 6 - Patterns &amp; Serivces</a></li>
+                
             
             </ul>
         
@@ -508,6 +510,54 @@ new DownloadBitmapTask().execute(&quot;http://slow.hsr.ch/hsr_cat.bmp&quot;);
 </ul>
 </li>
 <li>Farbkombinationen: <a href="https://material.google.com/style/color.html#color-color-palette">https://material.google.com/style/color.html#color-color-palette</a></li>
+</ul>
+<hr />
+<h2 id="vorlesung-6-patterns-serivces">Vorlesung 6 - Patterns &amp; Serivces</h2>
+<h3 id="ui-patterns">UI Patterns</h3>
+<ul>
+<li>Multitier Architecture<ul>
+<li>Aufteilung in (typisch) 3 Layer: Presentation, Domain, Data</li>
+<li>Presentation ist verantwortlich für die Darstellung, hat auf Domain Zugriff</li>
+<li>Domain enthält Business Logik und Domain Klassen</li>
+<li>Data implementiert die Speicherung der Daten und stellt sie der Domain zur Verfügung</li>
+</ul>
+</li>
+<li>Keine Zyklen erlaubt<ul>
+<li>Observer-Pattern verwenden</li>
+</ul>
+</li>
+</ul>
+<h3 id="services">Services</h3>
+<ul>
+<li>Muss im Manifest deklariert werden</li>
+<li>Einmaliger Task -&gt; started Service<ul>
+<li>Läuft im Hintergrund und wird nicht gestoppt, auch wenn die App pausiert / gestoppt wird</li>
+<li>Läuft im gleichen Thread wie das UI!</li>
+<li>Starten über einen Intent <code>startService(intent)</code></li>
+<li><code>onStartCommand()</code> überschreiben, um Task auszuführen</li>
+<li>mit <code>stopSelf()</code> im Service stoppen</li>
+<li>IntentService kommuniziert über Intents, wird dann im <code>onHandleIntent()</code> abgearbeitet</li>
+<li>Stellt einen Worker Thread zur Verfügung</li>
+<li>Problem: Wie kann der Service die Activity benachrichtigen? -&gt; Broadcasts oder "pending Intent"</li>
+</ul>
+</li>
+<li>Client-Server-Kommunikation -&gt; bound service<ul>
+<li>Auch über einen Intent gestartet</li>
+<li>Gibt Interface, über den kommuniziert werden kann</li>
+</ul>
+</li>
+<li>AsyncTask: Aufgabe von Main-Thread entkoppeln. Kombinieren mit Services, um GUI-Thread nicht zu blockieren</li>
+<li>Beide Möglichkeiten brauchen dieselbe Service-Klasse</li>
+</ul>
+<h3 id="broadcast-receiver">Broadcast Receiver</h3>
+<ul>
+<li>Das System versendet Meldungen als Intents</li>
+<li>z.B low battery, Power connected, boot completed, etc.</li>
+<li>Registrierung<ul>
+<li>Statisch im Manifest mit einem intent-Filter</li>
+<li>Dynamisch über einen <code>LocalBroadcastManager</code></li>
+</ul>
+</li>
 </ul>
               
             </div>

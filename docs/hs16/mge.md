@@ -261,3 +261,37 @@ new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
 - Alle Elemente sollten auf einem Grid von 8dp angeordnet werden
     - -> Abstand immer Vielfaches von 8
 - Farbkombinationen: <https://material.google.com/style/color.html#color-color-palette>
+
+---
+## Vorlesung 6 - Patterns & Serivces
+### UI Patterns
+- Multitier Architecture
+    - Aufteilung in (typisch) 3 Layer: Presentation, Domain, Data
+    - Presentation ist verantwortlich für die Darstellung, hat auf Domain Zugriff
+    - Domain enthält Business Logik und Domain Klassen
+    - Data implementiert die Speicherung der Daten und stellt sie der Domain zur Verfügung
+- Keine Zyklen erlaubt
+    - Observer-Pattern verwenden
+### Services
+- Muss im Manifest deklariert werden
+- Einmaliger Task -> started Service
+    - Läuft im Hintergrund und wird nicht gestoppt, auch wenn die App pausiert / gestoppt wird
+    - Läuft im gleichen Thread wie das UI!
+    - Starten über einen Intent `startService(intent)`
+    - `onStartCommand()` überschreiben, um Task auszuführen
+    - mit `stopSelf()` im Service stoppen
+    - IntentService kommuniziert über Intents, wird dann im `onHandleIntent()` abgearbeitet
+    - Stellt einen Worker Thread zur Verfügung
+    - Problem: Wie kann der Service die Activity benachrichtigen? -> Broadcasts oder "pending Intent"
+- Client-Server-Kommunikation -> bound service
+    - Auch über einen Intent gestartet
+    - Gibt Interface, über den kommuniziert werden kann
+- AsyncTask: Aufgabe von Main-Thread entkoppeln. Kombinieren mit Services, um GUI-Thread nicht zu blockieren
+- Beide Möglichkeiten brauchen dieselbe Service-Klasse
+
+### Broadcast Receiver
+- Das System versendet Meldungen als Intents
+- z.B low battery, Power connected, boot completed, etc.
+- Registrierung
+    - Statisch im Manifest mit einem intent-Filter
+    - Dynamisch über einen `LocalBroadcastManager`

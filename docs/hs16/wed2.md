@@ -1,4 +1,6 @@
 # Web Engineering + Design 2
+## Links
+- CSS-Elemente zentrieren: <https://wiki.selfhtml.org/wiki/CSS/Anwendung_und_Praxis/Inhalte_zentrieren>
 ## Prüfung
 - 2h, closed book
 - Zusammenfassung 1 A4 Seite (muss abgegeben werden)
@@ -77,4 +79,39 @@
     - `flex-start`: An start positionieren (links bzw. oben)
     - `space-between`: Gleicher Abstand zwischen Elementen
     - `space-around`: Gleicher Abstand um Elemente herum
-- 
+
+### Analyse realistischer layouts
+- Mobile Layout mit `display:block`
+    - Elemente werden in Reihenfolge des HTML angezeigt
+- Mobile layout mit `flex`
+    - Reihenfolge kann verändert werden
+    - Braucht media queries für flexible layouts
+
+### Browser support
+- Graceful Degredation: Alle modernen Features nutzen, wenn nicht vorhanden, alternativen anbieten oder Hinweise einblenden
+- Progressive Enhancement: Starten mit Grundfunktionalität für alle Browser, dann darauf aufbauen mit CSS und JS
+- "Graceful Degradation" ist günstiger für die Entwicklung aber
+normalerweise teurer als "Progressive Enhancement" in der Wartung.
+
+---
+## Vorlesung 6 - Responsive Layout
+### Media Queries
+- Für unterschiedliche Medien
+    - `@media screen {}`
+    - `@media print {}`
+- Für Dimensionen
+    - `@media ([width|min-width|max-width]: 375px) {}`
+    - `@media ([height|min-height|max-height]: 667px) {}`
+    - `@media ([device-width|min-device-width|max-device-width]: 375px) {}`
+    - `@media ([device-height|min-device-height|max-device-height]: 667px) {}`
+- Spec: <https://www.w3.org/TR/css3-mediaqueries/>
+- Kann auch direkt als sepparates Stylesheet geladen werden (HTML5): `<link rel="stylesheet“ href=“LargeScreenLayout.css" media="(min-width: 30em)">`
+- Mobile First Approach: HTML für Mobile Layout schreiben, dann für grössere Displays mit Media Queries anpassen
+
+### Viewport
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1">
+```
+- Deaktiviert die "Intelligenz" von mobilen Browsern
+- Sonst funktionieren Media Queries nicht richtig, da der Viewport skaliert wird vom Browser
+- Details: <https://vimeo.com/100523275>

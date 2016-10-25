@@ -143,6 +143,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-5-nf-srs-modelling-behaviour">Vorlesung 5 - NF, SRS, Modelling Behaviour</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-6">Vorlesung 6</a></li>
+                
             
             </ul>
         
@@ -305,7 +307,32 @@
 <li>Zustände können verschachtelt werden, dass ein einzelner Zustand wieder ein kompletter Ablauf darstellt</li>
 <li>In einem nested State kann von jedem Zustand aus der nested State verlassen werden (in Folie 15 kann aus jedem Zustand "on hook" ausgelöst werden)</li>
 </ul>
-<h4 id="activity-diagramme">Activity-Diagramme</h4>
+<hr />
+<h2 id="vorlesung-6">Vorlesung 6</h2>
+<ul>
+<li>Erweitertes Zustandsdiagramm: Man kann Variablen verwenden und als Aktivität diese verändern, z.B. erhöhen</li>
+<li>Mit Guards können Variablenwerte geforder werden, z.B. <code>[count == 10]</code></li>
+</ul>
+<h3 id="aktivitatsdiagramme">Aktivitätsdiagramme</h3>
+<ul>
+<li>Join wartet auf beide Inputs (synchronisiert), Merge hingegen nicht, es werden nur zwei Pfade zusammen ge"merged"</li>
+<li>"Partitions" unterteilen Teile des Prozesses in verschiedene Abteilungen</li>
+</ul>
+<h3 id="software-testing">Software Testing</h3>
+<ul>
+<li>Testspezifikation bei Unit-Tests: Der Code. Testprotokoll: Ergebnis der Tests</li>
+<li>Gesamtsystemtest<ul>
+<li>Spezifikation: Anforderungen des Systems mit einem konkreten Szenario (meist aus Sicht der Benutzer)</li>
+<li>Protokoll: Sind Anforderungen erfüllt? z.B. Checkliste</li>
+</ul>
+</li>
+<li>Unittests sollte immer reproduzierbar und nachvollziehbar sein</li>
+<li>Gesamtsystemtests: Nicht immer reproduzierbar, da von einer Person durchgeführt</li>
+<li>Anforderungskategorien auf Testkategorien abbilden. Deshalb: Anforderungen müssen testbar sein!</li>
+<li>Verifikation: Erfüllen die Work Products die Vorgaben? (untere Ebenen)</li>
+<li>Validierung: Entwickle ich das richtige Produkt? (Nach Kundenbedürfnissen) (obere Ebenen)</li>
+<li>Auf niedrigsten Ebenen (Implementation) werden tendenziell White-Box-Tests gemacht. Auf höheren Ebenen eher Black-Box-Tests (vor allem für den Abnahmetest)</li>
+</ul>
               
             </div>
           </div>

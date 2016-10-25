@@ -84,6 +84,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-5-quick-sort">Vorlesung 5 - Quick-Sort</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-6-radix-sort-pattern-matching">Vorlesung 6 - Radix-Sort / Pattern Matching</a></li>
+                
             
             </ul>
         
@@ -497,6 +499,46 @@ Konstanten heraus streichen:
 </li>
 <li>Eingeschränkt auf ganze, positive Zahlen</li>
 <li><em>Stabile</em> Sort-Eigenschaft: die relative Ordnung von Items mit gleichem Wert wird nicht verändert</li>
+</ul>
+<hr />
+<h2 id="vorlesung-6-radix-sort-pattern-matching">Vorlesung 6 - Radix-Sort / Pattern Matching</h2>
+<h3 id="lexikographische-sortierung">Lexikographische Sortierung</h3>
+<ul>
+<li>Die letzte Dimension wird <em>zuletzt</em> sortiert, d.h die Dimension mit 1. Priorität am Schluss</li>
+<li>Einfachste Anwendung ist mit Strings</li>
+<li>Radix-Sort<ul>
+<li>Lexikographische Sortierung mit Bucket-Sort</li>
+</ul>
+</li>
+</ul>
+<h3 id="pattern-matching">Pattern Matching</h3>
+<ul>
+<li>Ziel: In einer Sequenz von Zeichen ein Pattern finden</li>
+<li>Substring wird hier inklusive end-index angegeben. In Java geht der Substring bis endIndex - 1!</li>
+<li>Brute-Force-Methode<ul>
+<li>Pattern am Anfang des Textes ansetzen und Zeichen für Zeichen durchlaufen bis zum Ende</li>
+<li>Bei jeder Iteration prüfen, ob das Pattern übereinstimmt</li>
+<li>Performance: Pattern m n Mal durchsuchen -&gt; <script type="math/tex">O(n\cdot m)</script>
+</li>
+</ul>
+</li>
+<li>Boyer-Moore Heuristik<ul>
+<li>"Looking Glass": Starte jeweils am Ende des Patterns</li>
+<li>"Character Jump": Bei einem Mismatch wird mit dem Pattern an die nächstmögliche Position gesprungen, wo das Zeichen im Text im Pattern vorkommt (wenn nicht, kann es gleich weiter geschoben werden um ganze Patternlänge)<ul>
+<li>Es muss zwinged auf das letzt auftretende (möglichst weit rechte) Zeichen ausgerichtet werden</li>
+<li>Wenn man dabei nach links schieben würde, wird stattdessen um 1 nach rechts geschoben</li>
+</ul>
+</li>
+<li>Die Last Occurence Funktion speichert von jedem zeichen im Alphabet die letzte Position im Pattern (wenn es nicht vorkommt, -1)</li>
+<li>Damit kann mit \O(1)) die Anzahl der Verschiebungen berechnet werden</li>
+<li>Performance: Im Worst Case <script type="math/tex">O(n\cdotm + s)</script>, also schlechter als Brute Force. Im Durchschnitt ist er aber sehr schnell für Textanalysen</li>
+</ul>
+</li>
+<li>KMP Algorithmus<ul>
+<li>Sucht Suffixe, die auch Präfixe vom Pattern sind</li>
+<li>So werden nach dem Verschieben nach rechts redundante Vergleiche vermieden</li>
+</ul>
+</li>
 </ul>
               
             </div>

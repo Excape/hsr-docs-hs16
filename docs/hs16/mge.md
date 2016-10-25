@@ -295,3 +295,5 @@ new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
 - Registrierung
     - Statisch im Manifest mit einem intent-Filter
     - Dynamisch über einen `LocalBroadcastManager`
+- Eigene Broadcasts versenden mit `sendBroadcast(intent)`
+- Es können auch Broadcasts innerhalb der App versendet werden

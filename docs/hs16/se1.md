@@ -73,4 +73,24 @@
 - Endzustand eingerahmter Kreis (à la DEA)
 - Zustände können verschachtelt werden, dass ein einzelner Zustand wieder ein kompletter Ablauf darstellt
 - In einem nested State kann von jedem Zustand aus der nested State verlassen werden (in Folie 15 kann aus jedem Zustand "on hook" ausgelöst werden)
-#### Activity-Diagramme
+
+---
+## Vorlesung 6
+- Erweitertes Zustandsdiagramm: Man kann Variablen verwenden und als Aktivität diese verändern, z.B. erhöhen
+- Mit Guards können Variablenwerte geforder werden, z.B. `[count == 10]`
+
+### Aktivitätsdiagramme
+- Join wartet auf beide Inputs (synchronisiert), Merge hingegen nicht, es werden nur zwei Pfade zusammen ge"merged"
+- "Partitions" unterteilen Teile des Prozesses in verschiedene Abteilungen
+
+### Software Testing
+- Testspezifikation bei Unit-Tests: Der Code. Testprotokoll: Ergebnis der Tests
+- Gesamtsystemtest
+    - Spezifikation: Anforderungen des Systems mit einem konkreten Szenario (meist aus Sicht der Benutzer)
+    - Protokoll: Sind Anforderungen erfüllt? z.B. Checkliste
+- Unittests sollte immer reproduzierbar und nachvollziehbar sein
+- Gesamtsystemtests: Nicht immer reproduzierbar, da von einer Person durchgeführt
+- Anforderungskategorien auf Testkategorien abbilden. Deshalb: Anforderungen müssen testbar sein!
+- Verifikation: Erfüllen die Work Products die Vorgaben? (untere Ebenen)
+- Validierung: Entwickle ich das richtige Produkt? (Nach Kundenbedürfnissen) (obere Ebenen)
+- Auf niedrigsten Ebenen (Implementation) werden tendenziell White-Box-Tests gemacht. Auf höheren Ebenen eher Black-Box-Tests (vor allem für den Abnahmetest)

@@ -202,3 +202,30 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
     - Kein Widerspruch zu oben, weil Algorithmus nicht vergleichs-basiert ist
 - Eingeschränkt auf ganze, positive Zahlen
 - *Stabile* Sort-Eigenschaft: die relative Ordnung von Items mit gleichem Wert wird nicht verändert
+
+---
+## Vorlesung 6 - Radix-Sort / Pattern Matching
+### Lexikographische Sortierung
+- Die letzte Dimension wird *zuletzt* sortiert, d.h die Dimension mit 1. Priorität am Schluss
+- Einfachste Anwendung ist mit Strings
+- Radix-Sort
+    - Lexikographische Sortierung mit Bucket-Sort
+
+### Pattern Matching
+- Ziel: In einer Sequenz von Zeichen ein Pattern finden
+- Substring wird hier inklusive end-index angegeben. In Java geht der Substring bis endIndex - 1!
+- Brute-Force-Methode
+    - Pattern am Anfang des Textes ansetzen und Zeichen für Zeichen durchlaufen bis zum Ende
+    - Bei jeder Iteration prüfen, ob das Pattern übereinstimmt
+    - Performance: Pattern m n Mal durchsuchen -> \(O(n\cdot m)\)
+- Boyer-Moore Heuristik
+    - "Looking Glass": Starte jeweils am Ende des Patterns
+    - "Character Jump": Bei einem Mismatch wird mit dem Pattern an die nächstmögliche Position gesprungen, wo das Zeichen im Text im Pattern vorkommt (wenn nicht, kann es gleich weiter geschoben werden um ganze Patternlänge)
+        - Es muss zwinged auf das letzt auftretende (möglichst weit rechte) Zeichen ausgerichtet werden
+        - Wenn man dabei nach links schieben würde, wird stattdessen um 1 nach rechts geschoben
+    - Die Last Occurence Funktion speichert von jedem zeichen im Alphabet die letzte Position im Pattern (wenn es nicht vorkommt, -1)
+    - Damit kann mit \O(1)\) die Anzahl der Verschiebungen berechnet werden
+    - Performance: Im Worst Case \(O(n\cdotm + s)\), also schlechter als Brute Force. Im Durchschnitt ist er aber sehr schnell für Textanalysen
+- KMP Algorithmus
+    - Sucht Suffixe, die auch Präfixe vom Pattern sind
+    - So werden nach dem Verschieben nach rechts redundante Vergleiche vermieden

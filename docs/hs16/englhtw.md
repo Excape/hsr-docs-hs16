@@ -138,6 +138,7 @@ It made elevators possible, important for skyscrapers, and powered streetcars. T
 He found out what the black spots were by "steering" them with a magnet. That's how he discovered the *electron* and that it was electrons that travelled inside a wire. The "bumping and crashing" of these electrons made the wire glow
 
 ### Chapter 4
+
 ### Chapter 5
 ### Chapter 6
 ### Chapter 7

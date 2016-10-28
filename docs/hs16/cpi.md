@@ -258,3 +258,42 @@ inline std::ostream & operator<<(std::ostream & os, Date const & date){
     return date.print(os);
 }
 ```
+- `inline`, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)
+---
+## Vorlesung 6
+- `read()`: Wenn Parsen fehlschlägt, wird das Fail-bit gesetzt
+- Alle objekte mit `{}` initialisieren (auch mit leeren Konstruktor)
+- Default-Initialisierungen von Member Variablen können direkt im Header angegeben werden, der default-Konstruktor kann leergelassen werden
+```c++
+class Date {
+int year{9999}, month{12}, day{31};
+... }
+```
+- Im Header `Date() = default;` schreiben, um einen Default-Konstruktor zu erstellen, auch wenn es explizite Konstruktoren gibt
+- Implizite Konstruktoren (z.B. copy / move) können gelöscht werden: `Date() = delete;`
+- Argument Dependent Lookup: Wenn ein Member in einem Namespace mit einer Klasse ist und dessen Argumente vom Typ dieser Klasse sind, kann der Compiler beim Aufruf auch ohne namespace-prefix entscheiden, welche Funktion gemeint ist.
+    - z.B. `copy(begin(v)), end(v), ..)`. v ist ein Vektor aus std, deshalb wird begin() auch von dort aufgerufen, und wiederum `copy()` genauso
+
+### Enums
+- unscoped enum
+```c++
+enum day_of_week {
+Mon, Tue, Wed, Thu, Fri, Sat, Sun
+// 0, 1, 2, 3, ...
+};
+```
+- Sind im umliegenden Scope direkt verfügbar ("leaken nach aussen")
+- scoped enum: Mit `enum class day_of_week`
+    - Leaken nicht ausserhalb des Scopes
+- Enum-Werte können auch explizit deklariert werden (oder doppelt)
+```c++
+enum month {
+jan = 1, feb, mar, apr, may,
+jun, jul, aug, sep, oct, nov, dec,
+january = jan, february, march,
+april, june = jun, july, august,
+september, october, november,
+december
+};
+```
+- Um einen anderen unterliegenden Typ zu verwenden, von diesem erben: `enum class my_enum : unsigned char`

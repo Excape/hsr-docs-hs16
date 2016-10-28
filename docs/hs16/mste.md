@@ -208,3 +208,8 @@ list.ForEach(delegate(int i)
     { Console.WriteLine(i); }
 );
 ```
+---
+## Vorlesung 6 - Generics (Selbststudium)
+- Generische Parameter: `T`, bei mehreren: `T1`, `T2`, etc.
+- Type Constraints
+    - `class MyClass<T> where T : <constraint>`

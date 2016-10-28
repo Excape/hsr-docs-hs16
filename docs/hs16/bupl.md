@@ -24,3 +24,12 @@
 - What is your competitive advantage?
 
 ## Geschäftsmodelle
+
+## Konkurrenz
+- Marktformen: In welchem Markt befinden wir uns?
+- Branchenstruktur NOGA: Offizieller Branchenschlüssel. In welcher Branche sind wir? NOGA-Code finden. Siehe <http://kubb2008.bfs.admin.ch>
+- Five-Forces: Drei Dimensionen der Konkurrenz
+- Strategische Gruppe: Ähnliche Konkurrenten gruppieren
+    - Achsen sind Branchenspezifisch (Dimensionen dürfen nicht korrelieren!)
+- Wettbewerbsanalyse: Unternehmen der gleichen Gruppe vergleichen
+- Businessplan ca. 2 Seiten

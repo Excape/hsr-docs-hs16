@@ -115,6 +115,10 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-5-classes-and-enums">Vorlesung 5 - Classes and Enums</a></li>
                 
+                    <li><a class="toctree-l4" href="#-inline-weil-funtkion-im-header-implementiert-ist-ohne-inline-wurde-es-einen-konflikt-beim-linken-geben-wenn-mehrere-files-dieses-header-file-verwenden-one-definition-rule">- inline, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</a></li>
+                
+                    <li><a class="toctree-l4" href="#vorlesung-6">Vorlesung 6</a></li>
+                
             
             </ul>
         
@@ -520,6 +524,58 @@ inline std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, Date const &am
     return date.print(os);
 }
 </code></pre>
+
+<h2 id="-inline-weil-funtkion-im-header-implementiert-ist-ohne-inline-wurde-es-einen-konflikt-beim-linken-geben-wenn-mehrere-files-dieses-header-file-verwenden-one-definition-rule">- <code>inline</code>, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</h2>
+<h2 id="vorlesung-6">Vorlesung 6</h2>
+<ul>
+<li><code>read()</code>: Wenn Parsen fehlschlägt, wird das Fail-bit gesetzt</li>
+<li>Alle objekte mit <code>{}</code> initialisieren (auch mit leeren Konstruktor)</li>
+<li>Default-Initialisierungen von Member Variablen können direkt im Header angegeben werden, der default-Konstruktor kann leergelassen werden</li>
+</ul>
+<pre><code class="c++">class Date {
+int year{9999}, month{12}, day{31};
+... }
+</code></pre>
+
+<ul>
+<li>Im Header <code>Date() = default;</code> schreiben, um einen Default-Konstruktor zu erstellen, auch wenn es explizite Konstruktoren gibt</li>
+<li>Implizite Konstruktoren (z.B. copy / move) können gelöscht werden: <code>Date() = delete;</code></li>
+<li>Argument Dependent Lookup: Wenn ein Member in einem Namespace mit einer Klasse ist und dessen Argumente vom Typ dieser Klasse sind, kann der Compiler beim Aufruf auch ohne namespace-prefix entscheiden, welche Funktion gemeint ist.<ul>
+<li>z.B. <code>copy(begin(v)), end(v), ..)</code>. v ist ein Vektor aus std, deshalb wird begin() auch von dort aufgerufen, und wiederum <code>copy()</code> genauso</li>
+</ul>
+</li>
+</ul>
+<h3 id="enums">Enums</h3>
+<ul>
+<li>unscoped enum</li>
+</ul>
+<pre><code class="c++">enum day_of_week {
+Mon, Tue, Wed, Thu, Fri, Sat, Sun
+// 0, 1, 2, 3, ...
+};
+</code></pre>
+
+<ul>
+<li>Sind im umliegenden Scope direkt verfügbar ("leaken nach aussen")</li>
+<li>scoped enum: Mit <code>enum class day_of_week</code><ul>
+<li>Leaken nicht ausserhalb des Scopes</li>
+</ul>
+</li>
+<li>Enum-Werte können auch explizit deklariert werden (oder doppelt)</li>
+</ul>
+<pre><code class="c++">enum month {
+jan = 1, feb, mar, apr, may,
+jun, jul, aug, sep, oct, nov, dec,
+january = jan, february, march,
+april, june = jun, july, august,
+september, october, november,
+december
+};
+</code></pre>
+
+<ul>
+<li>Um einen anderen unterliegenden Typ zu verwenden, von diesem erben: <code>enum class my_enum : unsigned char</code></li>
+</ul>
               
             </div>
           </div>

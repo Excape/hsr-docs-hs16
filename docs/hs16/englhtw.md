@@ -138,8 +138,25 @@ It made elevators possible, important for skyscrapers, and powered streetcars. T
 He found out what the black spots were by "steering" them with a magnet. That's how he discovered the *electron* and that it was electrons that travelled inside a wire. The "bumping and crashing" of these electrons made the wire glow
 
 ### Chapter 4
+Faraday discovered the "force fields" of magnets, proving that there isn't just empty space between two objects. He was a deeply religious man and had therefore a different view on nature, not as strictly "deterministic" as Newton's view was.
+
+He was not educated, lacking formal education in mathematics. His colleagues didn't take his theories seriously because of that.
+
+**What was the connection between Faraday’s experience in Switzerland and “what he  believed of science?**
+
+In Switzerland he saw a rainbow. Science told him that the rainbow "was always waiting, but could only sometimes be seen". 
 
 ### Chapter 5
+Cyrus Field was the first one to tackle a sea cable over the atlantic to connect europe and america. Cities were already connected through telegraphs, but continents weren't. Field was a rich business man and could afford to make his vision come true.
+
+He travelled to London and worked with the Scottish scientist *William Thomson* (not JJ!).
+
+The first attempt at sea cables failed. The misconception was that cables were like a hose, you "poor" in electricity at the one end and it comes out at the other. But the signals were "blurred" (noisy) when they arrived. Thomson understood why, as the cable was a force field "carrying" the electrons forward. The first sea cables had a thick iron casting around them, making the noise worse. Field didn't want to change his view, and turned to *Edward Whitehouse*, who had the same view as him. 
+
+Whitehouse and Field built the cable, but it was a huge embarrassement when the messages from the Queen took forever to get through the cable. In panic, Whitehouse hooked big batteries up to the cable, hoping that more electricity would help, but that just heated up the cable, melting the rubber insulation and eventually causing a short circuit with the outer iron casting. Eventually, no signal at all could go through anymore.
+
+Thomson took over again, and they built a better cable in 1866, this time it was a success.
+ 
 ### Chapter 6
 ### Chapter 7
 ### Chapter 8

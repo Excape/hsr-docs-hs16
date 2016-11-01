@@ -94,3 +94,45 @@
 - Verifikation: Erfüllen die Work Products die Vorgaben? (untere Ebenen)
 - Validierung: Entwickle ich das richtige Produkt? (Nach Kundenbedürfnissen) (obere Ebenen)
 - Auf niedrigsten Ebenen (Implementation) werden tendenziell White-Box-Tests gemacht. Auf höheren Ebenen eher Black-Box-Tests (vor allem für den Abnahmetest)
+
+---
+## Woche 7 - eLearning Microtests
+
+- Error vs. Failure
+    - Error: The code *terminates prematurely* (unhandled exception)
+    - Failure: Some actual value doesn't match the expected value
+
+![](img/elearning_microtests/img_1.png)
+![](img/elearning_microtests/img_2.png)
+![](img/elearning_microtests/img_3.png)
+![](img/elearning_microtests/img_4.png)
+![](img/elearning_microtests/img_5.png)
+![](img/elearning_microtests/img_6.png)
+
+"Micro Tests" are unit tests, but short, cheap and plentiful
+
+![](img/elearning_microtests/img_7.png)
+![](img/elearning_microtests/img_8.png)
+![](img/elearning_microtests/img_9.png)
+![](img/elearning_microtests/img_10.png)
+![](img/elearning_microtests/img_11.png)
+![](img/elearning_microtests/img_12.png)
+![](img/elearning_microtests/img_13.png)
+![](img/elearning_microtests/img_14.png)
+
+- Strucute AAA (+ Teardown)
+    - Arrange: Instantiate, get to the execution path
+    - Act: Invoke Methods unter test
+    - Assert: Assert Test conditions
+    - (Teardown)
+- Test organization
+    - Tests in the **same namespace**, but different folder on the disk, than the tested class
+
+![](img/elearning_microtests/img_15.png)
+![](img/elearning_microtests/img_16.png)
+![](img/elearning_microtests/img_17.png)
+![](img/elearning_microtests/img_18.png)
+![](img/elearning_microtests/img_19.png)
+![](img/elearning_microtests/img_20.png)
+![](img/elearning_microtests/img_21.png)
+![](img/elearning_microtests/img_22.png)

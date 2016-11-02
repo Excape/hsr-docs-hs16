@@ -117,9 +117,10 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#mobile-and-gui-engineering">Mobile and GUI Engineering</a></li>
+                <li class="toctree-l3"><a href="#prufung">Prüfung</a></li>
                 
-                    <li><a class="toctree-l4" href="#prufung">Prüfung</a></li>
+            
+                <li class="toctree-l3"><a href="#teil-android">Teil Android</a></li>
                 
                     <li><a class="toctree-l4" href="#vorlesung-1-einfuhrung-android">Vorlesung 1 - Einführung Android</a></li>
                 
@@ -132,6 +133,11 @@
                     <li><a class="toctree-l4" href="#vorlesung-5-material-design">Vorlesung 5 - Material Design</a></li>
                 
                     <li><a class="toctree-l4" href="#vorlesung-6-patterns-serivces">Vorlesung 6 - Patterns &amp; Serivces</a></li>
+                
+                    <li><a class="toctree-l4" href="#vorlesung-7-weiterfuhrende-themen">Vorlesung 7 - Weiterführende Themen</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#teil-wpf">Teil WPF</a></li>
                 
             
             </ul>
@@ -210,8 +216,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="mobile-and-gui-engineering">Mobile and GUI Engineering</h1>
-<h2 id="prufung">Prüfung</h2>
+                <h1 id="prufung">Prüfung</h1>
 <ul>
 <li>Pro Teil 1h</li>
 <li>Pro Teil 10 A4-Seiten Zusammenfassung</li>
@@ -220,6 +225,7 @@
 </ul>
 </li>
 </ul>
+<h1 id="teil-android">Teil Android</h1>
 <h2 id="vorlesung-1-einfuhrung-android">Vorlesung 1 - Einführung Android</h2>
 <ul>
 <li>
@@ -561,6 +567,60 @@ new DownloadBitmapTask().execute(&quot;http://slow.hsr.ch/hsr_cat.bmp&quot;);
 <li>Eigene Broadcasts versenden mit <code>sendBroadcast(intent)</code></li>
 <li>Es können auch Broadcasts innerhalb der App versendet werden</li>
 </ul>
+<hr />
+<h2 id="vorlesung-7-weiterfuhrende-themen">Vorlesung 7 - Weiterführende Themen</h2>
+<h3 id="sensoren">Sensoren</h3>
+<ul>
+<li>Unterstützung von Gerät zu Gerät verschieden</li>
+<li>Qualität der Daten sehr unterschiedlich</li>
+<li>Sensordaten unterschiedlich zu interpretieren: <a href="https://developer.android.com/reference/android/hardware/SensorEvent.html#values">https://developer.android.com/reference/android/hardware/SensorEvent.html#values</a></li>
+<li>Delay gibt an, wie häufig Daten abgefragt werden (braucht entsprechend mehr oder weniger Strom)</li>
+</ul>
+<pre><code class="java">sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+lightSensor = sensorManager.getSensorList(Sensor.TYPE_LIGHT).get(0); // Prüfen, ob Sensor existiert!
+...
+// onResume():
+sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+// Im onPause listener wieder abmelden
+...
+@Override
+public void onSensorChanged(SensorEvent event) {
+    textView.setText(String.format(&quot;Helligkeit: %.0f&quot;, event.values[0]));
+}
+</code></pre>
+
+<h3 id="dependency-injection">Dependency Injection</h3>
+<ul>
+<li>Problem: Klasse ist von einer anderen direkt abhängig und instanziert diese (z.B. wird eine Server-Adresse gesetzt)</li>
+<li>Schlecht testbar mit einem Fake-Server</li>
+<li>Lösungsansatz: Klasse braucht ein Interface, dass dann z.B. von einem richtigen Service und einem "Fake"-Service implementiert wird</li>
+<li>Implementation<ul>
+<li>Instanzierung im Konstruktor</li>
+<li>Builder-Pattern (z.B. wie AlertDialog)</li>
+<li>Dagger 2 Framework</li>
+</ul>
+</li>
+<li>Bringt zentrale Konfiguration und einfachere Testbarkeit, aber ist mehr Schreibaufwand</li>
+<li>View Injection<ul>
+<li>Mit 3rd-Party-Library "Butterknife"</li>
+<li>Macht binds anhand von annotierten attributen und methoden</li>
+</ul>
+</li>
+</ul>
+<h3 id="data-binding">Data Binding</h3>
+<ul>
+<li>Idee: im XML direkt auf Objekte zugreifen, damit es sich von selbst aktualisiert ("XML ist der Observer")</li>
+<li><code>layout</code>-Tag als Root-Element, spezifisches Layout darin verschachtelt</li>
+<li>Im layout gibt es einen <code>&lt;data&gt;</code> Block mit Variablen-Namen und Typen</li>
+<li>Zugriff im Layout mit <code>@(&lt;expression&gt;)</code></li>
+<li>Es wird eine Klasse generiert, z.B. <code>ActivityMainBinding</code>, über den das Data-Binding gemacht werden kann</li>
+<li>Klasse bietet Setter-Methoden für die Variablen</li>
+<li>Auch Listener können direkt im layout gebindet werden</li>
+<li>Um Views automatisch zu aktualisieren, <code>ObservableField&lt;T&gt;</code> verwenden</li>
+<li>Aufpassen, dass nicht zuviel Logik ins XML kommt</li>
+</ul>
+<hr />
+<h1 id="teil-wpf">Teil WPF</h1>
               
             </div>
           </div>

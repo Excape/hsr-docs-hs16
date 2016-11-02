@@ -119,6 +119,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-6">Vorlesung 6</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-7-standard-containers">Vorlesung 7 - Standard containers</a></li>
+                
             
             </ul>
         
@@ -575,6 +577,31 @@ december
 
 <ul>
 <li>Um einen anderen unterliegenden Typ zu verwenden, von diesem erben: <code>enum class my_enum : unsigned char</code></li>
+</ul>
+<hr />
+<h2 id="vorlesung-7-standard-containers">Vorlesung 7 - Standard containers</h2>
+<ul>
+<li>Jeder Container hat Iteratoren für begin() und end(), insert, erase<ul>
+<li>begin zeigt auf das <em>erste</em>, end <em>hinter das letzte</em> Element, d.h bei leerem container ist begin == end</li>
+</ul>
+</li>
+<li>Container können mit einem anderen container constructed werden, dann wird eine <em>Kopie</em> erstellt</li>
+<li>Inhalt kann mit == verglichen werden</li>
+<li><code>std::list&lt;int&gt; l(5,42)</code> erstellt 5 Elemente mit dem Wert 42<ul>
+<li>Runde Klammern, weil sonst Mehrdeutigkeit mit direkter initialisierung <code>{5, 42}</code> (-&gt; zwei Elemente)</li>
+</ul>
+</li>
+<li>container mit Range: <code>std::deque&lt;int&gt; q{begin(v),end(v)}</code></li>
+<li>Iteratoren-Kategorien sind Tags, wie "Marker-Interfaces" in Java (z.B. "cloneable", "serializable")</li>
+<li>Input Iterators können nur einmal auf das aktuelle Element zugreifen (nur lesend)</li>
+<li>Forward Iterator ist ein Input-Iterator, der auch schreibend auf das aktuelle Elemente zugreifen kann</li>
+<li>Bidirektionaler Iterator kann vortwärts und rückwärts iterieren, mehr als einmal pro Element</li>
+<li>Random-Access-Iteratoren sind bidirektional, aber können auch mit <code>[]</code> direkt auf den Index zugreifen</li>
+<li>Output-Iterator ann etwas auf das aktuelle Element <em>schreiben</em>, aber nur einmal</li>
+<li><code>std::advance(iter, n)</code> springt um n Positionen weiter</li>
+<li><code>auto</code> für iteratoren-typen verwenden, da return-types oft kompliziert sind</li>
+<li><code>std::list&lt;&gt;</code> ist double-linked-list, <code>std::forward_list</code> single-linked-list</li>
+<li><code>std::array&lt;int,6&gt;</code> für fixe Arrays</li>
 </ul>
               
             </div>

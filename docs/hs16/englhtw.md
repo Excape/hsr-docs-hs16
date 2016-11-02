@@ -155,7 +155,9 @@ The first attempt at sea cables failed. The misconception was that cables were l
 
 Whitehouse and Field built the cable, but it was a huge embarrassement when the messages from the Queen took forever to get through the cable. In panic, Whitehouse hooked big batteries up to the cable, hoping that more electricity would help, but that just heated up the cable, melting the rubber insulation and eventually causing a short circuit with the outer iron casting. Eventually, no signal at all could go through anymore.
 
-Thomson took over again, and they built a better cable in 1866, this time it was a success.
+Thomson took over again, and they built a better cable in 1866, this time it was a success
+
+Maxwell discovered that there are two parts to an electrical field - a magnetic part and an electric part.
  
 ### Chapter 6
 ### Chapter 7

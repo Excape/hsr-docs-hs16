@@ -297,3 +297,23 @@ december
 };
 ```
 - Um einen anderen unterliegenden Typ zu verwenden, von diesem erben: `enum class my_enum : unsigned char`
+
+---
+## Vorlesung 7 - Standard containers
+- Jeder Container hat Iteratoren für begin() und end(), insert, erase
+    - begin zeigt auf das *erste*, end *hinter das letzte* Element, d.h bei leerem container ist begin == end
+- Container können mit einem anderen container constructed werden, dann wird eine *Kopie* erstellt
+- Inhalt kann mit == verglichen werden
+- `std::list<int> l(5,42)` erstellt 5 Elemente mit dem Wert 42
+    - Runde Klammern, weil sonst Mehrdeutigkeit mit direkter initialisierung `{5, 42}` (-> zwei Elemente)
+- container mit Range: `std::deque<int> q{begin(v),end(v)}`
+- Iteratoren-Kategorien sind Tags, wie "Marker-Interfaces" in Java (z.B. "cloneable", "serializable")
+- Input Iterators können nur einmal auf das aktuelle Element zugreifen (nur lesend)
+- Forward Iterator ist ein Input-Iterator, der auch schreibend auf das aktuelle Elemente zugreifen kann
+- Bidirektionaler Iterator kann vortwärts und rückwärts iterieren, mehr als einmal pro Element
+- Random-Access-Iteratoren sind bidirektional, aber können auch mit `[]` direkt auf den Index zugreifen
+- Output-Iterator ann etwas auf das aktuelle Element *schreiben*, aber nur einmal
+- `std::advance(iter, n)` springt um n Positionen weiter
+- `auto` für iteratoren-typen verwenden, da return-types oft kompliziert sind
+- `std::list<>` ist double-linked-list, `std::forward_list` single-linked-list
+- `std::array<int,6>` für fixe Arrays

@@ -1,10 +1,10 @@
-# Mobile and GUI Engineering
-
-## Prüfung
+#Prüfung
 - Pro Teil 1h
 - Pro Teil 10 A4-Seiten Zusammenfassung
 - Teil Android
     - Kein XML selber schreiben, aber lesen können
+
+# Teil Android
 
 ## Vorlesung 1 - Einführung Android
 - Miniprojekt Abgabe Woche 7 und Woche 14
@@ -297,3 +297,51 @@ new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
     - Dynamisch über einen `LocalBroadcastManager`
 - Eigene Broadcasts versenden mit `sendBroadcast(intent)`
 - Es können auch Broadcasts innerhalb der App versendet werden
+
+---
+## Vorlesung 7 - Weiterführende Themen
+### Sensoren
+- Unterstützung von Gerät zu Gerät verschieden
+- Qualität der Daten sehr unterschiedlich
+- Sensordaten unterschiedlich zu interpretieren: <https://developer.android.com/reference/android/hardware/SensorEvent.html#values>
+- Delay gibt an, wie häufig Daten abgefragt werden (braucht entsprechend mehr oder weniger Strom)
+
+```java
+sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+lightSensor = sensorManager.getSensorList(Sensor.TYPE_LIGHT).get(0); // Prüfen, ob Sensor existiert!
+...
+// onResume():
+sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+// Im onPause listener wieder abmelden
+...
+@Override
+public void onSensorChanged(SensorEvent event) {
+    textView.setText(String.format("Helligkeit: %.0f", event.values[0]));
+}
+```
+### Dependency Injection
+- Problem: Klasse ist von einer anderen direkt abhängig und instanziert diese (z.B. wird eine Server-Adresse gesetzt)
+- Schlecht testbar mit einem Fake-Server
+- Lösungsansatz: Klasse braucht ein Interface, dass dann z.B. von einem richtigen Service und einem "Fake"-Service implementiert wird
+- Implementation
+    - Instanzierung im Konstruktor
+    - Builder-Pattern (z.B. wie AlertDialog)
+    - Dagger 2 Framework
+- Bringt zentrale Konfiguration und einfachere Testbarkeit, aber ist mehr Schreibaufwand
+- View Injection
+    - Mit 3rd-Party-Library "Butterknife"
+    - Macht binds anhand von annotierten attributen und methoden
+
+### Data Binding
+- Idee: im XML direkt auf Objekte zugreifen, damit es sich von selbst aktualisiert ("XML ist der Observer")
+- `layout`-Tag als Root-Element, spezifisches Layout darin verschachtelt
+- Im layout gibt es einen `<data>` Block mit Variablen-Namen und Typen
+- Zugriff im Layout mit `@(<expression>)`
+- Es wird eine Klasse generiert, z.B. `ActivityMainBinding`, über den das Data-Binding gemacht werden kann
+- Klasse bietet Setter-Methoden für die Variablen
+- Auch Listener können direkt im layout gebindet werden
+- Um Views automatisch zu aktualisieren, `ObservableField<T>` verwenden
+- Aufpassen, dass nicht zuviel Logik ins XML kommt
+
+---
+# Teil WPF

@@ -115,3 +115,33 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
 - Deaktiviert die "Intelligenz" von mobilen Browsern
 - Sonst funktionieren Media Queries nicht richtig, da der Viewport skaliert wird vom Browser
 - Details: <https://vimeo.com/100523275>
+
+---
+## Vorlesung 7 - Responsive Webdesign
+- Resizer zum Testen: http://material.io/resizer/
+- Rechte Spalte wird oft ignoriert, da dort oft Werbung ist
+- HSR-Site: 
+    - In mobiler Version sind viel weniger Informationen vorhanden
+    - Kleine "Touch-Targets" wenn nicht Mobil-Seite verwendet
+- WWF-Seite: 
+    - Hamburger Menü ist schlechter als "Menü"-Bezeichnung
+    - Nur noch wichtigste Elemente werden auf mobiler Sicht direkt angezeigt, Rest kommt in ein Drop-Down-Menü
+### Patterns
+- Übersicht: <https://bradfrost.github.io/this-is-responsive/patterns.html>
+- Mostly Fluid
+    - Elemente untereinander platzieren, wenn sie kein Platz mehr haben
+    - "Reflow"
+- Column Drop
+    - Spalten, die in der Desktop-Version links und rechts sind, werden nacheinander "gedroppt" und untereinander angeordnet
+- Layout Shifter
+    - Navigation auf Desktop ist links, INhalte untereinander
+    - Navigation wird auf Mobile nach oben geschoben
+    - Siehe auch "Smashing Magazine"
+- Reflow
+    - Viele Spalten auf Desktop
+    - Eine Spalte auf Mobile
+    - "Cards", siehe "Material Design"
+- Expand
+    - Maximale Breite der Seite auf Desktop, links und rechts einen Rand
+- Off Canvas
+    - Menü in Mobile nicht sichtbar, kann "reingeschoben" werden

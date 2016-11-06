@@ -160,7 +160,75 @@ Thomson took over again, and they built a better cable in 1866, this time it was
 Maxwell discovered that there are two parts to an electrical field - a magnetic part and an electric part.
  
 ### Chapter 6
+**When Heinrich Hertz started to experiment with ‘wave machines’, whose theories did he want to examine? (p. 99)**
+
+Maxwells' wave theory
+
+
+**What was Heinrich Hertz’s next step in his investigations? (p. 103)**
+
+He sepparated the transmitter and receiver to opposite ends of the large auditorium.
+
+**What did he manage to show in his experiments with solid conducting walls? (p.105)**
+
+That electromagnetic waves reflect from solid conducting walls
+
+**Where did Heinrich Hertz take a professorship? (p. 105)**
+
+In Bonn (he had the choice between Bonn and Berlin)
+
+**What was the problem with the house he moved into? (p. 106)**
+
+The House had served as a medical clinic, they warned him about contamination
+
+**What happened to Heinrich Hertz in 1892? (p. 108)**
+
+He got a cold which got worse and worse
+
+**What did Heinrich Hertz die of? When did he die? What was his final age? (p. 110)**
+
+He died of blood poisoning (probably contamination of the house) on January 1, 1894. He was 36 years old.
+
+**Which scientist continued to investigate the ‘Hertzian waves’? (p. 110)**
+
+Guglielmo Marconi
+
+**Which example was given of early naval (ship) communication with radio waves? (p. 112)**
+
+1912, A ship telegraphed with radiowaves that the Titanic was sinking.
+
+**How did radio transform society in the field of (1) business, (2) culture and (3) politics? (p. 113/114)**
+
+1. Radio Music Box
+2. Brands became popular, through the radio celebrities attracted fans
+3. Propaganda through the radio (Germany)
+
 ### Chapter 7
+**How does the effect of radio waves hitting a human body or rock differ from the effect of radio waves hitting metal? (p. 120)**
+
+A radio wave will go right through a human body. In metal, the outermost electrons are free, it is conductive
+
+**What consequences did this have for airplanes and warfare? (p.121)**
+
+The metal reflected the electromagnetic waves, which makes radar possible
+
+**What alternative methods had been used to detect enemy planes? (p. 123)**
+
+In WW1, blind people were used to hear the aircrafts through big horns. In 1930, a giant horn was built. But both techniques didn't really work.
+
+**What did Watson Watt mean when he said “Britain has become an island once more.”? (p. 124)**
+
+That Britain was the first one with this technology and that this would provide a major advantage in warfare
+
+**What does radar stand for? (p. 123)**
+
+"Radio Detection and Ranging". Before, the term "radio direction finding" was used, not to give too much information to the enemy
+
+**Put the following quote into the context of World War II: “Inhospitably, the reception committee turned all these overseas visitors away.” (p. 129)**
+
+In August 1940, the German air fleet attacked England, but they had already detected them on radar and were waiting for them with the RAF.
+
+**Explain the following quote: “Radar so far had been the hero – a protector of the nation. Yet once Britain learned how Germany was catching up, it would become a villain.” (p. 131)**
 ### Chapter 8
 ### Chapter 9
 ### Chapter 10

@@ -345,3 +345,18 @@ public void onSensorChanged(SensorEvent event) {
 
 ---
 # Teil WPF
+
+## Vorlesung 8 - Einführung WPF
+- XAML
+    - Der "x"-Namespace wird sepparat importiert
+    - Ist wie der "android:" Namespace in Android
+    - Pixel sind immer device-independent! D.h. sie sehen auf jeder Auflösung gleich gross aus
+        - 1 Pixel ist immer 1/96 Inch
+        - Problem: Aliasing, weil kanten nicht mehr direkt auf Pixel liegen müssen. Kann mit Properties verhindert werden
+    - Elemente werden zu Klassen übersetzt, dessen Attribute zu Properties der Klasse
+    - XAML ist also nur eine Hilfe, Objekte zu instanziieren. Das gleiche könnte man in Code machen
+    - Es gibt auch eine Property Element Syntax, um komplexere Properties zu definieren, z.B. verschachtelte Elemente
+- Logical Tree: Baum, der man selbst per XAML / Code definiert hat
+- Visual Tree: Baum, der zur Laufzeit angezeigt wird (also z.B. auch Borders)
+- Events werden dem Logical Tree herunter gegeben (von Window aus) und vom Element hinauf (Bubbling)
+- `Preview`-Events sind Tunneling, also von "oben"

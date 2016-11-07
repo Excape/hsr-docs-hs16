@@ -130,6 +130,8 @@
             
                 <li class="toctree-l3"><a href="#teil-wpf">Teil WPF</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-8-einfuhrung-wpf">Vorlesung 8 - Einführung WPF</a></li>
+                
             
             </ul>
         
@@ -611,6 +613,26 @@ public void onSensorChanged(SensorEvent event) {
 </ul>
 <hr />
 <h1 id="teil-wpf">Teil WPF</h1>
+<h2 id="vorlesung-8-einfuhrung-wpf">Vorlesung 8 - Einführung WPF</h2>
+<ul>
+<li>XAML<ul>
+<li>Der "x"-Namespace wird sepparat importiert</li>
+<li>Ist wie der "android:" Namespace in Android</li>
+<li>Pixel sind immer device-independent! D.h. sie sehen auf jeder Auflösung gleich gross aus<ul>
+<li>1 Pixel ist immer 1/96 Inch</li>
+<li>Problem: Aliasing, weil kanten nicht mehr direkt auf Pixel liegen müssen. Kann mit Properties verhindert werden</li>
+</ul>
+</li>
+<li>Elemente werden zu Klassen übersetzt, dessen Attribute zu Properties der Klasse</li>
+<li>XAML ist also nur eine Hilfe, Objekte zu instanziieren. Das gleiche könnte man in Code machen</li>
+<li>Es gibt auch eine Property Element Syntax, um komplexere Properties zu definieren, z.B. verschachtelte Elemente</li>
+</ul>
+</li>
+<li>Logical Tree: Baum, der man selbst per XAML / Code definiert hat</li>
+<li>Visual Tree: Baum, der zur Laufzeit angezeigt wird (also z.B. auch Borders)</li>
+<li>Events werden dem Logical Tree herunter gegeben (von Window aus) und vom Element hinauf (Bubbling)</li>
+<li><code>Preview</code>-Events sind Tunneling, also von "oben"</li>
+</ul>
               
             </div>
           </div>

@@ -131,6 +131,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-6-generics-selbststudium">Vorlesung 6 - Generics (Selbststudium)</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-7-iteratoren-exceptions">Vorlesung 7 - Iteratoren &amp; Exceptions</a></li>
+                
             
             </ul>
         
@@ -470,6 +472,40 @@ protected virtual void Dispose(bool disposing)
 <li>Type Constraints<ul>
 <li><code>class MyClass&lt;T&gt; where T : &lt;constraint&gt;</code></li>
 </ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-7-iteratoren-exceptions">Vorlesung 7 - Iteratoren &amp; Exceptions</h2>
+<h3 id="iteratoren">Iteratoren</h3>
+<ul>
+<li>For-Each-Loop<ul>
+<li>Type muss <code>IEnumerable</code> oder <code>IEnumerable&lt;T&gt;</code> implementieren</li>
+<li><em>Oder</em> einer Implementation von IEnumberable ähneln, d.h. muss GeEnumerator() haben, das ein Enumerator zurückgibt, Enumerator muss MoveNext() haben und das Property Current</li>
+<li>Compiler baut den Loop um in While-Loop mit dem Enumerator</li>
+</ul>
+</li>
+<li>Wenn man mit eigener Klasse IEnumberable<T> implementiert, muss auch die nicht-generische Variante implementiert werden</li>
+<li>Collection darf nicht veränder werden während der Iteration (wie Java)</li>
+<li>
+<p>Vereinfachung mit <code>yield</code></p>
+<ul>
+<li>In der <code>GetEnumerator()</code> Methode mindestens ein <code>yield return</code> statement verwenden</li>
+<li>Bei jeder Iteration (<code>MoveNext()</code>) wird das nächste <code>yield</code> Statement ausgeführt (genauer das Statement <em>nach</em> dem letzten <code>yield</code>)</li>
+<li>Implementation des Interfaces optional (siehe oben)</li>
+<li>Compiler erstellt eine innere Klasse mit komplizierter State-Machine (langsamer als eigene Implementierung)</li>
+<li>Es kann auch ein spezifischer Iterator mit Rückgabetyp <code>IEnumberable&lt;T&gt;</code> definiert werden, der <code>yield</code> verwendet</li>
+</ul>
+<p><code>cs
+MyIntList list = new MyIntList();
+foreach (int elem in list.Range(2, 7))
+{
+    /* ... */
+}
+public IEnumerable&lt;int&gt; Range(int from, int to) {
+for (int i = from; i &lt; to; i++)
+    yield return data[i];
+}</code></p>
+<h3 id="exceptions">Exceptions</h3>
 </li>
 </ul>
               

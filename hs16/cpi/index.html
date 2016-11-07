@@ -112,6 +112,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-7-standard-containers">Vorlesung 7 - Standard containers</a></li>
                 
+                    <li><a class="toctree-l4" href="#associative-containers">Associative Containers</a></li>
+                
             
             </ul>
         
@@ -588,11 +590,49 @@ december
 <li>Bidirektionaler Iterator kann vortwärts und rückwärts iterieren, mehr als einmal pro Element</li>
 <li>Random-Access-Iteratoren sind bidirektional, aber können auch mit <code>[]</code> direkt auf den Index zugreifen</li>
 <li>Output-Iterator ann etwas auf das aktuelle Element <em>schreiben</em>, aber nur einmal</li>
-<li><code>std::advance(iter, n)</code> springt um n Positionen weiter</li>
+<li><code>std::advance(iter, n)</code> springt um n Positionen weiter<ul>
+<li><code>next()</code> funktioniert gleich, gibt aber den Iterator zurück</li>
+</ul>
+</li>
 <li><code>auto</code> für iteratoren-typen verwenden, da return-types oft kompliziert sind</li>
 <li><code>std::list&lt;&gt;</code> ist double-linked-list, <code>std::forward_list</code> single-linked-list</li>
 <li><code>std::array&lt;int,6&gt;</code> für fixe Arrays</li>
+<li><code>std::stack</code> braucht vektor mit beschränktem Interface<ul>
+<li><code>pop()</code> gibt void zurück! (mit <code>top()</code> abfragen)</li>
 </ul>
+</li>
+<li><code>std::queue</code> nutzt dequeue mit limitierter Funktionalität<ul>
+<li>Iteration nicht möglich</li>
+</ul>
+</li>
+</ul>
+<h2 id="associative-containers">Associative Containers</h2>
+<ul>
+<li>Sind sortiert</li>
+<li><code>std::set</code> speichert Elemente sortiert<ul>
+<li>mit <code>count(el)</code> prüfen, ob Element in Set ist (gibt nur 0 oder 1 zurück)</li>
+</ul>
+</li>
+<li><code>std::map&lt;&gt;</code> speichert key-value-pairs sortiert<ul>
+<li>Zugriff mit Typ <code>std::pair&lt;key,value&gt;</code>, mit <code>first()</code> und <code>second()</code> (<code>auto</code> verwenden)</li>
+<li>Bei Zugriff auf Key, der nicht in der Map existiert, wird ein neues Element eingefügt mit Default-Value (bei vector wäre das undef. beh.!!)</li>
+</ul>
+</li>
+<li><code>std::multiset</code> erlaubt mehrere gleiche Keys<ul>
+<li><code>equal_range</code> gibt paar von upper und lower bound zurück</li>
+</ul>
+</li>
+<li><code>unordered_set</code> (und "_map") ist Hash-Set, aber hashcode ist nur für default types (z.B. strings) definiert<ul>
+<li>Nicht sortiert</li>
+</ul>
+</li>
+<li>Bsp Folie 33:<ul>
+<li><code>istreambuf_iterator</code> überspring whitespace nicht!</li>
+<li><code>remove_copy_if</code> kopiert streams, aber ohne Elemente, die Bedingung erfüllen</li>
+</ul>
+</li>
+</ul>
+<hr />
               
             </div>
           </div>

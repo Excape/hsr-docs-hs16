@@ -314,6 +314,28 @@ december
 - Random-Access-Iteratoren sind bidirektional, aber können auch mit `[]` direkt auf den Index zugreifen
 - Output-Iterator ann etwas auf das aktuelle Element *schreiben*, aber nur einmal
 - `std::advance(iter, n)` springt um n Positionen weiter
+    - `next()` funktioniert gleich, gibt aber den Iterator zurück
 - `auto` für iteratoren-typen verwenden, da return-types oft kompliziert sind
 - `std::list<>` ist double-linked-list, `std::forward_list` single-linked-list
 - `std::array<int,6>` für fixe Arrays
+- `std::stack` braucht vektor mit beschränktem Interface
+    - `pop()` gibt void zurück! (mit `top()` abfragen)
+- `std::queue` nutzt dequeue mit limitierter Funktionalität
+    - Iteration nicht möglich
+
+## Associative Containers
+- Sind sortiert
+- `std::set` speichert Elemente sortiert
+    - mit `count(el)` prüfen, ob Element in Set ist (gibt nur 0 oder 1 zurück)
+- `std::map<>` speichert key-value-pairs sortiert
+    - Zugriff mit Typ `std::pair<key,value>`, mit `first()` und `second()` (`auto` verwenden)
+    - Bei Zugriff auf Key, der nicht in der Map existiert, wird ein neues Element eingefügt mit Default-Value (bei vector wäre das undef. beh.!!)
+- `std::multiset` erlaubt mehrere gleiche Keys
+    - `equal_range` gibt paar von upper und lower bound zurück
+- `unordered_set` (und "_map") ist Hash-Set, aber hashcode ist nur für default types (z.B. strings) definiert
+    - Nicht sortiert
+ - Bsp Folie 33:
+    - `istreambuf_iterator` überspring whitespace nicht!
+    - `remove_copy_if` kopiert streams, aber ohne Elemente, die Bedingung erfüllen
+
+---

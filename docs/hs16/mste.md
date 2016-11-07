@@ -213,3 +213,32 @@ list.ForEach(delegate(int i)
 - Generische Parameter: `T`, bei mehreren: `T1`, `T2`, etc.
 - Type Constraints
     - `class MyClass<T> where T : <constraint>`
+
+---
+## Vorlesung 7 - Iteratoren & Exceptions
+### Iteratoren
+- For-Each-Loop
+    - Type muss `IEnumerable` oder `IEnumerable<T>` implementieren
+    - *Oder* einer Implementation von IEnumberable ähneln, d.h. muss GeEnumerator() haben, das ein Enumerator zurückgibt, Enumerator muss MoveNext() haben und das Property Current
+    - Compiler baut den Loop um in While-Loop mit dem Enumerator
+- Wenn man mit eigener Klasse IEnumberable<T> implementiert, muss auch die nicht-generische Variante implementiert werden
+- Collection darf nicht veränder werden während der Iteration (wie Java)
+- Vereinfachung mit `yield`
+    - In der `GetEnumerator()` Methode mindestens ein `yield return` statement verwenden
+    - Bei jeder Iteration (`MoveNext()`) wird das nächste `yield` Statement ausgeführt (genauer das Statement *nach* dem letzten `yield`)
+    - Implementation des Interfaces optional (siehe oben)
+    - Compiler erstellt eine innere Klasse mit komplizierter State-Machine (langsamer als eigene Implementierung)
+    - Es kann auch ein spezifischer Iterator mit Rückgabetyp `IEnumberable<T>` definiert werden, der `yield` verwendet
+
+    ```cs
+    MyIntList list = new MyIntList();
+    foreach (int elem in list.Range(2, 7))
+    {
+        /* ... */
+    }
+    public IEnumerable<int> Range(int from, int to) {
+    for (int i = from; i < to; i++)
+        yield return data[i];
+    }
+    ```
+### Exceptions

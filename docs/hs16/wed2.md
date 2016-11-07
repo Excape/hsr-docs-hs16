@@ -145,3 +145,10 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
     - Maximale Breite der Seite auf Desktop, links und rechts einen Rand
 - Off Canvas
     - Menü in Mobile nicht sichtbar, kann "reingeschoben" werden
+- Folie 33
+    - Wenn für einen "Review"-Mode keine Inputfelder gerendet werden müssen, spart dies Platz
+- "Repeat E-Mail"-Felder sind unnötig. Besser nach dem Submit einen Review-Schritt einbauen, damit der User seine Eingaben überprüfen kann
+
+---
+## Vorlesung 8 - UCD Vertiefung
+- <http://www.vischeck.com/> zum Überprüfen, wie die Seite für Farbenblinde aussieht

@@ -136,3 +136,6 @@
 ![](img/elearning_microtests/img_20.png)
 ![](img/elearning_microtests/img_21.png)
 ![](img/elearning_microtests/img_22.png)
+![](img/elearning_microtests/img_23.png)
+![](img/elearning_microtests/img_24.png)
+![](img/elearning_microtests/img_25.png)

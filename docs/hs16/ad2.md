@@ -225,7 +225,7 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
         - Wenn man dabei nach links schieben würde, wird stattdessen um 1 nach rechts geschoben
     - Die Last Occurence Funktion speichert von jedem zeichen im Alphabet die letzte Position im Pattern (wenn es nicht vorkommt, -1)
     - Damit kann mit \O(1)\) die Anzahl der Verschiebungen berechnet werden
-    - Performance: Im Worst Case \(O(n\cdotm + s)\), also schlechter als Brute Force. Im Durchschnitt ist er aber sehr schnell für Textanalysen
+    - Performance: Im Worst Case \(O(n\cdot m + s)\), also schlechter als Brute Force. Im Durchschnitt ist er aber sehr schnell für Textanalysen
 - KMP Algorithmus
     - Sucht Suffixe, die auch Präfixe vom Pattern sind
     - So werden nach dem Verschieben nach rechts redundante Vergleiche vermieden

@@ -339,3 +339,19 @@ december
     - `remove_copy_if` kopiert streams, aber ohne Elemente, die Bedingung erfüllen
 
 ---
+## Vorlesung 8 - Algorithms
+- `<algorithm>` für die meisten Algorithmen, `<numeric>` für ein paar numerische
+- Streams müssen mit einem `istream_iterator` bzw. `ostream_iterator` gewrappt werden, um sie mit Algorithmen zu verwenden
+    - Default-konstruierter `_iterator` ist immer EOF
+- Functor: Klasse, die Call-Operator `()` anbietet
+    - Instanz davon kann z.B. einem `for_each` mitgegeben werden, oder aufgerufen mit `instance()`
+    - Lambdas sind intern mit Functors gelöst
+- Transform mappt Elemente von ein oder zwei ranges (gleiche Grösse)
+- `remove` entfernt nicht Elemente, sondern schiebt nur die Werte nach vorne und gibt einen Iterator zurück, der auf das Ende der neuen Range zeigt
+    - Der hintere Teil darf dann nicht mehr verwendet werden. Dieser kann entfernt werden mit `vec.erase(removed, vec.end())`, wobei `removed` der returnierte Iterator ist
+- Viele Algorithmen gibt es auch mit `_if`, dem ein Predicate mitgegeben werden kann. Z.B. `count_if`, `replace_if`, `remove_if` etc.
+- Wenn man keinen End-Iterator hat, kann man mit `_n` algorithmen eine konkrete Zahl angeben
+- Pitfalls
+    - Beim Kopieren in eine neue Sequenz muss dort genügend Platz frei sein, ein vector wird nicht selbst vergrössert!
+        - Besser `back_inserter` oder `front_inserter` verwenden statt v.begin() für den neuen vector, dann werden die einzelnen Elemente gepusht
+    - Wird während der Iteration z.B. push_back aufgerufen, wird der Iterator invalidiert (wie "concurrent modification exception" in java)

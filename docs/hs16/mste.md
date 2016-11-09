@@ -165,7 +165,6 @@ protected virtual void Dispose(bool disposing)
 ```
     - So werden managed ressourcen von Dispose() aufgerufen, und unmanaged vom Finalize / Destruktor
 
-
 ---
 ## Vorlesung 5 - Delegates & Events
 ### Delegates
@@ -241,4 +240,20 @@ list.ForEach(delegate(int i)
         yield return data[i];
     }
     ```
-### Exceptions
+
+---
+## Vorlesung 8 - LINQ (Selbststudium)
+- LINQ ist reine Compiler-Technologie
+- Auf Objektstruktur
+- Query Syntax wird vom Compiler in Lambdas umgewandelt
+- Die Parameter der Lambdas müssen implizit in den Delegate-Parameter konvertierbar sein, sonst müssen sie explizit angegeben werden
+- LINQ fügt IENumerable extension Methods hinzu
+- Normalerweise deffered evaluation. Wenn aber rückgabewert kein IEnumerable ist, wird die "query" direkt ausgeführt (z.B. `ToList()`, `Count()`, `Sum()`, etc)
+- Im Lambdas kann man auf Variablen ausserhalb des Scopes zugreifen und diese verändern (müssen nicht final sein wie in Java)
+- C# 6.0 Feature: Expressoin-Bodied Methods
+    - Methode mit einem Statement: `public void Print() => Console.WriteLine("Hello");`
+    - Read-Only Properties: `public int MyProperty => 0;`
+- Collectoin Initializer: `var l1 = new List<int> {1, 2};`
+    - Geht seit C# 6.0 auch mit Dictionaries
+- Anonyme Types werden vorallem mit LINQ verwendet
+    - Zuweisung nur zu Variable mit `var` deklariert

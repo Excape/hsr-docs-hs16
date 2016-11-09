@@ -229,3 +229,19 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
 - KMP Algorithmus
     - Sucht Suffixe, die auch Präfixe vom Pattern sind
     - So werden nach dem Verschieben nach rechts redundante Vergleiche vermieden
+
+---
+## Vorlesung 8 - Tries / Dynamische Programmierung
+### Tries
+- Ziel: Preprocessing vom Text (n), um Suchen in Abhängigkeit von m zu erreichen (statt voher von n)
+- Ein "Trie" ist ein geordneter Baum, wobei jeder Knoten ausser der Root ein Zeichen hat
+- Die Strings entstehen vom ersten Child-Knoten bis zu den externen Nodes
+- Folie 7
+    - Erster Index ist Index in Wörter-Array S
+    - Zweiter und dritter Index ist Range in diesem String
+- Mit einem normalen Trie findet man nur komplette Wörter und Präfixe als Matches, keine Suffixe
+- Dafür für jedes Wort einen Suffix-Trie erstellen
+    - Jeder mögliche Suffix wird in den Trie eingefügt
+    - Auch substrings werden darin gefunden, da sie präfixe der Suffixe im Suffix-Trie sind
+### Dynamische Programmierung
+    

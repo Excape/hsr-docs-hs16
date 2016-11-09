@@ -222,7 +222,7 @@ That Britain was the first one with this technology and that this would provide 
 
 **What does radar stand for? (p. 123)**
 
-"Radio Detection and Ranging". Before, the term "radio direction finding" was used, not to give too much information to the enemy
+*"Radio Detection and Ranging"* <- Remember!. Before, the term "radio direction finding" was used, not to give too much information to the enemy
 
 **Put the following quote into the context of World War II: “Inhospitably, the reception committee turned all these overseas visitors away.” (p. 129)**
 
@@ -230,6 +230,42 @@ In August 1940, the German air fleet attacked England, but they had already dete
 
 **Explain the following quote: “Radar so far had been the hero – a protector of the nation. Yet once Britain learned how Germany was catching up, it would become a villain.” (p. 131)**
 ### Chapter 8
+**What was the difference between German and British radar systems in WWII? (p. 134 / 135)**
+
+
+
+**What military operation did the British plan to deal with the “Würzburg”? (p. 135 – 137)**
+
+
+
+**Draw a timeline or “flow chart” of the operation that took place on February 27, 1942. (p. 137 – 139)**
+
+
+
+**What was the weak spot of the “Würzburg”? (p. 141)**
+
+
+
+**How did “chaff” work? (p. 142)**
+
+
+
+**What was the role of Jones, Cox and Harris in chapter 8?**
+
+
+
+**What aspects of the planned attack on Hamburg horrified Watson Watt? (p. 145)**
+
+
+
+**Very briefly describe the Hamburg firestorm and the science behind it.(p. 146 f)**
+
+
+
+**What are “quantum jumps”? (p.151)**
+
+
+
 ### Chapter 9
 ### Chapter 10
 ### Chapter 11

@@ -114,6 +114,8 @@
                 
                     <li><a class="toctree-l4" href="#associative-containers">Associative Containers</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-8-algorithms">Vorlesung 8 - Algorithms</a></li>
+                
             
             </ul>
         
@@ -633,6 +635,34 @@ december
 </li>
 </ul>
 <hr />
+<h2 id="vorlesung-8-algorithms">Vorlesung 8 - Algorithms</h2>
+<ul>
+<li><code>&lt;algorithm&gt;</code> für die meisten Algorithmen, <code>&lt;numeric&gt;</code> für ein paar numerische</li>
+<li>Streams müssen mit einem <code>istream_iterator</code> bzw. <code>ostream_iterator</code> gewrappt werden, um sie mit Algorithmen zu verwenden<ul>
+<li>Default-konstruierter <code>_iterator</code> ist immer EOF</li>
+</ul>
+</li>
+<li>Functor: Klasse, die Call-Operator <code>()</code> anbietet<ul>
+<li>Instanz davon kann z.B. einem <code>for_each</code> mitgegeben werden, oder aufgerufen mit <code>instance()</code></li>
+<li>Lambdas sind intern mit Functors gelöst</li>
+</ul>
+</li>
+<li>Transform mappt Elemente von ein oder zwei ranges (gleiche Grösse)</li>
+<li><code>remove</code> entfernt nicht Elemente, sondern schiebt nur die Werte nach vorne und gibt einen Iterator zurück, der auf das Ende der neuen Range zeigt<ul>
+<li>Der hintere Teil darf dann nicht mehr verwendet werden. Dieser kann entfernt werden mit <code>vec.erase(removed, vec.end())</code>, wobei <code>removed</code> der returnierte Iterator ist</li>
+</ul>
+</li>
+<li>Viele Algorithmen gibt es auch mit <code>_if</code>, dem ein Predicate mitgegeben werden kann. Z.B. <code>count_if</code>, <code>replace_if</code>, <code>remove_if</code> etc.</li>
+<li>Wenn man keinen End-Iterator hat, kann man mit <code>_n</code> algorithmen eine konkrete Zahl angeben</li>
+<li>Pitfalls<ul>
+<li>Beim Kopieren in eine neue Sequenz muss dort genügend Platz frei sein, ein vector wird nicht selbst vergrössert!<ul>
+<li>Besser <code>back_inserter</code> oder <code>front_inserter</code> verwenden statt v.begin() für den neuen vector, dann werden die einzelnen Elemente gepusht</li>
+</ul>
+</li>
+<li>Wird während der Iteration z.B. push_back aufgerufen, wird der Iterator invalidiert (wie "concurrent modification exception" in java)</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>

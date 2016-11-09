@@ -133,6 +133,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-7-iteratoren-exceptions">Vorlesung 7 - Iteratoren &amp; Exceptions</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-8-linq-selbststudium">Vorlesung 8 - LINQ (Selbststudium)</a></li>
+                
             
             </ul>
         
@@ -505,7 +507,30 @@ public IEnumerable&lt;int&gt; Range(int from, int to) {
 for (int i = from; i &lt; to; i++)
     yield return data[i];
 }</code></p>
-<h3 id="exceptions">Exceptions</h3>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-8-linq-selbststudium">Vorlesung 8 - LINQ (Selbststudium)</h2>
+<ul>
+<li>LINQ ist reine Compiler-Technologie</li>
+<li>Auf Objektstruktur</li>
+<li>Query Syntax wird vom Compiler in Lambdas umgewandelt</li>
+<li>Die Parameter der Lambdas müssen implizit in den Delegate-Parameter konvertierbar sein, sonst müssen sie explizit angegeben werden</li>
+<li>LINQ fügt IENumerable extension Methods hinzu</li>
+<li>Normalerweise deffered evaluation. Wenn aber rückgabewert kein IEnumerable ist, wird die "query" direkt ausgeführt (z.B. <code>ToList()</code>, <code>Count()</code>, <code>Sum()</code>, etc)</li>
+<li>Im Lambdas kann man auf Variablen ausserhalb des Scopes zugreifen und diese verändern (müssen nicht final sein wie in Java)</li>
+<li>C# 6.0 Feature: Expressoin-Bodied Methods<ul>
+<li>Methode mit einem Statement: <code>public void Print() =&gt; Console.WriteLine("Hello");</code></li>
+<li>Read-Only Properties: <code>public int MyProperty =&gt; 0;</code></li>
+</ul>
+</li>
+<li>Collectoin Initializer: <code>var l1 = new List&lt;int&gt; {1, 2};</code><ul>
+<li>Geht seit C# 6.0 auch mit Dictionaries</li>
+</ul>
+</li>
+<li>Anonyme Types werden vorallem mit LINQ verwendet<ul>
+<li>Zuweisung nur zu Variable mit <code>var</code> deklariert</li>
+</ul>
 </li>
 </ul>
               

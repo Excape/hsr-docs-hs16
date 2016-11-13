@@ -228,43 +228,37 @@ That Britain was the first one with this technology and that this would provide 
 
 In August 1940, the German air fleet attacked England, but they had already detected them on radar and were waiting for them with the RAF.
 
-**Explain the following quote: “Radar so far had been the hero – a protector of the nation. Yet once Britain learned how Germany was catching up, it would become a villain.” (p. 131)**
 ### Chapter 8
 **What was the difference between German and British radar systems in WWII? (p. 134 / 135)**
 
+Germany had developed a much smaller radar device that could fit on a van or a plane.
 
 
 **What military operation did the British plan to deal with the “Würzburg”? (p. 135 – 137)**
 
-
-
-**Draw a timeline or “flow chart” of the operation that took place on February 27, 1942. (p. 137 – 139)**
-
-
+They infiltrated the base where the radar system was located with paratroopers and stole some parts of the radar devices
 
 **What was the weak spot of the “Würzburg”? (p. 141)**
 
-
+Its settings were hard to change, because the radar had to be "fool-proof" to be operated by german radar operators
 
 **How did “chaff” work? (p. 142)**
 
-
+A large number of aluminium strips were dropped from an airplane to send back radar "noise"
 
 **What was the role of Jones, Cox and Harris in chapter 8?**
 
-
+- Jones was responsible for detecting the german radar system
+- Cox was an amateur radio ham and in the army. He was put on the paratrooper team on short notice to infiltrate the german base and steal the radar equipment
+- Harris was the head of the RAF Bomber Command. He had a hatred towards blue-collar-workers and wanted to bomb german cities, even killing civilians
 
 **What aspects of the planned attack on Hamburg horrified Watson Watt? (p. 145)**
 
-
-
-**Very briefly describe the Hamburg firestorm and the science behind it.(p. 146 f)**
-
-
+That they didn't bomb factories (tactical targets) but only civilian houses
 
 **What are “quantum jumps”? (p.151)**
 
-
+The notion that electrons can jump through space and pop in and out of existence
 
 ### Chapter 9
 ### Chapter 10

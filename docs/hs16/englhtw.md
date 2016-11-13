@@ -229,6 +229,7 @@ That Britain was the first one with this technology and that this would provide 
 In August 1940, the German air fleet attacked England, but they had already detected them on radar and were waiting for them with the RAF.
 
 **Explain the following quote: “Radar so far had been the hero – a protector of the nation. Yet once Britain learned how Germany was catching up, it would become a villain.” (p. 131)**
+
 ### Chapter 8
 **What was the difference between German and British radar systems in WWII? (p. 134 / 135)**
 

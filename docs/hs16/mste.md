@@ -163,7 +163,8 @@ protected virtual void Dispose(bool disposing)
     // Dispose unmanaged resources
     }
 ```
-    - So werden managed ressourcen von Dispose() aufgerufen, und unmanaged vom Finalize / Destruktor
+
+- So werden managed ressourcen von Dispose() aufgerufen, und unmanaged vom Finalize / Destruktor
 
 ---
 ## Vorlesung 5 - Delegates & Events

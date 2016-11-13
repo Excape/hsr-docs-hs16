@@ -50,7 +50,7 @@ Voraussetzung: Random Access, Daten müssen sortiert sein
 ## Vorlesung 2 - AVL-Trees (1)
 Bei einem AVL Tree muss für jeden Teilbaum gelten, dass die Kinder maximal einen Höhenunterschied von 1 haben.
 
-Beweis: Jeder AVL-Baum mit minimalen Anzahl Knoten \(n\) bei Höhe \(h\) hat einen linken und rechten Teilbaum. Der eine Teilbaum hat Höhe \(h - 1 \) und der rechte \(h - 2\)
+Beweis: Jeder AVL-Baum mit minimalen Anzahl Knoten \(n\) bei Höhe \(h\) hat einen linken und rechten Teilbaum. Der eine Teilbaum hat Höhe \(h - 1\) und der rechte \(h - 2\)
 
 $$n(h) = 1 + n(h-1) + n(h-2)$$
 $$n(h) > 2n(h-2)$$
@@ -243,5 +243,5 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
 - Dafür für jedes Wort einen Suffix-Trie erstellen
     - Jeder mögliche Suffix wird in den Trie eingefügt
     - Auch substrings werden darin gefunden, da sie präfixe der Suffixe im Suffix-Trie sind
+
 ### Dynamische Programmierung
-    

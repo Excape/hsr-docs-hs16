@@ -241,10 +241,10 @@ bool Date::operator<(Date const & rhs) const {
     std::tie(rhs.year, rhs.month, rhs.day);
 }
 ```
-    - Mit boost kann man z.B. `<` implementieren, und bekommt dann `>, <= und >=` (Erben von `boost::less_than_comparable<myType>`)
-    - `<<` überschreiben für Ausgabe
-        - Problem: in Member-Funktion ist das linke Argument vorgegeben mit `this`, dann müsste der Stream rechts von `<<` sein
-        - Lösung: Hilfsfunktion `print()` in der Klasse, die von freier Funktion aufgerufen wird
+- Mit boost kann man z.B. `<` implementieren, und bekommt dann `>, <= und >=` (Erben von `boost::less_than_comparable<myType>`)
+- `<<` überschreiben für Ausgabe
+    - Problem: in Member-Funktion ist das linke Argument vorgegeben mit `this`, dann müsste der Stream rechts von `<<` sein
+    - Lösung: Hilfsfunktion `print()` in der Klasse, die von freier Funktion aufgerufen wird
 ```c++
 class Date {
     int year, month, day;

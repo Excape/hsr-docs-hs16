@@ -132,6 +132,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-8-einfuhrung-wpf">Vorlesung 8 - Einführung WPF</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-9-ui-entwurf">Vorlesung 9 - UI Entwurf</a></li>
+                
             
             </ul>
         
@@ -632,6 +634,17 @@ public void onSensorChanged(SensorEvent event) {
 <li>Visual Tree: Baum, der zur Laufzeit angezeigt wird (also z.B. auch Borders)</li>
 <li>Events werden dem Logical Tree herunter gegeben (von Window aus) und vom Element hinauf (Bubbling)</li>
 <li><code>Preview</code>-Events sind Tunneling, also von "oben"</li>
+</ul>
+<hr />
+<h2 id="vorlesung-9-ui-entwurf">Vorlesung 9 - UI Entwurf</h2>
+<ul>
+<li>Zusatzinfos in Appendix-Folien (auch Prüfungsstoff!)</li>
+<li>Unter <code>Control</code> sind intereraktive Elemente, <code>FrameworkElement</code> beherbergt alle, aber auch nicht interaktive Elemente wie Bilder</li>
+<li>Im Gegensatz zu Android keine <code>matchParent</code> o.ä, sondern wird über alignment gelöst, z.B. <code>stretch</code></li>
+<li>Width / Height gilt immer mit dem Rahmen (wie bei CSS <code>box-sizing: border-box</code>)</li>
+<li>Farbangaben werden vom Compiler in einen Brush umgewandelt</li>
+<li>Ein Grid ohne Zellen und Spalten (= 1 Zelle) kann verwendet werden, um darin Elemente anzuordnen. Nacheinander stehende Elemente werden gestacked</li>
+<li>Im XAML mit <code>local:</code> auf den aktuellen Namespace zugreifen, z.B. auf eigenen Klassen</li>
 </ul>
               
             </div>

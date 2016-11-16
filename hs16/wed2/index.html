@@ -147,6 +147,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-8-ucd-vertiefung">Vorlesung 8 - UCD Vertiefung</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-9-web-security-grundlagen">Vorlesung 9 - Web Security Grundlagen</a></li>
+                
             
             </ul>
         
@@ -421,6 +423,21 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.</li>
 <h2 id="vorlesung-8-ucd-vertiefung">Vorlesung 8 - UCD Vertiefung</h2>
 <ul>
 <li><a href="http://www.vischeck.com/">http://www.vischeck.com/</a> zum Überprüfen, wie die Seite für Farbenblinde aussieht</li>
+</ul>
+<h2 id="vorlesung-9-web-security-grundlagen">Vorlesung 9 - Web Security Grundlagen</h2>
+<ul>
+<li>XSS: Cross Site Scripting<ul>
+<li>Code des Angreifers wird im Browser des Opfers ausgeführt</li>
+<li>Interessant z.B. um Cookies von Benutzer per AJAX-Request an Angreifer zu setzen</li>
+<li>Encoding ist bei Handlebars per default aktiviert</li>
+<li>Content Security Policy als Header setzen</li>
+<li>Bei Cookies <code>HttpOnly</code> Flag setzen, damit es nicht mit <code>document.cookie</code> ausgelesen werden kann</li>
+</ul>
+</li>
+<li>JS Code Injection<ul>
+<li>Angreifer kann Server dazu bringen, seinen Code auszuführen</li>
+</ul>
+</li>
 </ul>
               
             </div>

@@ -77,7 +77,10 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-6-radix-sort-pattern-matching">Vorlesung 6 - Radix-Sort / Pattern Matching</a></li>
                 
-                    <li><a class="toctree-l4" href="#vorlesung-8-tries-dynamische-programmierung">Vorlesung 8 - Tries / Dynamische Programmierung</a></li>
+                    <li><a class="toctree-l4" href="#vorlesung-8-tries">Vorlesung 8 - Tries</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#vorlesung-9-dynamische-programmierung">Vorlesung 9 - Dynamische Programmierung</a></li>
                 
             
             </ul>
@@ -282,7 +285,7 @@ Voraussetzung: Random Access, Daten müssen sortiert sein</p>
 <hr />
 <h2 id="vorlesung-2-avl-trees-1">Vorlesung 2 - AVL-Trees (1)</h2>
 <p>Bei einem AVL Tree muss für jeden Teilbaum gelten, dass die Kinder maximal einen Höhenunterschied von 1 haben.</p>
-<p>Beweis: Jeder AVL-Baum mit minimalen Anzahl Knoten <script type="math/tex">n</script> bei Höhe <script type="math/tex">h</script> hat einen linken und rechten Teilbaum. Der eine Teilbaum hat Höhe <script type="math/tex">h - 1 </script> und der rechte <script type="math/tex">h - 2</script>
+<p>Beweis: Jeder AVL-Baum mit minimalen Anzahl Knoten <script type="math/tex">n</script> bei Höhe <script type="math/tex">h</script> hat einen linken und rechten Teilbaum. Der eine Teilbaum hat Höhe <script type="math/tex">h - 1</script> und der rechte <script type="math/tex">h - 2</script>
 </p>
 <p>
 <script type="math/tex; mode=display">n(h) = 1 + n(h-1) + n(h-2)</script>
@@ -533,8 +536,7 @@ Konstanten heraus streichen:
 </li>
 </ul>
 <hr />
-<h2 id="vorlesung-8-tries-dynamische-programmierung">Vorlesung 8 - Tries / Dynamische Programmierung</h2>
-<h3 id="tries">Tries</h3>
+<h2 id="vorlesung-8-tries">Vorlesung 8 - Tries</h2>
 <ul>
 <li>Ziel: Preprocessing vom Text (n), um Suchen in Abhängigkeit von m zu erreichen (statt voher von n)</li>
 <li>Ein "Trie" ist ein geordneter Baum, wobei jeder Knoten ausser der Root ein Zeichen hat</li>
@@ -551,7 +553,55 @@ Konstanten heraus streichen:
 </ul>
 </li>
 </ul>
-<h3 id="dynamische-programmierung">Dynamische Programmierung</h3>
+<hr />
+<h1 id="vorlesung-9-dynamische-programmierung">Vorlesung 9 - Dynamische Programmierung</h1>
+<ul>
+<li>Rucksack-Problem ist hier nur polynomiell lösbar, weil es ganze Zahlen sind (sonst ist es NP-Vollständig)</li>
+<li>Ziel ist immer, Resultate von Subproblemen zu speichern, weil sie Einfluss auf die anderen Lösungen (der Subprobleme) haben</li>
+<li>Beispiel Fibonacci: Mit normaler Rekursiver Variante werden die tieferen Fib-Zahlen immer mehrmals berechnen. Viel schneller ist es, die Zwischenergebnisse jeweils in einer Tabelle zu speichern, und nur berechnen, wenn sie noch nicht darin vorkommen.</li>
+<li>Beispiel LCS<ul>
+<li>Horizontal ist X(m), Vertikal Y(n)</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>C</th>
+<th>G</th>
+<th>A</th>
+<th>T</th>
+<th>...</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+</tr>
+<tr>
+<td>T</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>...</td>
+</tr>
+<tr>
+<td>T</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

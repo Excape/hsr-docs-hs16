@@ -138,6 +138,8 @@
                 
                     <li><a class="toctree-l4" href="#woche-7-elearning-microtests">Woche 7 - eLearning Microtests</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-9-design-patterns">Vorlesung 9 - Design Patterns</a></li>
+                
             
             </ul>
         
@@ -373,6 +375,30 @@
 <img alt="" src="../img/elearning_microtests/img_23.png" />
 <img alt="" src="../img/elearning_microtests/img_24.png" />
 <img alt="" src="../img/elearning_microtests/img_25.png" /></p>
+<hr />
+<h2 id="vorlesung-9-design-patterns">Vorlesung 9 - Design Patterns</h2>
+<ul>
+<li>Folie 12: Dies ist das <strong>Strategy Pattern</strong><ul>
+<li>Jede Duck muss eine Strategie implementieren (Flug und Quacken)</li>
+<li>Vorteil: Man kann z.B. über eine Liste von Ducks iterieren und auf allen <code>fly()</code> aufrufen. Geht z.B. nicht, wenn man Interface <code>flyable</code> machen würde</li>
+</ul>
+</li>
+<li>Decorator-Pattern<ul>
+<li>Klassen ineinander verpacken</li>
+<li>Kosten werden von Aussen nach Innen addiert</li>
+<li>Decorator erbt von Component, aber hat selbst eine Referenz auf eine Component</li>
+</ul>
+</li>
+<li>Composite<ul>
+<li>Jede Composite hat eine oder mehrere Components als Childdren, diese kann jeweils ein Leaf, oder wieder ein Composite sein</li>
+<li>Problem: Ein Composite hat keine eigene Operation, es werden nur Operationen auf Leafs ausgeführt</li>
+</ul>
+</li>
+<li>Factory<ul>
+<li>Instanziierung mit komplexer Logik in sepparate Klasse auslagern</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>

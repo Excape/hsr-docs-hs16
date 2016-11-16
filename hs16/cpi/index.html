@@ -116,6 +116,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-8-algorithms">Vorlesung 8 - Algorithms</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-9">Vorlesung 9</a></li>
+                
             
             </ul>
         
@@ -503,11 +505,14 @@ foo(g);
 }
 </code></pre>
 
-<pre><code>- Mit boost kann man z.B. `&lt;` implementieren, und bekommt dann `&gt;, &lt;= und &gt;=` (Erben von `boost::less_than_comparable&lt;myType&gt;`)
-- `&lt;&lt;` überschreiben für Ausgabe
-    - Problem: in Member-Funktion ist das linke Argument vorgegeben mit `this`, dann müsste der Stream rechts von `&lt;&lt;` sein
-    - Lösung: Hilfsfunktion `print()` in der Klasse, die von freier Funktion aufgerufen wird
-</code></pre>
+<ul>
+<li>Mit boost kann man z.B. <code>&lt;</code> implementieren, und bekommt dann <code>&gt;, &lt;= und &gt;=</code> (Erben von <code>boost::less_than_comparable&lt;myType&gt;</code>)</li>
+<li><code>&lt;&lt;</code> überschreiben für Ausgabe<ul>
+<li>Problem: in Member-Funktion ist das linke Argument vorgegeben mit <code>this</code>, dann müsste der Stream rechts von <code>&lt;&lt;</code> sein</li>
+<li>Lösung: Hilfsfunktion <code>print()</code> in der Klasse, die von freier Funktion aufgerufen wird</li>
+</ul>
+</li>
+</ul>
 <pre><code class="c++">class Date {
     int year, month, day;
 public:
@@ -643,7 +648,7 @@ december
 </ul>
 </li>
 <li>Functor: Klasse, die Call-Operator <code>()</code> anbietet<ul>
-<li>Instanz davon kann z.B. einem <code>for_each</code> mitgegeben werden, oder aufgerufen mit <code>instance()</code></li>
+<li>Instanz davon kann z.B. einem <code>for_each</code> mitgegeben werden, oder aufgerufen mit <code>&lt;instance&gt;()</code></li>
 <li>Lambdas sind intern mit Functors gelöst</li>
 </ul>
 </li>
@@ -662,6 +667,53 @@ december
 <li>Wird während der Iteration z.B. push_back aufgerufen, wird der Iterator invalidiert (wie "concurrent modification exception" in java)</li>
 </ul>
 </li>
+</ul>
+<hr />
+<h2 id="vorlesung-9">Vorlesung 9</h2>
+<ul>
+<li>Functor kann z.B. für for_each verwendet werden (wird dann für jedes Element aufgerufen)</li>
+<li>Vorteil: Überladener <code>()</code> Operator kann auf Member-Variablen der Instanz zugreifen</li>
+</ul>
+<pre><code class="c++">std::vector&lt;double&gt; v{7,4,1,3,5,3.3,4.7};
+auto const res=for_each(v.begin(),v.end(),averager{});
+</code></pre>
+
+<ul>
+<li><code>generate(firstIt, lastIt, Generator)</code>:<ul>
+<li>Generator ist ein objekt (oder lambda), das ein Wert zurückgeben muss, der dem iterator zugewiesen werden kann</li>
+<li>Generator kann auch ein functor sein (d.h darauf der call-Parameter überschreiben)</li>
+</ul>
+</li>
+<li>Lambda kann einer Variable zugewiesen werden mit <code>auto</code><ul>
+<li>Intern wird der Typ vom Compiler definiert (nicht vom Standard vorgeschrieben)</li>
+<li>Return-Type kann mit <code>[]()-&gt;char{}</code> manuell angegeben werden, ist aber nicht nötig</li>
+</ul>
+</li>
+<li>capture mit <code>[=]</code>: Kopie in Lamba</li>
+<li>Capture mit <code>[&amp;]</code>: Referenz auf variable</li>
+<li>Mit <code>[x=value]</code> ist im Lambda-Body die Variable <code>x</code> verfügbar (gleich wie man die variable im Body deklarieren würde)</li>
+<li><code>[this]</code> capture in Member-Funktion: <code>this</code> ist ein Pointer!<ul>
+<li><code>this-&gt;var</code></li>
+<li><code>(*this).var</code></li>
+<li>Wenn man <code>this</code> per copy capturen, bekommt man nur den Pointer, der ist const (siehe unten), aber man kann weiterhin member-Variablen verändern!</li>
+</ul>
+</li>
+<li>Lambda mit <code>[]() mutable {}</code><ul>
+<li>Per default sind variablen mit <code>[=]</code> gecaptured nicht veränderbar</li>
+<li>Mit <code>mutable</code> sind sie veränderbar</li>
+<li>Gilt nicht bei variablen, die per Referenz <code>[&amp;]</code> gecaptured werden</li>
+</ul>
+</li>
+<li>Lambdas sind intern meist functors</li>
+<li>Für einfache Funktionen gibt es Standard-Funktoren wie <code>std::negate&lt;T&gt;</code> oder <code>std::greater&lt;T&gt;</code></li>
+<li>Funktionen können andere Funktionen als Parameter entgegen nehmen <code>foo(double bar(int))</code><ul>
+<li>Beim Aufruf kann ein Funktionsname mitgegeben werden, oder ein Lambda</li>
+<li>Geht aber nicht mit Funktoren</li>
+<li>Kann mit templates gemacht werden (nächste Vorlesung)</li>
+<li>Oder als parameter in der Funktion den typ <code>std::function&lt;double(int)&gt;</code> verwenden</li>
+</ul>
+</li>
+<li>Eine <code>std::function&lt;&gt;</code> kann in ein bool konvertiert werden und gibt zurück, ob eine gültige Funktion darin ist</li>
 </ul>
               
             </div>

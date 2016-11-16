@@ -133,4 +133,13 @@
         - Grundsätzlich abänderbar (dispositiv)
         - *Privatautonomie*: Parteien sind frei im Handeln. z.B. Vertragsfreiheit (OR 19). Solange es nicht gegen öffentliches / persönliches Recht verstösst oder "gegen die guten Sitten"
         - *Koordinationsprinzip*: 
-    - 
+
+## Vorlesung 9 - Strafrecht
+- Objektiver TB: äussere Merkmale einer Tat: Wer hat was gemacht (zu wem)?
+- Subjektiver TB:
+    - Eventualvorsatz: Dem Täter "ist es egal", nimmt es in Kauf und weiss darüber
+- Strafmass wird in der Schweiz nicht automatisch addiert bei mehreren Tatbeständen, sondern abgewogen
+- Nicht jeder Tatbestand ist Rechtswidrig, z.B. wegen Notwehr (nur gegen Menschen, nicht z.B. Natur), Amtspflichten, Einwilligung des Verletzten (ärtzliche Eingriffe)
+    - Notstand: jemand anderes retten (Schutz höherwertiger Interessen)
+- Massnahmen: Wenn jemand nicht schuldhaft gehandelt hat
+- Busse ist für alle gleich hoch, Geldstrafe kommt auf Einkommen (Höhe Tagessatz) drauf an

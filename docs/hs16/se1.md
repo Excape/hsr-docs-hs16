@@ -139,3 +139,18 @@
 ![](img/elearning_microtests/img_23.png)
 ![](img/elearning_microtests/img_24.png)
 ![](img/elearning_microtests/img_25.png)
+
+---
+## Vorlesung 9 - Design Patterns
+- Folie 12: Dies ist das **Strategy Pattern**
+    - Jede Duck muss eine Strategie implementieren (Flug und Quacken)
+    - Vorteil: Man kann z.B. über eine Liste von Ducks iterieren und auf allen `fly()` aufrufen. Geht z.B. nicht, wenn man Interface `flyable` machen würde
+- Decorator-Pattern
+    - Klassen ineinander verpacken
+    - Kosten werden von Aussen nach Innen addiert
+    - Decorator erbt von Component, aber hat selbst eine Referenz auf eine Component
+- Composite
+    - Jede Composite hat eine oder mehrere Components als Childdren, diese kann jeweils ein Leaf, oder wieder ein Composite sein
+    - Problem: Ein Composite hat keine eigene Operation, es werden nur Operationen auf Leafs ausgeführt
+- Factory
+    - Instanziierung mit komplexer Logik in sepparate Klasse auslagern

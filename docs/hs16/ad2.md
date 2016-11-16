@@ -231,8 +231,7 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
     - So werden nach dem Verschieben nach rechts redundante Vergleiche vermieden
 
 ---
-## Vorlesung 8 - Tries / Dynamische Programmierung
-### Tries
+## Vorlesung 8 - Tries
 - Ziel: Preprocessing vom Text (n), um Suchen in Abhängigkeit von m zu erreichen (statt voher von n)
 - Ein "Trie" ist ein geordneter Baum, wobei jeder Knoten ausser der Root ein Zeichen hat
 - Die Strings entstehen vom ersten Child-Knoten bis zu den externen Nodes
@@ -244,4 +243,17 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
     - Jeder mögliche Suffix wird in den Trie eingefügt
     - Auch substrings werden darin gefunden, da sie präfixe der Suffixe im Suffix-Trie sind
 
-### Dynamische Programmierung
+---
+# Vorlesung 9 - Dynamische Programmierung
+- Rucksack-Problem ist hier nur polynomiell lösbar, weil es ganze Zahlen sind (sonst ist es NP-Vollständig)
+- Ziel ist immer, Resultate von Subproblemen zu speichern, weil sie Einfluss auf die anderen Lösungen (der Subprobleme) haben
+- Beispiel Fibonacci: Mit normaler Rekursiver Variante werden die tieferen Fib-Zahlen immer mehrmals berechnen. Viel schneller ist es, die Zwischenergebnisse jeweils in einer Tabelle zu speichern, und nur berechnen, wenn sie noch nicht darin vorkommen.
+- Beispiel LCS
+    - Horizontal ist X(m), Vertikal Y(n)
+
+
+  | C | G | A | T | ...
+--|---|---|---|---|----
+G | 0 | 1 | 1 | 1 | ...
+T | 0 | 1 | 1 | 2 | ...
+T |   |   |   |   |

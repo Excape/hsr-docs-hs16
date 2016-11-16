@@ -360,3 +360,13 @@ public void onSensorChanged(SensorEvent event) {
 - Visual Tree: Baum, der zur Laufzeit angezeigt wird (also z.B. auch Borders)
 - Events werden dem Logical Tree herunter gegeben (von Window aus) und vom Element hinauf (Bubbling)
 - `Preview`-Events sind Tunneling, also von "oben"
+
+---
+## Vorlesung 9 - UI Entwurf
+- Zusatzinfos in Appendix-Folien (auch Prüfungsstoff!)
+- Unter `Control` sind intereraktive Elemente, `FrameworkElement` beherbergt alle, aber auch nicht interaktive Elemente wie Bilder
+- Im Gegensatz zu Android keine `matchParent` o.ä, sondern wird über alignment gelöst, z.B. `stretch`
+- Width / Height gilt immer mit dem Rahmen (wie bei CSS `box-sizing: border-box`)
+- Farbangaben werden vom Compiler in einen Brush umgewandelt
+- Ein Grid ohne Zellen und Spalten (= 1 Zelle) kann verwendet werden, um darin Elemente anzuordnen. Nacheinander stehende Elemente werden gestacked
+- Im XAML mit `local:` auf den aktuellen Namespace zugreifen, z.B. auf eigenen Klassen

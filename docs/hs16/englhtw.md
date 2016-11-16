@@ -4,6 +4,7 @@
 - Technical Process
 - Structure!
 - Free Speech!
+- Many passive verbs / simple present
 - Ideas
     - What it takes to go to space / to mars
 
@@ -222,7 +223,7 @@ That Britain was the first one with this technology and that this would provide 
 
 **What does radar stand for? (p. 123)**
 
-*"Radio Detection and Ranging"* <- Remember!. Before, the term "radio direction finding" was used, not to give too much information to the enemy
+*"Radio Detection and Ranging"* - Remember!. Before, the term "radio direction finding" was used, not to give too much information to the enemy
 
 **Put the following quote into the context of World War II: “Inhospitably, the reception committee turned all these overseas visitors away.” (p. 129)**
 

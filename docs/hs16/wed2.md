@@ -152,3 +152,13 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
 ---
 ## Vorlesung 8 - UCD Vertiefung
 - <http://www.vischeck.com/> zum Überprüfen, wie die Seite für Farbenblinde aussieht
+
+## Vorlesung 9 - Web Security Grundlagen
+- XSS: Cross Site Scripting
+    - Code des Angreifers wird im Browser des Opfers ausgeführt
+    - Interessant z.B. um Cookies von Benutzer per AJAX-Request an Angreifer zu setzen
+    - Encoding ist bei Handlebars per default aktiviert
+    - Content Security Policy als Header setzen
+    - Bei Cookies `HttpOnly` Flag setzen, damit es nicht mit `document.cookie` ausgelesen werden kann
+- JS Code Injection
+    - Angreifer kann Server dazu bringen, seinen Code auszuführen

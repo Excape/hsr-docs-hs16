@@ -258,3 +258,18 @@ list.ForEach(delegate(int i)
     - Geht seit C# 6.0 auch mit Dictionaries
 - Anonyme Types werden vorallem mit LINQ verwendet
     - Zuweisung nur zu Variable mit `var` deklariert
+
+---
+## Vorlesung 9 - Entity Framework (1) (Selbststudium)
+- Ansatz Code First: Code schreiben, der dann zur Laufzeit zu Datenbank umgewandelt wird (falls nicht existierend)
+- Ansatz Model First: Modell designen, wird in Code umgesetzt
+- DSL: Domain specific language, eine Sprache, Objekte und ihre Assoziationen zu beschreiben
+- CSDL (Conceptual Schema Definition Language) *ist eine DSL* für .NET
+- Conceptual Model wird vom Framework in Logical Model gemapped
+- Entity Types können voneinander erben (wird vom OR-Mapper entsprechend in relatione Objekte abgebildet)
+- Complex Types: Mehrere Properties auf relationaler Ebene können auf dem Schema in ein Complex-Type zusammengefasst werden. Auf CLR-Ebene sind diese dann eigene Types, auf der Datenbank nur Spalten der entsprechenden Tabelle
+- Bei Code first kann man die Mappings auf 3 verschiedene Arten definieren
+    - *By Convention*: Es gibt conventions, wie die Namen von Properties gemapped werden, z.B. das "Id" Property als Primary Key
+    - *By Attributes*: Den Properties und Klassen Attributes geben, z.B. `[Column("name")]` um Namen zu überschreiben, `[Required]` für not-null
+    - Mit *DbModelBuilder*: Für jede Klasse ein `DbModelBuilder` erstellen und mit Methoden darauf (`HasKey()` für Primary key) die Mappings definiert. Statt Annotationen
+- Seed Database: Von einer der Klassen `DropCreateDataBaseAlways<myDb>` etc. erben und `Seed()` überschreiben. Im eigenen Context dann `Database.SetInitializer(new MyDbSeed())` setzen

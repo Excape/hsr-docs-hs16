@@ -344,7 +344,7 @@ december
 - Streams müssen mit einem `istream_iterator` bzw. `ostream_iterator` gewrappt werden, um sie mit Algorithmen zu verwenden
     - Default-konstruierter `_iterator` ist immer EOF
 - Functor: Klasse, die Call-Operator `()` anbietet
-    - Instanz davon kann z.B. einem `for_each` mitgegeben werden, oder aufgerufen mit `instance()`
+    - Instanz davon kann z.B. einem `for_each` mitgegeben werden, oder aufgerufen mit `<instance>()`
     - Lambdas sind intern mit Functors gelöst
 - Transform mappt Elemente von ein oder zwei ranges (gleiche Grösse)
 - `remove` entfernt nicht Elemente, sondern schiebt nur die Werte nach vorne und gibt einen Iterator zurück, der auf das Ende der neuen Range zeigt
@@ -355,3 +355,37 @@ december
     - Beim Kopieren in eine neue Sequenz muss dort genügend Platz frei sein, ein vector wird nicht selbst vergrössert!
         - Besser `back_inserter` oder `front_inserter` verwenden statt v.begin() für den neuen vector, dann werden die einzelnen Elemente gepusht
     - Wird während der Iteration z.B. push_back aufgerufen, wird der Iterator invalidiert (wie "concurrent modification exception" in java)
+
+---
+## Vorlesung 9
+- Functor kann z.B. für for_each verwendet werden (wird dann für jedes Element aufgerufen)
+- Vorteil: Überladener `()` Operator kann auf Member-Variablen der Instanz zugreifen
+```c++
+std::vector<double> v{7,4,1,3,5,3.3,4.7};
+auto const res=for_each(v.begin(),v.end(),averager{});
+```
+- `generate(firstIt, lastIt, Generator)`:
+    - Generator ist ein objekt (oder lambda), das ein Wert zurückgeben muss, der dem iterator zugewiesen werden kann
+    - Generator kann auch ein functor sein (d.h darauf der call-Parameter überschreiben)
+- Lambda kann einer Variable zugewiesen werden mit `auto`
+    - Intern wird der Typ vom Compiler definiert (nicht vom Standard vorgeschrieben)
+    - Return-Type kann mit `[]()->char{}` manuell angegeben werden, ist aber nicht nötig
+- capture mit `[=]`: Kopie in Lamba
+- Capture mit `[&]`: Referenz auf variable
+- Mit `[x=value]` ist im Lambda-Body die Variable `x` verfügbar (gleich wie man die variable im Body deklarieren würde)
+- `[this]` capture in Member-Funktion: `this` ist ein Pointer!
+    - `this->var`
+    - `(*this).var`
+    - Wenn man `this` per copy capturen, bekommt man nur den Pointer, der ist const (siehe unten), aber man kann weiterhin member-Variablen verändern!
+- Lambda mit `[]() mutable {}`
+    - Per default sind variablen mit `[=]` gecaptured nicht veränderbar
+    - Mit `mutable` sind sie veränderbar
+    - Gilt nicht bei variablen, die per Referenz `[&]` gecaptured werden
+- Lambdas sind intern meist functors
+- Für einfache Funktionen gibt es Standard-Funktoren wie `std::negate<T>` oder `std::greater<T>`
+- Funktionen können andere Funktionen als Parameter entgegen nehmen `foo(double bar(int))`
+    - Beim Aufruf kann ein Funktionsname mitgegeben werden, oder ein Lambda
+    - Geht aber nicht mit Funktoren
+    - Kann mit templates gemacht werden (nächste Vorlesung)
+    - Oder als parameter in der Funktion den typ `std::function<double(int)>` verwenden
+- Eine `std::function<>` kann in ein bool konvertiert werden und gibt zurück, ob eine gültige Funktion darin ist

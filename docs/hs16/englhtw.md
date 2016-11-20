@@ -262,6 +262,43 @@ That they didn't bomb factories (tactical targets) but only civilian houses
 The notion that electrons can jump through space and pop in and out of existence
 
 ### Chapter 9
+**In what ways was Alan Turing different as a child? (p. 158)**
+
+He loved the way he could think his way out of problems.
+
+**What tragic event marked his late teenage years? (p. 159)**
+
+His boyfriend with 17 died of tuberculosis
+
+**What was special about Turing’s solution to the mathematical problem of David Hilbert? (p. 161)**
+
+He didn't come up with an abstract mathematical proof, but imagined a machine that could solve the problem (Turing Machine)
+
+**Why couldn’t Turing build his electrical thinking machine at the time of the 1930s? (p.163)**
+
+The machine would have been to big (and too complicated) just with wires and switches
+
+**Where did Alan Turing work during WW2 and what was his job there? (p. 165)**
+
+Bletchley Park, as part of a codebreaking group
+
+**What was the name of the machine he designed there? (p. 168)**
+
+"bombe"
+
+**Which problems did Turing face when working in Manchester after WW2? (p. 171-2)**
+
+Sir Charles Darwin did not understand how a "universal" machine could be built, but thought a machine always had to be particular one.
+In Manchester, the other engineerins were not welcoming, as Turing had a south-england accent that wasn't met with a lot of respect there
+
+**Why did the authorities force Turing to take female hormones? (p. 174)**
+
+Homosexuality was a crime in Britain. The could avoid prison by undergoing a "cure", taking female hormones. But the treatment made it hard to concentrate and he was developing breasts
+
+**How did Alan Turing die? (p. 174)**
+
+He commited suicide with an apple filled with potassium cyanide
+
 ### Chapter 10
 ### Chapter 11
 ### Chapter 12

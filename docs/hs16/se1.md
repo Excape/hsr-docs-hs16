@@ -154,3 +154,11 @@
     - Problem: Ein Composite hat keine eigene Operation, es werden nur Operationen auf Leafs ausgeführt
 - Factory
     - Instanziierung mit komplexer Logik in sepparate Klasse auslagern
+
+### Übung 09
+- *TODO* BILDER EINFÜGEN
+- Strategy Pattern: In Wikipedia ist die Strategie-Klasse ein Interface, im Quiz eine konkrete Klasse
+    - Konkrete Klasse für default implementation. Bei Interface nicht möglich
+- Observer Pattern: Im GOF gibt es ein konkretes Subject, bei Wikipedia nicht. Das concrete Subject ist nötig, da es das effektive Objekt ist, das "observed" wird
+- MVC geht auch ohne Observer-Pattern: Der Controller kennt das Model und die View. Wenn das Model sich ändert, weiss das der Controller und meldet dies der View. Mit dem Observer Pattern werden die Views über den Observer vom Model benachrichtigt, der Controller muss die View nicht mehr kennen
+    - MVC ohne Observer nur mit 1 View oder wenn die Daten "unter" dem Modell nicht verändert werden

@@ -8,6 +8,24 @@
 - Ideas
     - What it takes to go to space / to mars
 
+### Prep
+- Title: How to get to Mars
+- Next step: How to colonize Mars
+- SpaceX Presentation: <http://www.spacex.com/sites/spacex/files/mars_presentation.pdf>
+- Structure
+    - How to get to Space
+        - Basic orbital mechanics
+    - From Earth to Mars
+        - Proposal from SpaceX: 100 people at a time
+        - Interplanetary Transport System
+        - Multiple refueling mission in LEO before taking off to Mars
+        - Landing on Mars
+    - Next Steps
+        - Colonize
+            - Why? - "Making humans a multiplanetary species"
+            - How? - Habitats, O2 generation, etc.
+        - 1 Million people needed, according to spaceX
+
 
 ## 3.2 Wiki Listening
 1. access
@@ -49,6 +67,14 @@
 10. ncp: network control protocol
 11. break up files into packets to avoid congestion
 12. standarddize, osi model
+
+## Conditional
+Nr | If-Clause                         | Main clause         | Description
+---|-----------------------------------|---------------------|--------------------
+0  | When it rains,                    | the street get wet. | General statements
+1  | If you work hard,                 | you will succeed.   | Always S.P. + Will
+2  | If I had 10 Mio $,                | I would...          | Wish, dream, advice
+3  | If she had known about the party, | she would have come | Imagining the past, you can't change the past, Pa. Perf. + would have
 
 ## Book Questions
 ### People

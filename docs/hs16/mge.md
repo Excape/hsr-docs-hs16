@@ -370,3 +370,38 @@ public void onSensorChanged(SensorEvent event) {
 - Farbangaben werden vom Compiler in einen Brush umgewandelt
 - Ein Grid ohne Zellen und Spalten (= 1 Zelle) kann verwendet werden, um darin Elemente anzuordnen. Nacheinander stehende Elemente werden gestacked
 - Im XAML mit `local:` auf den aktuellen Namespace zugreifen, z.B. auf eigenen Klassen
+- Dialogfenster werden geschlossen, wenn das Property `DialogResult` gesetzt wird (als Nebeneffekt!)
+
+---
+## Vorlesung 10 - GUI-Design
+### Resources
+- XAML-Objekte, die in Layout verwendet werden können
+- z.B. Brush, Color, Style, String
+- Jede Ressource mit einem Key
+- Werden in dll rein kompiliert
+- In Application.xaml Datei unter `<Application.Resources>`
+    - Mit `x:Key` Attribut eine ID festlegen
+    - Im layout mit `{StaticResource <resourceID>}` ansprechen
+- Key wird zuerst in Element und Parent-Nodes gesucht, dann bei `Window.Resources`, am Schluss bei `Application.Resources`
+- Static Resource: Binding geschieht Compile-Time
+- Dynamische Resource: Mit `{DynamicResource <resourceID>}`, lässt auch dynamisch geladene Resourcen zu, binding zur Laufzeit. Z.B. um Themes zur Laufzeit zu wechseln
+- Im Code zugreifen mit `object FindResource(key)` und auf entsprechenden Type casten
+- Eigenes Resource Dictionary in eigenem File erstellen
+    - Root-Tag `<ResourceDictionary>`
+    - Externe Res-Dicts einbinden in Tag `<ResourceDictionary.MergedDictionaries>`
+    - Resource ist verfügbar, sobald sie im XAML definiert wurde (oder aus externem File verlinkt)
+
+### Styles
+- Für ein Steuerelement einen Style festlegen mit mehreren Eigenschaften
+- Style mit `<Style x:Key="id">` in Resource-Dictionary definieren
+- als statiche Resource beim Steuerelement dem `Style`-Property zuweisen
+- `Button.Property` ist nur eine Hilfe für den Compiler. Der Style könnte auch auf ein anderen Control-Typ angewendet werden
+- Mit `TargetType` kann im Style das Steuerelement angegeben werden. Wenn der Key weggelassen wird, ist er standardmässig auf alle Controls dieses Typs angewendet
+- Styles können vererbt werden
+    - Mit `BasedOn` Property im Style-Tag "Parent" definieren
+- Mit Templates kann das komplette Aussehen eines Controls verändert werden
+    - Im `Template`-Property des Styles festgelegt
+    - Mit `TemplateBinding` die Default-Werte abrufen
+- Mit `Style.Triggers` z.B. MouseOver-Verhalten festlegen
+    - Visual State Manager übersteuert z.T. Style-Triggers
+    - Lösung: Eigenes Control Template schreiben

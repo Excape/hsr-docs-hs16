@@ -134,6 +134,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-9-ui-entwurf">Vorlesung 9 - UI Entwurf</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-10-gui-design">Vorlesung 10 - GUI-Design</a></li>
+                
             
             </ul>
         
@@ -645,6 +647,53 @@ public void onSensorChanged(SensorEvent event) {
 <li>Farbangaben werden vom Compiler in einen Brush umgewandelt</li>
 <li>Ein Grid ohne Zellen und Spalten (= 1 Zelle) kann verwendet werden, um darin Elemente anzuordnen. Nacheinander stehende Elemente werden gestacked</li>
 <li>Im XAML mit <code>local:</code> auf den aktuellen Namespace zugreifen, z.B. auf eigenen Klassen</li>
+<li>Dialogfenster werden geschlossen, wenn das Property <code>DialogResult</code> gesetzt wird (als Nebeneffekt!)</li>
+</ul>
+<hr />
+<h2 id="vorlesung-10-gui-design">Vorlesung 10 - GUI-Design</h2>
+<h3 id="resources">Resources</h3>
+<ul>
+<li>XAML-Objekte, die in Layout verwendet werden können</li>
+<li>z.B. Brush, Color, Style, String</li>
+<li>Jede Ressource mit einem Key</li>
+<li>Werden in dll rein kompiliert</li>
+<li>In Application.xaml Datei unter <code>&lt;Application.Resources&gt;</code><ul>
+<li>Mit <code>x:Key</code> Attribut eine ID festlegen</li>
+<li>Im layout mit <code>{StaticResource &lt;resourceID&gt;}</code> ansprechen</li>
+</ul>
+</li>
+<li>Key wird zuerst in Element und Parent-Nodes gesucht, dann bei <code>Window.Resources</code>, am Schluss bei <code>Application.Resources</code></li>
+<li>Static Resource: Binding geschieht Compile-Time</li>
+<li>Dynamische Resource: Mit <code>{DynamicResource &lt;resourceID&gt;}</code>, lässt auch dynamisch geladene Resourcen zu, binding zur Laufzeit. Z.B. um Themes zur Laufzeit zu wechseln</li>
+<li>Im Code zugreifen mit <code>object FindResource(key)</code> und auf entsprechenden Type casten</li>
+<li>Eigenes Resource Dictionary in eigenem File erstellen<ul>
+<li>Root-Tag <code>&lt;ResourceDictionary&gt;</code></li>
+<li>Externe Res-Dicts einbinden in Tag <code>&lt;ResourceDictionary.MergedDictionaries&gt;</code></li>
+<li>Resource ist verfügbar, sobald sie im XAML definiert wurde (oder aus externem File verlinkt)</li>
+</ul>
+</li>
+</ul>
+<h3 id="styles">Styles</h3>
+<ul>
+<li>Für ein Steuerelement einen Style festlegen mit mehreren Eigenschaften</li>
+<li>Style mit <code>&lt;Style x:Key="id"&gt;</code> in Resource-Dictionary definieren</li>
+<li>als statiche Resource beim Steuerelement dem <code>Style</code>-Property zuweisen</li>
+<li><code>Button.Property</code> ist nur eine Hilfe für den Compiler. Der Style könnte auch auf ein anderen Control-Typ angewendet werden</li>
+<li>Mit <code>TargetType</code> kann im Style das Steuerelement angegeben werden. Wenn der Key weggelassen wird, ist er standardmässig auf alle Controls dieses Typs angewendet</li>
+<li>Styles können vererbt werden<ul>
+<li>Mit <code>BasedOn</code> Property im Style-Tag "Parent" definieren</li>
+</ul>
+</li>
+<li>Mit Templates kann das komplette Aussehen eines Controls verändert werden<ul>
+<li>Im <code>Template</code>-Property des Styles festgelegt</li>
+<li>Mit <code>TemplateBinding</code> die Default-Werte abrufen</li>
+</ul>
+</li>
+<li>Mit <code>Style.Triggers</code> z.B. MouseOver-Verhalten festlegen<ul>
+<li>Visual State Manager übersteuert z.T. Style-Triggers</li>
+<li>Lösung: Eigenes Control Template schreiben</li>
+</ul>
+</li>
 </ul>
               
             </div>

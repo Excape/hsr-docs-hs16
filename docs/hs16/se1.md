@@ -162,3 +162,19 @@
 - Observer Pattern: Im GOF gibt es ein konkretes Subject, bei Wikipedia nicht. Das concrete Subject ist nötig, da es das effektive Objekt ist, das "observed" wird
 - MVC geht auch ohne Observer-Pattern: Der Controller kennt das Model und die View. Wenn das Model sich ändert, weiss das der Controller und meldet dies der View. Mit dem Observer Pattern werden die Views über den Observer vom Model benachrichtigt, der Controller muss die View nicht mehr kennen
     - MVC ohne Observer nur mit 1 View oder wenn die Daten "unter" dem Modell nicht verändert werden
+
+---
+## Vorlesung 10 - SW-Architektur (1)
+
+- Diagramm mit Packages so detailiert, damit man es noch gut kommunizieren kann
+- Gute Kohäsion von Klassen entsteht oft durch Single Responsibility
+- Tiefe Kopplung: Möglichst wenig Abhängigkeiten von anderen Klassen
+- In den Schichten geht Abhängigkeit immer von oben nach unten
+- Je weiter hoch in den Schichten, desto schwieriger werden Unit-Tests
+- Vererbung kann hohe Kopplung ergeben
+- Partitionen: Vertikale Unterteilungen in der gleichen Schicht
+    - Wieder möglichst wenige Abhängigkeiten zwischen den Partitionen
+- Layers vs. Tiers
+    - Layers sind Schichten, wie der Code hierarchisch getrennt ist
+    - Tiers sind die Abgrenzungen von Laufzeitumgebungen (z.B. unterschiedliche Server)
+    - i.d.R. sind Aufrufe sind Aufrufe zwischen Layer synchron, zwischen Tiers immer asynchron

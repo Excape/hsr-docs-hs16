@@ -134,6 +134,7 @@
         - *Privatautonomie*: Parteien sind frei im Handeln. z.B. Vertragsfreiheit (OR 19). Solange es nicht gegen öffentliches / persönliches Recht verstösst oder "gegen die guten Sitten"
         - *Koordinationsprinzip*: 
 
+---
 ## Vorlesung 9 - Strafrecht
 - Objektiver TB: äussere Merkmale einer Tat: Wer hat was gemacht (zu wem)?
 - Subjektiver TB:
@@ -143,3 +144,10 @@
     - Notstand: jemand anderes retten (Schutz höherwertiger Interessen)
 - Massnahmen: Wenn jemand nicht schuldhaft gehandelt hat
 - Busse ist für alle gleich hoch, Geldstrafe kommt auf Einkommen (Höhe Tagessatz) drauf an
+
+---
+## Vorlesung 10 - Strafrecht (2)
+- Massnahmen
+    - "Verwahrung": Eine Person verwahren, um sie vor der Gesellschaft zu schützen, im Gegensatz zu anderen Massnahmen, die das Ziel haben, jemanden wieder in die Gesellschaft zu integrieren
+    - Subsidiriaritätsprinzip: Das einfachste mögliche Mittel (nicht "zu hart bestrafen")
+    - Begutachtungspflicht: Richter braucht Begutachter für Entscheidungen, ob z.B. jemand in eine Psychiatrie kommt

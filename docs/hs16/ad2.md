@@ -102,9 +102,9 @@ $$\rightarrow h \in O(log(n))$$
     - Nach dem Restrukturierung kann eine neue Unbalance entstehen! (Im Gegensatz zum Einfügen). Man muss bis zur Root weiter nach Unbalancierten Teilbäumen suchen
 - Implementierung
     - Mit einer AVL-Node wird dessen Höhe gespeichert
-    - `actionPos`: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse
-    - Nach dem Einfügen wird die (BST-)Node (`Item`) mit einer Instanz von `AVLItem` ersetzt
-    - Besser: Funktion `newNode()` des BST überschreiben
+    - actionPos: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse
+    - Nach dem Einfügen wird die (BST-)Node (Item) mit einer Instanz von AVLItem ersetzt
+    - Besser: Funktion newNode() des BST überschreiben
 
 ---
 ## Vorlesung 4 - Splay-Trees / Merge-Sort
@@ -257,3 +257,29 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
 G | 0 | 1 | 1 | 1 | ...
 T | 0 | 1 | 1 | 2 | ...
 T |   |   |   |   |
+
+---
+## Vorlesung 10 - Graphen (1)
+- Definition: `V` ist Set von Vertices, `E` eine Collection von Vertices-Paaren (=Kanten)
+    - Kanten und Vertizes speichern Elemente
+    - gerichtet: Kante hat eine Richtung
+    - Gibt auch Graphen, die gerichtete und ungerichtete Kanten mischen (z.B. bei Klassendiagramm)
+    - *inzident*: Kante endet an einem Knoten V
+    - parallele kanten: k(anten, die die gleichen zwei Knoten verbinden
+    - Schleife: Kante von Knoten auf sich selbst
+    - Einfacher Pfad: Jede Kante und Vertices kommt nur einmal vor
+    - Zyklus endet ändert immer in einer Kante (die letzte Verbindung zum Startknoten)
+    - Die Summe der Grade in einem Graph ist immer 2*m (2 * Anzahl Kanten)
+    - Voll vermaschter Graph hat \(\frac{n(n-1)}2\) Kanten, das ist die maximal mögliche Anzahl
+        - Das ist \(\frac{n(n+1)}2 - n\)
+- In Kanten-Listen-Struktur hat jeweils der Vertex und die Kante eine Referenze auf die Position in der Sequenz. Dies ermöglicht, beim Löschen ein Vertex / eine Kante mit \(O(1)\) aus der Liste zu löschen
+    - `areAdjacent()`, `removeVertex()` und `incidentEdges()` brauchen \(O(m)\)
+    - Restliche Operationen \(O(1)\)
+- Adjazent-Listen Struktur
+    - Jeder Vertex hat eine Referenz auf eine Liste, die Referenzen auf alle incident Vertices enthält
+    - Die Kanten halten eine Referenz auf eine Position in der Incident-Liste
+    - Beim Löschen eines Vertex müssen die Kanten *und* die Referenzen in den Incident-Listen gelöscht werden
+    - Laufzeit von `removeVertex(v)` ist abhängig von der Länge der Incident-Liste, also \(O(deg(v))\)
+- Adjazenz-Matrix Struktur
+    - Einfügen ist langsam, da die Matrix vergrössert (=kopiert) werden muss
+    - `areAdjacent()` ist schnell (\(O(1)\)), da man direkt die Position in der Matrix abfragen kann

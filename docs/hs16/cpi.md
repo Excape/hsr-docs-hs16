@@ -389,3 +389,45 @@ auto const res=for_each(v.begin(),v.end(),averager{});
     - Kann mit templates gemacht werden (nächste Vorlesung)
     - Oder als parameter in der Funktion den typ `std::function<double(int)>` verwenden
 - Eine `std::function<>` kann in ein bool konvertiert werden und gibt zurück, ob eine gültige Funktion darin ist
+
+---
+## Vorlesung 10 - Function Templates
+- Generische Funktionen
+- templates sind zu compile-time polymorph
+```c++
+namespace MyMin{
+template <typename T>
+T const& min(T const& a, T const& b){
+    return (a < b)? a : b ;
+}
+}
+```
+- Parameter können Typen sein oder templates (nächste Woche) - oder ganzzahlige Werte (cpp advanced)
+- `typename` legt Parameter als Type-Parameter fest (synonym `class` - deprecated)
+- Parameter werden beim Aufruf vom Compiler automatisch ersetzt (vgl. `auto` keyword) - "template argument deduction"
+- Body der Template-Funktion immer im header definieren
+- Referenz als Rückgabetyp, weil vom Aufruf die Referenz garantiert nicht "dangling" ist
+- Folie 8
+    - Namespace explizit angeben, weil Argument `std::string` -> Compiler sucht zuerst in `std` nach `min()`
+    - `min("Pete", "Toni")`: Literals sind vom Typ `char[5]`, d.h. die beiden müssen gleich lang sein, denn `char[6]` ist ein anderer "Typ"!
+- Argumente können auch explizit angegeben werden mit `min<type>()`. `min<std::string>("Peter", "Toni")` funktioniert.
+    - Es müssen nicht alle Parameter explizit angegeben werden, die restlichen werden dann impliziert
+- Implizite Anforderungen an Template-Parameter sind *Concepts*
+- Bei `min()` 
+    - darf T nicht `void` sein (wegen Rückgabewert Referenz ist)
+    - Operator < muss definiert sein (und bool zurückgeben)
+- Concepts sind immer implizit (bis übernächsten C++ Standard)
+- Bei `max()` (Folie 11) muss T kopierbar / move-bar sein, da Rückgabewert keine Referenz ist
+- Folie 14: Dies ist problematisch, wenn man null-pointer übergibt -> Undef. Beh.
+- Templates kann man auch overloaden - Der spezialisierteste overload wird ausgeführt
+    - Gefährlich, weil schnell ambiguities entstehen
+- Variadic Templates: Type-safe varying number of arguments
+    ```c++
+    template <typename...ARGS>
+    void variadic(ARGS...args){
+        println(std::cout,args...);
+    }
+    ```
+- Beispiel `println()`
+    - Wenn `tail...` leer ist, wird per overloading resolution die `println()` funktion mit einem Argument gewählt -> Rekursions-Basecase
+- Template-Parameter können default-Werte annehmen: `template <typename T, typename U=T>`

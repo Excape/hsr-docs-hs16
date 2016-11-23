@@ -140,6 +140,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-9-design-patterns">Vorlesung 9 - Design Patterns</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-10-sw-architektur-1">Vorlesung 10 - SW-Architektur (1)</a></li>
+                
             
             </ul>
         
@@ -409,6 +411,26 @@
 <li>Observer Pattern: Im GOF gibt es ein konkretes Subject, bei Wikipedia nicht. Das concrete Subject ist nötig, da es das effektive Objekt ist, das "observed" wird</li>
 <li>MVC geht auch ohne Observer-Pattern: Der Controller kennt das Model und die View. Wenn das Model sich ändert, weiss das der Controller und meldet dies der View. Mit dem Observer Pattern werden die Views über den Observer vom Model benachrichtigt, der Controller muss die View nicht mehr kennen<ul>
 <li>MVC ohne Observer nur mit 1 View oder wenn die Daten "unter" dem Modell nicht verändert werden</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-10-sw-architektur-1">Vorlesung 10 - SW-Architektur (1)</h2>
+<ul>
+<li>Diagramm mit Packages so detailiert, damit man es noch gut kommunizieren kann</li>
+<li>Gute Kohäsion von Klassen entsteht oft durch Single Responsibility</li>
+<li>Tiefe Kopplung: Möglichst wenig Abhängigkeiten von anderen Klassen</li>
+<li>In den Schichten geht Abhängigkeit immer von oben nach unten</li>
+<li>Je weiter hoch in den Schichten, desto schwieriger werden Unit-Tests</li>
+<li>Vererbung kann hohe Kopplung ergeben</li>
+<li>Partitionen: Vertikale Unterteilungen in der gleichen Schicht<ul>
+<li>Wieder möglichst wenige Abhängigkeiten zwischen den Partitionen</li>
+</ul>
+</li>
+<li>Layers vs. Tiers<ul>
+<li>Layers sind Schichten, wie der Code hierarchisch getrennt ist</li>
+<li>Tiers sind die Abgrenzungen von Laufzeitumgebungen (z.B. unterschiedliche Server)</li>
+<li>i.d.R. sind Aufrufe sind Aufrufe zwischen Layer synchron, zwischen Tiers immer asynchron</li>
 </ul>
 </li>
 </ul>

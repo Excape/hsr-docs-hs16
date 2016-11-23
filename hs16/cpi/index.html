@@ -118,6 +118,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-9">Vorlesung 9</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-10-function-templates">Vorlesung 10 - Function Templates</a></li>
+                
             
             </ul>
         
@@ -714,6 +716,60 @@ auto const res=for_each(v.begin(),v.end(),averager{});
 </ul>
 </li>
 <li>Eine <code>std::function&lt;&gt;</code> kann in ein bool konvertiert werden und gibt zurück, ob eine gültige Funktion darin ist</li>
+</ul>
+<hr />
+<h2 id="vorlesung-10-function-templates">Vorlesung 10 - Function Templates</h2>
+<ul>
+<li>Generische Funktionen</li>
+<li>templates sind zu compile-time polymorph</li>
+</ul>
+<pre><code class="c++">namespace MyMin{
+template &lt;typename T&gt;
+T const&amp; min(T const&amp; a, T const&amp; b){
+    return (a &lt; b)? a : b ;
+}
+}
+</code></pre>
+
+<ul>
+<li>Parameter können Typen sein oder templates (nächste Woche) - oder ganzzahlige Werte (cpp advanced)</li>
+<li><code>typename</code> legt Parameter als Type-Parameter fest (synonym <code>class</code> - deprecated)</li>
+<li>Parameter werden beim Aufruf vom Compiler automatisch ersetzt (vgl. <code>auto</code> keyword) - "template argument deduction"</li>
+<li>Body der Template-Funktion immer im header definieren</li>
+<li>Referenz als Rückgabetyp, weil vom Aufruf die Referenz garantiert nicht "dangling" ist</li>
+<li>Folie 8<ul>
+<li>Namespace explizit angeben, weil Argument <code>std::string</code> -&gt; Compiler sucht zuerst in <code>std</code> nach <code>min()</code></li>
+<li><code>min("Pete", "Toni")</code>: Literals sind vom Typ <code>char[5]</code>, d.h. die beiden müssen gleich lang sein, denn <code>char[6]</code> ist ein anderer "Typ"!</li>
+</ul>
+</li>
+<li>Argumente können auch explizit angegeben werden mit <code>min&lt;type&gt;()</code>. <code>min&lt;std::string&gt;("Peter", "Toni")</code> funktioniert.<ul>
+<li>Es müssen nicht alle Parameter explizit angegeben werden, die restlichen werden dann impliziert</li>
+</ul>
+</li>
+<li>Implizite Anforderungen an Template-Parameter sind <em>Concepts</em></li>
+<li>Bei <code>min()</code> <ul>
+<li>darf T nicht <code>void</code> sein (wegen Rückgabewert Referenz ist)</li>
+<li>Operator &lt; muss definiert sein (und bool zurückgeben)</li>
+</ul>
+</li>
+<li>Concepts sind immer implizit (bis übernächsten C++ Standard)</li>
+<li>Bei <code>max()</code> (Folie 11) muss T kopierbar / move-bar sein, da Rückgabewert keine Referenz ist</li>
+<li>Folie 14: Dies ist problematisch, wenn man null-pointer übergibt -&gt; Undef. Beh.</li>
+<li>Templates kann man auch overloaden - Der spezialisierteste overload wird ausgeführt<ul>
+<li>Gefährlich, weil schnell ambiguities entstehen</li>
+</ul>
+</li>
+<li>Variadic Templates: Type-safe varying number of arguments
+    <code>c++
+    template &lt;typename...ARGS&gt;
+    void variadic(ARGS...args){
+        println(std::cout,args...);
+    }</code></li>
+<li>Beispiel <code>println()</code><ul>
+<li>Wenn <code>tail...</code> leer ist, wird per overloading resolution die <code>println()</code> funktion mit einem Argument gewählt -&gt; Rekursions-Basecase</li>
+</ul>
+</li>
+<li>Template-Parameter können default-Werte annehmen: <code>template &lt;typename T, typename U=T&gt;</code></li>
 </ul>
               
             </div>

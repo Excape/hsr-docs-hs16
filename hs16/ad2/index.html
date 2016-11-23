@@ -82,6 +82,8 @@
             
                 <li class="toctree-l3"><a href="#vorlesung-9-dynamische-programmierung">Vorlesung 9 - Dynamische Programmierung</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-10-graphen-1">Vorlesung 10 - Graphen (1)</a></li>
+                
             
             </ul>
         
@@ -349,9 +351,9 @@ Konstanten heraus streichen:
 </li>
 <li>Implementierung<ul>
 <li>Mit einer AVL-Node wird dessen Höhe gespeichert</li>
-<li><code>actionPos</code>: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse</li>
-<li>Nach dem Einfügen wird die (BST-)Node (<code>Item</code>) mit einer Instanz von <code>AVLItem</code> ersetzt</li>
-<li>Besser: Funktion <code>newNode()</code> des BST überschreiben</li>
+<li>actionPos: Die Position, in der etwas passiert ist (z.B. letzte Einfügeposition). Ist ein Attribut der BST-Klasse</li>
+<li>Nach dem Einfügen wird die (BST-)Node (Item) mit einer Instanz von AVLItem ersetzt</li>
+<li>Besser: Funktion newNode() des BST überschreiben</li>
 </ul>
 </li>
 </ul>
@@ -602,6 +604,47 @@ Konstanten heraus streichen:
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="vorlesung-10-graphen-1">Vorlesung 10 - Graphen (1)</h2>
+<ul>
+<li>Definition: <code>V</code> ist Set von Vertices, <code>E</code> eine Collection von Vertices-Paaren (=Kanten)<ul>
+<li>Kanten und Vertizes speichern Elemente</li>
+<li>gerichtet: Kante hat eine Richtung</li>
+<li>Gibt auch Graphen, die gerichtete und ungerichtete Kanten mischen (z.B. bei Klassendiagramm)</li>
+<li><em>inzident</em>: Kante endet an einem Knoten V</li>
+<li>parallele kanten: k(anten, die die gleichen zwei Knoten verbinden</li>
+<li>Schleife: Kante von Knoten auf sich selbst</li>
+<li>Einfacher Pfad: Jede Kante und Vertices kommt nur einmal vor</li>
+<li>Zyklus endet ändert immer in einer Kante (die letzte Verbindung zum Startknoten)</li>
+<li>Die Summe der Grade in einem Graph ist immer 2*m (2 * Anzahl Kanten)</li>
+<li>Voll vermaschter Graph hat <script type="math/tex">\frac{n(n-1)}2</script> Kanten, das ist die maximal mögliche Anzahl<ul>
+<li>Das ist <script type="math/tex">\frac{n(n+1)}2 - n</script>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In Kanten-Listen-Struktur hat jeweils der Vertex und die Kante eine Referenze auf die Position in der Sequenz. Dies ermöglicht, beim Löschen ein Vertex / eine Kante mit <script type="math/tex">O(1)</script> aus der Liste zu löschen<ul>
+<li><code>areAdjacent()</code>, <code>removeVertex()</code> und <code>incidentEdges()</code> brauchen <script type="math/tex">O(m)</script>
+</li>
+<li>Restliche Operationen <script type="math/tex">O(1)</script>
+</li>
+</ul>
+</li>
+<li>Adjazent-Listen Struktur<ul>
+<li>Jeder Vertex hat eine Referenz auf eine Liste, die Referenzen auf alle incident Vertices enthält</li>
+<li>Die Kanten halten eine Referenz auf eine Position in der Incident-Liste</li>
+<li>Beim Löschen eines Vertex müssen die Kanten <em>und</em> die Referenzen in den Incident-Listen gelöscht werden</li>
+<li>Laufzeit von <code>removeVertex(v)</code> ist abhängig von der Länge der Incident-Liste, also <script type="math/tex">O(deg(v))</script>
+</li>
+</ul>
+</li>
+<li>Adjazenz-Matrix Struktur<ul>
+<li>Einfügen ist langsam, da die Matrix vergrössert (=kopiert) werden muss</li>
+<li><code>areAdjacent()</code> ist schnell (<script type="math/tex">O(1)</script>), da man direkt die Position in der Matrix abfragen kann</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>

@@ -84,6 +84,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-10-graphen-1">Vorlesung 10 - Graphen (1)</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-11-graphen-2">Vorlesung 11 - Graphen (2)</a></li>
+                
             
             </ul>
         
@@ -644,6 +646,32 @@ Konstanten heraus streichen:
 <li><code>areAdjacent()</code> ist schnell (<script type="math/tex">O(1)</script>), da man direkt die Position in der Matrix abfragen kann</li>
 </ul>
 </li>
+</ul>
+<hr />
+<h2 id="vorlesung-11-graphen-2">Vorlesung 11 - Graphen (2)</h2>
+<ul>
+<li>spanning Subtree: Ein Subgraph, der alle Vertizes des Graphen enthält</li>
+<li>Verbundene Komponente: Ein verbundener Subgraph</li>
+<li>Tree: Verbundener Graph ohne Zyklen</li>
+<li>Forest: Mehrere Trees als Komponente, ohne Zyklen</li>
+<li>Spanning Tree: Spanning Subtree, der keine Zyklen enthält</li>
+</ul>
+<h3 id="depth-first-search">Depth-First Search</h3>
+<ul>
+<li>Technik zur Traversierung von Graphen</li>
+<li>Bestimmt, ob Graph verbunden ist und verbundene Komponenten</li>
+<li>Berechnet spanning Forest</li>
+<li>Algorithmus: Die Kanten werden mit "Discovery" oder "Back" markiert<ul>
+<li>Alle "Discovery"-Kanten beschreiben am Ende einen Spanning Tree</li>
+</ul>
+</li>
+<li>Wenn der äusserste Loop in <code>DFS(g)</code> mehr als einmal ein "unexplored" vertex findet, ist der Graph nicht verbunden</li>
+</ul>
+<h3 id="breath-first-search">Breath-First Search</h3>
+<ul>
+<li>Sehr ähnlich zu DFS</li>
+<li>Sucht zuerst in die Breite statt in die Tiefe</li>
+<li>Besser als DFS, um kurze Pfade zu finden</li>
 </ul>
               
             </div>

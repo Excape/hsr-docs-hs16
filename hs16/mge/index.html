@@ -136,6 +136,8 @@
                 
                     <li><a class="toctree-l4" href="#vorlesung-10-gui-design">Vorlesung 10 - GUI-Design</a></li>
                 
+                    <li><a class="toctree-l4" href="#vorlesung-11-data-binding">Vorlesung 11 - Data Binding</a></li>
+                
             
             </ul>
         
@@ -692,6 +694,39 @@ public void onSensorChanged(SensorEvent event) {
 <li>Mit <code>Style.Triggers</code> z.B. MouseOver-Verhalten festlegen<ul>
 <li>Visual State Manager übersteuert z.T. Style-Triggers</li>
 <li>Lösung: Eigenes Control Template schreiben</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-11-data-binding">Vorlesung 11 - Data Binding</h2>
+<ul>
+<li>Für grosse Projekte eigene Styling-Libraries erstellen</li>
+<li>MVVM: Events werden am Besten via Command an das ViewModel übergeben, dafür muss nicht die ganze Runtime (15MB bei WPF) geladen werden</li>
+</ul>
+<h3 id="binding">Binding</h3>
+<ul>
+<li><code>TargetNullValue</code>: Wenn gebundenes Objekt Null ist, wird dies verwendet</li>
+<li><code>StringFormat</code> mit "{}" beginnen, um die Klammern zu "escapen"</li>
+<li><code>ElementName</code>: Wert eines anderen XAML-Objekt übernehmen</li>
+<li>Normalerweise Quelle der Daten mit <code>DataContext</code> angeben, dann sind alle Bindings Properties dieser Quelle<ul>
+<li>DataContext gilt auch für Child-Element</li>
+<li>Üblicherweise wird im Code-Behind der Datacontext für ein Window gesetzt -&gt; ViewModel</li>
+</ul>
+</li>
+<li>Für eine Liste wird <code>ObservableCollection&lt;T&gt;</code> verwendet</li>
+<li>DataContext kann auch auf einzelnes Element zugewiesen werden (unüblich)</li>
+<li>DataContext auf Window-Ebene ist starke Bindung ViewModel &lt;-&gt; Window. Besser mit Dependency Injection</li>
+<li>RelativeSource: Datenquelle ist relativ zum visual tree. So kann z.T auch komplett ohne Code-behind gearbeitet werden (für einfache Fälle)</li>
+<li><code>Mode</code> ist Richtung des Binding: OneWay: Lesend, TwoWay: lesend und schreibend<ul>
+<li>Ist pro Element-Typ unterschiedlich per default, aber muss selten angepasst werden</li>
+</ul>
+</li>
+<li><code>INotifiyPropertyChanged</code> ist das wichtigste Interface bei Data Binding<ul>
+<li>Hat nur eine Methode <code>PropertyChanged()</code> und gibt das Property mit, dass geändert wurde</li>
+</ul>
+</li>
+<li>WPF registriert sich selbst als Eventhandler auf die Klassen, die <code>INotifyPropertyChanged</code> implementieren<ul>
+<li>Dadurch wird die View automatisch aktualisiert</li>
 </ul>
 </li>
 </ul>

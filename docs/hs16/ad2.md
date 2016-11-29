@@ -283,3 +283,24 @@ T |   |   |   |   |
 - Adjazenz-Matrix Struktur
     - Einfügen ist langsam, da die Matrix vergrössert (=kopiert) werden muss
     - `areAdjacent()` ist schnell (\(O(1)\)), da man direkt die Position in der Matrix abfragen kann
+
+---
+## Vorlesung 11 - Graphen (2)
+- spanning Subtree: Ein Subgraph, der alle Vertizes des Graphen enthält
+- Verbundene Komponente: Ein verbundener Subgraph
+- Tree: Verbundener Graph ohne Zyklen
+- Forest: Mehrere Trees als Komponente, ohne Zyklen
+- Spanning Tree: Spanning Subtree, der keine Zyklen enthält
+
+### Depth-First Search
+- Technik zur Traversierung von Graphen
+- Bestimmt, ob Graph verbunden ist und verbundene Komponenten
+- Berechnet spanning Forest
+-  Algorithmus: Die Kanten werden mit "Discovery" oder "Back" markiert
+    - Alle "Discovery"-Kanten beschreiben am Ende einen Spanning Tree
+- Wenn der äusserste Loop in `DFS(g)` mehr als einmal ein "unexplored" vertex findet, ist der Graph nicht verbunden
+
+### Breath-First Search
+- Sehr ähnlich zu DFS
+- Sucht zuerst in die Breite statt in die Tiefe
+- Besser als DFS, um kurze Pfade zu finden

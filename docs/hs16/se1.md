@@ -178,3 +178,11 @@
     - Layers sind Schichten, wie der Code hierarchisch getrennt ist
     - Tiers sind die Abgrenzungen von Laufzeitumgebungen (z.B. unterschiedliche Server)
     - i.d.R. sind Aufrufe sind Aufrufe zwischen Layer synchron, zwischen Tiers immer asynchron
+
+## Vorlesung 11 - Unified Process / Sequenzdiagramme
+### Unified Process
+
+### Sequenzdiagramme
+- Kann nützlich sein, Prozesse abstrakt zu beschreiben
+- Wenn es zu detailiert ist, ist es sehr nah am Code
+    - Das gibt Abhängigkeiten untereinander -> problematisch

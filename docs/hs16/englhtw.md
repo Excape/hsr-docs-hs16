@@ -326,5 +326,92 @@ Homosexuality was a crime in Britain. The could avoid prison by undergoing a "cu
 He commited suicide with an apple filled with potassium cyanide
 
 ### Chapter 10
+**Why can you see through glass but not through steel? (p. 177)**
+
+Steel up-close is a like a temple, neatly aligned pillars of iron and carbon atoms. Light particles can go in on one side, but the electrons in the steel start moving and block the light from exiting. Atoms in glass is much more tightly bound
+
+**Scientists believed until the 1940s that there are two types of materials, conductors and insulators. But there is also a third type. Which chemical element is it and where is it found? (p. 178)**
+
+*Silicon*, found in mountains
+
+**What is the technical name for the third type of material? (p. 179)**
+
+*Semiconductor*
+
+**Who were the two scientists who managed the break-through in the fabrication of the ‘atom-level on/off switch’ and what was the name of their laboratory? (p.181)**
+
+John Bardeen and Walter Brattain at *Bell Labs*
+
+**How does their work ‘tragically’ relate to Turing? (p. 176, 181)**
+
+The transistor was discovered after Turing's death, and he could turn his idead into realitiy with transistors
+
+**What was one of the first practical applications for the transistor? (p. 183)**
+
+Hearind aids
+
+**Who was William Shockley, and what kind of a character did he have? (p. 185)**
+
+He thought he was better than everyone else and wanted to take the credit for inventing the transistor alone
+
+
+
+**Who did William Shockley attract when he founded his business in Stanford, California, and what did the young scientists do when they got to know him better? (p. 186)**
+
+Young engineers and scientists, but as soon as they got to know him better, they fled. But the engineers bonded with each other and created their own companies. With that, *Silicon Valley" was born
+
+**What was the impact of the transistor on the invention of new technologies? Which devices are based on the transistor (Name at least 5!)? (p. 187-8)**
+- Satellites
+- Phones
+- Internet
+- DVD's
+- LEDs
+- etc.
+
 ### Chapter 11
+**Put the title of the chapter “Wet Electricity” into context.**
+
+
+
+**Answer the author’s question on p. 201: “what are live electrical circuits doing embedded in our bodies and brains?”**
+
+
+
+**How is it possible that there is electricity in our bodies? (p.203f)**
+
+
+
+**Describe Hodgkin’s and Huxley’s squid experiments. (p. 205f)**
+
+
+
+**Discuss the following quote: “Nerves have to work differently: They can’t pour their electricity straight down the middle of their axons, as Alexander Bell had imagined electric sparks rolling down a copper wire in his telephone.” (p. 208)**
+
+
+
+**What is the role of sodium in nerve impulse transmission? (p. 206- 2011)**
+
+
+
+**Explain the effects of cold temperatures, nerve poisons, alcohol and anaesthetics on our body. (p. 145)**
+
+
+
 ### Chapter 12
+**How can a signal cross the synapse between two nerves?**
+
+
+
+**Describe the experiments that Otto Loewi carried out in order to answer the question above. (p. 216)**
+
+
+
+**Describe the functions of different neurotransmitters and why they are necessary in our system. (p. 218)**
+
+
+
+**Describe how coffee affects our system. (p.219)**
+
+
+
+**Explain the role of neurotransmitters in the treatment of mood disorders such a depression.(p.221)**

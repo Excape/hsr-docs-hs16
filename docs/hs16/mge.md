@@ -405,3 +405,26 @@ public void onSensorChanged(SensorEvent event) {
 - Mit `Style.Triggers` z.B. MouseOver-Verhalten festlegen
     - Visual State Manager übersteuert z.T. Style-Triggers
     - Lösung: Eigenes Control Template schreiben
+
+---
+## Vorlesung 11 - Data Binding
+- Für grosse Projekte eigene Styling-Libraries erstellen
+- MVVM: Events werden am Besten via Command an das ViewModel übergeben, dafür muss nicht die ganze Runtime (15MB bei WPF) geladen werden
+
+### Binding
+- `TargetNullValue`: Wenn gebundenes Objekt Null ist, wird dies verwendet
+- `StringFormat` mit "{}" beginnen, um die Klammern zu "escapen"
+- `ElementName`: Wert eines anderen XAML-Objekt übernehmen
+- Normalerweise Quelle der Daten mit `DataContext` angeben, dann sind alle Bindings Properties dieser Quelle
+    - DataContext gilt auch für Child-Element
+    - Üblicherweise wird im Code-Behind der Datacontext für ein Window gesetzt -> ViewModel
+- Für eine Liste wird `ObservableCollection<T>` verwendet
+- DataContext kann auch auf einzelnes Element zugewiesen werden (unüblich)
+- DataContext auf Window-Ebene ist starke Bindung ViewModel <-> Window. Besser mit Dependency Injection
+- RelativeSource: Datenquelle ist relativ zum visual tree. So kann z.T auch komplett ohne Code-behind gearbeitet werden (für einfache Fälle)
+- `Mode` ist Richtung des Binding: OneWay: Lesend, TwoWay: lesend und schreibend
+    - Ist pro Element-Typ unterschiedlich per default, aber muss selten angepasst werden
+- `INotifiyPropertyChanged` ist das wichtigste Interface bei Data Binding
+    - Hat nur eine Methode `PropertyChanged()` und gibt das Property mit, dass geändert wurde
+- WPF registriert sich selbst als Eventhandler auf die Klassen, die `INotifyPropertyChanged` implementieren
+    - Dadurch wird die View automatisch aktualisiert

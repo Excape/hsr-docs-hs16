@@ -1,216 +1,393 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Robin Suter">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>C++ - HSR Notizen</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-  <link href="../../extra.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "C++";
-    var mkdocs_page_input_path = "hs16/cpi.md";
-    var mkdocs_page_url = "/hs16/cpi/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> HSR Notizen</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
+      
+        <title>C++ - HSR Notizen</title>
+      
+      
+      
+        <link rel="canonical" href="https://doc.robinsuter.ch/hs16/cpi/">
+      
+      
+        <meta name="author" content="Robin Suter">
+      
+    
+    <meta property="og:url" content="https://doc.robinsuter.ch/hs16/cpi/">
+    <meta property="og:title" content="HSR Notizen">
+    <meta property="og:image" content="https://doc.robinsuter.ch/hs16/cpi//../../">
+    <meta name="apple-mobile-web-app-title" content="HSR Notizen">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono">
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-red palette-accent-amber">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                HS16 <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        C++
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
+    </div>
+    
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/robin_suter" title="@robin_suter on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/excape" title="@excape on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="/" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          HSR Notizen
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+      <div class="toc">
+        <ul>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            
+  <li>
+    <a class="" title="Home" href="../..">
+      Home
+    </a>
+    
+  </li>
+
           
-            <li>
-    <ul class="subnav">
-    <li><span>HS16</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../ad2/">AD2</a>
+  <li>
+    <span class="section">HS16</span>
+    <ul>
+      
         
-    </li>
+  <li>
+    <a class="" title="AD2" href="../ad2/">
+      AD2
+    </a>
+    
+  </li>
 
+      
         
-            
-    <ul class="subnav">
-    <li><span>BuRe1</span></li>
+  <li>
+    <span class="section">BuRe1</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="ReIng" href="../reing/">
+      ReIng
+    </a>
+    
+  </li>
 
+      
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../reing/">ReIng</a>
-        
-    </li>
+  <li>
+    <a class="" title="BuPl" href="../bupl/">
+      BuPl
+    </a>
+    
+  </li>
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../bupl/">BuPl</a>
-        
-    </li>
-
-        
+      
     </ul>
+  </li>
 
+      
         
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">C++</a>
+  <li>
+    <a class="current" title="C++" href="./">
+      C++
+    </a>
+    
+      
         
-            <ul>
-            
-                <li class="toctree-l3"><a href="#c">C++</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-1">Vorlesung 1</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-2">Vorlesung 2</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-3-simple-sequences">Vorlesung 3 - Simple Sequences</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-4">Vorlesung 4</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-5-classes-and-enums">Vorlesung 5 - Classes and Enums</a></li>
-                
-                    <li><a class="toctree-l4" href="#-inline-weil-funtkion-im-header-implementiert-ist-ohne-inline-wurde-es-einen-konflikt-beim-linken-geben-wenn-mehrere-files-dieses-header-file-verwenden-one-definition-rule">- inline, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-6">Vorlesung 6</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-7-standard-containers">Vorlesung 7 - Standard containers</a></li>
-                
-                    <li><a class="toctree-l4" href="#associative-containers">Associative Containers</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-8-algorithms">Vorlesung 8 - Algorithms</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-9">Vorlesung 9</a></li>
-                
-                    <li><a class="toctree-l4" href="#vorlesung-10-function-templates">Vorlesung 10 - Function Templates</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../englhtw/">EnglHTw</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../mge/">MGE</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../mste/">MsTe</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../se1/">SE1</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../wed2/">WED2</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+      
+      
+        <ul>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../playground/">Playground</a>
-        
-    </li>
-<li>
+            <li class="anchor">
+              <a title="Vorlesung 1" href="#vorlesung-1">
+                Vorlesung 1
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 2" href="#vorlesung-2">
+                Vorlesung 2
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 3 - Simple Sequences" href="#vorlesung-3-simple-sequences">
+                Vorlesung 3 - Simple Sequences
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 4" href="#vorlesung-4">
+                Vorlesung 4
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 5 - Classes and Enums" href="#vorlesung-5-classes-and-enums">
+                Vorlesung 5 - Classes and Enums
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="- inline, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)" href="#-inline-weil-funtkion-im-header-implementiert-ist-ohne-inline-wurde-es-einen-konflikt-beim-linken-geben-wenn-mehrere-files-dieses-header-file-verwenden-one-definition-rule">
+                - inline, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 6" href="#vorlesung-6">
+                Vorlesung 6
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 7 - Standard containers" href="#vorlesung-7-standard-containers">
+                Vorlesung 7 - Standard containers
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Associative Containers" href="#associative-containers">
+                Associative Containers
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 8 - Algorithms" href="#vorlesung-8-algorithms">
+                Vorlesung 8 - Algorithms
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 9" href="#vorlesung-9">
+                Vorlesung 9
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 10 - Function Templates" href="#vorlesung-10-function-templates">
+                Vorlesung 10 - Function Templates
+              </a>
+            </li>
           
         </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">HSR Notizen</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>HS16 &raquo;</li>
-        
       
     
-    <li>C++</li>
-    <li class="wy-breadcrumbs-aside">
+  </li>
+
       
-        <a href="https://github.com/Excape/hsr-docs-hs16/edit/master/docs/hs16/cpi.md"
-          class="icon icon-github"> Edit on GitHub</a>
+        
+  <li>
+    <a class="" title="EnglHTw" href="../englhtw/">
+      EnglHTw
+    </a>
+    
+  </li>
+
       
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+        
+  <li>
+    <a class="" title="MGE" href="../mge/">
+      MGE
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="MsTe" href="../mste/">
+      MsTe
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="SE1" href="../se1/">
+      SE1
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="WED2" href="../wed2/">
+      WED2
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Playground" href="../../playground/">
+      Playground
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
               
-                <h1 id="c">C++</h1>
+              <li>
+                <a href="https://twitter.com/robin_suter" target="_blank" title="@robin_suter on Twitter">
+                  @robin_suter on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/excape" target="_blank" title="@excape on GitHub">
+                  @excape on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="c">C++</h1>
 <ul>
 <li>Wiki: <a href="https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus">https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus</a></li>
 <li>C++ Referenz: <a href="http://en.cppreference.com/w/cpp">http://en.cppreference.com/w/cpp</a></li>
@@ -287,13 +464,14 @@
 <li>'': char</li>
 </ul>
 <h4 id="streams">streams</h4>
-<pre><code class="c++">int i{};
-std::cin &gt;&gt; i;
-std::cout &lt;&lt; &quot;input: &quot; &lt;&lt; i &lt;&lt; &quot;\n&quot;;
-std::cout &lt;&lt; &quot;fail: &quot; &lt;&lt; std::cin.fail() &lt;&lt; &quot;\n&quot;;
-std::cout &lt;&lt; &quot;eof: &quot; &lt;&lt; std::cin.eof() &lt;&lt; &quot;\n&quot;;
-std::cout &lt;&lt; &quot;bad: &quot; &lt;&lt; std::cin.bad() &lt;&lt; &quot;\n&quot;;
-</code></pre>
+<div class="code"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">{};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;input: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;fail: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">fail</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;eof: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">eof</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;bad: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">bad</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
 
 <ul>
 <li>Wenn man ein Zeichen (keine Zahl eingibt), wird <code>fail()</code> = 1</li>
@@ -317,10 +495,11 @@ std::cout &lt;&lt; &quot;bad: &quot; &lt;&lt; std::cin.bad() &lt;&lt; &quot;\n&q
 <li><code>size_t</code> ist vorzeichenloser Datentyp, gross genug für indices aller möglichen vectors</li>
 <li>Iteration (einzige sinnvolle for-Schleife)</li>
 </ul>
-<pre><code class="c++">for (auto const i: v) {
-    std::cout &lt;&lt; &quot;element &quot; &lt;&lt; i &lt;&lt; '\n';
-}
-</code></pre>
+<div class="code"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="k">const</span> <span class="nl">i</span><span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;element &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <ul>
 <li>Die Laufvariable erhält eine Kopie, sonst per Referenz übergeben: <code>for(auto &amp;i: v)</code></li>
@@ -333,10 +512,11 @@ std::cout &lt;&lt; &quot;bad: &quot; &lt;&lt; std::cin.bad() &lt;&lt; &quot;\n&q
 <li>Zugriff mit <code>*iterator</code></li>
 <li>mit <code>cbegin()</code> und <code>cend()</code> ist der Wert const</li>
 </ul>
-<pre><code class="c++">for (auto it=cbegin(v); it != cend(v); ++it) {
-    std::cout &lt;&lt; *it &lt;&lt; &quot;, &quot;;
-}
-</code></pre>
+<div class="code"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span><span class="o">=</span><span class="n">cbegin</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">cend</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <ul>
 <li>Mit <code>rend()</code> und <code>rbegin()</code> rückwärts iterieren (aber auch jeweils inkrementieren!)</li>
@@ -382,17 +562,20 @@ std::cout &lt;&lt; &quot;bad: &quot; &lt;&lt; std::cin.bad() &lt;&lt; &quot;\n&q
 </ul>
 </li>
 </ul>
-<pre><code class="c++">void foo(std::function&lt;char(char)&gt; function) {
-    std:cout &lt;&lt; function('a');
-}
-// main
-auto const g = [](char c) { return c + 1; }
-foo(g);
-</code></pre>
+<div class="code"><pre><span></span><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">function</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nl">std</span><span class="p">:</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">function</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// main</span>
+<span class="k">auto</span> <span class="k">const</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="n">foo</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
+</pre></div>
 
-<pre><code>- Scopes werden mit `{}` definiert
+
+<div class="code"><pre><span></span>- Scopes werden mit `{}` definiert
 - Nach dem `}` wird aufgeräumt, auch Objekte!
-</code></pre>
+</pre></div>
+
+
 <ul>
 <li>Namespaces<ul>
 <li>namespace grenzt ein Scope ein</li>
@@ -440,13 +623,14 @@ foo(g);
 </ul>
 </li>
 </ul>
-<pre><code class="c++">try {
-    // throwing code
-    throw &lt;value&gt;;
-} catch (&lt;type&gt; const &amp; e) {
-    // Exception handling
-}
-</code></pre>
+<div class="code"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// throwing code</span>
+    <span class="k">throw</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Exception handling</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <hr />
 <h2 id="vorlesung-5-classes-and-enums">Vorlesung 5 - Classes and Enums</h2>
@@ -501,11 +685,12 @@ foo(g);
 </ul>
 </li>
 </ul>
-<pre><code class="c++">bool Date::operator&lt;(Date const &amp; rhs) const {
-    return std::tie(year, month, day) &lt;
-    std::tie(rhs.year, rhs.month, rhs.day);
-}
-</code></pre>
+<div class="code"><pre><span></span><span class="kt">bool</span> <span class="n">Date</span><span class="o">::</span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="n">Date</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span> <span class="o">&lt;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">year</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">month</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">day</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <ul>
 <li>Mit boost kann man z.B. <code>&lt;</code> implementieren, und bekommt dann <code>&gt;, &lt;= und &gt;=</code> (Erben von <code>boost::less_than_comparable&lt;myType&gt;</code>)</li>
@@ -515,18 +700,19 @@ foo(g);
 </ul>
 </li>
 </ul>
-<pre><code class="c++">class Date {
-    int year, month, day;
-public:
-    std::ostream &amp; print(std::ostream &amp; os) const {
-        os &lt;&lt; year &lt;&lt; &quot;/&quot; &lt;&lt; month &lt;&lt; &quot;/&quot; &lt;&lt; day;
-        return os;
-    }
-};
-inline std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, Date const &amp; date){
-    return date.print(os);
-}
-</code></pre>
+<div class="code"><pre><span></span><span class="k">class</span> <span class="nc">Date</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">year</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;/&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">month</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;/&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">day</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="kr">inline</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="n">Date</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">date</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">os</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <h2 id="-inline-weil-funtkion-im-header-implementiert-ist-ohne-inline-wurde-es-einen-konflikt-beim-linken-geben-wenn-mehrere-files-dieses-header-file-verwenden-one-definition-rule">- <code>inline</code>, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</h2>
 <h2 id="vorlesung-6">Vorlesung 6</h2>
@@ -535,10 +721,11 @@ inline std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, Date const &am
 <li>Alle objekte mit <code>{}</code> initialisieren (auch mit leeren Konstruktor)</li>
 <li>Default-Initialisierungen von Member Variablen können direkt im Header angegeben werden, der default-Konstruktor kann leergelassen werden</li>
 </ul>
-<pre><code class="c++">class Date {
-int year{9999}, month{12}, day{31};
-... }
-</code></pre>
+<div class="code"><pre><span></span><span class="k">class</span> <span class="nc">Date</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="n">year</span><span class="p">{</span><span class="mi">9999</span><span class="p">},</span> <span class="n">month</span><span class="p">{</span><span class="mi">12</span><span class="p">},</span> <span class="n">day</span><span class="p">{</span><span class="mi">31</span><span class="p">};</span>
+<span class="p">...</span> <span class="p">}</span>
+</pre></div>
+
 
 <ul>
 <li>Im Header <code>Date() = default;</code> schreiben, um einen Default-Konstruktor zu erstellen, auch wenn es explizite Konstruktoren gibt</li>
@@ -552,11 +739,12 @@ int year{9999}, month{12}, day{31};
 <ul>
 <li>unscoped enum</li>
 </ul>
-<pre><code class="c++">enum day_of_week {
-Mon, Tue, Wed, Thu, Fri, Sat, Sun
-// 0, 1, 2, 3, ...
-};
-</code></pre>
+<div class="code"><pre><span></span><span class="k">enum</span> <span class="n">day_of_week</span> <span class="p">{</span>
+<span class="n">Mon</span><span class="p">,</span> <span class="n">Tue</span><span class="p">,</span> <span class="n">Wed</span><span class="p">,</span> <span class="n">Thu</span><span class="p">,</span> <span class="n">Fri</span><span class="p">,</span> <span class="n">Sat</span><span class="p">,</span> <span class="n">Sun</span>
+<span class="c1">// 0, 1, 2, 3, ...</span>
+<span class="p">};</span>
+</pre></div>
+
 
 <ul>
 <li>Sind im umliegenden Scope direkt verfügbar ("leaken nach aussen")</li>
@@ -566,15 +754,16 @@ Mon, Tue, Wed, Thu, Fri, Sat, Sun
 </li>
 <li>Enum-Werte können auch explizit deklariert werden (oder doppelt)</li>
 </ul>
-<pre><code class="c++">enum month {
-jan = 1, feb, mar, apr, may,
-jun, jul, aug, sep, oct, nov, dec,
-january = jan, february, march,
-april, june = jun, july, august,
-september, october, november,
-december
-};
-</code></pre>
+<div class="code"><pre><span></span><span class="k">enum</span> <span class="n">month</span> <span class="p">{</span>
+<span class="n">jan</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">feb</span><span class="p">,</span> <span class="n">mar</span><span class="p">,</span> <span class="n">apr</span><span class="p">,</span> <span class="n">may</span><span class="p">,</span>
+<span class="n">jun</span><span class="p">,</span> <span class="n">jul</span><span class="p">,</span> <span class="n">aug</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">oct</span><span class="p">,</span> <span class="n">nov</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span>
+<span class="n">january</span> <span class="o">=</span> <span class="n">jan</span><span class="p">,</span> <span class="n">february</span><span class="p">,</span> <span class="n">march</span><span class="p">,</span>
+<span class="n">april</span><span class="p">,</span> <span class="n">june</span> <span class="o">=</span> <span class="n">jun</span><span class="p">,</span> <span class="n">july</span><span class="p">,</span> <span class="n">august</span><span class="p">,</span>
+<span class="n">september</span><span class="p">,</span> <span class="n">october</span><span class="p">,</span> <span class="n">november</span><span class="p">,</span>
+<span class="n">december</span>
+<span class="p">};</span>
+</pre></div>
+
 
 <ul>
 <li>Um einen anderen unterliegenden Typ zu verwenden, von diesem erben: <code>enum class my_enum : unsigned char</code></li>
@@ -676,9 +865,10 @@ december
 <li>Functor kann z.B. für for_each verwendet werden (wird dann für jedes Element aufgerufen)</li>
 <li>Vorteil: Überladener <code>()</code> Operator kann auf Member-Variablen der Instanz zugreifen</li>
 </ul>
-<pre><code class="c++">std::vector&lt;double&gt; v{7,4,1,3,5,3.3,4.7};
-auto const res=for_each(v.begin(),v.end(),averager{});
-</code></pre>
+<div class="code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">3.3</span><span class="p">,</span><span class="mf">4.7</span><span class="p">};</span>
+<span class="k">auto</span> <span class="k">const</span> <span class="n">res</span><span class="o">=</span><span class="n">for_each</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">averager</span><span class="p">{});</span>
+</pre></div>
+
 
 <ul>
 <li><code>generate(firstIt, lastIt, Generator)</code>:<ul>
@@ -723,13 +913,14 @@ auto const res=for_each(v.begin(),v.end(),averager{});
 <li>Generische Funktionen</li>
 <li>templates sind zu compile-time polymorph</li>
 </ul>
-<pre><code class="c++">namespace MyMin{
-template &lt;typename T&gt;
-T const&amp; min(T const&amp; a, T const&amp; b){
-    return (a &lt; b)? a : b ;
-}
-}
-</code></pre>
+<div class="code"><pre><span></span><span class="k">namespace</span> <span class="n">MyMin</span><span class="p">{</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">min</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span><span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span> <span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <ul>
 <li>Parameter können Typen sein oder templates (nächste Woche) - oder ganzzahlige Werte (cpp advanced)</li>
@@ -771,53 +962,83 @@ T const&amp; min(T const&amp; a, T const&amp; b){
 </li>
 <li>Template-Parameter können default-Werte annehmen: <code>template &lt;typename T, typename U=T&gt;</code></li>
 </ul>
+          <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 Robin Suter &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
               
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../bupl/" title="BuPl">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                BuPl
+              </div>
             </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../englhtw/" class="btn btn-neutral float-right" title="EnglHTw">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../bupl/" class="btn btn-neutral" title="BuPl"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        </a>
       
     </div>
-  
+    <div class="next">
+      
+        <a href="../englhtw/" title="EnglHTw">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                EnglHTw
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-	  
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
         </div>
       </div>
-
-    </section>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = '';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
     
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/Excape/hsr-docs-hs16" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="../bupl/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../englhtw/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script src="../../js/theme.js"></script>
       <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-
-</body>
+    
+    
+  </body>
 </html>

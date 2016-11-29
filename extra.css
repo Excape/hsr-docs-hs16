@@ -6,6 +6,9 @@ hr {
     border-top: 1px solid #ABABAB
 }
 
+.mi {
+    color: inherit;
+}
 code 
 {
     
@@ -13,6 +16,7 @@ code
     font-size: 1em;
     background-color: rgba(0,0,0,0.04);
     color: black;
+    padding: 2px;
     /* BEGIN word wrap */
     /* Need all the following to word wrap instead of scroll box */
     /* This will override the overflow:auto if present */

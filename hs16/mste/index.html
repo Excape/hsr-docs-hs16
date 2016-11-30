@@ -307,6 +307,18 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Vorlesung 10 - Entitiy Framework (2) (Selbststudium)" href="#vorlesung-10-entitiy-framework-2-selbststudium">
+                Vorlesung 10 - Entitiy Framework (2) (Selbststudium)
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 11 - WCF (1)" href="#vorlesung-11-wcf-1">
+                Vorlesung 11 - WCF (1)
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -725,6 +737,115 @@ for (int i = from; i &lt; to; i++)
 </ul>
 </li>
 <li>Seed Database: Von einer der Klassen <code>DropCreateDataBaseAlways&lt;myDb&gt;</code> etc. erben und <code>Seed()</code> überschreiben. Im eigenen Context dann <code>Database.SetInitializer(new MyDbSeed())</code> setzen</li>
+</ul>
+<hr />
+<h2 id="vorlesung-10-entitiy-framework-2-selbststudium">Vorlesung 10 - Entitiy Framework (2) (Selbststudium)</h2>
+<ul>
+<li><em>Identity Map</em>: Quasi ein Cache, der alle Objekte zwischenspeichert, die gequeried wurden</li>
+<li>Jeder DBContext führt eine eigene Identity Map</li>
+<li>Navigation Properties: Neue Entries können sowohl bei der "n"-Seite der Relation hinzugefügt werden (<code>order.Customer = customer</code>) oder auf der "1"-Seite (<code>customer.Orders.Add(order)</code>) </li>
+<li><em>Unit of Work Pattern</em>: Pattern, dass von DBContext implementiert wird. Alle Änderungen werden festgehalten und danach in die Datenbank gesynct</li>
+<li><em>Optimistic offline lock</em>: Transaktion wird ausgeführt in der Annahme, dass keine Konflikte entstehen. Gibt es doch welche, wird ein Rollback gemacht</li>
+<li><code>IQueryable</code> kann implementiert werden, um z.B. einen eigenen Treiber für eine DB zu bauen. Der wird dann speziell mit einem Expression-Tree aufgerufen</li>
+</ul>
+<hr />
+<h2 id="vorlesung-11-wcf-1">Vorlesung 11 - WCF (1)</h2>
+<ul>
+<li>Client und Server kommunizieren über Messages, standardmässig über SOAP (Serialisiertes XML)</li>
+<li>App-Domain: Kapselung in einem Prozess, in einem Prozess können mehrere App-Domains laufen</li>
+<li>Client greift über Proxy auf den Service zu<ul>
+<li>Kann in gleicher App-Domain, in gleichem Prozess, auf gleicher maschine oder über das Netzwerk geschehen</li>
+</ul>
+</li>
+<li>Kommunikation immer über <em>Endpoints</em><ul>
+<li>Jeder Endpoint besteht aus <em>Address</em>, <em>Binding</em> (Kanalbeschreibung) und <em>Contract</em> (Interface-Definiton, DTOs, definiert die Service-Schnittstelle)</li>
+<li>Binding und Adress werden per Konfiguration gesteuert, der Contract wird im Code implementiert</li>
+</ul>
+</li>
+<li><em>Metadata Exchange Endpoint</em>: Gibt XML, wie die Service-Schnittstelle definiert ist<ul>
+<li>Mit <code>svcutil.exe</code> kann Code generiert werden entsprechend der Schnittstelle</li>
+</ul>
+</li>
+<li>WC*: Web Service Standard (riesig), wovon WCF einen grossen Teil implementiert</li>
+<li>App.config wird immer "heraus" kompiliert vom DLL, kann also auch im nachhinein noch geändert werden</li>
+</ul>
+<h4 id="contracts">Contracts</h4>
+<div class="code"><pre><span></span><span class="k">[ServiceContract]</span>
+<span class="err">public</span> <span class="err">interface</span> <span class="err">ITimeService</span>
+<span class="err">{</span>
+    <span class="k">[OperationContract]</span>
+    <span class="err">string</span> <span class="err">GetTime()</span><span class="c1">;</span>
+    <span class="k">[OperationContract]</span>
+    <span class="err">TimeDescData</span> <span class="err">GetTimeDesc()</span><span class="c1">;</span>
+<span class="err">}</span>
+<span class="err">public</span> <span class="err">class</span> <span class="err">TimeService</span> <span class="err">:</span> <span class="err">ITimeService</span>
+<span class="err">{</span>
+    <span class="err">public</span> <span class="err">string</span> <span class="err">GetTime()</span>
+    <span class="err">{</span> <span class="err">return</span> <span class="err">DateTime.Now.ToString()</span><span class="c1">; }</span>
+    <span class="err">public</span> <span class="err">TimeDescData</span> <span class="err">GetTimeDesc()</span>
+    <span class="err">{</span> <span class="err">return</span> <span class="err">new</span> <span class="err">TimeDescData()</span><span class="c1">; }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<ul>
+<li>DTO:</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">[DataContract]</span>
+<span class="err">public</span> <span class="err">class</span> <span class="err">TimeDescData</span>
+<span class="err">{</span>
+    <span class="err">public</span> <span class="err">TimeDescData()</span>
+    <span class="err">{</span>
+        <span class="na">TimeLong</span> <span class="o">=</span><span class="s"></span>
+<span class="s">        DateTime.Now.ToLongDateString();</span>
+<span class="s">        TimeShort =</span>
+<span class="s">        DateTime.Now.ToShortDateString();</span>
+<span class="s">    } </span>
+<span class="s">    [DataMember]</span>
+<span class="s">    public string TimeShort { get; set; }</span>
+
+    <span class="k">[DataMember]</span>
+    <span class="err">public</span> <span class="err">string</span> <span class="err">TimeLong</span> <span class="err">{</span> <span class="err">get</span><span class="c1">; set; }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<ul>
+<li>Attribute für Prüfung wichtig!</li>
+</ul>
+<h3 id="konfiguration">Konfiguration</h3>
+<ul>
+<li>Der Name des Services muss der Typ des implentierten Services sein</li>
+<li>Das Interface wird als Contract angegeben</li>
+<li>Endpoint-Adresse ist relativ zur <code>baseAddress</code><ul>
+<li>Leerer String heisst "auf /"</li>
+</ul>
+</li>
+<li>Konfiguration kann in app.config oder in Programmcode gegeben werden</li>
+</ul>
+<h3 id="client">Client</h3>
+<ul>
+<li>WSDL kennt nur Collections und Dictionaries, ist nicht .NET spezifisch</li>
+<li>Wenn der Service sich ändert, muss im Client-Projekt die Service-Referenze von Hand aktualisiert werden</li>
+<li>Properties auf dem Service werden abgebildet auf <code>get_</code> und <code>set_</code> Methoden, über <code>[OperationContract(Name="&lt;name&gt;")]</code> kann der Name angepasst werden</li>
+<li>Client mit <em>Shared Assembly</em>: Server und Client haben gleiche Library, es gehen keine Type-Information über WSDL verloren<ul>
+<li>Vorteil: Änderungen werden automatisch auf dem Client übernommen</li>
+<li>Nachteil: Client hat auch Member, die nicht mit <code>[DataMember]</code> deklariert wurden -&gt; Sie werden nicht über den Service serialisiert, der Client hat sie aber trotzdem!</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Faults sind keine Exceptions, sondern reine Informationsobjekte</p>
+</div>
+<ul>
+<li>Exceptions können nicht serialisiert werden</li>
+<li>Sie werden über <code>FaultException</code> gekapselt</li>
+<li>Leitet nicht von <code>Exception</code> ab!</li>
+<li>Error-Handling<ul>
+<li>Alle Exceptions catchen und neue <code>FaultException&lt;T&gt;</code> oder allgemeine <code>FaultException</code> werfen</li>
+</ul>
+</li>
 </ul>
           <aside class="copyright" role="note">
             

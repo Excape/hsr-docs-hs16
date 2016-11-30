@@ -251,12 +251,6 @@
             </li>
           
             <li class="anchor">
-              <a title="- inline, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)" href="#-inline-weil-funtkion-im-header-implementiert-ist-ohne-inline-wurde-es-einen-konflikt-beim-linken-geben-wenn-mehrere-files-dieses-header-file-verwenden-one-definition-rule">
-                - inline, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)
-              </a>
-            </li>
-          
-            <li class="anchor">
               <a title="Vorlesung 6" href="#vorlesung-6">
                 Vorlesung 6
               </a>
@@ -265,12 +259,6 @@
             <li class="anchor">
               <a title="Vorlesung 7 - Standard containers" href="#vorlesung-7-standard-containers">
                 Vorlesung 7 - Standard containers
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Associative Containers" href="#associative-containers">
-                Associative Containers
               </a>
             </li>
           
@@ -289,6 +277,12 @@
             <li class="anchor">
               <a title="Vorlesung 10 - Function Templates" href="#vorlesung-10-function-templates">
                 Vorlesung 10 - Function Templates
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 11 - Testat 2 Review" href="#vorlesung-11-testat-2-review">
+                Vorlesung 11 - Testat 2 Review
               </a>
             </li>
           
@@ -714,7 +708,10 @@
 </pre></div>
 
 
-<h2 id="-inline-weil-funtkion-im-header-implementiert-ist-ohne-inline-wurde-es-einen-konflikt-beim-linken-geben-wenn-mehrere-files-dieses-header-file-verwenden-one-definition-rule">- <code>inline</code>, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</h2>
+<ul>
+<li><code>inline</code>, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</li>
+</ul>
+<hr />
 <h2 id="vorlesung-6">Vorlesung 6</h2>
 <ul>
 <li><code>read()</code>: Wenn Parsen fehlschlägt, wird das Fail-bit gesetzt</li>
@@ -804,7 +801,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="associative-containers">Associative Containers</h2>
+<h3 id="associative-containers">Associative Containers</h3>
 <ul>
 <li>Sind sortiert</li>
 <li><code>std::set</code> speichert Elemente sortiert<ul>
@@ -950,17 +947,66 @@
 <li>Gefährlich, weil schnell ambiguities entstehen</li>
 </ul>
 </li>
-<li>Variadic Templates: Type-safe varying number of arguments
-    <code>c++
-    template &lt;typename...ARGS&gt;
-    void variadic(ARGS...args){
-        println(std::cout,args...);
-    }</code></li>
+<li>Variadic Templates: Type-safe varying number of arguments</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="n">ARGS</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">variadic</span><span class="p">(</span><span class="n">ARGS</span><span class="p">...</span><span class="n">args</span><span class="p">){</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">,</span><span class="n">args</span><span class="p">...);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
 <li>Beispiel <code>println()</code><ul>
 <li>Wenn <code>tail...</code> leer ist, wird per overloading resolution die <code>println()</code> funktion mit einem Argument gewählt -&gt; Rekursions-Basecase</li>
 </ul>
 </li>
 <li>Template-Parameter können default-Werte annehmen: <code>template &lt;typename T, typename U=T&gt;</code></li>
+</ul>
+<hr />
+<h2 id="vorlesung-11-testat-2-review">Vorlesung 11 - Testat 2 Review</h2>
+<h3 id="headerfile">Headerfile</h3>
+<div class="code"><pre><span></span><span class="k">class</span> <span class="nc">Word</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">bool</span> <span class="nf">isValidWord</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Word</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="k">explicit</span> <span class="nf">Word</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">read</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="n">is</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">Word</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="kr">inline</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="k">operator</span> <span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="n">Word</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">os</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">inline</span> <span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="k">operator</span> <span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="n">is</span><span class="p">,</span> <span class="n">Word</span> <span class="o">&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">is</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">is</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<ul>
+<li>Im Headerfile grundsätzlich immer ein Namespace definieren</li>
+<li>Default-Konstruktor mit <code>Word() = default</code>, nicht explizit implementieren</li>
+<li>Konstruktor mit einem Parameter <code>explicit</code> deklarieren, damit der Compiler keine (impliziten) Konvertierungen macht</li>
+<li>Faustregel: Nicht-Primitive Datentypen (z.B. <code>std::string</code>) immer per (const) Reference übergeben, damit keine Kopie erstellt werden muss</li>
+<li>Einen Operator als Member implementieren</li>
+<li>Wenn die Implementation kurz ist und keine Dependencies braucht, im Header implementieren</li>
+<li>Member-Funktionen in Klassen sind implizit <code>inline</code></li>
+</ul>
+<h3 id="includes">Includes</h3>
+<ul>
+<li>Je nach compiler sind include abhängigkeiten unterschiedlich. Daher immer explzit!</li>
+<li><code>&lt;iosfwd&gt;</code> für <code>istream</code> und <code>ostream</code> im header, wenn keine streams instanziert werden (nur vorwärtsdeklartiert)</li>
+</ul>
+<h3 id="implementation">Implementation</h3>
+<ul>
+<li>Wenn ein Field const ist, kann es im Konstruktor nur über Initalizer gesetzt werden, nicht im body</li>
+<li>Reihenfolge in der Klasse gibt an, in welcher Reihenfolge fields initialisiert werden</li>
+<li>In Schlaufe auf <code>is.good()</code> prüfen, statt <code>while(is)</code>, da die bool-Konvertierung auch noch true zurück gibt, wenn <code>eof</code> erreicht ist. <code>good()</code> gibt nur true, wenn noch gelesen werden kann</li>
 </ul>
           <aside class="copyright" role="note">
             

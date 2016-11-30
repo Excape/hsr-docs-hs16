@@ -371,7 +371,7 @@ Young engineers and scientists, but as soon as they got to know him better, they
 ### Chapter 11
 **Put the title of the chapter “Wet Electricity” into context.**
 
-
+The title refers to the electricity in our brains
 
 **Answer the author’s question on p. 201: “what are live electrical circuits doing embedded in our bodies and brains?”**
 

@@ -259,6 +259,7 @@ inline std::ostream & operator<<(std::ostream & os, Date const & date){
 }
 ```
 - `inline`, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)
+
 ---
 ## Vorlesung 6
 - `read()`: Wenn Parsen fehlschlägt, wird das Fail-bit gesetzt
@@ -323,7 +324,7 @@ december
 - `std::queue` nutzt dequeue mit limitierter Funktionalität
     - Iteration nicht möglich
 
-## Associative Containers
+### Associative Containers
 - Sind sortiert
 - `std::set` speichert Elemente sortiert
     - mit `count(el)` prüfen, ob Element in Set ist (gibt nur 0 oder 1 zurück)
@@ -422,12 +423,55 @@ T const& min(T const& a, T const& b){
 - Templates kann man auch overloaden - Der spezialisierteste overload wird ausgeführt
     - Gefährlich, weil schnell ambiguities entstehen
 - Variadic Templates: Type-safe varying number of arguments
-    ```c++
-    template <typename...ARGS>
-    void variadic(ARGS...args){
-        println(std::cout,args...);
-    }
-    ```
+
+```c++
+template <typename...ARGS>
+void variadic(ARGS...args){
+    println(std::cout,args...);
+}
+```
+
 - Beispiel `println()`
     - Wenn `tail...` leer ist, wird per overloading resolution die `println()` funktion mit einem Argument gewählt -> Rekursions-Basecase
 - Template-Parameter können default-Werte annehmen: `template <typename T, typename U=T>`
+
+---
+## Vorlesung 11 - Testat 2 Review
+### Headerfile
+```c++
+class Word {
+    std::string value;
+    static bool isValidWord(std::string const & value);
+public:
+    Word() = default;
+    explicit Word(std::string const & value);
+    void print(std::ostream & os) const;
+    void read(std::istream & is);
+    bool operator <(Word const & rhs) const;
+    
+inline std::ostream & operator <<(std::ostream & os, Word const & w) {
+    w.print(os);
+    return os;
+}
+inline std::istream & operator >>(std::istream & is, Word & w) {
+    w.read(is);
+    return is;
+}
+};
+```
+- Im Headerfile grundsätzlich immer ein Namespace definieren
+- Default-Konstruktor mit `Word() = default`, nicht explizit implementieren
+- Konstruktor mit einem Parameter `explicit` deklarieren, damit der Compiler keine (impliziten) Konvertierungen macht
+- Faustregel: Nicht-Primitive Datentypen (z.B. `std::string`) immer per (const) Reference übergeben, damit keine Kopie erstellt werden muss
+- Einen Operator als Member implementieren
+- Wenn die Implementation kurz ist und keine Dependencies braucht, im Header implementieren
+- Member-Funktionen in Klassen sind implizit `inline`
+
+### Includes
+- Je nach compiler sind include abhängigkeiten unterschiedlich. Daher immer explzit!
+- `<iosfwd>` für `istream` und `ostream` im header, wenn keine streams instanziert werden (nur vorwärtsdeklartiert)
+
+### Implementation
+- Wenn ein Field const ist, kann es im Konstruktor nur über Initalizer gesetzt werden, nicht im body
+- Reihenfolge in der Klasse gibt an, in welcher Reihenfolge fields initialisiert werden
+- In Schlaufe auf `is.good()` prüfen, statt `while(is)`, da die bool-Konvertierung auch noch true zurück gibt, wenn `eof` erreicht ist. `good()` gibt nur true, wenn noch gelesen werden kann

@@ -273,3 +273,90 @@ list.ForEach(delegate(int i)
     - *By Attributes*: Den Properties und Klassen Attributes geben, z.B. `[Column("name")]` um Namen zu überschreiben, `[Required]` für not-null
     - Mit *DbModelBuilder*: Für jede Klasse ein `DbModelBuilder` erstellen und mit Methoden darauf (`HasKey()` für Primary key) die Mappings definiert. Statt Annotationen
 - Seed Database: Von einer der Klassen `DropCreateDataBaseAlways<myDb>` etc. erben und `Seed()` überschreiben. Im eigenen Context dann `Database.SetInitializer(new MyDbSeed())` setzen
+
+---
+## Vorlesung 10 - Entitiy Framework (2) (Selbststudium)
+- *Identity Map*: Quasi ein Cache, der alle Objekte zwischenspeichert, die gequeried wurden
+- Jeder DBContext führt eine eigene Identity Map
+- Navigation Properties: Neue Entries können sowohl bei der "n"-Seite der Relation hinzugefügt werden (`order.Customer = customer`) oder auf der "1"-Seite (`customer.Orders.Add(order)`) 
+- *Unit of Work Pattern*: Pattern, dass von DBContext implementiert wird. Alle Änderungen werden festgehalten und danach in die Datenbank gesynct
+- *Optimistic offline lock*: Transaktion wird ausgeführt in der Annahme, dass keine Konflikte entstehen. Gibt es doch welche, wird ein Rollback gemacht
+- `IQueryable` kann implementiert werden, um z.B. einen eigenen Treiber für eine DB zu bauen. Der wird dann speziell mit einem Expression-Tree aufgerufen
+
+---
+## Vorlesung 11 - WCF (1)
+- Client und Server kommunizieren über Messages, standardmässig über SOAP (Serialisiertes XML)
+- App-Domain: Kapselung in einem Prozess, in einem Prozess können mehrere App-Domains laufen
+- Client greift über Proxy auf den Service zu
+    - Kann in gleicher App-Domain, in gleichem Prozess, auf gleicher maschine oder über das Netzwerk geschehen
+- Kommunikation immer über *Endpoints*
+    - Jeder Endpoint besteht aus *Address*, *Binding* (Kanalbeschreibung) und *Contract* (Interface-Definiton, DTOs, definiert die Service-Schnittstelle)
+    - Binding und Adress werden per Konfiguration gesteuert, der Contract wird im Code implementiert
+- *Metadata Exchange Endpoint*: Gibt XML, wie die Service-Schnittstelle definiert ist
+    - Mit `svcutil.exe` kann Code generiert werden entsprechend der Schnittstelle
+- WC*: Web Service Standard (riesig), wovon WCF einen grossen Teil implementiert
+- App.config wird immer "heraus" kompiliert vom DLL, kann also auch im nachhinein noch geändert werden
+
+#### Contracts
+```cs
+[ServiceContract]
+public interface ITimeService
+{
+    [OperationContract]
+    string GetTime();
+    [OperationContract]
+    TimeDescData GetTimeDesc();
+}
+public class TimeService : ITimeService
+{
+    public string GetTime()
+    { return DateTime.Now.ToString(); }
+    public TimeDescData GetTimeDesc()
+    { return new TimeDescData(); }
+}
+```
+- DTO:
+```cs
+[DataContract]
+public class TimeDescData
+{
+    public TimeDescData()
+    {
+        TimeLong =
+        DateTime.Now.ToLongDateString();
+        TimeShort =
+        DateTime.Now.ToShortDateString();
+    } 
+    [DataMember]
+    public string TimeShort { get; set; }
+
+    [DataMember]
+    public string TimeLong { get; set; }
+}
+```
+- Attribute für Prüfung wichtig!
+
+### Konfiguration
+- Der Name des Services muss der Typ des implentierten Services sein
+- Das Interface wird als Contract angegeben
+- Endpoint-Adresse ist relativ zur `baseAddress`
+    - Leerer String heisst "auf /"
+- Konfiguration kann in app.config oder in Programmcode gegeben werden
+
+### Client
+- WSDL kennt nur Collections und Dictionaries, ist nicht .NET spezifisch
+- Wenn der Service sich ändert, muss im Client-Projekt die Service-Referenze von Hand aktualisiert werden
+- Properties auf dem Service werden abgebildet auf `get_` und `set_` Methoden, über `[OperationContract(Name="<name>")]` kann der Name angepasst werden
+- Client mit *Shared Assembly*: Server und Client haben gleiche Library, es gehen keine Type-Information über WSDL verloren
+    - Vorteil: Änderungen werden automatisch auf dem Client übernommen
+    - Nachteil: Client hat auch Member, die nicht mit `[DataMember]` deklariert wurden -> Sie werden nicht über den Service serialisiert, der Client hat sie aber trotzdem!
+
+### Faults
+!!! warning
+    Faults sind keine Exceptions, sondern reine Informationsobjekte
+
+- Exceptions können nicht serialisiert werden
+- Sie werden über `FaultException` gekapselt
+- Leitet nicht von `Exception` ab!
+- Error-Handling
+    - Alle Exceptions catchen und neue `FaultException<T>` oder allgemeine `FaultException` werfen

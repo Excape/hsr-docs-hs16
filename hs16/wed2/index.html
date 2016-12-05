@@ -319,6 +319,18 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Vorlesung 10 - Layers / OO" href="#vorlesung-10-layers-oo">
+                Vorlesung 10 - Layers / OO
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 11 - ES6, Functional JS, Code Styles" href="#vorlesung-11-es6-functional-js-code-styles">
+                Vorlesung 11 - ES6, Functional JS, Code Styles
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -604,6 +616,131 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.</li>
 <li>Angreifer kann Server dazu bringen, seinen Code auszuführen</li>
 </ul>
 </li>
+</ul>
+<hr />
+<h2 id="vorlesung-10-layers-oo">Vorlesung 10 - Layers / OO</h2>
+<div class="code"><pre><span></span><span class="kd">function</span> <span class="nx">newCounterWithPrivateCountAndClosureInc</span> <span class="p">(</span><span class="nx">cInit</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span> <span class="p">};</span>
+    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">cInit</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">inc</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">delta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">count</span> <span class="o">+=</span> <span class="nx">delta</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">getCount</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">o</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>"A <a href="http://www.w3schools.com/js/js_function_closures.asp">closure</a> is a function having access to the parent scope, even after the parent function has closed."</li>
+<li><code>count</code> gehört zum Scope der Funktion, es kann aber trotzdem über das Return-Objekt <code>o</code> darauf zugegriffen werden</li>
+<li>"Lexical Scope" = Static Scope, d.h. innere Scopes können auf äussere Zugreifen, wie in C, Java, ... und ist zur compile-Time bekannt (im Gegensatz zu dynamic scope)</li>
+<li><code>this</code> bezieht sich auf das Objekt, auf dem der Aufruf geschieht<ul>
+<li>Wenn ohne Objekt aufgerufen, ist <code>this</code> das globale Objekt</li>
+</ul>
+</li>
+<li>Konstruktoren sind "normale" Funktionen, werden per Convention gross geschrieben</li>
+</ul>
+<h3 id="prototypes">Prototypes</h3>
+<ul>
+<li>Jedem Objekt und jeder Funktion wird ein <code>prototype</code> Objekt gegeben</li>
+<li>Wird ein Aufruf beim Objekt nicht gefunden, wird es beim Prototyp versucht (Pseudo-vererbung)</li>
+</ul>
+<div class="code"><pre><span></span><span class="nx">LeanCounter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">demoInherit</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Inherited from LeanCounter&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">DeltaLeanCounter</span> <span class="p">(</span><span class="nx">cInit</span><span class="p">,</span> <span class="nx">dInit</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">LeanCounter</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">cInit</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">delta</span> <span class="o">=</span> <span class="nx">dInit</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">DeltaLeanCounter</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">LeanCounter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+
+<span class="nx">DeltaLeanCounter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">inc</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">LeanCounter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">inc</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">d</span><span class="o">||</span><span class="k">this</span><span class="p">.</span><span class="nx">delta</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">counter14</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DeltaLeanCounter</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">);</span>
+<span class="nx">counter14</span><span class="p">.</span><span class="nx">inc</span><span class="p">();</span>
+<span class="nx">counter14</span><span class="p">.</span><span class="nx">demoInherit</span><span class="p">();</span> <span class="c1">//-&gt; Inherited from LeanCounter</span>
+<span class="nx">show</span><span class="p">(</span><span class="s2">&quot;DeltaLeanCounter.prototype === counter14.__proto__&quot;</span><span class="p">);</span> <span class="c1">//-&gt; true</span>
+<span class="nx">show</span><span class="p">(</span><span class="s2">&quot;counter14.count&quot;</span><span class="p">);</span> <span class="c1">//-&gt; 28 (expected)</span>
+<span class="nx">show</span><span class="p">(</span><span class="s2">&quot;typeof counter14&quot;</span><span class="p">);</span> <span class="c1">//-&gt; object</span>
+<span class="nx">show</span><span class="p">(</span><span class="s2">&quot;counter14 instanceof DeltaLeanCounter&quot;</span><span class="p">);</span> <span class="c1">//-&gt; true</span>
+<span class="nx">show</span><span class="p">(</span><span class="s2">&quot;counter14 instanceof LeanCounter&quot;</span><span class="p">);</span> <span class="c1">//-&gt; true</span>
+<span class="nx">show</span><span class="p">(</span><span class="s2">&quot;counter14.constructor.name&quot;</span><span class="p">);</span> <span class="c1">//-&gt; LeanCounter (known problem)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="vorlesung-11-es6-functional-js-code-styles">Vorlesung 11 - ES6, Functional JS, Code Styles</h2>
+<h3 id="es6">ES6</h3>
+<ul>
+<li>Variablen wenn möglich mit <code>const</code> deklarieren. Wenn sie verändert werden müssen, mit <code>let</code><ul>
+<li>Variablen mit <code>var</code> (nicht empfohlen) werden an Anfang der Funktion gehoisted</li>
+<li>Variablen mit <code>let</code> werden an den Anfang des Blocks gehoisted, aber der Zugriff ist vor der Deklaration verboten! ("Temporal Dead Zone")</li>
+</ul>
+</li>
+<li>Destrukturierung von Variablen:</li>
+</ul>
+<div class="code"><pre><span></span><span class="n">function</span> <span class="nf">carFactory3</span><span class="o">(</span><span class="n">optionsObj</span> <span class="o">=</span> <span class="o">{})</span> <span class="o">{</span>
+    <span class="kd">const</span> <span class="o">{</span> <span class="n">brand</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Volkswagen</span><span class="err">&#39;</span><span class="o">,</span> <span class="n">year</span> <span class="o">=</span> <span class="mi">1999</span> <span class="o">}</span> <span class="o">=</span> <span class="n">optionsObj</span><span class="o">;</span>
+    <span class="k">return</span> <span class="o">{</span>
+        <span class="n">brand</span><span class="o">,</span>
+        <span class="n">year</span>
+    <span class="o">};</span>
+<span class="o">}</span>
+<span class="n">log</span><span class="o">(</span><span class="n">carFactory3</span><span class="o">({</span> <span class="n">year</span><span class="o">:</span> <span class="mi">2013</span> <span class="o">}));</span>
+</pre></div>
+
+
+<ul>
+<li>Template Strings mit Backticks: <code>`The result of 2+3 equals ${2 + 3}`</code></li>
+<li>Getter, Setter</li>
+</ul>
+<div class="code"><pre><span></span><span class="nx">get</span> <span class="nx">count</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">myCount</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">set</span> <span class="nx">count</span><span class="p">(</span><span class="nx">newCount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">myCount</span> <span class="o">=</span> <span class="nx">newCount</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">inc</span><span class="p">(</span><span class="nx">delta</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">myCount</span> <span class="o">+=</span> <span class="nx">delta</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Arrow-Functions erhalten <code>this</code> aus dem umgebenen Kontext</li>
+<li>Klassen-Definitionen<ul>
+<li>Syntactic Sugar, z.B. wird gezwungen, dass Konstruktor mit <code>new</code> aufgerufen wird</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="kr">class</span> <span class="nx">Counter</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">({</span> <span class="nx">start</span><span class="o">:</span> <span class="nx">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">step</span><span class="o">:</span> <span class="nx">step</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_count</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_step</span> <span class="o">=</span> <span class="nx">step</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">get</span> <span class="nx">count</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_count</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">inc</span><span class="p">(</span><span class="nx">step</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_step</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_count</span> <span class="o">+=</span> <span class="nx">step</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">dec</span><span class="p">(</span><span class="nx">step</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_step</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_count</span> <span class="o">-=</span> <span class="nx">step</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Vererbung auch vereinfacht: <code>class DoubleCounter extends Counter {}</code></li>
 </ul>
           <aside class="copyright" role="note">
             

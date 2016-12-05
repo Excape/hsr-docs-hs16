@@ -162,3 +162,111 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
     - Bei Cookies `HttpOnly` Flag setzen, damit es nicht mit `document.cookie` ausgelesen werden kann
 - JS Code Injection
     - Angreifer kann Server dazu bringen, seinen Code auszuführen
+
+---
+## Vorlesung 10 - Layers / OO
+```javascript
+function newCounterWithPrivateCountAndClosureInc (cInit) {
+    const o = { };
+    let count = cInit;
+    o.inc = function (delta) {
+        count += delta;
+    };
+    o.getCount = function () {
+        return count;
+    };
+    return o;
+}
+```
+- "A [closure](http://www.w3schools.com/js/js_function_closures.asp) is a function having access to the parent scope, even after the parent function has closed."
+- `count` gehört zum Scope der Funktion, es kann aber trotzdem über das Return-Objekt `o` darauf zugegriffen werden
+- "Lexical Scope" = Static Scope, d.h. innere Scopes können auf äussere Zugreifen, wie in C, Java, ... und ist zur compile-Time bekannt (im Gegensatz zu dynamic scope)
+- `this` bezieht sich auf das Objekt, auf dem der Aufruf geschieht
+    - Wenn ohne Objekt aufgerufen, ist `this` das globale Objekt
+- Konstruktoren sind "normale" Funktionen, werden per Convention gross geschrieben
+
+### Prototypes
+- Jedem Objekt und jeder Funktion wird ein `prototype` Objekt gegeben
+- Wird ein Aufruf beim Objekt nicht gefunden, wird es beim Prototyp versucht (Pseudo-vererbung)
+
+```javascript
+LeanCounter.prototype.demoInherit = function () {
+    console.log("Inherited from LeanCounter");
+};
+
+function DeltaLeanCounter (cInit, dInit) {
+    LeanCounter.call(this, cInit);
+    this.delta = dInit;
+}
+
+DeltaLeanCounter.prototype =
+    Object.create(LeanCounter.prototype);
+
+DeltaLeanCounter.prototype.inc = function (d) {
+    LeanCounter.prototype.inc.call(this, d||this.delta);
+};
+
+const counter14 = new DeltaLeanCounter (14, 14);
+counter14.inc();
+counter14.demoInherit(); //-> Inherited from LeanCounter
+show("DeltaLeanCounter.prototype === counter14.__proto__"); //-> true
+show("counter14.count"); //-> 28 (expected)
+show("typeof counter14"); //-> object
+show("counter14 instanceof DeltaLeanCounter"); //-> true
+show("counter14 instanceof LeanCounter"); //-> true
+show("counter14.constructor.name"); //-> LeanCounter (known problem)
+```
+---
+## Vorlesung 11 - ES6, Functional JS, Code Styles
+### ES6
+- Variablen wenn möglich mit `const` deklarieren. Wenn sie verändert werden müssen, mit `let`
+    - Variablen mit `var` (nicht empfohlen) werden an Anfang der Funktion gehoisted
+    - Variablen mit `let` werden an den Anfang des Blocks gehoisted, aber der Zugriff ist vor der Deklaration verboten! ("Temporal Dead Zone")
+- Destrukturierung von Variablen:
+
+```java
+function carFactory3(optionsObj = {}) {
+    const { brand = 'Volkswagen', year = 1999 } = optionsObj;
+    return {
+        brand,
+        year
+    };
+}
+log(carFactory3({ year: 2013 }));
+```
+- Template Strings mit Backticks: `` `The result of 2+3 equals ${2 + 3}` ``
+- Getter, Setter
+
+```javascript
+get count() {
+    return myCount;
+}
+set count(newCount) {
+    myCount = newCount;
+}
+inc(delta) {
+    myCount += delta;
+}
+```
+- Arrow-Functions erhalten `this` aus dem umgebenen Kontext
+- Klassen-Definitionen
+    - Syntactic Sugar, z.B. wird gezwungen, dass Konstruktor mit `new` aufgerufen wird
+
+```javascript
+class Counter {
+    constructor({ start: start = 0, step: step = 1 } = {}) {
+        this._count = start;
+        this._step = step;
+    }
+    get count() {
+        return this._count;
+    }
+    inc(step = this._step) {
+        this._count += step;
+    }
+    dec(step = this._step) {
+        this._count -= step;
+    }
+}
+```
+- Vererbung auch vereinfacht: `class DoubleCounter extends Counter {}`

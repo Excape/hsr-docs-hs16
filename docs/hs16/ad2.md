@@ -304,3 +304,29 @@ T |   |   |   |   |
 - Sehr ähnlich zu DFS
 - Sucht zuerst in die Breite statt in die Tiefe
 - Besser als DFS, um kurze Pfade zu finden
+- Jeder Node in der Liste *i* hat Distanz 1 zu Liste *i-1*
+- Performance ist gleich wie bei DFS \(O(n+m)\), wenn Adjazenzliste genutzt wird
+- Findet Pfad mit minimaler Anzahl Knoten
+- Biconnected Komponenten
+    - Cut-Vertex ist Vertex, der zwei grössere Teilgraphen verbindet (z.B. Single Point of Failure in einem Netzwerk)
+    - Biconnectd Komponenten sind Teilgraphen, die an zwei Vertices verbunden sind (statt nur an einem *Cut*-Vertex)
+---
+### Vorlesung 12 - Gerichtete Graphen
+- *Alle* Kanten in einem Graph sind gewichtet
+- Max. Kanten bei einem einfachen Graphen ist \(n(n-1)\), doppelt so viele wie beim ungerichteten Graphen (beide Richtungen)
+- DFS gibt einen Baum von erreichbaren Vertices vom Startwert mit gerichteten Graphen. Dies ist abhängig vom Start-Vertex! Es müssen nicht alle erreicht werden, auch wenn der ganze Graph verbunden ist
+- *Strong Connectivity*: Jeder Vertex ist von jedem anderen erreichbar
+    - Algorithmus zum Prüfen:
+        - DFS für irgendeinen Vertex ausführen und prüfen, ob alle Vertices besucht werden. Falls nicht -> *False*
+        - Graph *G'* mit umgekehrten Kanten erstellen und die Suche wiederholen. Falls nicht alle besucht -> *False*
+- *Streng verbundene Komponente*: Subgraph, der streng verbunden ist
+- Transitiver Abschluss: Ein Digraph G* des Graphen G, wobei für alle Pfade von u nach v eine gerichtete Kante u zu v eingetragen wird
+    - Mit DFS: Startkante mitgeben und bei jeder *Discovery*-Edge eine Kante vom Startwert zum disovered Vertex einfügen. Laufzeit ist aber \(O(n(n+m))\)
+- Ansatz mit Floyd-Warshall:
+    - Vertices nummerieren und immer nur 1 bis k anschauen
+    - Laufzeit \(O(n^3)\)
+        - Schneller als Tiefensuche! Denn *m* ist \(O(n^2)\), damit ist der ganze Algorithmus auch \(O(n^3)\)
+    - Grundsatz: Wenn a mit b verbunden und b mit c verbunden, ist auch a mit c verbunden
+- *DAG* - Directed Acyclic Graph: Ein gerichteter Graph ohne (gerichtete) Zyklen
+- Topologische Ordnung: Reihenfolge der Vertices, so dass jeder Index kleiner ist als dieser seiner Outgoing Edges
+    - Ist nicht eindeutig, gibt beliebig viele Lösungen

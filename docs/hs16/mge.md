@@ -428,3 +428,24 @@ public void onSensorChanged(SensorEvent event) {
     - Hat nur eine Methode `PropertyChanged()` und gibt das Property mit, dass geändert wurde
 - WPF registriert sich selbst als Eventhandler auf die Klassen, die `INotifyPropertyChanged` implementieren
     - Dadurch wird die View automatisch aktualisiert
+
+---
+## Vorlesung 11 - Details der Benutzerinteraktion
+- WPF stellt für alles mögliche Events zur Verfügung (text changed, window closed, text selected, ...)
+- Für eigene Event-handler: Entweder Super-Klasse überschreiben oder dem Event eine neue Funktion zuweisen
+
+### WPF App Lifecycle
+- Startpunkt bei .NET ist die `Main()` Methode
+- Bei mehreren Main-Methoden in den Build-Settings festlegen
+- WPF generiert eine partial Class `App` mit `Main()` im "obj" Ordner
+    - Ruft `run()` auf, das die Events `Startup` und `Activated` auslöst (`Activated` heisst Fenster kommt in den Vordergrund)
+- Window `Closing`: Bevor das Fenster geschlossen wird (kann abgebrochen werden)
+
+### Routed Events
+- Sind XAML UI Events
+- z.B. Mouse-Event, Keyboard-Event, ...
+- Werden abwärts und aufwärts (bubbling) durch den *Visual Tree* gesendet
+- Wenn `Handled` auf true gesetzt wird, wird das Event abgebrochen, asonsten werden sie weiter gegeben
+- Wenn Event vor dem "ankommen" (Tunneling) behandelt werden soll, `Preview` Events verwenden
+- Eventhandler direkt im XAML festlegen: `<Button Name="myButton" MouseDown="myButton_OnMouseDown">`
+- Nicht alle Events durchlaufen standardmässig die komplette Bubbling oder Tunneling Phase (`TextInput` bei TextBox z.B. bricht das Event nach der Verarbeitung ab)

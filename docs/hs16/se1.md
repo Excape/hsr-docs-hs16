@@ -186,3 +186,21 @@
 - Kann nützlich sein, Prozesse abstrakt zu beschreiben
 - Wenn es zu detailiert ist, ist es sehr nah am Code
     - Das gibt Abhängigkeiten untereinander -> problematisch
+
+---
+## Vorlesung 12 - Scrum
+- Backlog: Stapel mit kleinen Arbeitspaketen
+- Alle Arbeitspakete sind User Stories
+- User Story: Wer möchte was erreichen (Ziel) weil ... (Grund)
+- Sprints: Iterationen von 2-3 Wochen, immer die gleiche Länge
+    - Fest Timeboxed, egal ob fertig oder nicht
+- Product Owner: Ist verantwortlich, dass Produkt richtig realisiert wird (normaleweise von der Firma, die den Auftrag gegeben hat)
+- Team Speed: Anzahl Arbeitstage pro Sprint (über alle Mitglieder). Reserve einplanen und nach jedem Sprint anpassen
+- Bugs kommen auch in den Product Backlog
+- Grundregel: *Entwickler schätzen, Kunde priorisiert*
+
+1. Product Owner erstellt User Stories
+2. Mit Entwickler-Team besprechen, bis alle alles verstehen
+3. Entwickler-Team teilt "Kosten" zu (Zeitaufwand)
+4. Für den ersten Sprint die ersten Stories auswählen (in den Sprint Backlog), entsprechend des Team Speeds
+5. Am Schluss des Sprints nimmt Product Owner die erledigten Stories ab. Nicht erledigte / abgenommene zurück in den Product Backlog

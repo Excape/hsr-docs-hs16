@@ -818,6 +818,51 @@ Konstanten heraus streichen:
 <li>Sehr ähnlich zu DFS</li>
 <li>Sucht zuerst in die Breite statt in die Tiefe</li>
 <li>Besser als DFS, um kurze Pfade zu finden</li>
+<li>Jeder Node in der Liste <em>i</em> hat Distanz 1 zu Liste <em>i-1</em></li>
+<li>Performance ist gleich wie bei DFS <script type="math/tex">O(n+m)</script>, wenn Adjazenzliste genutzt wird</li>
+<li>Findet Pfad mit minimaler Anzahl Knoten</li>
+<li>Biconnected Komponenten<ul>
+<li>Cut-Vertex ist Vertex, der zwei grössere Teilgraphen verbindet (z.B. Single Point of Failure in einem Netzwerk)</li>
+<li>Biconnectd Komponenten sind Teilgraphen, die an zwei Vertices verbunden sind (statt nur an einem <em>Cut</em>-Vertex)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="vorlesung-12-gerichtete-graphen">Vorlesung 12 - Gerichtete Graphen</h3>
+<ul>
+<li><em>Alle</em> Kanten in einem Graph sind gewichtet</li>
+<li>Max. Kanten bei einem einfachen Graphen ist <script type="math/tex">n(n-1)</script>, doppelt so viele wie beim ungerichteten Graphen (beide Richtungen)</li>
+<li>DFS gibt einen Baum von erreichbaren Vertices vom Startwert mit gerichteten Graphen. Dies ist abhängig vom Start-Vertex! Es müssen nicht alle erreicht werden, auch wenn der ganze Graph verbunden ist</li>
+<li><em>Strong Connectivity</em>: Jeder Vertex ist von jedem anderen erreichbar<ul>
+<li>Algorithmus zum Prüfen:<ul>
+<li>DFS für irgendeinen Vertex ausführen und prüfen, ob alle Vertices besucht werden. Falls nicht -&gt; <em>False</em></li>
+<li>Graph <em>G'</em> mit umgekehrten Kanten erstellen und die Suche wiederholen. Falls nicht alle besucht -&gt; <em>False</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Streng verbundene Komponente</em>: Subgraph, der streng verbunden ist</li>
+<li>Transitiver Abschluss: Ein Digraph G* des Graphen G, wobei für alle Pfade von u nach v eine gerichtete Kante u zu v eingetragen wird<ul>
+<li>Mit DFS: Startkante mitgeben und bei jeder <em>Discovery</em>-Edge eine Kante vom Startwert zum disovered Vertex einfügen. Laufzeit ist aber <script type="math/tex">O(n(n+m))</script>
+</li>
+</ul>
+</li>
+<li>Ansatz mit Floyd-Warshall:<ul>
+<li>Vertices nummerieren und immer nur 1 bis k anschauen</li>
+<li>Laufzeit <script type="math/tex">O(n^3)</script>
+<ul>
+<li>Schneller als Tiefensuche! Denn <em>m</em> ist <script type="math/tex">O(n^2)</script>, damit ist der ganze Algorithmus auch <script type="math/tex">O(n^3)</script>
+</li>
+</ul>
+</li>
+<li>Grundsatz: Wenn a mit b verbunden und b mit c verbunden, ist auch a mit c verbunden</li>
+</ul>
+</li>
+<li><em>DAG</em> - Directed Acyclic Graph: Ein gerichteter Graph ohne (gerichtete) Zyklen</li>
+<li>Topologische Ordnung: Reihenfolge der Vertices, so dass jeder Index kleiner ist als dieser seiner Outgoing Edges<ul>
+<li>Ist nicht eindeutig, gibt beliebig viele Lösungen</li>
+</ul>
+</li>
 </ul>
           <aside class="copyright" role="note">
             

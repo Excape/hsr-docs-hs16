@@ -835,6 +835,32 @@
 </ul>
 </li>
 </ul>
+<hr />
+<h2 id="vorlesung-11-details-der-benutzerinteraktion">Vorlesung 11 - Details der Benutzerinteraktion</h2>
+<ul>
+<li>WPF stellt für alles mögliche Events zur Verfügung (text changed, window closed, text selected, ...)</li>
+<li>Für eigene Event-handler: Entweder Super-Klasse überschreiben oder dem Event eine neue Funktion zuweisen</li>
+</ul>
+<h3 id="wpf-app-lifecycle">WPF App Lifecycle</h3>
+<ul>
+<li>Startpunkt bei .NET ist die <code>Main()</code> Methode</li>
+<li>Bei mehreren Main-Methoden in den Build-Settings festlegen</li>
+<li>WPF generiert eine partial Class <code>App</code> mit <code>Main()</code> im "obj" Ordner<ul>
+<li>Ruft <code>run()</code> auf, das die Events <code>Startup</code> und <code>Activated</code> auslöst (<code>Activated</code> heisst Fenster kommt in den Vordergrund)</li>
+</ul>
+</li>
+<li>Window <code>Closing</code>: Bevor das Fenster geschlossen wird (kann abgebrochen werden)</li>
+</ul>
+<h3 id="routed-events">Routed Events</h3>
+<ul>
+<li>Sind XAML UI Events</li>
+<li>z.B. Mouse-Event, Keyboard-Event, ...</li>
+<li>Werden abwärts und aufwärts (bubbling) durch den <em>Visual Tree</em> gesendet</li>
+<li>Wenn <code>Handled</code> auf true gesetzt wird, wird das Event abgebrochen, asonsten werden sie weiter gegeben</li>
+<li>Wenn Event vor dem "ankommen" (Tunneling) behandelt werden soll, <code>Preview</code> Events verwenden</li>
+<li>Eventhandler direkt im XAML festlegen: <code>&lt;Button Name="myButton" MouseDown="myButton_OnMouseDown"&gt;</code></li>
+<li>Nicht alle Events durchlaufen standardmässig die komplette Bubbling oder Tunneling Phase (<code>TextInput</code> bei TextBox z.B. bricht das Event nach der Verarbeitung ab)</li>
+</ul>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 Robin Suter &ndash;

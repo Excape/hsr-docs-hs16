@@ -475,3 +475,49 @@ inline std::istream & operator >>(std::istream & is, Word & w) {
 - Wenn ein Field const ist, kann es im Konstruktor nur über Initalizer gesetzt werden, nicht im body
 - Reihenfolge in der Klasse gibt an, in welcher Reihenfolge fields initialisiert werden
 - In Schlaufe auf `is.good()` prüfen, statt `while(is)`, da die bool-Konvertierung auch noch true zurück gibt, wenn `eof` erreicht ist. `good()` gibt nur true, wenn noch gelesen werden kann
+
+---
+## Vorlesung 12 - Class Templates
+- Bei Klassen müssen Template-Parameter immer explizit angegeben werden (nicht wie bei Funktionen)
+
+```c++
+template <typename T> class Sack;
+```
+- Folie 5
+    - `size_type` ist unter `std::vector` als Alias definiert für den Typ der Grösse (hier unsigned int)
+    - `typename`: Typname ist abhängig vom Template, deshalb wird hiermit explizit gesagt, dass `size_type` ein Typ ist
+- Concept von `T` in `Sack`:
+    - `T` muss in `vector<T>` passen (CopyAssignable, CopyConstructable, ... - In Standard)
+    - `T` darf nicht `void` sein
+    - `T` muss kopierbar sein (wegen Rückgabe bei `getOut()` und Copy-constructor in dessen Implementierung - BTW, copy-Constructor wird vom Compiler generiert)
+- Member, die ausserhalb der Klasse implementiert sind, mit `inline` kennzeichnen
+    - Besser direkt in Klasse implementieren
+- Template-Klassen immer in Headerfiles komplett definieren!
+- Bei verebten Klassen `this->` verwenden, um auf vererbte Member der Parent-Klasse zu verwenden
+    - Sonst könnte einen woanders definierten Member genommen werden
+- Template Specialization: Quasi Overloading von Templates
+    - Teilweise oder komplett spezialisiert
+    - Template-Parameter leer lassen für komplette Spezialisierung
+
+```c++
+template <typename T>
+struct Sack<T*> {
+    ~Sack()=delete;
+};
+```
+- Verhindert, dass `Sack` mit Template-Argument von Pointer erstellt wird
+    - "Overloaded" das Standardverhalten
+    - Der Destructor wird gelöscht
+    - Dadurch kann es keinen Constructor geben -> Objekt kann nicht instanziiert werden
+- *Folie 20 ff. relevant für Prüfung!*
+- Constructor mit Initializer-List: Typ `std::initializer_list<T>` verwenden
+
+```c++
+template <typename T,
+    template<typename...> class container=std::vector>
+class Sack
+{
+```
+- Mehrere Template-Argumente `typename...`, weil `vector` zwei Template-Argumente nimmt (aber für zweites gibt es default-Wert)
+- `decltype(auto)` impliziert Rückgabewert
+- Wenn von einem Template geerbt wird, müssen die Template-Parameter der Subklasse und Basisklasse übereinstimmen!

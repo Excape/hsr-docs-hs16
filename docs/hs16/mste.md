@@ -348,7 +348,7 @@ public class TimeDescData
 - Wenn der Service sich ändert, muss im Client-Projekt die Service-Referenze von Hand aktualisiert werden
 - Properties auf dem Service werden abgebildet auf `get_` und `set_` Methoden, über `[OperationContract(Name="<name>")]` kann der Name angepasst werden
 - Client mit *Shared Assembly*: Server und Client haben gleiche Library, es gehen keine Type-Information über WSDL verloren
-    - Vorteil: Änderungen werden automatisch auf dem Client übernommen
+    - Vorteil: Änderungen werden automatisch auf dem Client übernommen, Typeninformationen gehen nicht verloren
     - Nachteil: Client hat auch Member, die nicht mit `[DataMember]` deklariert wurden -> Sie werden nicht über den Service serialisiert, der Client hat sie aber trotzdem!
 
 ### Faults
@@ -360,3 +360,70 @@ public class TimeDescData
 - Leitet nicht von `Exception` ab!
 - Error-Handling
     - Alle Exceptions catchen und neue `FaultException<T>` oder allgemeine `FaultException` werfen
+
+### Kommunikations-Muster
+- Standardmässig sind alle Vorgänge synchron
+- `[OperationContract(IsOneWay=true)]` wartet nicht auf Server (asynchron), erwartet aber auch keine Antwort
+
+#### Duplex-Kommunikation
+```cs
+[ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(ICalcCallback))]
+public interface ICalculatorDuplex {
+    // IsOneWay = true Operationen
+}
+```
+
+- Das Callback-Interface wird vom Client implementiert (ist kein ServiceContract!)
+- Callback auf Serverseite mit `OperationContext.Current.GetCallBackChannel<ICalcCallback>()` holen
+- Client: (`CallbackHandler` implementiert Callback-Interface)
+
+```cs
+CallbackHandler h = new CallbackHandler();
+InstanceContext ic = new InstanceContext(h);
+CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
+```
+- Asynchrone Programmierung macht Debugging schwieriger
+
+---
+## Vorlesung 12 - WCF (2)
+- Übertragungskanal wird auch via MEX übertragen
+    - Gibt Protokolle und Encoding vector
+- `BasicHTTPBinding` unterstützt keine Duplex-Endpoints, dazu `WSDualHttpBinding` verwenden
+- Vererbung
+    - Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit `[KnownType(typeof(MySubclass))]` markiert werden
+    
+    ```cs
+    [ServiceContract]
+    public interface IClassroomService
+    {
+        [OperationContract]
+        List<Student> GetStudents();
+    } 
+    
+    [KnownType(typeof(TiredStudent))]
+    [KnownType(typeof(BoredStudent))]
+    [DataContract]
+    public class Student { }
+    
+    [DataContract]
+    public class TiredStudent : Student { }
+    
+    [DataContract]
+    public class BoredStudent : Student { }
+    ```
+
+### Serialisierung
+- Default: Alles wird nacheinander serialisiert
+    - Auch wenn zwei Referenzen auf das gleiche Objekt zeigen -> Redundanz in Serialisierung
+- `[DataContract(IsReference = true)]`: Referenzen werden berücksichtigt
+    - Problematisch bei Zyklen
+
+### Service Behaviour
+- Behaviour kann mit `[ServiceBehaviour(InstanceContextMode=..)]` *auf Service-Implementation* definiert werden
+- Single: Ein einzige Service-Instanz (Singleton)
+- Per Call: Jeder Aufruf eine neue Instanz (Stateless)
+- Per Session
+    - Auf Interface kann Anforderungen gestellt werden. `Allowed`, `NotAllowed`, oder `Required` (Implementation *muss* per Session sein)
+    - Auf Operationen kann mit `IsInitiating = true` (default) oder `IsTerminating = true` eine Session gestaret / beendet werden
+- `RequireOrderDelivery`: Festlegen, ob die Reihenfolge beibehalten werden muss
+- *Transaktionen sind nicht prüfungsrelevant*

@@ -319,6 +319,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Vorlesung 12 - WCF (2)" href="#vorlesung-12-wcf-2">
+                Vorlesung 12 - WCF (2)
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -829,7 +835,7 @@ for (int i = from; i &lt; to; i++)
 <li>Wenn der Service sich ändert, muss im Client-Projekt die Service-Referenze von Hand aktualisiert werden</li>
 <li>Properties auf dem Service werden abgebildet auf <code>get_</code> und <code>set_</code> Methoden, über <code>[OperationContract(Name="&lt;name&gt;")]</code> kann der Name angepasst werden</li>
 <li>Client mit <em>Shared Assembly</em>: Server und Client haben gleiche Library, es gehen keine Type-Information über WSDL verloren<ul>
-<li>Vorteil: Änderungen werden automatisch auf dem Client übernommen</li>
+<li>Vorteil: Änderungen werden automatisch auf dem Client übernommen, Typeninformationen gehen nicht verloren</li>
 <li>Nachteil: Client hat auch Member, die nicht mit <code>[DataMember]</code> deklariert wurden -&gt; Sie werden nicht über den Service serialisiert, der Client hat sie aber trotzdem!</li>
 </ul>
 </li>
@@ -846,6 +852,88 @@ for (int i = from; i &lt; to; i++)
 <li>Alle Exceptions catchen und neue <code>FaultException&lt;T&gt;</code> oder allgemeine <code>FaultException</code> werfen</li>
 </ul>
 </li>
+</ul>
+<h3 id="kommunikations-muster">Kommunikations-Muster</h3>
+<ul>
+<li>Standardmässig sind alle Vorgänge synchron</li>
+<li><code>[OperationContract(IsOneWay=true)]</code> wartet nicht auf Server (asynchron), erwartet aber auch keine Antwort</li>
+</ul>
+<h4 id="duplex-kommunikation">Duplex-Kommunikation</h4>
+<div class="code"><pre><span></span><span class="k">[ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(ICalcCallback))]</span>
+<span class="err">public</span> <span class="err">interface</span> <span class="err">ICalculatorDuplex</span> <span class="err">{</span>
+    <span class="na">// IsOneWay</span> <span class="o">=</span> <span class="s">true Operationen</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<ul>
+<li>Das Callback-Interface wird vom Client implementiert (ist kein ServiceContract!)</li>
+<li>Callback auf Serverseite mit <code>OperationContext.Current.GetCallBackChannel&lt;ICalcCallback&gt;()</code> holen</li>
+<li>Client: (<code>CallbackHandler</code> implementiert Callback-Interface)</li>
+</ul>
+<div class="code"><pre><span></span>CallbackHandler h = new CallbackHandler();
+InstanceContext ic = new InstanceContext(h);
+CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
+</pre></div>
+
+
+<ul>
+<li>Asynchrone Programmierung macht Debugging schwieriger</li>
+</ul>
+<hr />
+<h2 id="vorlesung-12-wcf-2">Vorlesung 12 - WCF (2)</h2>
+<ul>
+<li>Übertragungskanal wird auch via MEX übertragen<ul>
+<li>Gibt Protokolle und Encoding vector</li>
+</ul>
+</li>
+<li><code>BasicHTTPBinding</code> unterstützt keine Duplex-Endpoints, dazu <code>WSDualHttpBinding</code> verwenden</li>
+<li>
+<p>Vererbung</p>
+<ul>
+<li>Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit <code>[KnownType(typeof(MySubclass))]</code> markiert werden</li>
+</ul>
+<p>```cs
+[ServiceContract]
+public interface IClassroomService
+{
+    [OperationContract]
+    List<Student> GetStudents();
+} </p>
+<p>[KnownType(typeof(TiredStudent))]
+[KnownType(typeof(BoredStudent))]
+[DataContract]
+public class Student { }</p>
+<p>[DataContract]
+public class TiredStudent : Student { }</p>
+<p>[DataContract]
+public class BoredStudent : Student { }
+```</p>
+</li>
+</ul>
+<h3 id="serialisierung">Serialisierung</h3>
+<ul>
+<li>Default: Alles wird nacheinander serialisiert<ul>
+<li>Auch wenn zwei Referenzen auf das gleiche Objekt zeigen -&gt; Redundanz in Serialisierung</li>
+</ul>
+</li>
+<li><code>[DataContract(IsReference = true)]</code>: Referenzen werden berücksichtigt<ul>
+<li>Problematisch bei Zyklen</li>
+</ul>
+</li>
+</ul>
+<h3 id="service-behaviour">Service Behaviour</h3>
+<ul>
+<li>Behaviour kann mit <code>[ServiceBehaviour(InstanceContextMode=..)]</code> <em>auf Service-Implementation</em> definiert werden</li>
+<li>Single: Ein einzige Service-Instanz (Singleton)</li>
+<li>Per Call: Jeder Aufruf eine neue Instanz (Stateless)</li>
+<li>Per Session<ul>
+<li>Auf Interface kann Anforderungen gestellt werden. <code>Allowed</code>, <code>NotAllowed</code>, oder <code>Required</code> (Implementation <em>muss</em> per Session sein)</li>
+<li>Auf Operationen kann mit <code>IsInitiating = true</code> (default) oder <code>IsTerminating = true</code> eine Session gestaret / beendet werden</li>
+</ul>
+</li>
+<li><code>RequireOrderDelivery</code>: Festlegen, ob die Reihenfolge beibehalten werden muss</li>
+<li><em>Transaktionen sind nicht prüfungsrelevant</em></li>
 </ul>
           <aside class="copyright" role="note">
             

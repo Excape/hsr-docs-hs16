@@ -286,6 +286,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Vorlesung 12 - Class Templates" href="#vorlesung-12-class-templates">
+                Vorlesung 12 - Class Templates
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -1007,6 +1013,71 @@
 <li>Wenn ein Field const ist, kann es im Konstruktor nur über Initalizer gesetzt werden, nicht im body</li>
 <li>Reihenfolge in der Klasse gibt an, in welcher Reihenfolge fields initialisiert werden</li>
 <li>In Schlaufe auf <code>is.good()</code> prüfen, statt <code>while(is)</code>, da die bool-Konvertierung auch noch true zurück gibt, wenn <code>eof</code> erreicht ist. <code>good()</code> gibt nur true, wenn noch gelesen werden kann</li>
+</ul>
+<hr />
+<h2 id="vorlesung-12-class-templates">Vorlesung 12 - Class Templates</h2>
+<ul>
+<li>Bei Klassen müssen Template-Parameter immer explizit angegeben werden (nicht wie bei Funktionen)</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Sack</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>Folie 5<ul>
+<li><code>size_type</code> ist unter <code>std::vector</code> als Alias definiert für den Typ der Grösse (hier unsigned int)</li>
+<li><code>typename</code>: Typname ist abhängig vom Template, deshalb wird hiermit explizit gesagt, dass <code>size_type</code> ein Typ ist</li>
+</ul>
+</li>
+<li>Concept von <code>T</code> in <code>Sack</code>:<ul>
+<li><code>T</code> muss in <code>vector&lt;T&gt;</code> passen (CopyAssignable, CopyConstructable, ... - In Standard)</li>
+<li><code>T</code> darf nicht <code>void</code> sein</li>
+<li><code>T</code> muss kopierbar sein (wegen Rückgabe bei <code>getOut()</code> und Copy-constructor in dessen Implementierung - BTW, copy-Constructor wird vom Compiler generiert)</li>
+</ul>
+</li>
+<li>Member, die ausserhalb der Klasse implementiert sind, mit <code>inline</code> kennzeichnen<ul>
+<li>Besser direkt in Klasse implementieren</li>
+</ul>
+</li>
+<li>Template-Klassen immer in Headerfiles komplett definieren!</li>
+<li>Bei verebten Klassen <code>this-&gt;</code> verwenden, um auf vererbte Member der Parent-Klasse zu verwenden<ul>
+<li>Sonst könnte einen woanders definierten Member genommen werden</li>
+</ul>
+</li>
+<li>Template Specialization: Quasi Overloading von Templates<ul>
+<li>Teilweise oder komplett spezialisiert</li>
+<li>Template-Parameter leer lassen für komplette Spezialisierung</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">Sack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="p">{</span>
+    <span class="o">~</span><span class="n">Sack</span><span class="p">()</span><span class="o">=</span><span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<ul>
+<li>Verhindert, dass <code>Sack</code> mit Template-Argument von Pointer erstellt wird<ul>
+<li>"Overloaded" das Standardverhalten</li>
+<li>Der Destructor wird gelöscht</li>
+<li>Dadurch kann es keinen Constructor geben -&gt; Objekt kann nicht instanziiert werden</li>
+</ul>
+</li>
+<li><em>Folie 20 ff. relevant für Prüfung!</em></li>
+<li>Constructor mit Initializer-List: Typ <code>std::initializer_list&lt;T&gt;</code> verwenden</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">container</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">Sack</span>
+<span class="p">{</span>
+</pre></div>
+
+
+<ul>
+<li>Mehrere Template-Argumente <code>typename...</code>, weil <code>vector</code> zwei Template-Argumente nimmt (aber für zweites gibt es default-Wert)</li>
+<li><code>decltype(auto)</code> impliziert Rückgabewert</li>
+<li>Wenn von einem Template geerbt wird, müssen die Template-Parameter der Subklasse und Basisklasse übereinstimmen!</li>
 </ul>
           <aside class="copyright" role="note">
             

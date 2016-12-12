@@ -861,6 +861,110 @@
 <li>Eventhandler direkt im XAML festlegen: <code>&lt;Button Name="myButton" MouseDown="myButton_OnMouseDown"&gt;</code></li>
 <li>Nicht alle Events durchlaufen standardmässig die komplette Bubbling oder Tunneling Phase (<code>TextInput</code> bei TextBox z.B. bricht das Event nach der Verarbeitung ab)</li>
 </ul>
+<hr />
+<h2 id="vorlesung-13-i18n-mvvm">Vorlesung 13 - I18n / MVVM</h2>
+<h3 id="background-threads">Background Threads</h3>
+<div class="code"><pre><span></span>Task.Run(() =&gt; {
+    // Background code
+    Dispatcher.Invoke(() =&gt; {
+        // Läuft im UI Thread
+        // UI benachrichtigen, dass man fertig ist
+    })
+});
+</pre></div>
+
+
+<ul>
+<li><code>Dispatcher</code> ist eine Property innerhalb des <code>Task.Run()</code> Contexts</li>
+</ul>
+<h3 id="internationalization">Internationalization</h3>
+<ul>
+<li>"Internationalisierung": App vorbereiten für verschiedene Sprachen</li>
+<li>"Lokalisierung": App übersetzen</li>
+<li>Mit .NET Embedded Resources<ul>
+<li><code>System.Globalization.CultureInfo</code> Objekte enthalten infos über Sprache, Formate, etc.</li>
+<li>Im Projekt ein <code>Resources.resx</code> ablegen</li>
+<li>Abruf mit <code>Properties.Resources.STRING_ID</code><ul>
+<li>oder <code>Properties.Resources.ResourceManager.GetString("STRING_ID")</code></li>
+<li><code>Resources</code> = Name des Resources.resx File</li>
+</ul>
+</li>
+<li>Neue Sprache: z.B. <code>Resources.en-US.rex</code> erstellen</li>
+</ul>
+</li>
+<li>
+<p>WPF-Spezifisch</p>
+<ul>
+<li>In <code>csproj</code> die Default <code>UICulture</code> festlegen</li>
+<li>In <code>AssemblyInfo.cs</code> Zeile auskommentieren und auf Default-Sprache setzen</li>
+<li>Zugriff im XML:
+<code>xml
+&lt;Window xmlns:resx="clr-namesapce:I18n.Properties" ...&gt;
+    &lt;TextBlock Test="{x: Static resx:Resouces.STRING_ID}" /&gt;
+&lt;/Window&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>Parameter in Strings mit <code>{0}</code>, <code>{1}</code> definieren und <code>String.format()</code> verwenden</p>
+<ul>
+<li>Oder mit Binding im XML und String als StringFormat mitgeben</li>
+</ul>
+</li>
+</ul>
+<h3 id="mvvm">MVVM</h3>
+<ul>
+<li>ViewModel greift auf Model zu, Databinding auf View</li>
+<li>Model sendet <code>PropertChanged</code> Events zu ViewModel</li>
+<li><em>TODO</em>: Bild Schichten MVVM Folie 24</li>
+<li>ViewModel:<ul>
+<li>Nachteil Variante 1: Man muss ganzes <code>Gadgets</code> austauschen, wenn es ein POCO ist</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span>public class GadgetVm:BindableBase // vgl. Slides zu INotifyPropertyChanged (Variante 3)
+    {
+    private string _inventoryNumber;
+    public string InventoryNumber
+    {
+        get { return _inventoryNumber; }
+        set { SetProperty(ref _inventoryNumber, value, nameof(InventoryNumber)); }
+    }
+}
+</pre></div>
+
+
+<ul>
+<li>Jedes einzelne Property implementieren</li>
+<li>Dann mit z.B. AutoMapper mappen</li>
+</ul>
+<div class="code"><pre><span></span>Mapper.Initialize(cfg =&gt; cfg.CreateMap&lt;Gadget, GadgetVm&gt;());
+// Annahme: gadget sei eine Variable des Typs Gadget
+var vm = Mapper.Map&lt;GadgetVm&gt;(gadget);
+</pre></div>
+
+
+<ul>
+<li>Kopiert alle Properties vom Gadget ins ViewModel und umgekehrt</li>
+</ul>
+<h4 id="commands">Commands</h4>
+<ul>
+<li>View soll nichts von ViewModel kennen, aber Kommandos absetzen können</li>
+<li>Command-Klass erstellen, von <code>ICommand</code> ableiten</li>
+<li><code>canExecute()</code> und <code>Execute()</code> implementieren</li>
+<li>Im ViewModel ein Property des Commands einfügen</li>
+<li>Nachteil: Kein Access auf private Member des ViewModels</li>
+<li>Andere Variante<ul>
+<li>Command als innere Klasse des ViewModels</li>
+<li>Im Command eine Istanz auf das ViewModel mitgeben</li>
+</ul>
+</li>
+<li>Besser: In einem <code>RelayCommand</code> das Command kapseln und diesem Funktionen mitgeben</li>
+<li>Command binden</li>
+</ul>
+<div class="code"><pre><span></span><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Open&quot;</span>
+    <span class="na">Command=</span><span class="s">&quot;{Binding OpenGadgetViewCommand}&quot;</span>
+    <span class="na">CommandParameter=</span><span class="s">&quot;{Binding SelectedGadget}&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 Robin Suter &ndash;

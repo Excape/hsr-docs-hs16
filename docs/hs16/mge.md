@@ -449,3 +449,83 @@ public void onSensorChanged(SensorEvent event) {
 - Wenn Event vor dem "ankommen" (Tunneling) behandelt werden soll, `Preview` Events verwenden
 - Eventhandler direkt im XAML festlegen: `<Button Name="myButton" MouseDown="myButton_OnMouseDown">`
 - Nicht alle Events durchlaufen standardmässig die komplette Bubbling oder Tunneling Phase (`TextInput` bei TextBox z.B. bricht das Event nach der Verarbeitung ab)
+
+---
+## Vorlesung 13 - I18n / MVVM
+### Background Threads
+```cs
+Task.Run(() => {
+    // Background code
+    Dispatcher.Invoke(() => {
+        // Läuft im UI Thread
+        // UI benachrichtigen, dass man fertig ist
+    })
+});
+```
+- `Dispatcher` ist eine Property innerhalb des `Task.Run()` Contexts
+
+### Internationalization
+- "Internationalisierung": App vorbereiten für verschiedene Sprachen
+- "Lokalisierung": App übersetzen
+- Mit .NET Embedded Resources
+    - `System.Globalization.CultureInfo` Objekte enthalten infos über Sprache, Formate, etc.
+    - Im Projekt ein `Resources.resx` ablegen
+    - Abruf mit `Properties.Resources.STRING_ID`
+        - oder `Properties.Resources.ResourceManager.GetString("STRING_ID")`
+        - `Resources` = Name des Resources.resx File
+    - Neue Sprache: z.B. `Resources.en-US.rex` erstellen
+- WPF-Spezifisch
+    - In `csproj` die Default `UICulture` festlegen
+    - In `AssemblyInfo.cs` Zeile auskommentieren und auf Default-Sprache setzen
+    - Zugriff im XML:
+    ```xml
+    <Window xmlns:resx="clr-namesapce:I18n.Properties" ...>
+        <TextBlock Test="{x: Static resx:Resouces.STRING_ID}" />
+    </Window>
+    ```
+
+- Parameter in Strings mit `{0}`, `{1}` definieren und `String.format()` verwenden
+    - Oder mit Binding im XML und String als StringFormat mitgeben
+
+### MVVM
+- ViewModel greift auf Model zu, Databinding auf View
+- Model sendet `PropertChanged` Events zu ViewModel
+- *TODO*: Bild Schichten MVVM Folie 24
+- ViewModel:
+    - Nachteil Variante 1: Man muss ganzes `Gadgets` austauschen, wenn es ein POCO ist
+```cs
+public class GadgetVm:BindableBase // vgl. Slides zu INotifyPropertyChanged (Variante 3)
+    {
+    private string _inventoryNumber;
+    public string InventoryNumber
+    {
+        get { return _inventoryNumber; }
+        set { SetProperty(ref _inventoryNumber, value, nameof(InventoryNumber)); }
+    }
+}
+```
+- Jedes einzelne Property implementieren
+- Dann mit z.B. AutoMapper mappen
+```cs
+Mapper.Initialize(cfg => cfg.CreateMap<Gadget, GadgetVm>());
+// Annahme: gadget sei eine Variable des Typs Gadget
+var vm = Mapper.Map<GadgetVm>(gadget);
+```
+- Kopiert alle Properties vom Gadget ins ViewModel und umgekehrt
+
+#### Commands
+- View soll nichts von ViewModel kennen, aber Kommandos absetzen können
+- Command-Klass erstellen, von `ICommand` ableiten
+- `canExecute()` und `Execute()` implementieren
+- Im ViewModel ein Property des Commands einfügen
+- Nachteil: Kein Access auf private Member des ViewModels
+- Andere Variante
+    - Command als innere Klasse des ViewModels
+    - Im Command eine Istanz auf das ViewModel mitgeben
+- Besser: In einem `RelayCommand` das Command kapseln und diesem Funktionen mitgeben
+- Command binden
+```xml
+<Button Content="Open"
+    Command="{Binding OpenGadgetViewCommand}"
+    CommandParameter="{Binding SelectedGadget}" />
+```

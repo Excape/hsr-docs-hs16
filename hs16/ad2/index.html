@@ -864,6 +864,37 @@ Konstanten heraus streichen:
 </ul>
 </li>
 </ul>
+<hr />
+<h2 id="vorlesung-13">Vorlesung 13</h2>
+<h3 id="dijkstra-algorithmus">Dijkstra Algorithmus</h3>
+<ul>
+<li>Jede Node in der Wolke hat die kürzeste Distanz zu s gespeichert</li>
+<li>Wolke: Beginnt bei Startvertex s, wird immer grösser</li>
+<li>distanz auf jedem Vertex wird initialisiert mit <script type="math/tex">+\infty</script>
+</li>
+<li>Während dem Algorithmus wird alles innerhalb der Wolke nicht mehr verändert</li>
+<li>Adaptierbare PQ, weil Key verändert werden kann</li>
+<li><em>Locator</em>: eine Referenz auf die Entry in der PQ</li>
+<li>Algorithmus<ul>
+<li>Distanz von Startvertex auf 0 setzen, alle anderen auf <script type="math/tex">\infty</script>
+</li>
+<li>Alle Vertices mit initialisierten Distanze in PQ einfügen, Locator darin mit dem Vertex speichern</li>
+<li>Durch Vertices iterieren (bis Queue empty)<ul>
+<li>Erstes RemoveMin() gibt Startvertex zurück (weil Distanz 0)</li>
+<li>Durch Incident Edges iterieren<ul>
+<li>r = relaxation distance</li>
+<li>Wenn r ("neue" Distanz) kleiner als aktuelle, bekommt der opposite vertex die neue, verbesserte Distanz</li>
+<li>Distanz in der PQ updaten</li>
+</ul>
+</li>
+<li>Weiter mit Vertex mit kleinster Distanz, dies wird im ersten Schritt ein neu hinzugefügter Vertex sein</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Komplexität: <script type="math/tex">O((n+m)\cdot log(n))</script>
+</li>
+</ul>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 Robin Suter &ndash;

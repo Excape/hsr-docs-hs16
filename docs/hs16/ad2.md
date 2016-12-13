@@ -330,3 +330,24 @@ T |   |   |   |   |
 - *DAG* - Directed Acyclic Graph: Ein gerichteter Graph ohne (gerichtete) Zyklen
 - Topologische Ordnung: Reihenfolge der Vertices, so dass jeder Index kleiner ist als dieser seiner Outgoing Edges
     - Ist nicht eindeutig, gibt beliebig viele Lösungen
+
+---
+## Vorlesung 13
+### Dijkstra Algorithmus
+- Jede Node in der Wolke hat die kürzeste Distanz zu s gespeichert
+- Wolke: Beginnt bei Startvertex s, wird immer grösser
+- distanz auf jedem Vertex wird initialisiert mit \(+\infty\)
+- Während dem Algorithmus wird alles innerhalb der Wolke nicht mehr verändert
+- Adaptierbare PQ, weil Key verändert werden kann
+- *Locator*: eine Referenz auf die Entry in der PQ
+- Algorithmus
+    - Distanz von Startvertex auf 0 setzen, alle anderen auf \(\infty\)
+    - Alle Vertices mit initialisierten Distanze in PQ einfügen, Locator darin mit dem Vertex speichern
+    - Durch Vertices iterieren (bis Queue empty)
+        - Erstes RemoveMin() gibt Startvertex zurück (weil Distanz 0)
+        - Durch Incident Edges iterieren
+            - r = relaxation distance
+            - Wenn r ("neue" Distanz) kleiner als aktuelle, bekommt der opposite vertex die neue, verbesserte Distanz
+            - Distanz in der PQ updaten
+        - Weiter mit Vertex mit kleinster Distanz, dies wird im ersten Schritt ein neu hinzugefügter Vertex sein
+- Komplexität: \(O((n+m)\cdot log(n))\)

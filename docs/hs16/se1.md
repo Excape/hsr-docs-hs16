@@ -204,3 +204,11 @@
 3. Entwickler-Team teilt "Kosten" zu (Zeitaufwand)
 4. Für den ersten Sprint die ersten Stories auswählen (in den Sprint Backlog), entsprechend des Team Speeds
 5. Am Schluss des Sprints nimmt Product Owner die erledigten Stories ab. Nicht erledigte / abgenommene zurück in den Product Backlog
+
+---
+## Vorlesung 13
+### SW-Architektur 2
+- Architektur wird stark beeinflusst, ob Applikation Zugriff auf Server macht, Online / Offline-Mischung, Web-Only ist, etc.
+- Vier von Sechs Faktoren, die die Architektur beeinflussen, sind nicht-funktionale Anforderungen!
+- UML-Diagramme, die 1:1 Code sind, nützen nichts, da sie keine Abstraktion sind
+    - Sie können aber Zusammenhänge anschaulich darstellen (Domainmodell, Sequenzdiagramm)

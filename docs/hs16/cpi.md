@@ -516,8 +516,54 @@ struct Sack<T*> {
 template <typename T,
     template<typename...> class container=std::vector>
 class Sack
-{
+{};
 ```
+
 - Mehrere Template-Argumente `typename...`, weil `vector` zwei Template-Argumente nimmt (aber für zweites gibt es default-Wert)
 - `decltype(auto)` impliziert Rückgabewert
 - Wenn von einem Template geerbt wird, müssen die Template-Parameter der Subklasse und Basisklasse übereinstimmen!
+
+---
+## Vorlesung 13 - main, Arrays, Pointer
+- Bei `std::array` wird die Grösse immer als zweites Template angegeben
+- In C wird bei Aufruf einer Funktion `int sum(int a[])` ein Pointer auf das erste Element mitgegeben. Die Funktion kennt nicht die Grösse des Arrays! Darum wird typischerweise eine Grösse mitgegeben
+- Möglichkeit mit Templates: Grösse wird automatisch deduziert
+```c++
+template<size_t n>
+int sum(int const (&a)[n]);
+```
+- Bindung von `&` stärker als `[]`, darum die Klammern
+
+### Main-Function
+- `int main(int argc, char *argv[])`
+- `argv` ist array von char-Pointer -> Quasi Array von strings
+    - Andere Schreibweise: `char **argv`
+    - Alle Char-Sequzenzen sind mit `\0`-terminated
+- `argc` ist Argument Counter (wegen C legacy)
+- Char-Sequenzen können implizit nach `std::string` konvertiert werden
+
+!!! danger
+    Don't use pointers! Use `std::string`, `std::vector` and `std::array`
+
+### Pointer als Iteratoren
+- Pointer verhalten sich wie Random access Iteratoren (`begin()`)
+- `argv` ist Iterator auf erstes Argument (= Programmname), `argv + argc` hinter das letzte (wie `end()`)
+
+### Dynamic Heap Memory Management
+- `new` und `delete` nie selbst verwenden!
+    - Gibt schnell memory leaks
+    - `new` erstellt Pointer und `delete` gibt es wieder frei
+- Besser: `std::unique_ptr` und `std::shared_ptr`
+    - Factory-Funktion `std::make_unique<T>` und `std::make_shared<T>`
+    - Wird verwendet wie normaler Pointer - `*ptr`
+    - `uniqe_ptr` ist nicht kopierbar (gibt es nur 1x)
+    - `shard_ptr` kann es mehrfach geben (aufwändiger aufzuräumen), ähnlich zu Java
+```c++
+auto sp = make_shared(X)();
+foo(X & x) {...}
+if (sp) foo(*sp);
+}
+```
+- check, ob Pointer noch gültig ist
+- Vorsicht vor zirkulären Referenzen! Werden nicht abgeräumt
+    - `weak_ptr` aus shared pointer erzeugen, er zählt aber den shared Pointer nicht hoch

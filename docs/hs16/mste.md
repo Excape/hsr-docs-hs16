@@ -390,7 +390,7 @@ CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
     - Gibt Protokolle und Encoding vector
 - `BasicHTTPBinding` unterstützt keine Duplex-Endpoints, dazu `WSDualHttpBinding` verwenden
 - Vererbung
-    - Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit `[KnownType(typeof(MySubclass))]` markiert werden
+    - Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit `[Type(typeof(MySubclass))]` markiert werden
     
     ```cs
     [ServiceContract]
@@ -427,3 +427,60 @@ CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
     - Auf Operationen kann mit `IsInitiating = true` (default) oder `IsTerminating = true` eine Session gestaret / beendet werden
 - `RequireOrderDelivery`: Festlegen, ob die Reihenfolge beibehalten werden muss
 - *Transaktionen sind nicht prüfungsrelevant*
+
+---
+## Vorlesung 13 - Reflection / Attributes
+### Reflection
+- WCF z.B. nutzt Type Discovery, um Service Attribute zu setzen
+- Einstiegspunkt immer über `System.Type`
+    - Ist Abstrakt, es wird Unterklasse `RuntimeType` verwendet
+- Aufruf mit `<obj>.GetType()` oder `typeof(<classname>)`
+- Der Typ `System.Type` beschreibt sich auch selbst (gibt selbe Instanz zurück)
+- Mit dem Typ-Objekt
+    - `GetMembers()` für alle Member
+    - `GetFields()`
+    - `GetProperties()`
+    - `GetEvents()`
+    - `GetConstructors()` und `GetMethods()`
+        - Darauf wiederum `GetParameters()`
+- Alle diese Rückgabe-Typen (und Type) sind abgeleitet von `MemberInfo`
+- Properties werden über Reflection mit Setter und Getter Methoden aufgelöst
+- Den Methoden kann u.a. `BindingFlags`  mitgegeben werden, um z.B. nur public, private, usw. zu filtern
+- `DeclaredOnly`: Nur Member, die in Klasse deklariert sind, also nicht z.B. vererbte Member
+- Reflection ist älter als Generics, es werden alle Generics mit Object abgebildet
+- Felder können auf `FieldInfo` mit Get- und SetValue verändert werden. Dabei muss die Instanz mitgegeben werden
+- Das gleiche geht auch mit `PropertyInfo` mit ein paar zusätzlichen Informationen (`CanRead()`, `CanWrite()`)
+- Methoden können mit `Invoke()` aufgerufen werden
+
+### Attributes
+- Attribute werden über Reflection abgegfragt
+- public, static, etc. sind eigentlich auch Attribute aus Sicht des Compilers
+- Attribute sollen Deklarationen um weitere Aspekte erweitern ("Aspektorientierte Programmierung")
+- Benutzt z.B. für Security, Serialisierung, OR-Mapping, Dokumentation, etc.
+- Als Parameter an Attribute können nur *konstante* Werte übergeben werden
+- Auf `MemberInfo` kann mit `GetCustomAttributes()` die Attribute geholt werden
+    - Mit `IsDefined(<AttrbutType>)` abfragen, ob Attribut auf einem bestimmten Typ gesetzt wurde
+- Mit Named Parameter können auch Properties auf dem Attribut gesetzt werden, die nicht über den Konstruktor initialisiert werden
+
+
+#### Eigenes Attribut
+```cs
+[AttributeUsage(
+AttributeTargets.Class |
+AttributeTargets.Constructor |
+AttributeTargets.Field |
+AttributeTargets.Method |
+AttributeTargets.Property,
+AllowMultiple = true)]
+public class BugfixAttribute : Attribute
+{
+    public BugfixAttribute(int bugId,
+    string programmer, string date)
+    { /* ... */ }
+}
+```
+- Mit `[AttributeUsage()]` festlegen, wo es verwendet werden kann, und ob es auf dem *gleichen Typ* mehrmals verwendet werden darf
+- Muss auf "Attribute" enden, damit es später abgekürtzt als `[Bugfix]` verwendet werden kann
+
+### Code Emittierung
+- Todo

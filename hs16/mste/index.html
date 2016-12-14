@@ -325,6 +325,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Vorlesung 13 - Reflection / Attributes" href="#vorlesung-13-reflection-attributes">
+                Vorlesung 13 - Reflection / Attributes
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -891,7 +897,7 @@ CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
 <li>
 <p>Vererbung</p>
 <ul>
-<li>Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit <code>[KnownType(typeof(MySubclass))]</code> markiert werden</li>
+<li>Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit <code>[Type(typeof(MySubclass))]</code> markiert werden</li>
 </ul>
 <p>```cs
 [ServiceContract]
@@ -934,6 +940,75 @@ public class BoredStudent : Student { }
 </li>
 <li><code>RequireOrderDelivery</code>: Festlegen, ob die Reihenfolge beibehalten werden muss</li>
 <li><em>Transaktionen sind nicht prüfungsrelevant</em></li>
+</ul>
+<hr />
+<h2 id="vorlesung-13-reflection-attributes">Vorlesung 13 - Reflection / Attributes</h2>
+<h3 id="reflection">Reflection</h3>
+<ul>
+<li>WCF z.B. nutzt Type Discovery, um Service Attribute zu setzen</li>
+<li>Einstiegspunkt immer über <code>System.Type</code><ul>
+<li>Ist Abstrakt, es wird Unterklasse <code>RuntimeType</code> verwendet</li>
+</ul>
+</li>
+<li>Aufruf mit <code>&lt;obj&gt;.GetType()</code> oder <code>typeof(&lt;classname&gt;)</code></li>
+<li>Der Typ <code>System.Type</code> beschreibt sich auch selbst (gibt selbe Instanz zurück)</li>
+<li>Mit dem Typ-Objekt<ul>
+<li><code>GetMembers()</code> für alle Member</li>
+<li><code>GetFields()</code></li>
+<li><code>GetProperties()</code></li>
+<li><code>GetEvents()</code></li>
+<li><code>GetConstructors()</code> und <code>GetMethods()</code><ul>
+<li>Darauf wiederum <code>GetParameters()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Alle diese Rückgabe-Typen (und Type) sind abgeleitet von <code>MemberInfo</code></li>
+<li>Properties werden über Reflection mit Setter und Getter Methoden aufgelöst</li>
+<li>Den Methoden kann u.a. <code>BindingFlags</code>  mitgegeben werden, um z.B. nur public, private, usw. zu filtern</li>
+<li><code>DeclaredOnly</code>: Nur Member, die in Klasse deklariert sind, also nicht z.B. vererbte Member</li>
+<li>Reflection ist älter als Generics, es werden alle Generics mit Object abgebildet</li>
+<li>Felder können auf <code>FieldInfo</code> mit Get- und SetValue verändert werden. Dabei muss die Instanz mitgegeben werden</li>
+<li>Das gleiche geht auch mit <code>PropertyInfo</code> mit ein paar zusätzlichen Informationen (<code>CanRead()</code>, <code>CanWrite()</code>)</li>
+<li>Methoden können mit <code>Invoke()</code> aufgerufen werden</li>
+</ul>
+<h3 id="attributes">Attributes</h3>
+<ul>
+<li>Attribute werden über Reflection abgegfragt</li>
+<li>public, static, etc. sind eigentlich auch Attribute aus Sicht des Compilers</li>
+<li>Attribute sollen Deklarationen um weitere Aspekte erweitern ("Aspektorientierte Programmierung")</li>
+<li>Benutzt z.B. für Security, Serialisierung, OR-Mapping, Dokumentation, etc.</li>
+<li>Als Parameter an Attribute können nur <em>konstante</em> Werte übergeben werden</li>
+<li>Auf <code>MemberInfo</code> kann mit <code>GetCustomAttributes()</code> die Attribute geholt werden<ul>
+<li>Mit <code>IsDefined(&lt;AttrbutType&gt;)</code> abfragen, ob Attribut auf einem bestimmten Typ gesetzt wurde</li>
+</ul>
+</li>
+<li>Mit Named Parameter können auch Properties auf dem Attribut gesetzt werden, die nicht über den Konstruktor initialisiert werden</li>
+</ul>
+<h4 id="eigenes-attribut">Eigenes Attribut</h4>
+<div class="code"><pre><span></span>[AttributeUsage(
+AttributeTargets.Class |
+AttributeTargets.Constructor |
+AttributeTargets.Field |
+AttributeTargets.Method |
+AttributeTargets.Property,
+AllowMultiple = true)]
+public class BugfixAttribute : Attribute
+{
+    public BugfixAttribute(int bugId,
+    string programmer, string date)
+    { /* ... */ }
+}
+</pre></div>
+
+
+<ul>
+<li>Mit <code>[AttributeUsage()]</code> festlegen, wo es verwendet werden kann, und ob es auf dem <em>gleichen Typ</em> mehrmals verwendet werden darf</li>
+<li>Muss auf "Attribute" enden, damit es später abgekürtzt als <code>[Bugfix]</code> verwendet werden kann</li>
+</ul>
+<h3 id="code-emittierung">Code Emittierung</h3>
+<ul>
+<li>Todo</li>
 </ul>
           <aside class="copyright" role="note">
             

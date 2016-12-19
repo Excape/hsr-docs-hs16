@@ -1,9 +1,65 @@
-#Prüfung
+# Prüfung
 - Pro Teil 1h
 - Pro Teil 10 A4-Seiten Zusammenfassung
+- Stoff aus Vorlesung und Übung (Alle Übungen machen!)
+- Zusammenfassung: Konzepte mit Quellcode-Beispielen
+- Musterprüfung auf Skripteserver
 - Teil Android
     - Kein XML selber schreiben, aber lesen können
-
+- Teil WPF (Infos in Vorlesung 14)
+    - XAML
+        - Attribute / Property Syntax
+        - Markup Extensions
+        - Routed Events
+        - Value Converters
+        - Visual vs Logical Tree
+    - C# Konzepte
+        - Properties
+        - Events, Delegates, Event Handlers
+    - GUI-Entwurf
+        - WPF Controls
+        - WPF Klassenhierarchie
+        - Brushes
+        - Clipping
+        - Layout-Controls
+        - Canvas, ViewBox, Borders
+        - Shapes
+        - UI Controls (Unterschied Label / TextBlock)
+        - UI List Controls
+        - Application- und Window- Klasse
+        - Splash Screens
+        - DialogFenster, Property DialogResult!
+        - Commands
+        - NuGet
+        - UI-Testing mit TestStack.White
+    - GUI-Design
+        - Resources
+        - Static vs. Dynamic Resources
+        - Externe Resources (Package URI)
+        - Styles
+        - Control Templates
+        - Trigger
+        - 2D Transformationen
+        - GUI Design Principles / Aktuelle Trends
+    - Umgang mit Daten (Jeweils nur konzeptionell kennen, nicht Code auswendig)
+        - Markup Extensions
+        - BindingBase, MultiBinding
+        - DataContext vs. Source vs. RelativeSource
+        - Data Binding Syntax
+        - IValueConverter
+        - INotifyPropertyChanged
+        - ObservableCollection
+        - ObjectDataProvider
+        - ItemsControl
+        - DataGrid und CollectionViewSource
+    - Benutzerinteraktion
+        - Events und EventArgs
+        - Input Events
+        - Background Threads
+        - Dispatcher.Invoke
+    - WPF Architektur
+        - i18n - Embedded Resources
+        - MVVM
 # Teil Android
 
 ## Vorlesung 1 - Einführung Android
@@ -529,3 +585,13 @@ var vm = Mapper.Map<GadgetVm>(gadget);
     Command="{Binding OpenGadgetViewCommand}"
     CommandParameter="{Binding SelectedGadget}" />
 ```
+
+---
+## Vorlesung 14 - XAMARIN / Review
+### XAMARIN
+- Bridging Technolgies: Hilfs-Libraries, um Projekte von z.B. Java / Obj. C konvertierten zu Universal Windows Platzform Kompatibilität
+- Silo-Ansatz: App drei Mal mit unterschiedlichen Technologien native entwickeln. Fast 3x Aufwand!
+- Xamarin-Ansatz: Backend mit C# einmal schreiben, GUI für iOS, Android und Windows sepparat erstellen
+- Mit Xamarin.Forms kann auch ein Shared UI erstellt werden
+    - Platformspezifisch nur noch Tweaks
+- 

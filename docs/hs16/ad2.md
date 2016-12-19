@@ -342,7 +342,7 @@ T |   |   |   |   |
 - *Locator*: eine Referenz auf die Entry in der PQ
 - Algorithmus
     - Distanz von Startvertex auf 0 setzen, alle anderen auf \(\infty\)
-    - Alle Vertices mit initialisierten Distanze in PQ einfügen, Locator darin mit dem Vertex speichern
+    - Alle Vertices mit initialisierten Distanzen in PQ einfügen, Locator darin mit dem Vertex speichern
     - Durch Vertices iterieren (bis Queue empty)
         - Erstes RemoveMin() gibt Startvertex zurück (weil Distanz 0)
         - Durch Incident Edges iterieren

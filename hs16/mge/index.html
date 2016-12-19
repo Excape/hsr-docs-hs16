@@ -315,8 +315,81 @@
 <ul>
 <li>Pro Teil 1h</li>
 <li>Pro Teil 10 A4-Seiten Zusammenfassung</li>
+<li>Stoff aus Vorlesung und Übung (Alle Übungen machen!)</li>
+<li>Zusammenfassung: Konzepte mit Quellcode-Beispielen</li>
+<li>Musterprüfung auf Skripteserver</li>
 <li>Teil Android<ul>
 <li>Kein XML selber schreiben, aber lesen können</li>
+</ul>
+</li>
+<li>Teil WPF (Infos in Vorlesung 14)<ul>
+<li>XAML<ul>
+<li>Attribute / Property Syntax</li>
+<li>Markup Extensions</li>
+<li>Routed Events</li>
+<li>Value Converters</li>
+<li>Visual vs Logical Tree</li>
+</ul>
+</li>
+<li>C# Konzepte<ul>
+<li>Properties</li>
+<li>Events, Delegates, Event Handlers</li>
+</ul>
+</li>
+<li>GUI-Entwurf<ul>
+<li>WPF Controls</li>
+<li>WPF Klassenhierarchie</li>
+<li>Brushes</li>
+<li>Clipping</li>
+<li>Layout-Controls</li>
+<li>Canvas, ViewBox, Borders</li>
+<li>Shapes</li>
+<li>UI Controls (Unterschied Label / TextBlock)</li>
+<li>UI List Controls</li>
+<li>Application- und Window- Klasse</li>
+<li>Splash Screens</li>
+<li>DialogFenster, Property DialogResult!</li>
+<li>Commands</li>
+<li>NuGet</li>
+<li>UI-Testing mit TestStack.White</li>
+</ul>
+</li>
+<li>GUI-Design<ul>
+<li>Resources</li>
+<li>Static vs. Dynamic Resources</li>
+<li>Externe Resources (Package URI)</li>
+<li>Styles</li>
+<li>Control Templates</li>
+<li>Trigger</li>
+<li>2D Transformationen</li>
+<li>GUI Design Principles / Aktuelle Trends</li>
+</ul>
+</li>
+<li>Umgang mit Daten (Jeweils nur konzeptionell kennen, nicht Code auswendig)<ul>
+<li>Markup Extensions</li>
+<li>BindingBase, MultiBinding</li>
+<li>DataContext vs. Source vs. RelativeSource</li>
+<li>Data Binding Syntax</li>
+<li>IValueConverter</li>
+<li>INotifyPropertyChanged</li>
+<li>ObservableCollection</li>
+<li>ObjectDataProvider</li>
+<li>ItemsControl</li>
+<li>DataGrid und CollectionViewSource</li>
+</ul>
+</li>
+<li>Benutzerinteraktion<ul>
+<li>Events und EventArgs</li>
+<li>Input Events</li>
+<li>Background Threads</li>
+<li>Dispatcher.Invoke</li>
+</ul>
+</li>
+<li>WPF Architektur<ul>
+<li>i18n - Embedded Resources</li>
+<li>MVVM</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -965,6 +1038,21 @@ var vm = Mapper.Map&lt;GadgetVm&gt;(gadget);
     <span class="na">Command=</span><span class="s">&quot;{Binding OpenGadgetViewCommand}&quot;</span>
     <span class="na">CommandParameter=</span><span class="s">&quot;{Binding SelectedGadget}&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
+
+
+<hr />
+<h2 id="vorlesung-14-xamarin-review">Vorlesung 14 - XAMARIN / Review</h2>
+<h3 id="xamarin">XAMARIN</h3>
+<ul>
+<li>Bridging Technolgies: Hilfs-Libraries, um Projekte von z.B. Java / Obj. C konvertierten zu Universal Windows Platzform Kompatibilität</li>
+<li>Silo-Ansatz: App drei Mal mit unterschiedlichen Technologien native entwickeln. Fast 3x Aufwand!</li>
+<li>Xamarin-Ansatz: Backend mit C# einmal schreiben, GUI für iOS, Android und Windows sepparat erstellen</li>
+<li>Mit Xamarin.Forms kann auch ein Shared UI erstellt werden<ul>
+<li>Platformspezifisch nur noch Tweaks</li>
+</ul>
+</li>
+<li></li>
+</ul>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 Robin Suter &ndash;

@@ -151,3 +151,55 @@
     - "Verwahrung": Eine Person verwahren, um sie vor der Gesellschaft zu schützen, im Gegensatz zu anderen Massnahmen, die das Ziel haben, jemanden wieder in die Gesellschaft zu integrieren
     - Subsidiriaritätsprinzip: Das einfachste mögliche Mittel (nicht "zu hart bestrafen")
     - Begutachtungspflicht: Richter braucht Begutachter für Entscheidungen, ob z.B. jemand in eine Psychiatrie kommt
+
+---
+## Vorlesung 13 - Datenrecht
+### Bedeutung des Datenschutzes
+!!! info
+    Datenschutz:Schutz der Persönlichkeit und der Grundrechte der Person, über die Daten bearbeitet werden
+
+- Personenbezogene Daten sind geschützt: Sie können einer Person zugeordnet werden
+- Datenschutz gehört zu Art. 8 über Achtung des Privatlebens von EMRK
+- Bundesverfassung: Recht auf persönliche Freiheit, Anspruch auf Schutz vor Missbrauch persönlicher Daten
+- Datenschutzverletzung ist Persönlichkeitsverletzung
+    - Verletzung gerechtfertigt: "überwiegendes privates oder öffentliches Interesse" oder durch bestimmtes Gesetz: Z.B. Fahndung 
+- Persönlichkeitsschutz gibt es schon lange, Datenschutzgesetze recht neu wegen IT
+- DSG ist auf bundesebene, aber auch kantonal geregelt
+    - Jeder Kanton hat eigene Aufsichtsbehörde
+    - Bundesgesetz regelt Privatpersonen / Unternehmen und Bundesorgane
+    - Kantonales DSG regelt öffentliche kantonale Organe oder z.B. Spitex
+- Besonders schützenswerte Daten
+    - Gefahr der Persönlichkeitsverletzung hoch, wenn Daten missbraucht werden
+    - z.B. Religiöse, Politische Einstellung, Sozialstatus, Gesundheitsdaten
+    - Persönlichkeitsprofil (Vielzahl von Daten, z.B. Lebenslauf)
+- USA hat keinen gesetzlichen Datenschutz
+- Quiz Folie 14
+    - Einwohnerstatistik: *Nein*, Statistiken meist anonym
+    - Kreditkartennummer: *Ja*, allein Nummer nicht, aber mit Verknüpfung mit z.B. Name schon
+    - Autokennzeichen: *Ja* - Halter nicht unbedingt Fahrer - Online-Auskunft kantonal geregelt (opt-out) und von kantonalem Gesetz erlaubt
+    - Patientendossier: *Ja* - Besonders schützenswerte Daten
+    - IP-Adresse: *Ja* - Provider müssen die Daten 6 Monate speichern - Betreiber des Anschlusses ist verantwortlich
+    - DNA: *Ja* - Rückschlüsse auf sehr persönliche (schützenswerte) Daten - wie andere biometrische Daten
+- DSG regelt jeglichen Umgang mit Daten (speichern, bearbeiten, bekanntgeben, ...)
+- Jede Bearbeitung ist Eingriff in die Persönlichkeit
+    - Es braucht Rechtfertigungsgrund, damit dieser Eingriff nicht wiederrechltich ist
+        - Durch freiwillige Einwilligung
+        - überwiegendes privates oder öffentliches Interesse
+        - gesetzliche Grundlage
+- Quiz Folie 19
+    - Einholen Referenzen: Durch Bewerbung gibt Bewerber die Einwilligung - Beschränkt auf Arbeitsverhältnis
+    - Publizierung Bauvorhaben: Gesetzliche Grundlage
+    - Zeitungsartikel über Nationalrat: überwiegendes öffentliches Interesse - solange es nicht in die Privatsphäre eindringt
+    - Prüfung Kreditwürdigkeit: gesetzliche Grundlage: Kreditwürdigkeit muss überprüft werden
+
+### Datenschutzrechtliche Prinzipien
+- Rechtfertigung: Datenbearbeitung braucht eine Rechtfertigung (s. oben)
+- Zweckgebundenheit: Daten, die ich an ein Unternehmen gebe, sind grundsätzlich nur für den abgeschlossenen Vertrag zu verwenden
+- Verhältnismässigkeit: Es dürfen nur jene Daten erhoben werden, die für die Erfüllung der Aufgabe notwendig sind
+- Integrität: Datenbearbeiter muss sicherstellen, dass Daten korrekt und vollständig sind. (Wenn Daten von Kunden selbst kommen, werden sie als korrekt angesehen)
+- Sicherheit: Datenbearbeitung ist für Datensicherheit verantwortlich. Je heikler die Daten, desto höhere Anforderungen
+- Transparenz: Datenbearbeitung muss für die betroffene Person transparent sein (meist durch AGB)
+- Verwantortung: Datenbearbeiter muss auf Antrag erklären können, was für Daten wie bearbeitet werden (via Auskunftsbegehren)
+- Quiz Folie 22:
+    - Anmeldeformular Mietwohnungen: Nicht verhältnismässig
+    - Konsumverhalten durch Kreditkartenauszüge: 

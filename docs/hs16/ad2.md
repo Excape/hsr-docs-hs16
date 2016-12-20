@@ -1,6 +1,12 @@
 # Algorithmen und Datenstrukturen 2
 - Visualisierungen: <http://visualgo.net/>
 
+## Prüfung
+- Open Book
+- Vorgaben auf titelblatt
+- Musterprüfung auf Skripteserver
+
+---
 ## Vorlesung 1 - Binary Search Tree
 - Ein Heap hat das kleinste oder grösste Element als Root
 - Eine Suche auf einem Heap würde mit \(O(n)\) laufen, da man nicht weiss, welches Child jeweils kleiner / grösser ist
@@ -332,8 +338,7 @@ T |   |   |   |   |
     - Ist nicht eindeutig, gibt beliebig viele Lösungen
 
 ---
-## Vorlesung 13
-### Dijkstra Algorithmus
+## Vorlesung 13 - Dijkstra
 - Jede Node in der Wolke hat die kürzeste Distanz zu s gespeichert
 - Wolke: Beginnt bei Startvertex s, wird immer grösser
 - distanz auf jedem Vertex wird initialisiert mit \(+\infty\)
@@ -350,4 +355,38 @@ T |   |   |   |   |
             - Wenn r ("neue" Distanz) kleiner als aktuelle, bekommt der opposite vertex die neue, verbesserte Distanz
             - Distanz in der PQ updaten
         - Weiter mit Vertex mit kleinster Distanz, dies wird im ersten Schritt ein neu hinzugefügter Vertex sein
+- Funktioniert nur mit positiven Gewichten!
 - Komplexität: \(O((n+m)\cdot log(n))\)
+
+---
+## Vorlesung 14 - More Spanning Tree Algorithms
+- Bellman-Ford
+    - Geht auch mit negativen Gewichten
+    - Es werden n (anzahl Vertices) mal alle Edges des Graphen durchlaufen (nicht incident edges!)
+    - Bei kleinem Beispiel ist der Algorithmus schon nach 2 äusseren loops fertig
+    - Es gibt hier keine "Wolke" wie bei Dijkstra, Nodes "ausserhalb" können "innere" Nodes verändern
+- DAG-Algorithmus
+    - Geht auch mit negativen Gewichten
+    - DAG: Gerichteter Graph ohne Zyklen
+    - Iteriert mit der topologischen Reihenfolge des Graphen
+
+### Minimum Spanning Tree
+- Ein aufspannender Baum eines gewichteten Graphen mit minimalem totalen Gewicht
+- Schlaufe: Wenn durch hinzufügen einer Schlaufe die Kante e kleiner als irgendeine andere Kante in der Schlaufe ist, wird diese im Baum getauscht -> Es ist ein besserer spanning Tree
+- Aufteilung: Wenn der Graph in zwei Teilmengen aufgeteilt wird, ist die Kante mit kleinstem Gewicht, die die beiden Teilmengen verbinden, sicher teil des minimalen Spannig Tree
+
+#### Kruskal's Algorithmus
+- Initialisieren mit Cloud(v) für jeden Vertex v, worin nur v selbst ist
+- Priority Queue mit Gewicht -> Edge mit kleinstem Gewicht wird zuerst verarbeitet
+- Jeweild Edges in T hinzufügen und Cloud mergen, ausser die Vertices sind bereits in derselben Cloud
+- Wenn T n-1 Kanten hat, ist es ein aufspannender freier Baum (alle Vertices verbunden) -> Abbruchbedingung
+- Datenstruktur
+    - Braucht `find(u)`, um Wolke von u zurück zu geben
+    - Set als Liste von Vertices, die jeweils eine Back-Referenz auf die Liste haben
+    - Mit `union(u,v)` werden Sets gemerged (alle Elemente des einen in die andere kopieren)
+
+#### Prim-Jarnik Algorithmus
+- Fast wie Dijkstra
+- Unterschied: `r = weight(e)` statt `r = weight(e) + distance`
+
+![](img/spt_vs_mst.jpg)

@@ -206,9 +206,70 @@
 5. Am Schluss des Sprints nimmt Product Owner die erledigten Stories ab. Nicht erledigte / abgenommene zurück in den Product Backlog
 
 ---
-## Vorlesung 13
-### SW-Architektur 2
+## Vorlesung 13 - SW-Architektur 2
 - Architektur wird stark beeinflusst, ob Applikation Zugriff auf Server macht, Online / Offline-Mischung, Web-Only ist, etc.
 - Vier von Sechs Faktoren, die die Architektur beeinflussen, sind nicht-funktionale Anforderungen!
 - UML-Diagramme, die 1:1 Code sind, nützen nichts, da sie keine Abstraktion sind
     - Sie können aber Zusammenhänge anschaulich darstellen (Domainmodell, Sequenzdiagramm)
+
+---
+## Vorlesung 14 - Software Projekt-Management
+1. **Nichts vergessen dank Listen**
+    - Backlog führen
+    - PL hat ToDo-Liste
+    - Prioritäten in ca. 3 Stufen
+2. **PL is the keeper of the Scope**
+    - Immer den Funktionsumfang im Zaum halten
+    - Budget nicht mit Scope verwechseln!
+    - Use Cases schreiben, auch für Dinge, die nicht umgesetzt werden
+    - "Scope creep": schleichende Erweiterung des Scopes
+        - 2% pro Monat sind normal
+        - Faustregel: Kein Projekt über 9 Monate
+3. **Gehen Sie jeden Tag auf die Baustelle**
+    - PL sollte täglich "auf die Baustelle"
+    - Baustelle = Git
+4. **Entfernung ist teuer**
+    - Team möglichst am selben Ort ("im selben Stockwerk")
+    - Je höher die Distanz, desto teurer
+    - Unterschiedliche Muttersprache auch ein Faktor
+5. **Übergaben sind teuer**
+    - Möglichst guter und präziser Informationsaustausch
+6. **Kunst: Sichtbar machen**
+    - Software für nicht-Programmierer sichtbar machen
+    - Ideen / Konzepte erklären mit Metaphern, Analogien, Diagramme
+7. **Immmer iterativ vorgehen**
+    - Agile (Scrum, etc)
+    - Sprints 2-3 Wochen, Kunden-Demos alle 2-3 Monate
+8. **Inspect - Adapt**
+    - Ständig auf veränderte Umstände reagieren
+    - immer Acht geben und ggf. reagieren
+    - Management by walking around
+    - Reviews machen
+    - Projekt-Geschichtsschreibung
+        - Regelmässig aufschreiben
+        - Meilensteine, Schwierigkeiten, besondere Vorfälle, Protokolle
+        - Protokolliert Erfahrungsschat
+9. **Daily Build and Branches**
+    - Nicht zu viele Branches, schwieriger zu sehen, wie weit man ist
+    - Möglichst schnell in den Master-branch mergen
+    - Regelmässige Releases
+10. **Verstehen, was der Kunde will**
+    - Optimal: Kunde im Team
+    - Gut: Kunden-Proxy im Team
+    - Schlecht: Kunde hat keine Zeit
+    - Möglichst den Endkunden fragen, nicht z.B. der CEO
+    - Partner sein, Vertrauen schaffen
+    - Wenn Entwickler und Kunden sich verstehen -> Meilenstein
+11. **So früh wie möglich so formal wie möglich**
+    - z.B. UML zeigen Unklarheiten auf
+    - Möglichst sichtbar machen: Bilder und Grafiken für Konzepte
+12. **Die vier Projekt-Variablen**
+    - Kosten/Aufwand
+    - Zeit
+    - Funktionalität
+    - Qualität
+    - Reihenfolge einfach -> schwierig
+    - Wenn überbestimmt:
+        - Priorisierung
+        - Funktionalität reduzieren (Reduce the Scope)
+        - Wenn das nicht geht: Zeitplan verlängern

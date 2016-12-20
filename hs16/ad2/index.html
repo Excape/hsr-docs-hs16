@@ -185,6 +185,12 @@
         <ul>
           
             <li class="anchor">
+              <a title="Prüfung" href="#prufung">
+                Prüfung
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="Vorlesung 1 - Binary Search Tree" href="#vorlesung-1-binary-search-tree">
                 Vorlesung 1 - Binary Search Tree
               </a>
@@ -355,6 +361,13 @@
 <ul>
 <li>Visualisierungen: <a href="http://visualgo.net/">http://visualgo.net/</a></li>
 </ul>
+<h2 id="prufung">Prüfung</h2>
+<ul>
+<li>Open Book</li>
+<li>Vorgaben auf titelblatt</li>
+<li>Musterprüfung auf Skripteserver</li>
+</ul>
+<hr />
 <h2 id="vorlesung-1-binary-search-tree">Vorlesung 1 - Binary Search Tree</h2>
 <ul>
 <li>Ein Heap hat das kleinste oder grösste Element als Root</li>
@@ -865,8 +878,7 @@ Konstanten heraus streichen:
 </li>
 </ul>
 <hr />
-<h2 id="vorlesung-13">Vorlesung 13</h2>
-<h3 id="dijkstra-algorithmus">Dijkstra Algorithmus</h3>
+<h2 id="vorlesung-13-dijkstra">Vorlesung 13 - Dijkstra</h2>
 <ul>
 <li>Jede Node in der Wolke hat die kürzeste Distanz zu s gespeichert</li>
 <li>Wolke: Beginnt bei Startvertex s, wird immer grösser</li>
@@ -892,9 +904,52 @@ Konstanten heraus streichen:
 </li>
 </ul>
 </li>
+<li>Funktioniert nur mit positiven Gewichten!</li>
 <li>Komplexität: <script type="math/tex">O((n+m)\cdot log(n))</script>
 </li>
 </ul>
+<hr />
+<h2 id="vorlesung-14-more-spanning-tree-algorithms">Vorlesung 14 - More Spanning Tree Algorithms</h2>
+<ul>
+<li>Bellman-Ford<ul>
+<li>Geht auch mit negativen Gewichten</li>
+<li>Es werden n (anzahl Vertices) mal alle Edges des Graphen durchlaufen (nicht incident edges!)</li>
+<li>Bei kleinem Beispiel ist der Algorithmus schon nach 2 äusseren loops fertig</li>
+<li>Es gibt hier keine "Wolke" wie bei Dijkstra, Nodes "ausserhalb" können "innere" Nodes verändern</li>
+</ul>
+</li>
+<li>DAG-Algorithmus<ul>
+<li>Geht auch mit negativen Gewichten</li>
+<li>DAG: Gerichteter Graph ohne Zyklen</li>
+<li>Iteriert mit der topologischen Reihenfolge des Graphen</li>
+</ul>
+</li>
+</ul>
+<h3 id="minimum-spanning-tree">Minimum Spanning Tree</h3>
+<ul>
+<li>Ein aufspannender Baum eines gewichteten Graphen mit minimalem totalen Gewicht</li>
+<li>Schlaufe: Wenn durch hinzufügen einer Schlaufe die Kante e kleiner als irgendeine andere Kante in der Schlaufe ist, wird diese im Baum getauscht -&gt; Es ist ein besserer spanning Tree</li>
+<li>Aufteilung: Wenn der Graph in zwei Teilmengen aufgeteilt wird, ist die Kante mit kleinstem Gewicht, die die beiden Teilmengen verbinden, sicher teil des minimalen Spannig Tree</li>
+</ul>
+<h4 id="kruskals-algorithmus">Kruskal's Algorithmus</h4>
+<ul>
+<li>Initialisieren mit Cloud(v) für jeden Vertex v, worin nur v selbst ist</li>
+<li>Priority Queue mit Gewicht -&gt; Edge mit kleinstem Gewicht wird zuerst verarbeitet</li>
+<li>Jeweild Edges in T hinzufügen und Cloud mergen, ausser die Vertices sind bereits in derselben Cloud</li>
+<li>Wenn T n-1 Kanten hat, ist es ein aufspannender freier Baum (alle Vertices verbunden) -&gt; Abbruchbedingung</li>
+<li>Datenstruktur<ul>
+<li>Braucht <code>find(u)</code>, um Wolke von u zurück zu geben</li>
+<li>Set als Liste von Vertices, die jeweils eine Back-Referenz auf die Liste haben</li>
+<li>Mit <code>union(u,v)</code> werden Sets gemerged (alle Elemente des einen in die andere kopieren)</li>
+</ul>
+</li>
+</ul>
+<h4 id="prim-jarnik-algorithmus">Prim-Jarnik Algorithmus</h4>
+<ul>
+<li>Fast wie Dijkstra</li>
+<li>Unterschied: <code>r = weight(e)</code> statt <code>r = weight(e) + distance</code></li>
+</ul>
+<p><img alt="" src="../img/spt_vs_mst.jpg" /></p>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 Robin Suter &ndash;

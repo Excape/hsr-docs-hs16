@@ -1213,8 +1213,9 @@
 <li>
 <p>Bad Example</p>
 <ul>
-<li>Output:
-<code>c++
+<li>Output:</li>
+</ul>
+<p><code>c++
 (a) -------
 // Humminbbird hummingbird;
 animal born
@@ -1245,7 +1246,54 @@ animal died
 // Destruktor humminbird
 hummingbird died
 bird crashed
-animal died</code></li>
+animal died</code></p>
+</li>
+</ul>
+<h3 id="exercise-14">Exercise 14</h3>
+<h4 id="theory-questions">Theory questions</h4>
+<div class="code"><pre><span></span>- mit `using` die `process(float)` von der Baseklasse einbinden
+- `function()` in Baseklasse `virtual` deklarieren
+- Pure virtual member: Die Klasse ist &quot;abstrakt&quot; und kann nicht instanziiert werden (Compiler-Error)
+- Shared Pointers verwenden
+</pre></div>
+
+
+<h4 id="understanding-dynamic-polymorphism-and-object-lifetime">Understanding dynamic Polymorphism and Object lifetime</h4>
+<ul>
+<li>Forumtroll ft: forum_troll</li>
+<li>Troll t: troll - slicing!</li>
+<li>Monster m: forum_troll</li>
+</ul>
+<p>Output:</p>
+<div class="code"><pre><span></span><span class="n">a</span> <span class="o">--------</span>
+<span class="n">a</span> <span class="n">monster</span> <span class="n">is</span> <span class="n">bread</span> <span class="c1">// base ctor is always called!</span>
+<span class="n">a</span> <span class="n">troll</span> <span class="n">grows</span> <span class="c1">// base ctor</span>
+<span class="n">not</span> <span class="n">quite</span> <span class="n">a</span> <span class="n">monster</span> <span class="c1">// ft ctor</span>
+<span class="c1">// troll and monster use copy ctors</span>
+<span class="n">b</span> <span class="o">--------</span>
+<span class="n">write</span> <span class="n">stupid</span> <span class="n">things</span> <span class="c1">// ft.attack()</span>
+<span class="n">clubbing</span> <span class="n">kills</span> <span class="n">me</span> <span class="c1">// t.attack(), t.myhealth = 9</span>
+<span class="n">write</span> <span class="n">stupid</span> <span class="n">things</span> <span class="c1">// m.attack() -&gt; ft.attack()</span>
+<span class="n">c</span> <span class="o">--------</span>
+<span class="n">swinging</span> <span class="n">is</span> <span class="n">healthy</span> <span class="c1">// ft.swing_club(), ft.myhealth = 11</span>
+<span class="n">clubbing</span> <span class="n">kills</span> <span class="n">me</span> <span class="c1">// t.swing_club(), t.myhealth = 8</span>
+<span class="n">d</span> <span class="o">--------</span>
+<span class="n">troll</span><span class="o">-</span><span class="nl">health</span><span class="p">:</span><span class="mi">11</span> <span class="c1">// ft.health()</span>
+<span class="n">troll</span><span class="o">-</span><span class="nl">health</span><span class="p">:</span><span class="mi">8</span> <span class="c1">// t.health()</span>
+<span class="n">immortal</span><span class="o">?</span> <span class="c1">// m.health() - not virtual</span>
+<span class="n">end</span> <span class="o">------</span>
+<span class="n">troll</span> <span class="n">petrified</span> <span class="c1">// t deconstruct</span>
+<span class="n">monster</span> <span class="n">killed</span>
+<span class="n">troll</span> <span class="n">banned</span> <span class="c1">// ft deconstruct</span>
+<span class="n">troll</span> <span class="n">petrified</span>
+<span class="n">monster</span> <span class="n">killed</span>
+</pre></div>
+
+
+<ul>
+<li>Lessons:<ul>
+<li>Base ctor is always called, no matter if it is declared explicitly like with <code>forum_troll():troll{}</code> or not</li>
+<li>Deconstructor calls the deconstructor of the base class AFTER itself</li>
 </ul>
 </li>
 </ul>

@@ -567,3 +567,76 @@ if (sp) foo(*sp);
 - check, ob Pointer noch gültig ist
 - Vorsicht vor zirkulären Referenzen! Werden nicht abgeräumt
     - `weak_ptr` aus shared pointer erzeugen, er zählt aber den shared Pointer nicht hoch
+
+---
+## Vorlesung 14 - Inheritance / Dynamic Polymorphism
+Dazu kommt Prüfungsfrage!!
+
+### Inheritance
+- Vererbung ist normalerweise private -> man will meist public!
+- `class Subclass : public Baseclass`
+    - Ausser bei structs: `struct Substruct : Basestruct`
+- Per default werden die Konstruktoren nicht automatisch vererbt
+    - mit `using Baseclass::Baseclass;` Konstruktoren erben
+- Typdefinitionen immer mit Semikolon abschliessen
+    - Darum `class MyClass {};`
+
+#### Dynamic Dispatch
+- Grundsätzlich wie in Java
+- Damit das funktioniert, müssen Methdoen, die überschrieben werden, mit `virtual` deklariert werden
+- Sonst wird immer Funktion im deklarierten Typ aufgerufen
+- Damit Compiler dynamic dispatch machen kann
+- In Subklasse `override` explizit angeben, damit Compiler Fehler wirft, falls nicht überschrieben werden kann (nicht virtual oder andere Signatur)
+- Referenz auf Klasse hat einen (versteckten) Pointer auf "vtable" mit den Informationen der überschriebenen Funktionen
+- Virtuelle Members, die mit `virtual fn() = 0` definiert sind, sind abstract -> Klasse ist abstract
+
+
+- Die Basis-Klasse muss vor den eigenen Member-Variablen initialisiert werden
+    - `DerivedWithCtor(int i) : Base{i}, mymember{i} {}`
+- Man kann auch an einen eigenen Konstruktor delegieren
+    - `DerivedWithCtor(int i) : DerivedWithCtor{i,i} {}`
+- public, private und protected wie in Java
+- Gleichnamige Funktionen von Basisklasse in Subklasse überdecken diejenigen in der Basisklasse! (Member Hiding)
+    - Auch wenn Parameter unterschiedlich
+    - Lösung: In Subklasse mit `using` Funktion "importieren", dann ist es wie ein normaler Overload
+- Overloading und Templates (compile-time) sind oft effizienter als dynamic polymorphism
+- Zuweisungen immer mit Referenzen, sonst wird eine Kopie der Basisklasse erstellt und die Subklasse geht verloren (slicing)
+- Inheritance can be bad
+    - Höchste Kopplung zwischen Klassen
+- Value-Variablen von Typen haben kein dynamic dispatch, dafür immer Referenzen verwenden
+
+- Bad Example
+    - Output:
+    ```c++
+    (a) -------
+    // Humminbbird hummingbird;
+    animal born
+    bird hatched
+    humminbird hatched
+    // Bird bird = hummingbird; - Kopie mit slicing
+    // Animal & animal = hummingbird - Referenz auf hummingbird
+    (b)----
+    // humminbird.makeSound();
+    beep
+    // bird.makeSound();
+    chirp // Compiler schaut nur auf Typ weil keine Referenz!
+    //animal.makeSound();
+    --- // makeSound() ist nicht virtual
+    (c)----
+    //humminbird.move();
+    hum // konkretes Objekt
+    // bird.move();
+    fly // konkretes Objekt
+    // animal.move()
+    hum // ACHTUNG dynamic dispatch, überschriebene Methode Bird::move ist automatisch virtual!!
+    (d) ----
+    //Aufruf Destruktoren in umgekehrter Reihenfolge
+    // Animal nur eine Referenz, darum keine Destruktion
+    // Destruktor bird
+    bird crashed
+    animal died
+    // Destruktor humminbird
+    hummingbird died
+    bird crashed
+    animal died
+    ```

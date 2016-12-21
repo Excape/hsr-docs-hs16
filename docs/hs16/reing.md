@@ -153,7 +153,7 @@
     - Begutachtungspflicht: Richter braucht Begutachter für Entscheidungen, ob z.B. jemand in eine Psychiatrie kommt
 
 ---
-## Vorlesung 13 - Datenrecht
+## Vorlesung 13-14 - Datenrecht
 ### Bedeutung des Datenschutzes
 !!! info
     Datenschutz:Schutz der Persönlichkeit und der Grundrechte der Person, über die Daten bearbeitet werden
@@ -164,10 +164,6 @@
 - Datenschutzverletzung ist Persönlichkeitsverletzung
     - Verletzung gerechtfertigt: "überwiegendes privates oder öffentliches Interesse" oder durch bestimmtes Gesetz: Z.B. Fahndung 
 - Persönlichkeitsschutz gibt es schon lange, Datenschutzgesetze recht neu wegen IT
-- DSG ist auf bundesebene, aber auch kantonal geregelt
-    - Jeder Kanton hat eigene Aufsichtsbehörde
-    - Bundesgesetz regelt Privatpersonen / Unternehmen und Bundesorgane
-    - Kantonales DSG regelt öffentliche kantonale Organe oder z.B. Spitex
 - Besonders schützenswerte Daten
     - Gefahr der Persönlichkeitsverletzung hoch, wenn Daten missbraucht werden
     - z.B. Religiöse, Politische Einstellung, Sozialstatus, Gesundheitsdaten
@@ -199,7 +195,54 @@
 - Integrität: Datenbearbeiter muss sicherstellen, dass Daten korrekt und vollständig sind. (Wenn Daten von Kunden selbst kommen, werden sie als korrekt angesehen)
 - Sicherheit: Datenbearbeitung ist für Datensicherheit verantwortlich. Je heikler die Daten, desto höhere Anforderungen
 - Transparenz: Datenbearbeitung muss für die betroffene Person transparent sein (meist durch AGB)
-- Verwantortung: Datenbearbeiter muss auf Antrag erklären können, was für Daten wie bearbeitet werden (via Auskunftsbegehren)
+- Verantwortung: Datenbearbeiter muss auf Antrag erklären können, was für Daten wie bearbeitet werden (via Auskunftsbegehren)
 - Quiz Folie 22:
     - Anmeldeformular Mietwohnungen: Nicht verhältnismässig
-    - Konsumverhalten durch Kreditkartenauszüge: 
+    - Konsumverhalten durch Kreditkartenauszüge: Erlaubt mit Einstimmigung -> Rechtfertigung, Transparenz, Zweckgebundenheit
+    - Computervirus löscht Festplatte von Unternehmen Y: Sicherheit, Verantwortung (Unternehmen kann keine Auskunft mehr geben)
+    - Kameras in Umkleidekabinen: Transparenz, Rechtfertigung, Verhältnismässigkeit (einfachere Massnahmen für Diebstahlschutz)
+
+### Rechte betroffener Personen
+- Auskunftsrecht
+    - höchstpersönlich und kostenlos
+    - auch Recht auf Berichtigung, Korrektur und Sperrung
+- Persönlichkeitsverletzung: Kann Schadenersatz und Genugtuung verlangen
+- Rechte aufgrund von Straftatbeständen
+    - Verletzung Privatsphäre
+    - Verletzung Amt- und Berufsgeheimnis
+    - "Computerdelikte"
+
+### Zuständigkeiten
+- DSG ist auf bundesebene, aber auch kantonal geregelt
+    - Jeder Kanton hat eigene Aufsichtsbehörde
+    - Bundesgesetz regelt Privatpersonen / Unternehmen und Bundesorgane
+    - Kantonales DSG regelt öffentliche kantonale Organe oder z.B. Spitex
+- Öffentlichkeitsprinzip: Alle amtlichen Informationen sind grundsätzlich öffentlich
+    - Öffentlichkeitsprinzip wird vom Datenschutz eingeschränkt
+- Quiz Folie 27
+    - Steueramt: *Kantonal* oder städtischen DS-Beauftragter
+    - Migros: *Bund* ist zuständig
+    - Arbeitgeber: Bei Firmen mit Sitz in der Schweiz der *Bund*, bei kantonaler Behörde der *Kanton*
+    - SBB: Ist ein Bundesorgan, diese stehen ebenfalls unter Verantwortung des *Bundes*
+    - Spital: *Kantonal*, wenn Spital öffentlich ist (öffentliche Aufgabe), sonst der Bund
+    - Kantonalbank: Sind im privaten Wettbewerb -> Auf Ebene *Bund*
+
+### Aktuelle Entwicklungen
+- EU-Datenschutzrichtlinie ist etwa gleich wie in der Schweiz
+- USA hat keine Datenschutzgesetze (Selbstregulierung)
+    - Safe Harbor Principles: US-firmen können sich zertifizieren lassen, wenn sie die Prinzipien einhalten (Zertifizierung), nützt aber wegen NSA nicht viel (EuGH hat entschieden, dass Safe Harbor principle nicht mehr genügen)
+
+### Anwendungsfälle
+#### Überwachung am Arbeitsplatz
+- Nicht verhältnismässig: Einfachere Methode ist z.B. Sperren
+- Gesetzliche Grundlage:
+    - Verboten durch Arbeitsgesetz
+    - Nicht anonym erst mit vorheriger Mahnung erlaubt, nur vorübergehend
+
+#### Einkaufen im Internet
+- Rechtfertigung meist durch AGBs
+- Nur mit Einwilligung
+
+#### Soziale Netzwerke
+- Einwilligung der AGBs
+- Risiken

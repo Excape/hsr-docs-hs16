@@ -607,6 +607,7 @@ Dazu kommt Prüfungsfrage!!
 
 - Bad Example
     - Output:
+
     ```c++
     (a) -------
     // Humminbbird hummingbird;
@@ -640,3 +641,44 @@ Dazu kommt Prüfungsfrage!!
     bird crashed
     animal died
     ```
+
+### Exercise 14
+#### Theory questions
+    - mit `using` die `process(float)` von der Baseklasse einbinden
+    - `function()` in Baseklasse `virtual` deklarieren
+    - Pure virtual member: Die Klasse ist "abstrakt" und kann nicht instanziiert werden (Compiler-Error)
+    - Shared Pointers verwenden
+#### Understanding dynamic Polymorphism and Object lifetime
+- Forumtroll ft: forum_troll
+- Troll t: troll - slicing!
+- Monster m: forum_troll
+
+Output:
+```c++
+a --------
+a monster is bread // base ctor is always called!
+a troll grows // base ctor
+not quite a monster // ft ctor
+// troll and monster use copy ctors
+b --------
+write stupid things // ft.attack()
+clubbing kills me // t.attack(), t.myhealth = 9
+write stupid things // m.attack() -> ft.attack()
+c --------
+swinging is healthy // ft.swing_club(), ft.myhealth = 11
+clubbing kills me // t.swing_club(), t.myhealth = 8
+d --------
+troll-health:11 // ft.health()
+troll-health:8 // t.health()
+immortal? // m.health() - not virtual
+end ------
+troll petrified // t deconstruct
+monster killed
+troll banned // ft deconstruct
+troll petrified
+monster killed
+```
+
+- Lessons:
+    - Base ctor is always called, no matter if it is declared explicitly like with `forum_troll():troll{}` or not
+    - Deconstructor calls the deconstructor of the base class AFTER itself

@@ -298,6 +298,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Vorlesung 14 - Inheritance / Dynamic Polymorphism" href="#vorlesung-14-inheritance-dynamic-polymorphism">
+                Vorlesung 14 - Inheritance / Dynamic Polymorphism
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -1146,6 +1152,100 @@
 <li>check, ob Pointer noch gültig ist</li>
 <li>Vorsicht vor zirkulären Referenzen! Werden nicht abgeräumt<ul>
 <li><code>weak_ptr</code> aus shared pointer erzeugen, er zählt aber den shared Pointer nicht hoch</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-14-inheritance-dynamic-polymorphism">Vorlesung 14 - Inheritance / Dynamic Polymorphism</h2>
+<p>Dazu kommt Prüfungsfrage!!</p>
+<h3 id="inheritance">Inheritance</h3>
+<ul>
+<li>Vererbung ist normalerweise private -&gt; man will meist public!</li>
+<li><code>class Subclass : public Baseclass</code><ul>
+<li>Ausser bei structs: <code>struct Substruct : Basestruct</code></li>
+</ul>
+</li>
+<li>Per default werden die Konstruktoren nicht automatisch vererbt<ul>
+<li>mit <code>using Baseclass::Baseclass;</code> Konstruktoren erben</li>
+</ul>
+</li>
+<li>Typdefinitionen immer mit Semikolon abschliessen<ul>
+<li>Darum <code>class MyClass {};</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="dynamic-dispatch">Dynamic Dispatch</h4>
+<ul>
+<li>Grundsätzlich wie in Java</li>
+<li>Damit das funktioniert, müssen Methdoen, die überschrieben werden, mit <code>virtual</code> deklariert werden</li>
+<li>Sonst wird immer Funktion im deklarierten Typ aufgerufen</li>
+<li>Damit Compiler dynamic dispatch machen kann</li>
+<li>In Subklasse <code>override</code> explizit angeben, damit Compiler Fehler wirft, falls nicht überschrieben werden kann (nicht virtual oder andere Signatur)</li>
+<li>Referenz auf Klasse hat einen (versteckten) Pointer auf "vtable" mit den Informationen der überschriebenen Funktionen</li>
+<li>
+<p>Virtuelle Members, die mit <code>virtual fn() = 0</code> definiert sind, sind abstract -&gt; Klasse ist abstract</p>
+</li>
+<li>
+<p>Die Basis-Klasse muss vor den eigenen Member-Variablen initialisiert werden</p>
+<ul>
+<li><code>DerivedWithCtor(int i) : Base{i}, mymember{i} {}</code></li>
+</ul>
+</li>
+<li>Man kann auch an einen eigenen Konstruktor delegieren<ul>
+<li><code>DerivedWithCtor(int i) : DerivedWithCtor{i,i} {}</code></li>
+</ul>
+</li>
+<li>public, private und protected wie in Java</li>
+<li>Gleichnamige Funktionen von Basisklasse in Subklasse überdecken diejenigen in der Basisklasse! (Member Hiding)<ul>
+<li>Auch wenn Parameter unterschiedlich</li>
+<li>Lösung: In Subklasse mit <code>using</code> Funktion "importieren", dann ist es wie ein normaler Overload</li>
+</ul>
+</li>
+<li>Overloading und Templates (compile-time) sind oft effizienter als dynamic polymorphism</li>
+<li>Zuweisungen immer mit Referenzen, sonst wird eine Kopie der Basisklasse erstellt und die Subklasse geht verloren (slicing)</li>
+<li>Inheritance can be bad<ul>
+<li>Höchste Kopplung zwischen Klassen</li>
+</ul>
+</li>
+<li>
+<p>Value-Variablen von Typen haben kein dynamic dispatch, dafür immer Referenzen verwenden</p>
+</li>
+<li>
+<p>Bad Example</p>
+<ul>
+<li>Output:
+<code>c++
+(a) -------
+// Humminbbird hummingbird;
+animal born
+bird hatched
+humminbird hatched
+// Bird bird = hummingbird; - Kopie mit slicing
+// Animal &amp; animal = hummingbird - Referenz auf hummingbird
+(b)----
+// humminbird.makeSound();
+beep
+// bird.makeSound();
+chirp // Compiler schaut nur auf Typ weil keine Referenz!
+//animal.makeSound();
+--- // makeSound() ist nicht virtual
+(c)----
+//humminbird.move();
+hum // konkretes Objekt
+// bird.move();
+fly // konkretes Objekt
+// animal.move()
+hum // ACHTUNG dynamic dispatch, überschriebene Methode Bird::move ist automatisch virtual!!
+(d) ----
+//Aufruf Destruktoren in umgekehrter Reihenfolge
+// Animal nur eine Referenz, darum keine Destruktion
+// Destruktor bird
+bird crashed
+animal died
+// Destruktor humminbird
+hummingbird died
+bird crashed
+animal died</code></li>
 </ul>
 </li>
 </ul>

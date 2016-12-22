@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>C++ - HSR Notizen</title>
+      
+      
+      
+        <link rel="canonical" href="https://doc.robinsuter.ch/hs16/cpl/">
+      
+      
+        <meta name="author" content="Robin Suter">
+      
+    
+    <meta property="og:url" content="https://doc.robinsuter.ch/hs16/cpl/">
+    <meta property="og:title" content="HSR Notizen">
+    <meta property="og:image" content="https://doc.robinsuter.ch/hs16/cpl//../../">
+    <meta name="apple-mobile-web-app-title" content="HSR Notizen">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono">
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-red palette-accent-amber">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                HS16 <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        C++
+      </div>
+    </div>
+    
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/robin_suter" title="@robin_suter on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/excape" title="@excape on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="/" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          HSR Notizen
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Home" href="../..">
+      Home
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">HS16</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="AD2" href="../ad2/">
+      AD2
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <span class="section">BuRe1</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="ReIng" href="../reing/">
+      ReIng
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="BuPl" href="../bupl/">
+      BuPl
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="C++" href="./">
+      C++
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Vorlesung 1 - Intro" href="#vorlesung-1-intro">
+                Vorlesung 1 - Intro
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 2 - Values" href="#vorlesung-2-values">
+                Vorlesung 2 - Values
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 3 - Simple Sequences" href="#vorlesung-3-simple-sequences">
+                Vorlesung 3 - Simple Sequences
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 4 - Functions" href="#vorlesung-4-functions">
+                Vorlesung 4 - Functions
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 5 - Classes and Enums" href="#vorlesung-5-classes-and-enums">
+                Vorlesung 5 - Classes and Enums
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 6 - Overloading / Enums" href="#vorlesung-6-overloading-enums">
+                Vorlesung 6 - Overloading / Enums
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 7 - Standard containers" href="#vorlesung-7-standard-containers">
+                Vorlesung 7 - Standard containers
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 8 - Algorithms" href="#vorlesung-8-algorithms">
+                Vorlesung 8 - Algorithms
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 9 - Functors / Lambdas" href="#vorlesung-9-functors-lambdas">
+                Vorlesung 9 - Functors / Lambdas
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 10 - Function Templates" href="#vorlesung-10-function-templates">
+                Vorlesung 10 - Function Templates
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 11 - Testat 2 Review" href="#vorlesung-11-testat-2-review">
+                Vorlesung 11 - Testat 2 Review
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 12 - Class Templates" href="#vorlesung-12-class-templates">
+                Vorlesung 12 - Class Templates
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 13 - main, Arrays, Pointer" href="#vorlesung-13-main-arrays-pointer">
+                Vorlesung 13 - main, Arrays, Pointer
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vorlesung 14 - Inheritance / Dynamic Polymorphism" href="#vorlesung-14-inheritance-dynamic-polymorphism">
+                Vorlesung 14 - Inheritance / Dynamic Polymorphism
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="EnglHTw" href="../englhtw/">
+      EnglHTw
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="MGE" href="../mge/">
+      MGE
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="MsTe" href="../mste/">
+      MsTe
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="SE1" href="../se1/">
+      SE1
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="WED2" href="../wed2/">
+      WED2
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Playground" href="../../playground/">
+      Playground
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+              
+              <li>
+                <a href="https://twitter.com/robin_suter" target="_blank" title="@robin_suter on Twitter">
+                  @robin_suter on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/excape" target="_blank" title="@excape on GitHub">
+                  @excape on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="c">C++</h1>
+<ul>
+<li>Wiki: <a href="https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus">https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus</a></li>
+<li>C++ Referenz: <a href="http://en.cppreference.com/w/cpp">http://en.cppreference.com/w/cpp</a></li>
+</ul>
+<h2 id="vorlesung-1-intro">Vorlesung 1 - Intro</h2>
+<ul>
+<li>"Undefined Behaviour": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault ("Es kann alles passieren"). Schlimmster Fall: Es läuft!</li>
+<li>HelloWorld:<ul>
+<li><code>#include</code>: Präprozessor Anweisung</li>
+<li><code>using namespace std;</code>: Kann alle Namen ohne <code>std::</code> benutzen. Man kann dann nicht sagen, aus welchem Namespace eine Anweisung kommt, oder ob es eine Variable oder Funktion etc. ist</li>
+<li><code>&lt;&lt;</code>: Links Shift, ist Teil der Bibliothek (Operator Overloading). Quasi Funktionsaufruf mit string-literal als Argument</li>
+<li><code>cout</code>: Ein Stream von <code>std</code></li>
+<li><code>endl</code> ist eine Funktion, flusht den Stream</li>
+</ul>
+</li>
+<li>Compilation<ul>
+<li>Im Header (z.B. <code>iostream</code>) stehen die Definitionen (z.B. dass es <code>cout</code> gibt)</li>
+<li>Der Linker linkt die standard library (dort ist <code>cout</code> implementiert)</li>
+</ul>
+</li>
+<li>Strings z.B. werden im Unterschied zu Java direkt auf dem Stack abgelegt</li>
+<li>Klassen: <code>struct</code> heisst public, <code>class</code> privat<ul>
+<li>Ein private bzw. public block mit <code>public:</code>, <code>private:</code> bezeichnen, alles ab dort hat dann den Scope</li>
+<li>Nach Klassendefinition ein <code>;</code>: <code>sruct Hello {...};</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-2-values">Vorlesung 2 - Values</h2>
+<p>Repetition: 
+- Wir trennen Header von Source-Files, um die Deklaration von der Implementierung zu trennen
+- <code>iostream</code>, <code>iosfwd</code> und <code>ostream</code> sind Libraries mit unterschiedlichem Umfang. <code>iosfwd</code> ist die Kleinste, <code>iostream</code> die Grösste (mit u.a. <code>std::cout</code>)</p>
+<h3 id="variablen-datentypen">Variablen / Datentypen</h3>
+<ul>
+<li><code>&lt;type&gt; &lt;name&gt; {&lt;value&gt;}</code></li>
+<li>Wenn eine Klasse mit <code>const</code> initialisiert wird, dürfen darauf nur Member-Funktionen aufgerufen werden, die <code>const</code> sind (<code>void helloWorld() const {...}</code>)</li>
+<li><code>constexpr</code> berechnet den Wert zu Compilezeit: <code>double constexpr pi{3.14}</code></li>
+<li><strong>Immer <code>const</code> verwenden wenn möglich!</strong></li>
+<li>Variablendefinitionen "close to use"</li>
+<li><code>bool</code> und <code>char</code> sind im Hintergrund Integers</li>
+<li><code>string</code> und <code>vector</code> sind in der Standardbibliothek und müssen importiert werden</li>
+<li>Länge von int, long, etc sind nicht fix definiert (nur short &lt; int &lt; long &lt; long long)</li>
+<li>Gleitkommazahlen sind <code>double</code> wenn nicht explizit angegeben</li>
+<li>String-Literale sind char-Arrays (nicht <code>std::string</code>). Umwandlung mit <code>"string"s</code> mit <code>using namespace std::literals</code></li>
+<li><code>R"&lt;string&gt;"</code> sind Raw-Strings. Zeichen müssen nicht escaped werden (wie <code>@""</code> in C#)</li>
+<li>Alles != 0 -&gt; true, 0 -&gt; false</li>
+<li>Float nur verwenden, wenn Speicher knapp ist</li>
+<li>NaN ist ungleich jeder Zahl</li>
+<li>Strings (std::string) sind mutable, können also verändert werden</li>
+<li>Argumente werden normalerweise "by-value" übergeben. Für "by-reference" als Argument ein <code>&amp;</code> vor den Namen setzen</li>
+<li>Folie 20: Reihenfolge der Aufrufe in den Funktionsargumenten ist nicht definiert (welches <code>inputName()</code> hier zuerst ausgeführt wird)</li>
+<li>Streams: Wenn ein stream erst mal "kaputt" geht (!stream.good()) muss er zuerst zurück gesetzt werden mit clear()</li>
+<li><code>&lt;iomanip&gt;</code>: z.B. <code>std::oct</code>: Alle folgenden Zeichen, die in den Stream geschrieben werden, werden als oktal interpretiert</li>
+</ul>
+<h3 id="ubung-2">Übung 2</h3>
+<h4 id="std-library">Std-Library</h4>
+<ul>
+<li><code>std::cin</code>: iostream</li>
+<li><code>std:endl</code>: endl</li>
+<li><code>std::tolower</code>: cctype</li>
+<li><code>std::string</code>: string</li>
+<li><code>std::distance</code>: iterator</li>
+<li><code>std::istream_iterator</code>: iterator</li>
+<li><code>std::size_t</code>: cstddef</li>
+<li><code>std::vector</code>: vector</li>
+</ul>
+<h4 id="types">Types</h4>
+<ul>
+<li>45: int</li>
+<li>0XDULL: unsigned long long 0xd (=13)</li>
+<li>5.75: double 5.57</li>
+<li>.2f: 0.2 float</li>
+<li>"string": char-Array</li>
+<li>'': char</li>
+</ul>
+<h4 id="streams">streams</h4>
+<div class="code"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">{};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;input: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;fail: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">fail</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;eof: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">eof</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;bad: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">bad</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>Wenn man ein Zeichen (keine Zahl eingibt), wird <code>fail()</code> = 1</li>
+<li>Wenn man Enter drückt, wird es ignoriert und weiter auf einen input gewartet</li>
+<li>Whitespace wird ignoriert</li>
+</ul>
+<h2 id="vorlesung-3-simple-sequences">Vorlesung 3 - Simple Sequences</h2>
+<h3 id="vectors">Vectors</h3>
+<ul>
+<li>Wie in Java generischer Datentyp: <code>std::vector&lt;T&gt;</code></li>
+<li>Muss aber nicht "geboxed" werden</li>
+<li>Initialisierung in geschweiften Klammern: <code>std::vector&lt;int&gt; v{1, 2, 3}</code></li>
+<li>Mit Runden Klammern Parameter an den Konstruktor geben: Anzahl Elemente: <code>std::vector&lt;int&gt; v(6)</code> für vector mit Grösse 6</li>
+<li><code>front()</code>: Erstes Element</li>
+<li><code>back()</code>: Letztes Element</li>
+<li>front und back können auch lvalues sein</li>
+<li>vector kann auch wachsen. Mit <code>pushback(x)</code> Element anfügen</li>
+<li><code>begin()</code>, <code>end()</code> etc sind Iteratoren</li>
+<li><code>at(i)</code> gibt das i-te Element zurück, ist aber bounds-checked</li>
+<li>index out of bounds ist undefined behaviour!</li>
+<li><code>size_t</code> ist vorzeichenloser Datentyp, gross genug für indices aller möglichen vectors</li>
+<li>Iteration (einzige sinnvolle for-Schleife)</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="k">const</span> <span class="nl">i</span><span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;element &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Die Laufvariable erhält eine Kopie, sonst per Referenz übergeben: <code>for(auto &amp;i: v)</code></li>
+<li>So const wie möglich (<strong>Prüfungsthema</strong>)</li>
+</ul>
+<h3 id="iterators">Iterators</h3>
+<ul>
+<li>Man braucht immer ein Paar von Iteratoren</li>
+<li>Start Iterator <code>begin()</code> mit End-Iterator <code>end()</code> vergleichen. Wenn gleich, ist es <em>hinter</em> dem Ende</li>
+<li>Zugriff mit <code>*iterator</code></li>
+<li>mit <code>cbegin()</code> und <code>cend()</code> ist der Wert const</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span><span class="o">=</span><span class="n">cbegin</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">cend</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Mit <code>rend()</code> und <code>rbegin()</code> rückwärts iterieren (aber auch jeweils inkrementieren!)</li>
+<li>Für Schleifen grundsätzlich algorithms verwenden</li>
+<li>containers ausgeben mit <code>ostream_iterator</code></li>
+<li>Iterator um einem Array zu erweitern: <code>back_inserter(v)</code></li>
+</ul>
+<h3 id="algorithms">Algorithms</h3>
+<ul>
+<li>Bsp Leerzeichen zählen: <code>count(begin(s), end(s), ' ')</code></li>
+<li><code>distance(b, e)</code> gibt Distanz zwischen zwei iteratoren</li>
+</ul>
+<h3 id="lambdas">Lambdas</h3>
+<ul>
+<li><code>for_each(b, e, fn)</code> mit fn als Lambda oder funktionsname</li>
+<li><code>[] (parameters)-&gt;return_type{statements}</code></li>
+<li>return type und runde Klammer sind optional. <code>[]{}</code> ist eine gültige Lambda Expression</li>
+<li>Aufruf mit runden Klammern: bsp. <code>[]{}()</code></li>
+<li><code>auto</code> als Parameter-Typ erlaubt (im Gegensatz zu normalen Funktionen)</li>
+<li>Lambda-Funktion kann auch in eine Variable geschrieben werden: <code>auto l = []{}; l();</code></li>
+<li><code>[]</code> wird für Capture verwendet. Was in den Klammern definiert ist, ist auch ausserhalb des Lambda-Scopes noch gültig. Referenz mit <code>&amp;</code> angeben</li>
+</ul>
+<h3 id="iterators-for-io">Iterators for IO</h3>
+<ul>
+<li><code>ostream_iterator&lt;T&gt;{std::out, ", "}</code> gibt Werte auf <code>std::out</code> mit Trennzeichen <code>,</code> aus</li>
+<li><code>istream_iterator&lt;T&gt;{}</code> wird als Enditerator beim Input verwendet</li>
+<li>type alias: <code>using name=type;</code>, dann kann ein Alias für den Type verwendet werden</li>
+<li><code>ostream_iterator</code> und <code>istream_iterator</code> benutzt <code>&lt;&lt;</code> und <code>&gt;&gt;</code> für Ein- und Ausgabe</li>
+<li>Normalerweise werden Leerzeichen ignoriert</li>
+<li>für char-Types gibt es dafür <code>istreambuf_iterator</code>. Einlesen mit <code>istream::get()</code></li>
+</ul>
+<hr />
+<h2 id="vorlesung-4-functions">Vorlesung 4 - Functions</h2>
+<ul>
+<li>Gute Funktion:<ul>
+<li>Macht nur etwas</li>
+<li>Möglichst wenig Parameter</li>
+<li>Garantiertes Resultat</li>
+</ul>
+</li>
+<li>Lambdas<ul>
+<li>Funktion (oder Lambda) als Parameter übergeben</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">function</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nl">std</span><span class="p">:</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">function</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// main</span>
+<span class="k">auto</span> <span class="k">const</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="n">foo</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
+</pre></div>
+
+
+<div class="code"><pre><span></span>- Scopes werden mit `{}` definiert
+- Nach dem `}` wird aufgeräumt, auch Objekte!
+</pre></div>
+
+
+<ul>
+<li>Namespaces<ul>
+<li>namespace grenzt ein Scope ein</li>
+<li><code>std::</code> ist Namespace-Prefix</li>
+<li>Globaler Namespace ist unter <code>::</code></li>
+<li>Definition mit <code>namespace myNamespace{..}</code></li>
+<li>Namespace mit gleichem Name kann mehrmals "geöffnet" werden. Er wird dann erweitert;</li>
+<li>"Importieren" (ohne Prefix benutzen) mit <code>using myNamespace;</code></li>
+<li>Alias mit <code>using str=std::string; str t{"myString"};</code></li>
+<li>Namespace ohne Namensangabe ist anonym. Braucht man, um eigene Funktionen zu "verstecken" und ist nicht von anderen Files aufrufbar</li>
+</ul>
+</li>
+<li>Referenzen<ul>
+<li>Achtung, wenn Referenz noch benutzt wird, aber die referenzierte Variable nicht mehr existiert! -&gt; undefined behaviour</li>
+<li>Wenn eine referenz <code>const</code> wird, darf die variable darunter auch nicht mehr verändert werden</li>
+<li><code>&amp;var</code> ist <em>lvalue</em>-Referenz</li>
+<li>Referenzen zurück geben<ul>
+<li>Für chaining nützlich, wenn Parameter schon ref ist</li>
+<li>Niemals referenz auf lokale variable zurück geben, nicht mehr gültig!</li>
+</ul>
+</li>
+<li>Streams by value kopieren mit rvalue-Referenzen (<code>&amp;&amp;</code>)</li>
+<li><code>&amp;&amp;</code> "saugt" den Wert heraus, ist im Original (caller) dann nicht mehr verwendbar</li>
+</ul>
+</li>
+<li>Overloading wie in Java, return-type wird nicht beachtet</li>
+<li>Default Arguments wie in C# (ist ein impliziter overload) und muss im Header-File definiert sein</li>
+<li>Funktionen als Parameter: <code>void func(double x, double f(double)) {...}</code></li>
+<li>Error-Handling<ul>
+<li>z.B. zusätzliches funktionsargument per referenz mitgeben (z.B. boolean)</li>
+<li>oder komplizierterer Rückgabewert</li>
+<li>Am besten: Exception</li>
+<li>Ignorieren des Fehlers (-&gt; undefined behaviour) kann Sinn machen, wenn es schnell sein muss (Aufrufer muss dann Preconditions erfüllen)</li>
+<li>exceptions<ul>
+<li>Mit <code>throw</code> kann jeder (kopierbare) typ geworfen werden</li>
+<li>Per default keine meta-infos wie stacktrace</li>
+<li><code>try {...} catch (type const &amp;e) {...}</code></li>
+<li>Catchen immer mit Referenz auf exception ("Throw by value, catch by const ref")</li>
+<li>Catch all: <code>catch(...)</code> &lt;- Mit 3 Punkten!</li>
+<li>In <code>stdexcept</code> sind exception types, z.B. <code>std::logic_error</code> und <code>std::runtime_error</code></li>
+<li>Message in Konstruktor mitgeben, im catch mit <code>e.what()</code> aufrufen</li>
+<li>Testen in CUTE mit <code>ASSERT_THROWS(&lt;code&gt;, &lt;expected exception type&gt;)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// throwing code</span>
+    <span class="k">throw</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Exception handling</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<hr />
+<h2 id="vorlesung-5-classes-and-enums">Vorlesung 5 - Classes and Enums</h2>
+<ul>
+<li>Eine gute Klasse hat eine Invariant, eine Garantie über den Status der Klasse</li>
+<li>Klasse wird normalerweise im Header definiert mit <code>Class &lt;name&gt; {...};</code><ul>
+<li>Ein Verwender der Klasse muss wissen, wie der Speicher der Klasse aufgebaut ist, darum ist die Klasse mit Members im Header definiert</li>
+<li>Einzelne Sektionen <code>public:</code>, <code>private:</code>, <code>protected:</code></li>
+<li>Bei Klassen sind funktionen implizit private, bei structs public</li>
+</ul>
+</li>
+<li>Konstruktor: <code>Class(value1, value2) : member{value1}, member2{value2}</code><ul>
+<li>In Reihenfolge der Member-Deklaration</li>
+</ul>
+</li>
+<li>Kopier-Konstruktor: Wird dann ausgeführt, wenn einer instanzierung der eigene Typ als argument mitgegeben wird: <code>Date d2{d1}</code><ul>
+<li>Ist implizit verfügbar: <code>Date(Date const &amp;)</code></li>
+</ul>
+</li>
+<li>Move-Konstruktor ebenfalls implizit vorhanden</li>
+<li><code>explicit Date(std::string const &amp;)</code>, um dem Konstruktor einen anderen Datentyp mitzugeben, um sie in den Typ zu verwandeln</li>
+<li>Destruktor: <code>~Date();</code> ist implizit vorhanden, sollte selten explizit implementiert werden. Wird beim Aufräumen aufgerufen</li>
+<li>Vererbung mit <code>class Sub : public Base {...};</code> angeben<ul>
+<li>Folie 19: onyInBase ist private</li>
+<li>Wenn <code>private</code> geerbt wird, kann man in Sub auf die private Member von Base zugreifen, aber nicht ausserhalb von Sub</li>
+<li>Mehrfachvererbung möglich</li>
+</ul>
+</li>
+<li>Implementierung: Jeweils <code>&lt;type&gt;::&lt;function&gt; {...}</code></li>
+<li>Statische Funktionen aufrufen mit <code>type::function</code></li>
+<li><code>const</code> Funktionen können keine Klassen-Felder verändern</li>
+<li>Im Konstruktor prüfen, ob die Daten (z.B. das Datum) gültig ist<ul>
+<li>Establishes invariant</li>
+</ul>
+</li>
+<li>Konstruktoren delegieren: <code>Date::Date() : Date{1980, 1, 1}</code> wie <code>this()</code> in Java</li>
+<li>member-Funktionen darf invarianz nicht kaputt machen</li>
+<li>Expliziter Zugriff auf Felder mit <code>this-&gt;&lt;member&gt;</code></li>
+<li>Static Functions brauchen keine static-Deklartion in der Implementierung<ul>
+<li>Können nicht <code>const</code> sein</li>
+</ul>
+</li>
+<li><code>static const</code>-Felder können direkt im Header initialisiert werden</li>
+<li>Operator-Overloading<ul>
+<li><code>&lt;returntype&gt; operator&lt;op&gt; (&lt;parameters&gt;)</code></li>
+<li>Ein Parameter für unäre Operatoren, zwei für binäre</li>
+<li>Ausnahme: inkrement, dekrement prefix nimmt zwei parameter, um prefix und suffix zu unterscheiden</li>
+<li>Wenn overloading im header-File implementiert wird, mit <code>inline</code> deklarieren</li>
+<li>Problem mit "free" Operator (ausserhalb der Klasse): Kein Zugriff auf private Members</li>
+<li>Alternative: Operator Overloading als Member in die Klasse hinein nehmen. Nur noch 1 Parameter für right-hand-side (linke Seite ist this-Objekt). Ist implizit <code>inline</code></li>
+<li><code>std::tie()</code> vergleicht komponentenweise zwei Elemente</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="kt">bool</span> <span class="n">Date</span><span class="o">::</span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="n">Date</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span> <span class="o">&lt;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">year</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">month</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">day</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Mit boost kann man z.B. <code>&lt;</code> implementieren, und bekommt dann <code>&gt;, &lt;= und &gt;=</code> (Erben von <code>boost::less_than_comparable&lt;myType&gt;</code>)</li>
+<li><code>&lt;&lt;</code> überschreiben für Ausgabe<ul>
+<li>Problem: in Member-Funktion ist das linke Argument vorgegeben mit <code>this</code>, dann müsste der Stream rechts von <code>&lt;&lt;</code> sein</li>
+<li>Lösung: Hilfsfunktion <code>print()</code> in der Klasse, die von freier Funktion aufgerufen wird</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">class</span> <span class="nc">Date</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">year</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;/&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">month</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;/&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">day</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="kr">inline</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="n">Date</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">date</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">os</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li><code>inline</code>, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</li>
+</ul>
+<hr />
+<h2 id="vorlesung-6-overloading-enums">Vorlesung 6 - Overloading / Enums</h2>
+<ul>
+<li><code>read()</code>: Wenn Parsen fehlschlägt, wird das Fail-bit gesetzt</li>
+<li>Alle objekte mit <code>{}</code> initialisieren (auch mit leeren Konstruktor)</li>
+<li>Default-Initialisierungen von Member Variablen können direkt im Header angegeben werden, der default-Konstruktor kann leergelassen werden</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">class</span> <span class="nc">Date</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="n">year</span><span class="p">{</span><span class="mi">9999</span><span class="p">},</span> <span class="n">month</span><span class="p">{</span><span class="mi">12</span><span class="p">},</span> <span class="n">day</span><span class="p">{</span><span class="mi">31</span><span class="p">};</span>
+<span class="p">...</span> <span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Im Header <code>Date() = default;</code> schreiben, um einen Default-Konstruktor zu erstellen, auch wenn es explizite Konstruktoren gibt</li>
+<li>Implizite Konstruktoren (z.B. copy / move) können gelöscht werden: <code>Date() = delete;</code></li>
+<li>Argument Dependent Lookup: Wenn ein Member in einem Namespace mit einer Klasse ist und dessen Argumente vom Typ dieser Klasse sind, kann der Compiler beim Aufruf auch ohne namespace-prefix entscheiden, welche Funktion gemeint ist.<ul>
+<li>z.B. <code>copy(begin(v)), end(v), ..)</code>. v ist ein Vektor aus std, deshalb wird begin() auch von dort aufgerufen, und wiederum <code>copy()</code> genauso</li>
+</ul>
+</li>
+</ul>
+<h3 id="enums">Enums</h3>
+<ul>
+<li>unscoped enum</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">enum</span> <span class="n">day_of_week</span> <span class="p">{</span>
+<span class="n">Mon</span><span class="p">,</span> <span class="n">Tue</span><span class="p">,</span> <span class="n">Wed</span><span class="p">,</span> <span class="n">Thu</span><span class="p">,</span> <span class="n">Fri</span><span class="p">,</span> <span class="n">Sat</span><span class="p">,</span> <span class="n">Sun</span>
+<span class="c1">// 0, 1, 2, 3, ...</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<ul>
+<li>Sind im umliegenden Scope direkt verfügbar ("leaken nach aussen")</li>
+<li>scoped enum: Mit <code>enum class day_of_week</code><ul>
+<li>Leaken nicht ausserhalb des Scopes</li>
+</ul>
+</li>
+<li>Enum-Werte können auch explizit deklariert werden (oder doppelt)</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">enum</span> <span class="n">month</span> <span class="p">{</span>
+<span class="n">jan</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">feb</span><span class="p">,</span> <span class="n">mar</span><span class="p">,</span> <span class="n">apr</span><span class="p">,</span> <span class="n">may</span><span class="p">,</span>
+<span class="n">jun</span><span class="p">,</span> <span class="n">jul</span><span class="p">,</span> <span class="n">aug</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">oct</span><span class="p">,</span> <span class="n">nov</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span>
+<span class="n">january</span> <span class="o">=</span> <span class="n">jan</span><span class="p">,</span> <span class="n">february</span><span class="p">,</span> <span class="n">march</span><span class="p">,</span>
+<span class="n">april</span><span class="p">,</span> <span class="n">june</span> <span class="o">=</span> <span class="n">jun</span><span class="p">,</span> <span class="n">july</span><span class="p">,</span> <span class="n">august</span><span class="p">,</span>
+<span class="n">september</span><span class="p">,</span> <span class="n">october</span><span class="p">,</span> <span class="n">november</span><span class="p">,</span>
+<span class="n">december</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<ul>
+<li>Um einen anderen unterliegenden Typ zu verwenden, von diesem erben: <code>enum class my_enum : unsigned char</code></li>
+</ul>
+<hr />
+<h2 id="vorlesung-7-standard-containers">Vorlesung 7 - Standard containers</h2>
+<ul>
+<li>Jeder Container hat Iteratoren für begin() und end(), insert, erase<ul>
+<li>begin zeigt auf das <em>erste</em>, end <em>hinter das letzte</em> Element, d.h bei leerem container ist begin == end</li>
+</ul>
+</li>
+<li>Container können mit einem anderen container constructed werden, dann wird eine <em>Kopie</em> erstellt</li>
+<li>Inhalt kann mit == verglichen werden</li>
+<li><code>std::list&lt;int&gt; l(5,42)</code> erstellt 5 Elemente mit dem Wert 42<ul>
+<li>Runde Klammern, weil sonst Mehrdeutigkeit mit direkter initialisierung <code>{5, 42}</code> (-&gt; zwei Elemente)</li>
+</ul>
+</li>
+<li>container mit Range: <code>std::deque&lt;int&gt; q{begin(v),end(v)}</code></li>
+<li>Iteratoren-Kategorien sind Tags, wie "Marker-Interfaces" in Java (z.B. "cloneable", "serializable")</li>
+<li>Input Iterators können nur einmal auf das aktuelle Element zugreifen (nur lesend)</li>
+<li>Forward Iterator ist ein Input-Iterator, der auch schreibend auf das aktuelle Elemente zugreifen kann</li>
+<li>Bidirektionaler Iterator kann vortwärts und rückwärts iterieren, mehr als einmal pro Element</li>
+<li>Random-Access-Iteratoren sind bidirektional, aber können auch mit <code>[]</code> direkt auf den Index zugreifen</li>
+<li>Output-Iterator ann etwas auf das aktuelle Element <em>schreiben</em>, aber nur einmal</li>
+<li><code>std::advance(iter, n)</code> springt um n Positionen weiter<ul>
+<li><code>next()</code> funktioniert gleich, gibt aber den Iterator zurück</li>
+</ul>
+</li>
+<li><code>auto</code> für iteratoren-typen verwenden, da return-types oft kompliziert sind</li>
+<li><code>std::list&lt;&gt;</code> ist double-linked-list, <code>std::forward_list</code> single-linked-list</li>
+<li><code>std::array&lt;int,6&gt;</code> für fixe Arrays</li>
+<li><code>std::stack</code> braucht vektor mit beschränktem Interface<ul>
+<li><code>pop()</code> gibt void zurück! (mit <code>top()</code> abfragen)</li>
+</ul>
+</li>
+<li><code>std::queue</code> nutzt dequeue mit limitierter Funktionalität<ul>
+<li>Iteration nicht möglich</li>
+</ul>
+</li>
+</ul>
+<h3 id="associative-containers">Associative Containers</h3>
+<ul>
+<li>Sind sortiert</li>
+<li><code>std::set</code> speichert Elemente sortiert<ul>
+<li>mit <code>count(el)</code> prüfen, ob Element in Set ist (gibt nur 0 oder 1 zurück)</li>
+</ul>
+</li>
+<li><code>std::map&lt;&gt;</code> speichert key-value-pairs sortiert<ul>
+<li>Zugriff mit Typ <code>std::pair&lt;key,value&gt;</code>, mit <code>first()</code> und <code>second()</code> (<code>auto</code> verwenden)</li>
+<li>Bei Zugriff auf Key, der nicht in der Map existiert, wird ein neues Element eingefügt mit Default-Value (bei vector wäre das undef. beh.!!)</li>
+</ul>
+</li>
+<li><code>std::multiset</code> erlaubt mehrere gleiche Keys<ul>
+<li><code>equal_range</code> gibt paar von upper und lower bound zurück</li>
+</ul>
+</li>
+<li><code>unordered_set</code> (und "_map") ist Hash-Set, aber hashcode ist nur für default types (z.B. strings) definiert<ul>
+<li>Nicht sortiert</li>
+</ul>
+</li>
+<li>Bsp Folie 33:<ul>
+<li><code>istreambuf_iterator</code> überspring whitespace nicht!</li>
+<li><code>remove_copy_if</code> kopiert streams, aber ohne Elemente, die Bedingung erfüllen</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-8-algorithms">Vorlesung 8 - Algorithms</h2>
+<ul>
+<li><code>&lt;algorithm&gt;</code> für die meisten Algorithmen, <code>&lt;numeric&gt;</code> für ein paar numerische</li>
+<li>Streams müssen mit einem <code>istream_iterator</code> bzw. <code>ostream_iterator</code> gewrappt werden, um sie mit Algorithmen zu verwenden<ul>
+<li>Default-konstruierter <code>_iterator</code> ist immer EOF</li>
+</ul>
+</li>
+<li>Functor: Klasse, die Call-Operator <code>()</code> anbietet<ul>
+<li>Instanz davon kann z.B. einem <code>for_each</code> mitgegeben werden, oder aufgerufen mit <code>&lt;instance&gt;()</code></li>
+<li>Lambdas sind intern mit Functors gelöst</li>
+</ul>
+</li>
+<li>Transform mappt Elemente von ein oder zwei ranges (gleiche Grösse)</li>
+<li><code>remove</code> entfernt nicht Elemente, sondern schiebt nur die Werte nach vorne und gibt einen Iterator zurück, der auf das Ende der neuen Range zeigt<ul>
+<li>Der hintere Teil darf dann nicht mehr verwendet werden. Dieser kann entfernt werden mit <code>vec.erase(removed, vec.end())</code>, wobei <code>removed</code> der returnierte Iterator ist</li>
+</ul>
+</li>
+<li>Viele Algorithmen gibt es auch mit <code>_if</code>, dem ein Predicate mitgegeben werden kann. Z.B. <code>count_if</code>, <code>replace_if</code>, <code>remove_if</code> etc.</li>
+<li>Wenn man keinen End-Iterator hat, kann man mit <code>_n</code> algorithmen eine konkrete Zahl angeben</li>
+<li>Pitfalls<ul>
+<li>Beim Kopieren in eine neue Sequenz muss dort genügend Platz frei sein, ein vector wird nicht selbst vergrössert!<ul>
+<li>Besser <code>back_inserter</code> oder <code>front_inserter</code> verwenden statt v.begin() für den neuen vector, dann werden die einzelnen Elemente gepusht</li>
+</ul>
+</li>
+<li>Wird während der Iteration z.B. push_back aufgerufen, wird der Iterator invalidiert (wie "concurrent modification exception" in java)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-9-functors-lambdas">Vorlesung 9 - Functors / Lambdas</h2>
+<ul>
+<li>Functor kann z.B. für for_each verwendet werden (wird dann für jedes Element aufgerufen)</li>
+<li>Vorteil: Überladener <code>()</code> Operator kann auf Member-Variablen der Instanz zugreifen</li>
+</ul>
+<div class="code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">3.3</span><span class="p">,</span><span class="mf">4.7</span><span class="p">};</span>
+<span class="k">auto</span> <span class="k">const</span> <span class="n">res</span><span class="o">=</span><span class="n">for_each</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">averager</span><span class="p">{});</span>
+</pre></div>
+
+
+<ul>
+<li><code>generate(firstIt, lastIt, Generator)</code>:<ul>
+<li>Generator ist ein objekt (oder lambda), das ein Wert zurückgeben muss, der dem iterator zugewiesen werden kann</li>
+<li>Generator kann auch ein functor sein (d.h darauf der call-Parameter überschreiben)</li>
+</ul>
+</li>
+<li>Lambda kann einer Variable zugewiesen werden mit <code>auto</code><ul>
+<li>Intern wird der Typ vom Compiler definiert (nicht vom Standard vorgeschrieben)</li>
+<li>Return-Type kann mit <code>[]()-&gt;char{}</code> manuell angegeben werden, ist aber nicht nötig</li>
+</ul>
+</li>
+<li>capture mit <code>[=]</code>: Kopie in Lamba</li>
+<li>Capture mit <code>[&amp;]</code>: Referenz auf variable</li>
+<li>Mit <code>[x=value]</code> ist im Lambda-Body die Variable <code>x</code> verfügbar (gleich wie man die variable im Body deklarieren würde)</li>
+<li><code>[this]</code> capture in Member-Funktion: <code>this</code> ist ein Pointer!<ul>
+<li><code>this-&gt;var</code></li>
+<li><code>(*this).var</code></li>
+<li>Wenn man <code>this</code> per copy capturen, bekommt man nur den Pointer, der ist const (siehe unten), aber man kann weiterhin member-Variablen verändern!</li>
+</ul>
+</li>
+<li>Lambda mit <code>[]() mutable {}</code><ul>
+<li>Per default sind variablen mit <code>[=]</code> gecaptured nicht veränderbar</li>
+<li>Mit <code>mutable</code> sind sie veränderbar</li>
+<li>Gilt nicht bei variablen, die per Referenz <code>[&amp;]</code> gecaptured werden</li>
+</ul>
+</li>
+<li>Lambdas sind intern meist functors</li>
+<li>Für einfache Funktionen gibt es Standard-Funktoren wie <code>std::negate&lt;T&gt;</code> oder <code>std::greater&lt;T&gt;</code></li>
+<li>Funktionen können andere Funktionen als Parameter entgegen nehmen <code>foo(double bar(int))</code><ul>
+<li>Beim Aufruf kann ein Funktionsname mitgegeben werden, oder ein Lambda</li>
+<li>Geht aber nicht mit Funktoren</li>
+<li>Kann mit templates gemacht werden (nächste Vorlesung)</li>
+<li>Oder als parameter in der Funktion den typ <code>std::function&lt;double(int)&gt;</code> verwenden</li>
+</ul>
+</li>
+<li>Eine <code>std::function&lt;&gt;</code> kann in ein bool konvertiert werden und gibt zurück, ob eine gültige Funktion darin ist</li>
+</ul>
+<hr />
+<h2 id="vorlesung-10-function-templates">Vorlesung 10 - Function Templates</h2>
+<ul>
+<li>Generische Funktionen</li>
+<li>templates sind zu compile-time polymorph</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">namespace</span> <span class="n">MyMin</span><span class="p">{</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">min</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span><span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span> <span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Parameter können Typen sein oder templates (nächste Woche) - oder ganzzahlige Werte (cpp advanced)</li>
+<li><code>typename</code> legt Parameter als Type-Parameter fest (synonym <code>class</code> - deprecated)</li>
+<li>Parameter werden beim Aufruf vom Compiler automatisch ersetzt (vgl. <code>auto</code> keyword) - "template argument deduction"</li>
+<li>Body der Template-Funktion immer im header definieren</li>
+<li>Referenz als Rückgabetyp, weil vom Aufruf die Referenz garantiert nicht "dangling" ist</li>
+<li>Folie 8<ul>
+<li>Namespace explizit angeben, weil Argument <code>std::string</code> -&gt; Compiler sucht zuerst in <code>std</code> nach <code>min()</code></li>
+<li><code>min("Pete", "Toni")</code>: Literals sind vom Typ <code>char[5]</code>, d.h. die beiden müssen gleich lang sein, denn <code>char[6]</code> ist ein anderer "Typ"!</li>
+</ul>
+</li>
+<li>Argumente können auch explizit angegeben werden mit <code>min&lt;type&gt;()</code>. <code>min&lt;std::string&gt;("Peter", "Toni")</code> funktioniert.<ul>
+<li>Es müssen nicht alle Parameter explizit angegeben werden, die restlichen werden dann impliziert</li>
+</ul>
+</li>
+<li>Implizite Anforderungen an Template-Parameter sind <em>Concepts</em></li>
+<li>Bei <code>min()</code> <ul>
+<li>darf T nicht <code>void</code> sein (wegen Rückgabewert Referenz ist)</li>
+<li>Operator &lt; muss definiert sein (und bool zurückgeben)</li>
+</ul>
+</li>
+<li>Concepts sind immer implizit (bis übernächsten C++ Standard)</li>
+<li>Bei <code>max()</code> (Folie 11) muss T kopierbar / move-bar sein, da Rückgabewert keine Referenz ist</li>
+<li>Folie 14: Dies ist problematisch, wenn man null-pointer übergibt -&gt; Undef. Beh.</li>
+<li>Templates kann man auch overloaden - Der spezialisierteste overload wird ausgeführt<ul>
+<li>Gefährlich, weil schnell ambiguities entstehen</li>
+</ul>
+</li>
+<li>Variadic Templates: Type-safe varying number of arguments</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="n">ARGS</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">variadic</span><span class="p">(</span><span class="n">ARGS</span><span class="p">...</span><span class="n">args</span><span class="p">){</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">,</span><span class="n">args</span><span class="p">...);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Beispiel <code>println()</code><ul>
+<li>Wenn <code>tail...</code> leer ist, wird per overloading resolution die <code>println()</code> funktion mit einem Argument gewählt -&gt; Rekursions-Basecase</li>
+</ul>
+</li>
+<li>Template-Parameter können default-Werte annehmen: <code>template &lt;typename T, typename U=T&gt;</code></li>
+</ul>
+<hr />
+<h2 id="vorlesung-11-testat-2-review">Vorlesung 11 - Testat 2 Review</h2>
+<h3 id="headerfile">Headerfile</h3>
+<div class="code"><pre><span></span><span class="k">class</span> <span class="nc">Word</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">bool</span> <span class="nf">isValidWord</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Word</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="k">explicit</span> <span class="nf">Word</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">read</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="n">is</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">Word</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="kr">inline</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="k">operator</span> <span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="n">Word</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">os</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">inline</span> <span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="k">operator</span> <span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="n">is</span><span class="p">,</span> <span class="n">Word</span> <span class="o">&amp;</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">is</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">is</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<ul>
+<li>Im Headerfile grundsätzlich immer ein Namespace definieren</li>
+<li>Default-Konstruktor mit <code>Word() = default</code>, nicht explizit implementieren</li>
+<li>Konstruktor mit einem Parameter <code>explicit</code> deklarieren, damit der Compiler keine (impliziten) Konvertierungen macht</li>
+<li>Faustregel: Nicht-Primitive Datentypen (z.B. <code>std::string</code>) immer per (const) Reference übergeben, damit keine Kopie erstellt werden muss</li>
+<li>Einen Operator als Member implementieren</li>
+<li>Wenn die Implementation kurz ist und keine Dependencies braucht, im Header implementieren</li>
+<li>Member-Funktionen in Klassen sind implizit <code>inline</code></li>
+</ul>
+<h3 id="includes">Includes</h3>
+<ul>
+<li>Je nach compiler sind include abhängigkeiten unterschiedlich. Daher immer explzit!</li>
+<li><code>&lt;iosfwd&gt;</code> für <code>istream</code> und <code>ostream</code> im header, wenn keine streams instanziert werden (nur vorwärtsdeklartiert)</li>
+</ul>
+<h3 id="implementation">Implementation</h3>
+<ul>
+<li>Wenn ein Field const ist, kann es im Konstruktor nur über Initalizer gesetzt werden, nicht im body</li>
+<li>Reihenfolge in der Klasse gibt an, in welcher Reihenfolge fields initialisiert werden</li>
+<li>In Schlaufe auf <code>is.good()</code> prüfen, statt <code>while(is)</code>, da die bool-Konvertierung auch noch true zurück gibt, wenn <code>eof</code> erreicht ist. <code>good()</code> gibt nur true, wenn noch gelesen werden kann</li>
+</ul>
+<hr />
+<h2 id="vorlesung-12-class-templates">Vorlesung 12 - Class Templates</h2>
+<ul>
+<li>Bei Klassen müssen Template-Parameter immer explizit angegeben werden (nicht wie bei Funktionen)</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Sack</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>Folie 5<ul>
+<li><code>size_type</code> ist unter <code>std::vector</code> als Alias definiert für den Typ der Grösse (hier unsigned int)</li>
+<li><code>typename</code>: Typname ist abhängig vom Template, deshalb wird hiermit explizit gesagt, dass <code>size_type</code> ein Typ ist</li>
+</ul>
+</li>
+<li>Concept von <code>T</code> in <code>Sack</code>:<ul>
+<li><code>T</code> muss in <code>vector&lt;T&gt;</code> passen (CopyAssignable, CopyConstructable, ... - In Standard)</li>
+<li><code>T</code> darf nicht <code>void</code> sein</li>
+<li><code>T</code> muss kopierbar sein (wegen Rückgabe bei <code>getOut()</code> und Copy-constructor in dessen Implementierung - BTW, copy-Constructor wird vom Compiler generiert)</li>
+</ul>
+</li>
+<li>Member, die ausserhalb der Klasse implementiert sind, mit <code>inline</code> kennzeichnen<ul>
+<li>Besser direkt in Klasse implementieren</li>
+</ul>
+</li>
+<li>Template-Klassen immer in Headerfiles komplett definieren!</li>
+<li>Bei verebten Klassen <code>this-&gt;</code> verwenden, um auf vererbte Member der Parent-Klasse zu verwenden<ul>
+<li>Sonst könnte einen woanders definierten Member genommen werden</li>
+</ul>
+</li>
+<li>Template Specialization: Quasi Overloading von Templates<ul>
+<li>Teilweise oder komplett spezialisiert</li>
+<li>Template-Parameter leer lassen für komplette Spezialisierung</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">Sack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="p">{</span>
+    <span class="o">~</span><span class="n">Sack</span><span class="p">()</span><span class="o">=</span><span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<ul>
+<li>Verhindert, dass <code>Sack</code> mit Template-Argument von Pointer erstellt wird<ul>
+<li>"Overloaded" das Standardverhalten</li>
+<li>Der Destructor wird gelöscht</li>
+<li>Dadurch kann es keinen Constructor geben -&gt; Objekt kann nicht instanziiert werden</li>
+</ul>
+</li>
+<li><em>Folie 20 ff. relevant für Prüfung!</em></li>
+<li>Constructor mit Initializer-List: Typ <code>std::initializer_list&lt;T&gt;</code> verwenden</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">container</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">Sack</span>
+<span class="p">{};</span>
+</pre></div>
+
+
+<ul>
+<li>Mehrere Template-Argumente <code>typename...</code>, weil <code>vector</code> zwei Template-Argumente nimmt (aber für zweites gibt es default-Wert)</li>
+<li><code>decltype(auto)</code> impliziert Rückgabewert</li>
+<li>Wenn von einem Template geerbt wird, müssen die Template-Parameter der Subklasse und Basisklasse übereinstimmen!</li>
+</ul>
+<hr />
+<h2 id="vorlesung-13-main-arrays-pointer">Vorlesung 13 - main, Arrays, Pointer</h2>
+<ul>
+<li>Bei <code>std::array</code> wird die Grösse immer als zweites Template angegeben</li>
+<li>In C wird bei Aufruf einer Funktion <code>int sum(int a[])</code> ein Pointer auf das erste Element mitgegeben. Die Funktion kennt nicht die Grösse des Arrays! Darum wird typischerweise eine Grösse mitgegeben</li>
+<li>Möglichkeit mit Templates: Grösse wird automatisch deduziert</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">n</span><span class="o">&gt;</span>
+<span class="kt">int</span> <span class="n">sum</span><span class="p">(</span><span class="kt">int</span> <span class="k">const</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">)[</span><span class="n">n</span><span class="p">]);</span>
+</pre></div>
+
+
+<ul>
+<li>Bindung von <code>&amp;</code> stärker als <code>[]</code>, darum die Klammern</li>
+</ul>
+<h3 id="main-function">Main-Function</h3>
+<ul>
+<li><code>int main(int argc, char *argv[])</code></li>
+<li><code>argv</code> ist array von char-Pointer -&gt; Quasi Array von strings<ul>
+<li>Andere Schreibweise: <code>char **argv</code></li>
+<li>Alle Char-Sequzenzen sind mit <code>\0</code>-terminated</li>
+</ul>
+</li>
+<li><code>argc</code> ist Argument Counter (wegen C legacy)</li>
+<li>Char-Sequenzen können implizit nach <code>std::string</code> konvertiert werden</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Don't use pointers! Use <code>std::string</code>, <code>std::vector</code> and <code>std::array</code></p>
+</div>
+<h3 id="pointer-als-iteratoren">Pointer als Iteratoren</h3>
+<ul>
+<li>Pointer verhalten sich wie Random access Iteratoren (<code>begin()</code>)</li>
+<li><code>argv</code> ist Iterator auf erstes Argument (= Programmname), <code>argv + argc</code> hinter das letzte (wie <code>end()</code>)</li>
+</ul>
+<h3 id="dynamic-heap-memory-management">Dynamic Heap Memory Management</h3>
+<ul>
+<li><code>new</code> und <code>delete</code> nie selbst verwenden!<ul>
+<li>Gibt schnell memory leaks</li>
+<li><code>new</code> erstellt Pointer und <code>delete</code> gibt es wieder frei</li>
+</ul>
+</li>
+<li>Besser: <code>std::unique_ptr</code> und <code>std::shared_ptr</code><ul>
+<li>Factory-Funktion <code>std::make_unique&lt;T&gt;</code> und <code>std::make_shared&lt;T&gt;</code></li>
+<li>Wird verwendet wie normaler Pointer - <code>*ptr</code></li>
+<li><code>uniqe_ptr</code> ist nicht kopierbar (gibt es nur 1x)</li>
+<li><code>shard_ptr</code> kann es mehrfach geben (aufwändiger aufzuräumen), ähnlich zu Java</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="k">auto</span> <span class="n">sp</span> <span class="o">=</span> <span class="n">make_shared</span><span class="p">(</span><span class="n">X</span><span class="p">)();</span>
+<span class="n">foo</span><span class="p">(</span><span class="n">X</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{...}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">sp</span><span class="p">)</span> <span class="n">foo</span><span class="p">(</span><span class="o">*</span><span class="n">sp</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>check, ob Pointer noch gültig ist</li>
+<li>Vorsicht vor zirkulären Referenzen! Werden nicht abgeräumt<ul>
+<li><code>weak_ptr</code> aus shared pointer erzeugen, er zählt aber den shared Pointer nicht hoch</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="vorlesung-14-inheritance-dynamic-polymorphism">Vorlesung 14 - Inheritance / Dynamic Polymorphism</h2>
+<p>Dazu kommt Prüfungsfrage!!</p>
+<h3 id="inheritance">Inheritance</h3>
+<ul>
+<li>Vererbung ist normalerweise private -&gt; man will meist public!</li>
+<li><code>class Subclass : public Baseclass</code><ul>
+<li>Ausser bei structs: <code>struct Substruct : Basestruct</code></li>
+</ul>
+</li>
+<li>Per default werden die Konstruktoren nicht automatisch vererbt<ul>
+<li>mit <code>using Baseclass::Baseclass;</code> Konstruktoren erben</li>
+</ul>
+</li>
+<li>Typdefinitionen immer mit Semikolon abschliessen<ul>
+<li>Darum <code>class MyClass {};</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="dynamic-dispatch">Dynamic Dispatch</h4>
+<ul>
+<li>Grundsätzlich wie in Java</li>
+<li>Damit das funktioniert, müssen Methdoen, die überschrieben werden, mit <code>virtual</code> deklariert werden</li>
+<li>Sonst wird immer Funktion im deklarierten Typ aufgerufen</li>
+<li>Damit Compiler dynamic dispatch machen kann</li>
+<li>In Subklasse <code>override</code> explizit angeben, damit Compiler Fehler wirft, falls nicht überschrieben werden kann (nicht virtual oder andere Signatur)</li>
+<li>Referenz auf Klasse hat einen (versteckten) Pointer auf "vtable" mit den Informationen der überschriebenen Funktionen</li>
+<li>
+<p>Virtuelle Members, die mit <code>virtual fn() = 0</code> definiert sind, sind abstract -&gt; Klasse ist abstract</p>
+</li>
+<li>
+<p>Die Basis-Klasse muss vor den eigenen Member-Variablen initialisiert werden</p>
+<ul>
+<li><code>DerivedWithCtor(int i) : Base{i}, mymember{i} {}</code></li>
+</ul>
+</li>
+<li>Man kann auch an einen eigenen Konstruktor delegieren<ul>
+<li><code>DerivedWithCtor(int i) : DerivedWithCtor{i,i} {}</code></li>
+</ul>
+</li>
+<li>public, private und protected wie in Java</li>
+<li>Gleichnamige Funktionen von Basisklasse in Subklasse überdecken diejenigen in der Basisklasse! (Member Hiding)<ul>
+<li>Auch wenn Parameter unterschiedlich</li>
+<li>Lösung: In Subklasse mit <code>using</code> Funktion "importieren", dann ist es wie ein normaler Overload</li>
+</ul>
+</li>
+<li>Overloading und Templates (compile-time) sind oft effizienter als dynamic polymorphism</li>
+<li>Zuweisungen immer mit Referenzen, sonst wird eine Kopie der Basisklasse erstellt und die Subklasse geht verloren (slicing)</li>
+<li>Inheritance can be bad<ul>
+<li>Höchste Kopplung zwischen Klassen</li>
+</ul>
+</li>
+<li>
+<p>Value-Variablen von Typen haben kein dynamic dispatch, dafür immer Referenzen verwenden</p>
+</li>
+<li>
+<p>Bad Example</p>
+<ul>
+<li>Output:</li>
+</ul>
+</li>
+</ul>
+<div class="code"><pre><span></span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-------</span>
+<span class="c1">// Humminbbird hummingbird;</span>
+<span class="n">animal</span> <span class="n">born</span>
+<span class="n">bird</span> <span class="n">hatched</span>
+<span class="n">humminbird</span> <span class="n">hatched</span>
+<span class="c1">// Bird bird = hummingbird; - Kopie mit slicing</span>
+<span class="c1">// Animal &amp; animal = hummingbird - Referenz auf hummingbird</span>
+<span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">----</span>
+<span class="c1">// humminbird.makeSound();</span>
+<span class="n">beep</span>
+<span class="c1">// bird.makeSound();</span>
+<span class="n">chirp</span> <span class="c1">// Compiler schaut nur auf Typ weil keine Referenz!</span>
+<span class="c1">//animal.makeSound();</span>
+<span class="o">---</span> <span class="c1">// makeSound() ist nicht virtual</span>
+<span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">----</span>
+<span class="c1">//humminbird.move();</span>
+<span class="n">hum</span> <span class="c1">// konkretes Objekt</span>
+<span class="c1">// bird.move();</span>
+<span class="n">fly</span> <span class="c1">// konkretes Objekt</span>
+<span class="c1">// animal.move()</span>
+<span class="n">hum</span> <span class="c1">// ACHTUNG dynamic dispatch, überschriebene Methode Bird::move ist automatisch virtual!!</span>
+<span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">----</span>
+<span class="c1">//Aufruf Destruktoren in umgekehrter Reihenfolge</span>
+<span class="c1">// Animal nur eine Referenz, darum keine Destruktion</span>
+<span class="c1">// Destruktor bird</span>
+<span class="n">bird</span> <span class="n">crashed</span>
+<span class="n">animal</span> <span class="n">died</span>
+<span class="c1">// Destruktor humminbird</span>
+<span class="n">hummingbird</span> <span class="n">died</span>
+<span class="n">bird</span> <span class="n">crashed</span>
+<span class="n">animal</span> <span class="n">died</span>
+</pre></div>
+
+
+<hr />
+<h3 id="exercise-14">Exercise 14</h3>
+<h4 id="theory-questions">Theory questions</h4>
+<ul>
+<li>mit <code>using</code> die <code>process(float)</code> von der Baseklasse einbinden</li>
+<li><code>function()</code> in Baseklasse <code>virtual</code> deklarieren</li>
+<li>Pure virtual member: Die Klasse ist "abstrakt" und kann nicht instanziiert werden (Compiler-Error)</li>
+<li>Shared Pointers verwenden</li>
+</ul>
+<h4 id="understanding-dynamic-polymorphism-and-object-lifetime">Understanding dynamic Polymorphism and Object lifetime</h4>
+<ul>
+<li>Forumtroll ft: forum_troll</li>
+<li>Troll t: troll - slicing!</li>
+<li>Monster m: forum_troll</li>
+</ul>
+<p>Output:</p>
+<div class="code"><pre><span></span><span class="n">a</span> <span class="o">--------</span>
+<span class="n">a</span> <span class="n">monster</span> <span class="n">is</span> <span class="n">bread</span> <span class="c1">// base ctor is always called!</span>
+<span class="n">a</span> <span class="n">troll</span> <span class="n">grows</span> <span class="c1">// base ctor</span>
+<span class="n">not</span> <span class="n">quite</span> <span class="n">a</span> <span class="n">monster</span> <span class="c1">// ft ctor</span>
+<span class="c1">// troll and monster use copy ctors</span>
+<span class="n">b</span> <span class="o">--------</span>
+<span class="n">write</span> <span class="n">stupid</span> <span class="n">things</span> <span class="c1">// ft.attack()</span>
+<span class="n">clubbing</span> <span class="n">kills</span> <span class="n">me</span> <span class="c1">// t.attack(), t.myhealth = 9</span>
+<span class="n">write</span> <span class="n">stupid</span> <span class="n">things</span> <span class="c1">// m.attack() -&gt; ft.attack()</span>
+<span class="n">c</span> <span class="o">--------</span>
+<span class="n">swinging</span> <span class="n">is</span> <span class="n">healthy</span> <span class="c1">// ft.swing_club(), ft.myhealth = 11</span>
+<span class="n">clubbing</span> <span class="n">kills</span> <span class="n">me</span> <span class="c1">// t.swing_club(), t.myhealth = 8</span>
+<span class="n">d</span> <span class="o">--------</span>
+<span class="n">troll</span><span class="o">-</span><span class="nl">health</span><span class="p">:</span><span class="mi">11</span> <span class="c1">// ft.health()</span>
+<span class="n">troll</span><span class="o">-</span><span class="nl">health</span><span class="p">:</span><span class="mi">8</span> <span class="c1">// t.health()</span>
+<span class="n">immortal</span><span class="o">?</span> <span class="c1">// m.health() - not virtual</span>
+<span class="n">end</span> <span class="o">------</span>
+<span class="n">troll</span> <span class="n">petrified</span> <span class="c1">// t deconstruct</span>
+<span class="n">monster</span> <span class="n">killed</span>
+<span class="n">troll</span> <span class="n">banned</span> <span class="c1">// ft deconstruct</span>
+<span class="n">troll</span> <span class="n">petrified</span>
+<span class="n">monster</span> <span class="n">killed</span>
+</pre></div>
+
+
+<ul>
+<li>Lessons:<ul>
+<li>Base ctor is always called, no matter if it is declared explicitly like with <code>forum_troll():troll{}</code> or not</li>
+<li>Deconstructor calls the deconstructor of the base class AFTER itself</li>
+</ul>
+</li>
+</ul>
+          <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 Robin Suter &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../bupl/" title="BuPl">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                BuPl
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../englhtw/" title="EnglHTw">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                EnglHTw
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = '';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    
+    
+  </body>
+</html>

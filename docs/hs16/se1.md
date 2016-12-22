@@ -156,13 +156,38 @@
     - Instanziierung mit komplexer Logik in sepparate Klasse auslagern
 
 ### Übung 09
-- *TODO* BILDER EINFÜGEN
-- Strategy Pattern: In Wikipedia ist die Strategie-Klasse ein Interface, im Quiz eine konkrete Klasse
-    - Konkrete Klasse für default implementation. Bei Interface nicht möglich
-- Observer Pattern: Im GOF gibt es ein konkretes Subject, bei Wikipedia nicht. Das concrete Subject ist nötig, da es das effektive Objekt ist, das "observed" wird
+#### Strategy Pattern
+- In Wikipedia ist die Strategie-Klasse ein Interface, im Quiz eine konkrete Klasse
+- Konkrete Klasse für default implementation. Bei Interface nicht möglich
+
+![](img/se1-patterns/strategy_pattern.jpg)
+
+#### Observer Pattern
+- Im GOF gibt es ein konkretes Subject, bei Wikipedia nicht. Das concrete Subject ist nötig, da es das effektive Objekt ist, das "observed" wird
 - MVC geht auch ohne Observer-Pattern: Der Controller kennt das Model und die View. Wenn das Model sich ändert, weiss das der Controller und meldet dies der View. Mit dem Observer Pattern werden die Views über den Observer vom Model benachrichtigt, der Controller muss die View nicht mehr kennen
     - MVC ohne Observer nur mit 1 View oder wenn die Daten "unter" dem Modell nicht verändert werden
+![](img/se1-patterns/observer_pattern.jpg)
 
+#### Singleton Pattern
+![](img/se1-patterns/singleton_pattern.png)
+
+#### Decorator Pattern
+![](img/se1-patterns/decorator_pattern.png)
+
+#### Facade Pattern
+![](img/se1-patterns/facade_pattern.jpg)
+
+#### Command Pattern
+![](img/se1-patterns/command.png)
+
+#### Interpreter Pattern
+![](img/se1-patterns/interpreter-pattern.png)
+
+#### Chain of Responsibility
+![](img/se1-patterns/chain_of_responsibility.png)
+
+#### Absract Factory
+![](img/se1-patterns/abstract_Factory.png)
 ---
 ## Vorlesung 10 - SW-Architektur (1)
 

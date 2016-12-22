@@ -937,13 +937,13 @@
 <hr />
 <h2 id="vorlesung-13-i18n-mvvm">Vorlesung 13 - I18n / MVVM</h2>
 <h3 id="background-threads">Background Threads</h3>
-<div class="code"><pre><span></span>Task.Run(() =&gt; {
-    // Background code
-    Dispatcher.Invoke(() =&gt; {
-        // Läuft im UI Thread
-        // UI benachrichtigen, dass man fertig ist
-    })
-});
+<div class="code"><pre><span></span><span class="n">Task</span><span class="p">.</span><span class="n">Run</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Background code</span>
+    <span class="n">Dispatcher</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// Läuft im UI Thread</span>
+        <span class="c1">// UI benachrichtigen, dass man fertig ist</span>
+    <span class="p">})</span>
+<span class="p">});</span>
 </pre></div>
 
 
@@ -994,15 +994,15 @@
 </ul>
 </li>
 </ul>
-<div class="code"><pre><span></span>public class GadgetVm:BindableBase // vgl. Slides zu INotifyPropertyChanged (Variante 3)
-    {
-    private string _inventoryNumber;
-    public string InventoryNumber
-    {
-        get { return _inventoryNumber; }
-        set { SetProperty(ref _inventoryNumber, value, nameof(InventoryNumber)); }
-    }
-}
+<div class="code"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">GadgetVm</span><span class="p">:</span><span class="n">BindableBase</span> <span class="c1">// vgl. Slides zu INotifyPropertyChanged (Variante 3)</span>
+    <span class="p">{</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="n">_inventoryNumber</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">InventoryNumber</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_inventoryNumber</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">set</span> <span class="p">{</span> <span class="n">SetProperty</span><span class="p">(</span><span class="k">ref</span> <span class="n">_inventoryNumber</span><span class="p">,</span> <span class="k">value</span><span class="p">,</span> <span class="n">nameof</span><span class="p">(</span><span class="n">InventoryNumber</span><span class="p">));</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -1010,9 +1010,9 @@
 <li>Jedes einzelne Property implementieren</li>
 <li>Dann mit z.B. AutoMapper mappen</li>
 </ul>
-<div class="code"><pre><span></span>Mapper.Initialize(cfg =&gt; cfg.CreateMap&lt;Gadget, GadgetVm&gt;());
-// Annahme: gadget sei eine Variable des Typs Gadget
-var vm = Mapper.Map&lt;GadgetVm&gt;(gadget);
+<div class="code"><pre><span></span><span class="n">Mapper</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">cfg</span> <span class="p">=&gt;</span> <span class="n">cfg</span><span class="p">.</span><span class="n">CreateMap</span><span class="p">&lt;</span><span class="n">Gadget</span><span class="p">,</span> <span class="n">GadgetVm</span><span class="p">&gt;());</span>
+<span class="c1">// Annahme: gadget sei eine Variable des Typs Gadget</span>
+<span class="kt">var</span> <span class="n">vm</span> <span class="p">=</span> <span class="n">Mapper</span><span class="p">.</span><span class="n">Map</span><span class="p">&lt;</span><span class="n">GadgetVm</span><span class="p">&gt;(</span><span class="n">gadget</span><span class="p">);</span>
 </pre></div>
 
 
@@ -1051,7 +1051,6 @@ var vm = Mapper.Map&lt;GadgetVm&gt;(gadget);
 <li>Platformspezifisch nur noch Tweaks</li>
 </ul>
 </li>
-<li></li>
 </ul>
           <aside class="copyright" role="note">
             

@@ -513,21 +513,12 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.</li>
 <li><code>@media print {}</code></li>
 </ul>
 </li>
-<li>Für Dimensionen<table>
-<thead>
-<tr>
-<th>- <code>@media ([width|min-width|max-width]: 375px) {}</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- <code>@media ([device-width|min-device-width|max-device-width]: 375px) {}</code></td>
-</tr>
-<tr>
-<td>- <code>@media ([device-height|min-device-height|max-device-height]: 667px) {}</code></td>
-</tr>
-</tbody>
-</table>
+<li>Für Dimensionen<ul>
+<li><code>@media ([width||min-width||max-width]: 375px) {}</code></li>
+<li><code>@media ([height]: 667px) {}</code></li>
+<li><code>@media ([device-width||min-device-width||max-device-width]: 375px) {}</code></li>
+<li><code>@media ([device-height||min-device-height||max-device-height]: 667px) {}</code></li>
+</ul>
 </li>
 <li>Spec: <a href="https://www.w3.org/TR/css3-mediaqueries/">https://www.w3.org/TR/css3-mediaqueries/</a></li>
 <li>Kann auch direkt als sepparates Stylesheet geladen werden (HTML5): <code>&lt;link rel="stylesheet“ href=“LargeScreenLayout.css" media="(min-width: 30em)"&gt;</code></li>

@@ -221,14 +221,14 @@
         <ul>
           
             <li class="anchor">
-              <a title="Vorlesung 1" href="#vorlesung-1">
-                Vorlesung 1
+              <a title="Vorlesung 1 - Intro" href="#vorlesung-1-intro">
+                Vorlesung 1 - Intro
               </a>
             </li>
           
             <li class="anchor">
-              <a title="Vorlesung 2" href="#vorlesung-2">
-                Vorlesung 2
+              <a title="Vorlesung 2 - Values" href="#vorlesung-2-values">
+                Vorlesung 2 - Values
               </a>
             </li>
           
@@ -239,8 +239,8 @@
             </li>
           
             <li class="anchor">
-              <a title="Vorlesung 4" href="#vorlesung-4">
-                Vorlesung 4
+              <a title="Vorlesung 4 - Functions" href="#vorlesung-4-functions">
+                Vorlesung 4 - Functions
               </a>
             </li>
           
@@ -251,8 +251,8 @@
             </li>
           
             <li class="anchor">
-              <a title="Vorlesung 6" href="#vorlesung-6">
-                Vorlesung 6
+              <a title="Vorlesung 6 - Overloading / Enums" href="#vorlesung-6-overloading-enums">
+                Vorlesung 6 - Overloading / Enums
               </a>
             </li>
           
@@ -269,8 +269,8 @@
             </li>
           
             <li class="anchor">
-              <a title="Vorlesung 9" href="#vorlesung-9">
-                Vorlesung 9
+              <a title="Vorlesung 9 - Functors / Lambdas" href="#vorlesung-9-functors-lambdas">
+                Vorlesung 9 - Functors / Lambdas
               </a>
             </li>
           
@@ -404,7 +404,7 @@
 <li>Wiki: <a href="https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus">https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus</a></li>
 <li>C++ Referenz: <a href="http://en.cppreference.com/w/cpp">http://en.cppreference.com/w/cpp</a></li>
 </ul>
-<h2 id="vorlesung-1">Vorlesung 1</h2>
+<h2 id="vorlesung-1-intro">Vorlesung 1 - Intro</h2>
 <ul>
 <li>"Undefined Behaviour": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault ("Es kann alles passieren"). Schlimmster Fall: Es läuft!</li>
 <li>HelloWorld:<ul>
@@ -428,7 +428,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="vorlesung-2">Vorlesung 2</h2>
+<h2 id="vorlesung-2-values">Vorlesung 2 - Values</h2>
 <p>Repetition: 
 - Wir trennen Header von Source-Files, um die Deklaration von der Implementierung zu trennen
 - <code>iostream</code>, <code>iosfwd</code> und <code>ostream</code> sind Libraries mit unterschiedlichem Umfang. <code>iosfwd</code> ist die Kleinste, <code>iostream</code> die Grösste (mit u.a. <code>std::cout</code>)</p>
@@ -561,7 +561,7 @@
 <li>für char-Types gibt es dafür <code>istreambuf_iterator</code>. Einlesen mit <code>istream::get()</code></li>
 </ul>
 <hr />
-<h2 id="vorlesung-4">Vorlesung 4</h2>
+<h2 id="vorlesung-4-functions">Vorlesung 4 - Functions</h2>
 <ul>
 <li>Gute Funktion:<ul>
 <li>Macht nur etwas</li>
@@ -730,7 +730,7 @@
 <li><code>inline</code>, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)</li>
 </ul>
 <hr />
-<h2 id="vorlesung-6">Vorlesung 6</h2>
+<h2 id="vorlesung-6-overloading-enums">Vorlesung 6 - Overloading / Enums</h2>
 <ul>
 <li><code>read()</code>: Wenn Parsen fehlschlägt, wird das Fail-bit gesetzt</li>
 <li>Alle objekte mit <code>{}</code> initialisieren (auch mit leeren Konstruktor)</li>
@@ -875,7 +875,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="vorlesung-9">Vorlesung 9</h2>
+<h2 id="vorlesung-9-functors-lambdas">Vorlesung 9 - Functors / Lambdas</h2>
 <ul>
 <li>Functor kann z.B. für for_each verwendet werden (wird dann für jedes Element aufgerufen)</li>
 <li>Vorteil: Überladener <code>()</code> Operator kann auf Member-Variablen der Instanz zugreifen</li>
@@ -1215,49 +1215,51 @@
 <ul>
 <li>Output:</li>
 </ul>
-<p><code>c++
-(a) -------
-// Humminbbird hummingbird;
-animal born
-bird hatched
-humminbird hatched
-// Bird bird = hummingbird; - Kopie mit slicing
-// Animal &amp; animal = hummingbird - Referenz auf hummingbird
-(b)----
-// humminbird.makeSound();
-beep
-// bird.makeSound();
-chirp // Compiler schaut nur auf Typ weil keine Referenz!
-//animal.makeSound();
---- // makeSound() ist nicht virtual
-(c)----
-//humminbird.move();
-hum // konkretes Objekt
-// bird.move();
-fly // konkretes Objekt
-// animal.move()
-hum // ACHTUNG dynamic dispatch, überschriebene Methode Bird::move ist automatisch virtual!!
-(d) ----
-//Aufruf Destruktoren in umgekehrter Reihenfolge
-// Animal nur eine Referenz, darum keine Destruktion
-// Destruktor bird
-bird crashed
-animal died
-// Destruktor humminbird
-hummingbird died
-bird crashed
-animal died</code></p>
 </li>
 </ul>
-<h3 id="exercise-14">Exercise 14</h3>
-<h4 id="theory-questions">Theory questions</h4>
-<div class="code"><pre><span></span>- mit `using` die `process(float)` von der Baseklasse einbinden
-- `function()` in Baseklasse `virtual` deklarieren
-- Pure virtual member: Die Klasse ist &quot;abstrakt&quot; und kann nicht instanziiert werden (Compiler-Error)
-- Shared Pointers verwenden
+<div class="code"><pre><span></span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-------</span>
+<span class="c1">// Humminbbird hummingbird;</span>
+<span class="n">animal</span> <span class="n">born</span>
+<span class="n">bird</span> <span class="n">hatched</span>
+<span class="n">humminbird</span> <span class="n">hatched</span>
+<span class="c1">// Bird bird = hummingbird; - Kopie mit slicing</span>
+<span class="c1">// Animal &amp; animal = hummingbird - Referenz auf hummingbird</span>
+<span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">----</span>
+<span class="c1">// humminbird.makeSound();</span>
+<span class="n">beep</span>
+<span class="c1">// bird.makeSound();</span>
+<span class="n">chirp</span> <span class="c1">// Compiler schaut nur auf Typ weil keine Referenz!</span>
+<span class="c1">//animal.makeSound();</span>
+<span class="o">---</span> <span class="c1">// makeSound() ist nicht virtual</span>
+<span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">----</span>
+<span class="c1">//humminbird.move();</span>
+<span class="n">hum</span> <span class="c1">// konkretes Objekt</span>
+<span class="c1">// bird.move();</span>
+<span class="n">fly</span> <span class="c1">// konkretes Objekt</span>
+<span class="c1">// animal.move()</span>
+<span class="n">hum</span> <span class="c1">// ACHTUNG dynamic dispatch, überschriebene Methode Bird::move ist automatisch virtual!!</span>
+<span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">----</span>
+<span class="c1">//Aufruf Destruktoren in umgekehrter Reihenfolge</span>
+<span class="c1">// Animal nur eine Referenz, darum keine Destruktion</span>
+<span class="c1">// Destruktor bird</span>
+<span class="n">bird</span> <span class="n">crashed</span>
+<span class="n">animal</span> <span class="n">died</span>
+<span class="c1">// Destruktor humminbird</span>
+<span class="n">hummingbird</span> <span class="n">died</span>
+<span class="n">bird</span> <span class="n">crashed</span>
+<span class="n">animal</span> <span class="n">died</span>
 </pre></div>
 
 
+<hr />
+<h3 id="exercise-14">Exercise 14</h3>
+<h4 id="theory-questions">Theory questions</h4>
+<ul>
+<li>mit <code>using</code> die <code>process(float)</code> von der Baseklasse einbinden</li>
+<li><code>function()</code> in Baseklasse <code>virtual</code> deklarieren</li>
+<li>Pure virtual member: Die Klasse ist "abstrakt" und kann nicht instanziiert werden (Compiler-Error)</li>
+<li>Shared Pointers verwenden</li>
+</ul>
 <h4 id="understanding-dynamic-polymorphism-and-object-lifetime">Understanding dynamic Polymorphism and Object lifetime</h4>
 <ul>
 <li>Forumtroll ft: forum_troll</li>

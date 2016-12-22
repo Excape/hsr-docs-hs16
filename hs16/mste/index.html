@@ -660,9 +660,9 @@
 </li>
 </ul>
 <h3 id="anonyme-methoden">Anonyme Methoden</h3>
-<div class="code"><pre><span></span>list.ForEach(delegate(int i)
-    { Console.WriteLine(i); }
-);
+<div class="code"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="n">ForEach</span><span class="p">(</span><span class="k">delegate</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">);</span>
 </pre></div>
 
 
@@ -687,27 +687,27 @@
 </li>
 <li>Wenn man mit eigener Klasse IEnumberable<T> implementiert, muss auch die nicht-generische Variante implementiert werden</li>
 <li>Collection darf nicht veränder werden während der Iteration (wie Java)</li>
-<li>
-<p>Vereinfachung mit <code>yield</code></p>
-<ul>
+<li>Vereinfachung mit <code>yield</code><ul>
 <li>In der <code>GetEnumerator()</code> Methode mindestens ein <code>yield return</code> statement verwenden</li>
 <li>Bei jeder Iteration (<code>MoveNext()</code>) wird das nächste <code>yield</code> Statement ausgeführt (genauer das Statement <em>nach</em> dem letzten <code>yield</code>)</li>
 <li>Implementation des Interfaces optional (siehe oben)</li>
 <li>Compiler erstellt eine innere Klasse mit komplizierter State-Machine (langsamer als eigene Implementierung)</li>
 <li>Es kann auch ein spezifischer Iterator mit Rückgabetyp <code>IEnumberable&lt;T&gt;</code> definiert werden, der <code>yield</code> verwendet</li>
 </ul>
-<p><code>cs
-MyIntList list = new MyIntList();
-foreach (int elem in list.Range(2, 7))
-{
-    /* ... */
-}
-public IEnumerable&lt;int&gt; Range(int from, int to) {
-for (int i = from; i &lt; to; i++)
-    yield return data[i];
-}</code></p>
 </li>
 </ul>
+<div class="code"><pre><span></span><span class="n">MyIntList</span> <span class="n">list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyIntList</span><span class="p">();</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">elem</span> <span class="k">in</span> <span class="n">list</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">7</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="cm">/* ... */</span>
+<span class="p">}</span>
+<span class="k">public</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">Range</span><span class="p">(</span><span class="kt">int</span> <span class="k">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="k">from</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">to</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="k">yield</span> <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <hr />
 <h2 id="vorlesung-8-linq-selbststudium">Vorlesung 8 - LINQ (Selbststudium)</h2>
 <ul>
@@ -782,43 +782,43 @@ for (int i = from; i &lt; to; i++)
 <li>App.config wird immer "heraus" kompiliert vom DLL, kann also auch im nachhinein noch geändert werden</li>
 </ul>
 <h4 id="contracts">Contracts</h4>
-<div class="code"><pre><span></span><span class="k">[ServiceContract]</span>
-<span class="err">public</span> <span class="err">interface</span> <span class="err">ITimeService</span>
-<span class="err">{</span>
-    <span class="k">[OperationContract]</span>
-    <span class="err">string</span> <span class="err">GetTime()</span><span class="c1">;</span>
-    <span class="k">[OperationContract]</span>
-    <span class="err">TimeDescData</span> <span class="err">GetTimeDesc()</span><span class="c1">;</span>
-<span class="err">}</span>
-<span class="err">public</span> <span class="err">class</span> <span class="err">TimeService</span> <span class="err">:</span> <span class="err">ITimeService</span>
-<span class="err">{</span>
-    <span class="err">public</span> <span class="err">string</span> <span class="err">GetTime()</span>
-    <span class="err">{</span> <span class="err">return</span> <span class="err">DateTime.Now.ToString()</span><span class="c1">; }</span>
-    <span class="err">public</span> <span class="err">TimeDescData</span> <span class="err">GetTimeDesc()</span>
-    <span class="err">{</span> <span class="err">return</span> <span class="err">new</span> <span class="err">TimeDescData()</span><span class="c1">; }</span>
-<span class="err">}</span>
+<div class="code"><pre><span></span><span class="na">[ServiceContract]</span>
+<span class="k">public</span> <span class="k">interface</span> <span class="n">ITimeService</span>
+<span class="p">{</span>
+<span class="na">    [OperationContract]</span>
+    <span class="kt">string</span> <span class="nf">GetTime</span><span class="p">();</span>
+<span class="na">    [OperationContract]</span>
+    <span class="n">TimeDescData</span> <span class="nf">GetTimeDesc</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">TimeService</span> <span class="p">:</span> <span class="n">ITimeService</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetTime</span><span class="p">()</span>
+    <span class="p">{</span> <span class="k">return</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">TimeDescData</span> <span class="nf">GetTimeDesc</span><span class="p">()</span>
+    <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TimeDescData</span><span class="p">();</span> <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <ul>
 <li>DTO:</li>
 </ul>
-<div class="code"><pre><span></span><span class="k">[DataContract]</span>
-<span class="err">public</span> <span class="err">class</span> <span class="err">TimeDescData</span>
-<span class="err">{</span>
-    <span class="err">public</span> <span class="err">TimeDescData()</span>
-    <span class="err">{</span>
-        <span class="na">TimeLong</span> <span class="o">=</span><span class="s"></span>
-<span class="s">        DateTime.Now.ToLongDateString();</span>
-<span class="s">        TimeShort =</span>
-<span class="s">        DateTime.Now.ToShortDateString();</span>
-<span class="s">    } </span>
-<span class="s">    [DataMember]</span>
-<span class="s">    public string TimeShort { get; set; }</span>
+<div class="code"><pre><span></span><span class="na">[DataContract]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">TimeDescData</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nf">TimeDescData</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">TimeLong</span> <span class="p">=</span>
+        <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">ToLongDateString</span><span class="p">();</span>
+        <span class="n">TimeShort</span> <span class="p">=</span>
+        <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">ToShortDateString</span><span class="p">();</span>
+    <span class="p">}</span> 
+<span class="na">    [DataMember]</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">TimeShort</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="k">[DataMember]</span>
-    <span class="err">public</span> <span class="err">string</span> <span class="err">TimeLong</span> <span class="err">{</span> <span class="err">get</span><span class="c1">; set; }</span>
-<span class="err">}</span>
+<span class="na">    [DataMember]</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">TimeLong</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -865,10 +865,10 @@ for (int i = from; i &lt; to; i++)
 <li><code>[OperationContract(IsOneWay=true)]</code> wartet nicht auf Server (asynchron), erwartet aber auch keine Antwort</li>
 </ul>
 <h4 id="duplex-kommunikation">Duplex-Kommunikation</h4>
-<div class="code"><pre><span></span><span class="k">[ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(ICalcCallback))]</span>
-<span class="err">public</span> <span class="err">interface</span> <span class="err">ICalculatorDuplex</span> <span class="err">{</span>
-    <span class="na">// IsOneWay</span> <span class="o">=</span> <span class="s">true Operationen</span>
-<span class="err">}</span>
+<div class="code"><pre><span></span><span class="na">[ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(ICalcCallback))]</span>
+<span class="k">public</span> <span class="k">interface</span> <span class="n">ICalculatorDuplex</span> <span class="p">{</span>
+    <span class="c1">// IsOneWay = true Operationen</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -877,9 +877,9 @@ for (int i = from; i &lt; to; i++)
 <li>Callback auf Serverseite mit <code>OperationContext.Current.GetCallBackChannel&lt;ICalcCallback&gt;()</code> holen</li>
 <li>Client: (<code>CallbackHandler</code> implementiert Callback-Interface)</li>
 </ul>
-<div class="code"><pre><span></span>CallbackHandler h = new CallbackHandler();
-InstanceContext ic = new InstanceContext(h);
-CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
+<div class="code"><pre><span></span><span class="n">CallbackHandler</span> <span class="n">h</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CallbackHandler</span><span class="p">();</span>
+<span class="n">InstanceContext</span> <span class="n">ic</span> <span class="p">=</span> <span class="k">new</span> <span class="n">InstanceContext</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+<span class="n">CalculatorDuplexClient</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CalculatorDuplexClient</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span>
 </pre></div>
 
 
@@ -899,7 +899,7 @@ CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
 <ul>
 <li>Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit <code>[Type(typeof(MySubclass))]</code> markiert werden</li>
 </ul>
-<p>```cs
+<p>```csharp
 [ServiceContract]
 public interface IClassroomService
 {
@@ -986,19 +986,19 @@ public class BoredStudent : Student { }
 <li>Mit Named Parameter können auch Properties auf dem Attribut gesetzt werden, die nicht über den Konstruktor initialisiert werden</li>
 </ul>
 <h4 id="eigenes-attribut">Eigenes Attribut</h4>
-<div class="code"><pre><span></span>[AttributeUsage(
-AttributeTargets.Class |
-AttributeTargets.Constructor |
-AttributeTargets.Field |
-AttributeTargets.Method |
-AttributeTargets.Property,
-AllowMultiple = true)]
-public class BugfixAttribute : Attribute
-{
-    public BugfixAttribute(int bugId,
-    string programmer, string date)
-    { /* ... */ }
-}
+<div class="code"><pre><span></span><span class="na">[AttributeUsage(</span>
+<span class="na">AttributeTargets.Class |</span>
+<span class="na">AttributeTargets.Constructor |</span>
+<span class="na">AttributeTargets.Field |</span>
+<span class="na">AttributeTargets.Method |</span>
+<span class="na">AttributeTargets.Property,</span>
+<span class="na">AllowMultiple = true)]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">BugfixAttribute</span> <span class="p">:</span> <span class="n">Attribute</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nf">BugfixAttribute</span><span class="p">(</span><span class="kt">int</span> <span class="n">bugId</span><span class="p">,</span>
+    <span class="kt">string</span> <span class="n">programmer</span><span class="p">,</span> <span class="kt">string</span> <span class="n">date</span><span class="p">)</span>
+    <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 

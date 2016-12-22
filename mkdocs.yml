@@ -14,7 +14,7 @@ pages:
     - BuRe1:
         - ReIng: 'hs16/reing.md'
         - BuPl: 'hs16/bupl.md'
-    - C++: 'hs16/cpi.md'
+    - C++: 'hs16/cpl.md'
     - EnglHTw: 'hs16/englhtw.md'
     - MGE: 'hs16/mge.md'
     - MsTe: 'hs16/mste.md'

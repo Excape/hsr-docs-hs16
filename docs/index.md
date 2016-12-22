@@ -6,7 +6,7 @@
 * Business und Recht 1
     * [Recht](hs16/reing.md)
     * [Business-Plan](hs16/bupl.md)
-* [C++](hs16/cpi.md)
+* [C++](hs16/cpl.md)
 * [English: How Things Work](hs16/englhtw.md)
 * [Mobile and GUI Engineering](hs16/mge.md)
 * [.NET Technologien](hs16/mste.md)

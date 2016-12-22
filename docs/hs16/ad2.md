@@ -250,7 +250,7 @@ $$n^n > n! > {\frac n2}^{\frac n2}$$
     - Auch substrings werden darin gefunden, da sie präfixe der Suffixe im Suffix-Trie sind
 
 ---
-# Vorlesung 9 - Dynamische Programmierung
+## Vorlesung 9 - Dynamische Programmierung
 - Rucksack-Problem ist hier nur polynomiell lösbar, weil es ganze Zahlen sind (sonst ist es NP-Vollständig)
 - Ziel ist immer, Resultate von Subproblemen zu speichern, weil sie Einfluss auf die anderen Lösungen (der Subprobleme) haben
 - Beispiel Fibonacci: Mit normaler Rekursiver Variante werden die tieferen Fib-Zahlen immer mehrmals berechnen. Viel schneller ist es, die Zwischenergebnisse jeweils in einer Tabelle zu speichern, und nur berechnen, wenn sie noch nicht darin vorkommen.
@@ -317,7 +317,7 @@ T |   |   |   |   |
     - Cut-Vertex ist Vertex, der zwei grössere Teilgraphen verbindet (z.B. Single Point of Failure in einem Netzwerk)
     - Biconnectd Komponenten sind Teilgraphen, die an zwei Vertices verbunden sind (statt nur an einem *Cut*-Vertex)
 ---
-### Vorlesung 12 - Gerichtete Graphen
+## Vorlesung 12 - Gerichtete Graphen
 - *Alle* Kanten in einem Graph sind gewichtet
 - Max. Kanten bei einem einfachen Graphen ist \(n(n-1)\), doppelt so viele wie beim ungerichteten Graphen (beide Richtungen)
 - DFS gibt einen Baum von erreichbaren Vertices vom Startwert mit gerichteten Graphen. Dies ist abhängig vom Start-Vertex! Es müssen nicht alle erreicht werden, auch wenn der ganze Graph verbunden ist

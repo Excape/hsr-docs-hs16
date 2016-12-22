@@ -75,7 +75,7 @@
 - In einem nested State kann von jedem Zustand aus der nested State verlassen werden (in Folie 15 kann aus jedem Zustand "on hook" ausgelöst werden)
 
 ---
-## Vorlesung 6
+## Vorlesung 6 - Activity Diagrams, Testing
 - Erweitertes Zustandsdiagramm: Man kann Variablen verwenden und als Aktivität diese verändern, z.B. erhöhen
 - Mit Guards können Variablenwerte geforder werden, z.B. `[count == 10]`
 

@@ -203,7 +203,7 @@ protected virtual void Dispose(bool disposing)
     - Grund: Wenn z.B. Library erweitert wird, ändert sich Delegate-Signatur nicht, es wird nur die EventArgs-Klasse erweitert. Der Client-Code funktioniert weiterhin
 
 ### Anonyme Methoden
-```cs
+```csharp
 list.ForEach(delegate(int i)
     { Console.WriteLine(i); }
 );
@@ -230,17 +230,17 @@ list.ForEach(delegate(int i)
     - Compiler erstellt eine innere Klasse mit komplizierter State-Machine (langsamer als eigene Implementierung)
     - Es kann auch ein spezifischer Iterator mit Rückgabetyp `IEnumberable<T>` definiert werden, der `yield` verwendet
 
-    ```cs
-    MyIntList list = new MyIntList();
-    foreach (int elem in list.Range(2, 7))
-    {
-        /* ... */
-    }
-    public IEnumerable<int> Range(int from, int to) {
-    for (int i = from; i < to; i++)
-        yield return data[i];
-    }
-    ```
+```csharp
+MyIntList list = new MyIntList();
+foreach (int elem in list.Range(2, 7))
+{
+    /* ... */
+}
+public IEnumerable<int> Range(int from, int to) {
+for (int i = from; i < to; i++)
+    yield return data[i];
+}
+```
 
 ---
 ## Vorlesung 8 - LINQ (Selbststudium)
@@ -298,7 +298,7 @@ list.ForEach(delegate(int i)
 - App.config wird immer "heraus" kompiliert vom DLL, kann also auch im nachhinein noch geändert werden
 
 #### Contracts
-```cs
+```csharp
 [ServiceContract]
 public interface ITimeService
 {
@@ -316,7 +316,7 @@ public class TimeService : ITimeService
 }
 ```
 - DTO:
-```cs
+```csharp
 [DataContract]
 public class TimeDescData
 {
@@ -366,7 +366,7 @@ public class TimeDescData
 - `[OperationContract(IsOneWay=true)]` wartet nicht auf Server (asynchron), erwartet aber auch keine Antwort
 
 #### Duplex-Kommunikation
-```cs
+```csharp
 [ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(ICalcCallback))]
 public interface ICalculatorDuplex {
     // IsOneWay = true Operationen
@@ -377,7 +377,7 @@ public interface ICalculatorDuplex {
 - Callback auf Serverseite mit `OperationContext.Current.GetCallBackChannel<ICalcCallback>()` holen
 - Client: (`CallbackHandler` implementiert Callback-Interface)
 
-```cs
+```csharp
 CallbackHandler h = new CallbackHandler();
 InstanceContext ic = new InstanceContext(h);
 CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
@@ -392,7 +392,7 @@ CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
 - Vererbung
     - Wenn eine Operation einen komplexen Typ verwendet, der vererbt wird, und diese auch verwendet werden sollen, muss die Basis-Klasse mit `[Type(typeof(MySubclass))]` markiert werden
     
-    ```cs
+    ```csharp
     [ServiceContract]
     public interface IClassroomService
     {
@@ -464,7 +464,7 @@ CalculatorDuplexClient client = new CalculatorDuplexClient(ic);
 
 
 #### Eigenes Attribut
-```cs
+```csharp
 [AttributeUsage(
 AttributeTargets.Class |
 AttributeTargets.Constructor |

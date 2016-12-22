@@ -156,7 +156,7 @@
 ## Vorlesung 13-14 - Datenrecht
 ### Bedeutung des Datenschutzes
 !!! info
-    Datenschutz:Schutz der Persönlichkeit und der Grundrechte der Person, über die Daten bearbeitet werden
+    **Datenschutz**: Schutz der Persönlichkeit und der Grundrechte der Person, über die Daten bearbeitet werden
 
 - Personenbezogene Daten sind geschützt: Sie können einer Person zugeordnet werden
 - Datenschutz gehört zu Art. 8 über Achtung des Privatlebens von EMRK

@@ -509,7 +509,7 @@ public void onSensorChanged(SensorEvent event) {
 ---
 ## Vorlesung 13 - I18n / MVVM
 ### Background Threads
-```cs
+```csharp
 Task.Run(() => {
     // Background code
     Dispatcher.Invoke(() => {
@@ -549,7 +549,7 @@ Task.Run(() => {
 - *TODO*: Bild Schichten MVVM Folie 24
 - ViewModel:
     - Nachteil Variante 1: Man muss ganzes `Gadgets` austauschen, wenn es ein POCO ist
-```cs
+```csharp
 public class GadgetVm:BindableBase // vgl. Slides zu INotifyPropertyChanged (Variante 3)
     {
     private string _inventoryNumber;
@@ -562,7 +562,7 @@ public class GadgetVm:BindableBase // vgl. Slides zu INotifyPropertyChanged (Var
 ```
 - Jedes einzelne Property implementieren
 - Dann mit z.B. AutoMapper mappen
-```cs
+```csharp
 Mapper.Initialize(cfg => cfg.CreateMap<Gadget, GadgetVm>());
 // Annahme: gadget sei eine Variable des Typs Gadget
 var vm = Mapper.Map<GadgetVm>(gadget);
@@ -594,4 +594,3 @@ var vm = Mapper.Map<GadgetVm>(gadget);
 - Xamarin-Ansatz: Backend mit C# einmal schreiben, GUI für iOS, Android und Windows sepparat erstellen
 - Mit Xamarin.Forms kann auch ein Shared UI erstellt werden
     - Platformspezifisch nur noch Tweaks
-- 

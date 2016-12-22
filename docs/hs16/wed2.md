@@ -100,10 +100,10 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
     - `@media screen {}`
     - `@media print {}`
 - Für Dimensionen
-    - `@media ([width|min-width|max-width]: 375px) {}`
-    - `@media ([height|min-height|max-height]: 667px) {}`
-    - `@media ([device-width|min-device-width|max-device-width]: 375px) {}`
-    - `@media ([device-height|min-device-height|max-device-height]: 667px) {}`
+    - `@media ([width||min-width||max-width]: 375px) {}`
+    - `@media ([height]: 667px) {}`
+    - `@media ([device-width||min-device-width||max-device-width]: 375px) {}`
+    - `@media ([device-height||min-device-height||max-device-height]: 667px) {}`
 - Spec: <https://www.w3.org/TR/css3-mediaqueries/>
 - Kann auch direkt als sepparates Stylesheet geladen werden (HTML5): `<link rel="stylesheet“ href=“LargeScreenLayout.css" media="(min-width: 30em)">`
 - Mobile First Approach: HTML für Mobile Layout schreiben, dann für grössere Displays mit Media Queries anpassen

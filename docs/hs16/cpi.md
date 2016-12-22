@@ -2,7 +2,7 @@
 - Wiki: <https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus>
 - C++ Referenz: <http://en.cppreference.com/w/cpp>
 
-## Vorlesung 1
+## Vorlesung 1 - Intro
 - "Undefined Behaviour": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault ("Es kann alles passieren"). Schlimmster Fall: Es läuft!
 - HelloWorld:
     - `#include`: Präprozessor Anweisung
@@ -19,7 +19,7 @@
     - Nach Klassendefinition ein `;`: `sruct Hello {...};`
 
 ---
-## Vorlesung 2
+## Vorlesung 2 - Values
 Repetition: 
 - Wir trennen Header von Source-Files, um die Deklaration von der Implementierung zu trennen
 - `iostream`, `iosfwd` und `ostream` sind Libraries mit unterschiedlichem Umfang. `iosfwd` ist die Kleinste, `iostream` die Grösste (mit u.a. `std::cout`)
@@ -137,7 +137,7 @@ for (auto it=cbegin(v); it != cend(v); ++it) {
 - für char-Types gibt es dafür `istreambuf_iterator`. Einlesen mit `istream::get()`
 
 ---
-## Vorlesung 4
+## Vorlesung 4 - Functions
 - Gute Funktion:
     - Macht nur etwas
     - Möglichst wenig Parameter
@@ -261,7 +261,7 @@ inline std::ostream & operator<<(std::ostream & os, Date const & date){
 - `inline`, weil Funtkion im Header implementiert ist. Ohne inline würde es einen Konflikt beim linken geben, wenn mehrere Files dieses Header-File verwenden (one-definition-rule)
 
 ---
-## Vorlesung 6
+## Vorlesung 6 - Overloading / Enums
 - `read()`: Wenn Parsen fehlschlägt, wird das Fail-bit gesetzt
 - Alle objekte mit `{}` initialisieren (auch mit leeren Konstruktor)
 - Default-Initialisierungen von Member Variablen können direkt im Header angegeben werden, der default-Konstruktor kann leergelassen werden
@@ -358,7 +358,7 @@ december
     - Wird während der Iteration z.B. push_back aufgerufen, wird der Iterator invalidiert (wie "concurrent modification exception" in java)
 
 ---
-## Vorlesung 9
+## Vorlesung 9 - Functors / Lambdas
 - Functor kann z.B. für for_each verwendet werden (wird dann für jedes Element aufgerufen)
 - Vorteil: Überladener `()` Operator kann auf Member-Variablen der Instanz zugreifen
 ```c++
@@ -607,47 +607,48 @@ Dazu kommt Prüfungsfrage!!
 
 - Bad Example
     - Output:
+```c++
+(a) -------
+// Humminbbird hummingbird;
+animal born
+bird hatched
+humminbird hatched
+// Bird bird = hummingbird; - Kopie mit slicing
+// Animal & animal = hummingbird - Referenz auf hummingbird
+(b)----
+// humminbird.makeSound();
+beep
+// bird.makeSound();
+chirp // Compiler schaut nur auf Typ weil keine Referenz!
+//animal.makeSound();
+--- // makeSound() ist nicht virtual
+(c)----
+//humminbird.move();
+hum // konkretes Objekt
+// bird.move();
+fly // konkretes Objekt
+// animal.move()
+hum // ACHTUNG dynamic dispatch, überschriebene Methode Bird::move ist automatisch virtual!!
+(d) ----
+//Aufruf Destruktoren in umgekehrter Reihenfolge
+// Animal nur eine Referenz, darum keine Destruktion
+// Destruktor bird
+bird crashed
+animal died
+// Destruktor humminbird
+hummingbird died
+bird crashed
+animal died
+```
 
-    ```c++
-    (a) -------
-    // Humminbbird hummingbird;
-    animal born
-    bird hatched
-    humminbird hatched
-    // Bird bird = hummingbird; - Kopie mit slicing
-    // Animal & animal = hummingbird - Referenz auf hummingbird
-    (b)----
-    // humminbird.makeSound();
-    beep
-    // bird.makeSound();
-    chirp // Compiler schaut nur auf Typ weil keine Referenz!
-    //animal.makeSound();
-    --- // makeSound() ist nicht virtual
-    (c)----
-    //humminbird.move();
-    hum // konkretes Objekt
-    // bird.move();
-    fly // konkretes Objekt
-    // animal.move()
-    hum // ACHTUNG dynamic dispatch, überschriebene Methode Bird::move ist automatisch virtual!!
-    (d) ----
-    //Aufruf Destruktoren in umgekehrter Reihenfolge
-    // Animal nur eine Referenz, darum keine Destruktion
-    // Destruktor bird
-    bird crashed
-    animal died
-    // Destruktor humminbird
-    hummingbird died
-    bird crashed
-    animal died
-    ```
-
+---
 ### Exercise 14
 #### Theory questions
-    - mit `using` die `process(float)` von der Baseklasse einbinden
-    - `function()` in Baseklasse `virtual` deklarieren
-    - Pure virtual member: Die Klasse ist "abstrakt" und kann nicht instanziiert werden (Compiler-Error)
-    - Shared Pointers verwenden
+- mit `using` die `process(float)` von der Baseklasse einbinden
+- `function()` in Baseklasse `virtual` deklarieren
+- Pure virtual member: Die Klasse ist "abstrakt" und kann nicht instanziiert werden (Compiler-Error)
+- Shared Pointers verwenden
+
 #### Understanding dynamic Polymorphism and Object lifetime
 - Forumtroll ft: forum_troll
 - Troll t: troll - slicing!

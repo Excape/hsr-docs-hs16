@@ -16,7 +16,9 @@ pages:
         - BuPl: 'hs16/bupl.md'
     - C++: 'hs16/cpl.md'
     - EnglHTw: 'hs16/englhtw.md'
-    - MGE: 'hs16/mge.md'
+    - MGE: 
+        - Notes: 'hs16/mge.md'
+        - Summary Android: 'hs16/mge_summary_android.md'
     - MsTe: 'hs16/mste.md'
     - SE1: 'hs16/se1.md'
     - WED2: 'hs16/wed2.md'

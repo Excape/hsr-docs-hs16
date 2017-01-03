@@ -371,47 +371,50 @@ Young engineers and scientists, but as soon as they got to know him better, they
 ### Chapter 11
 **Put the title of the chapter “Wet Electricity” into context.**
 
-The title refers to the electricity in our brains
-
-**Answer the author’s question on p. 201: “what are live electrical circuits doing embedded in our bodies and brains?”**
-
-
+The title refers to the electricity in our body
 
 **How is it possible that there is electricity in our bodies? (p.203f)**
 
-
+Electrical current is transported through ions, e.g. sodium ions in our body. They lack one electron compared to a normal atom. These are used to pass an electric signal through the nerves.
 
 **Describe Hodgkin’s and Huxley’s squid experiments. (p. 205f)**
 
-
+They stuck needles into (still living) nerves of squids and discovered that the nerves stock-piled sodium ions outside the membran.
 
 **Discuss the following quote: “Nerves have to work differently: They can’t pour their electricity straight down the middle of their axons, as Alexander Bell had imagined electric sparks rolling down a copper wire in his telephone.” (p. 208)**
 
-
-
-**What is the role of sodium in nerve impulse transmission? (p. 206- 2011)**
-
-
+The reason that the signal are slow in the body: The resistance is high, nerves are very thin  
+With the high resistance from the nervous system, the ions are needed to push the signal along, or it would be too weak.
 
 **Explain the effects of cold temperatures, nerve poisons, alcohol and anaesthetics on our body. (p. 145)**
 
+When a signal traveled through a nerve, its full of sodium ions. It first needs to "bail" out the remaining ions before it can fire again, this uses a lot of energy. Thats also why our fingers don't work well in cold temperatures, as these "pumps" to recover the nerves don't work as well.
+
+Tetrodotoxin is a strong nerve poison. It closed the nerves shut, and when all the nerves are closed, no signals can travel through to the lungs and the heart, leading to death.
+
+Alcohol acts a bit like a nerve poison, but it's not a strong one. But it acts inside the brain.
+
+One of the first "modern" anaesthetics was cocaine, experimented with by Sigmund Freud. After he discoveries of *Hodgkin* and *Huxley*, it was clear how anaesthetics might work and it improved tremendiously
 
 
 ### Chapter 12
 **How can a signal cross the synapse between two nerves?**
 
-
+Otto Loewi discovered that there are big molecules that travel between two nerves, called neurotransmitters. These molecules come out at the end of a nerve tip, "carrying" along the message to the next nerve
 
 **Describe the experiments that Otto Loewi carried out in order to answer the question above. (p. 216)**
 
-
+He cut out to hearts of dead frogs, leaving one attached to the nerves. Then he siphoned the chemical that came out the nerves and poured it over the other hard. If the second hard behaved the same as the first, the answer must be in the chemical. 
 
 **Describe the functions of different neurotransmitters and why they are necessary in our system. (p. 218)**
 
-
+If every nerve would transmit with these molecules, signals would get very slow. There are other transmitter liquids in our body, some speed up the cells they reach. One of them is *adrenaline*.  
+Other molecules act as "demolition crews", disassembling the neurotransmitter after they arrived (else the nerve would never stop firing).
 
 **Describe how coffee affects our system. (p.219)**
 
-
+A transmitter called adenosine slows down brain cells. *Caffeine* slips into these sockets, blocking the adenosine. This prevents our brain cells from slowing down, even when we are tired.
 
 **Explain the role of neurotransmitters in the treatment of mood disorders such a depression.(p.221)**
+
+In the 1970s, it was discovered that people with low amounts of the neurotransmitter *serotonin* were often feeling deperessed. They figured out a way to stop the "demoliton" of serotonin with *Prozac*, keeping the serotinin levels from falling

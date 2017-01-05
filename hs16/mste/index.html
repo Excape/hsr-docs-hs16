@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
-<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
-<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
-<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<html class="no-js">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <title>MsTe - HSR Notizen</title>
-      
+        <meta name="description" content="HSR Study Documentation HS16">
       
       
         <link rel="canonical" href="https://doc.robinsuter.ch/hs16/mste/">
@@ -18,406 +13,1002 @@
       
         <meta name="author" content="Robin Suter">
       
-    
-    <meta property="og:url" content="https://doc.robinsuter.ch/hs16/mste/">
-    <meta property="og:title" content="HSR Notizen">
-    <meta property="og:image" content="https://doc.robinsuter.ch/hs16/mste//../../">
-    <meta name="apple-mobile-web-app-title" content="HSR Notizen">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    
-    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
-    <style>
-      @font-face {
-      	font-family: 'Icon';
-      	src: url('../../assets/fonts/icon.eot?52m981');
-      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
-               format('embedded-opentype'),
-      		   url('../../assets/fonts/icon.woff?52m981')
-               format('woff'),
-      		   url('../../assets/fonts/icon.ttf?52m981')
-               format('truetype'),
-      		   url('../../assets/fonts/icon.svg?52m981#icon')
-               format('svg');
-      	font-weight: normal;
-      	font-style: normal;
-      }
-    </style>
-    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/palettes-05ab2406df.css">
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+      
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.0">
     
     
       
+        <title>MsTe - HSR Notizen</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-dadbf8711d.js"></script>
+    
+    
+      
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+  <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-868145bb77.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-0352baa348.palette.css">
       
       
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono">
-      <style>
-        body, input {
-          font-family: 'Roboto', Helvetica, Arial, sans-serif;
-        }
-        pre, code {
-          font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
-        }
-      </style>
+        <link rel="stylesheet" href="../../extra.css">
+      
     
-    
-      <link rel="stylesheet" href="../../extra.css">
-    
-    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
     
   </head>
   
   
   
-  <body class="palette-primary-red palette-accent-amber">
-    
-    <div class="backdrop">
-      <div class="backdrop-paper"></div>
-    </div>
-    <input class="toggle" type="checkbox" id="toggle-drawer">
-    <input class="toggle" type="checkbox" id="toggle-search">
-    <label class="toggle-button overlay" for="toggle-drawer"></label>
-    <header class="header">
-      <nav aria-label="Header">
-  <div class="bar default">
-    <div class="button button-menu" role="button" aria-label="Menu">
-      <label class="toggle-button icon icon-menu" for="toggle-drawer">
-        <span></span>
-      </label>
-    </div>
-    <div class="stretch">
-      <div class="title">
-        
-          <span class="path">
-            
-              
-                HS16 <i class="icon icon-link"></i>
-              
-            
-          </span>
-        
-        MsTe
-      </div>
-    </div>
-    
-      
-      <div class="button button-twitter" role="button" aria-label="Twitter">
-        <a href="https://twitter.com/robin_suter" title="@robin_suter on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
-      </div>
-    
-    
-      
-      <div class="button button-github" role="button" aria-label="GitHub">
-        <a href="https://github.com/excape" title="@excape on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
-      </div>
-    
-    <div class="button button-search" role="button" aria-label="Search">
-      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
-    </div>
-  </div>
-  <div class="bar search">
-    <div class="button button-close" role="button" aria-label="Close">
-      <label class="toggle-button icon icon-back" for="toggle-search"></label>
-    </div>
-    <div class="stretch">
-      <div class="field">
-        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
-      </div>
-    </div>
-    <div class="button button-reset" role="button" aria-label="Search">
-      <button class="toggle-button icon icon-close" id="reset-search"></button>
-    </div>
-  </div>
-</nav>
-    </header>
-    <main class="main">
-      
-      <div class="drawer">
-        <nav aria-label="Navigation">
   
-  <a href="/" class="project">
-    <div class="banner">
-      
-      <div class="name">
-        <strong>
-          HSR Notizen
-          <span class="version">
+    <body data-md-color-primary="red" data-md-color-accent="amber">
+  
+    <div class="md-svg">
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+  
+</div>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="HSR Notizen" class="md-icon md-header-nav__icon md-header-nav__icon--home">
+          
+            school
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-header-nav__icon md-header-nav__icon--menu" for="drawer">
+          menu
+        </label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
             
-          </span>
-        </strong>
+              
+                <span class="md-header-nav__parent">
+                  HS16
+                </span>
+              
+            
+            MsTe
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-header-nav__icon md-header-nav__icon--search" for="search">
+            search
+          </label>
+          <div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      <label class="md-icon md-search__icon" for="search"></label>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <div class="md-header-nav__source">
+              
+
+  
+
+<a href="https://github.com/Excape/hsr-docs-hs16" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+            </div>
+          
         
       </div>
     </div>
-  </a>
-  <div class="scrollable">
-    <div class="wrapper">
-      
-      <div class="toc">
-        <ul>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
           
             
-  <li>
-    <a class="" title="Home" href="../..">
-      Home
-    </a>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <i class="md-icon md-nav__icon">
+      
+        school
+      
+    </i>
+    HSR Notizen
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+  
+
+<a href="https://github.com/Excape/hsr-docs-hs16" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../.." title="Home" class="md-nav__link">
+        Home
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      HS16
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2">
+        HS16
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../ad2/" title="AD2" class="md-nav__link">
+        AD2
+      </a>
     
   </li>
 
           
-            
-  <li>
-    <span class="section">HS16</span>
-    <ul>
-      
         
-  <li>
-    <a class="" title="AD2" href="../ad2/">
-      AD2
-    </a>
+          
+          
+          
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      BuRe1
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2-2">
+        BuRe1
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reing/" title="ReIng" class="md-nav__link">
+        ReIng
+      </a>
     
   </li>
 
-      
+          
         
-  <li>
-    <span class="section">BuRe1</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="ReIng" href="../reing/">
-      ReIng
-    </a>
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../bupl/" title="BuPl" class="md-nav__link">
+        BuPl
+      </a>
     
   </li>
 
-      
+          
         
-  <li>
-    <a class="" title="BuPl" href="../bupl/">
-      BuPl
-    </a>
+      </ul>
+    </nav>
+  </li>
+
+          
+        
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../cpl/" title="C++" class="md-nav__link">
+        C++
+      </a>
     
   </li>
 
-      
-    </ul>
-  </li>
-
-      
+          
         
-  <li>
-    <a class="" title="C++" href="../cpl/">
-      C++
-    </a>
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../englhtw/" title="EnglHTw" class="md-nav__link">
+        EnglHTw
+      </a>
     
   </li>
 
-      
+          
         
-  <li>
-    <a class="" title="EnglHTw" href="../englhtw/">
-      EnglHTw
-    </a>
+          
+          
+          
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      MGE
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2-5">
+        MGE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../mge/" title="Notes" class="md-nav__link">
+        Notes
+      </a>
     
   </li>
 
-      
+          
         
-  <li>
-    <span class="section">MGE</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="Notes" href="../mge/">
-      Notes
-    </a>
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../mge_summary_android/" title="Summary Android" class="md-nav__link">
+        Summary Android
+      </a>
     
   </li>
 
-      
+          
         
-  <li>
-    <a class="" title="Summary Android" href="../mge_summary_android/">
-      Summary Android
-    </a>
+      </ul>
+    </nav>
+  </li>
+
+          
+        
+          
+          
+          
+  <li class="md-nav__item">
     
-  </li>
-
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
       
-    </ul>
-  </li>
-
-      
-        
-  <li>
-    <a class="current" title="MsTe" href="./">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        MsTe
+      </label>
+    
+    <a href="./" title="MsTe" class="md-nav__link md-nav__link--active">
       MsTe
     </a>
     
-      
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Prüfung" href="#prufung">
-                Prüfung
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 1 - .NET Grundlagen" href="#vorlesung-1-net-grundlagen">
-                Vorlesung 1 - .NET Grundlagen
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 2 - C# Grundlagen (Selbststudium)" href="#vorlesung-2-c-grundlagen-selbststudium">
-                Vorlesung 2 - C# Grundlagen (Selbststudium)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 3 - Klassen und Structs" href="#vorlesung-3-klassen-und-structs">
-                Vorlesung 3 - Klassen und Structs
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 4 - Vererbung (Selbststudium)" href="#vorlesung-4-vererbung-selbststudium">
-                Vorlesung 4 - Vererbung (Selbststudium)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 5 - Delegates &amp; Events" href="#vorlesung-5-delegates-events">
-                Vorlesung 5 - Delegates &amp; Events
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 6 - Generics (Selbststudium)" href="#vorlesung-6-generics-selbststudium">
-                Vorlesung 6 - Generics (Selbststudium)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 7 - Iteratoren &amp; Exceptions" href="#vorlesung-7-iteratoren-exceptions">
-                Vorlesung 7 - Iteratoren &amp; Exceptions
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 8 - LINQ (Selbststudium)" href="#vorlesung-8-linq-selbststudium">
-                Vorlesung 8 - LINQ (Selbststudium)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 9 - Entity Framework (1) (Selbststudium)" href="#vorlesung-9-entity-framework-1-selbststudium">
-                Vorlesung 9 - Entity Framework (1) (Selbststudium)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 10 - Entitiy Framework (2) (Selbststudium)" href="#vorlesung-10-entitiy-framework-2-selbststudium">
-                Vorlesung 10 - Entitiy Framework (2) (Selbststudium)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 11 - WCF (1)" href="#vorlesung-11-wcf-1">
-                Vorlesung 11 - WCF (1)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 12 - WCF (2)" href="#vorlesung-12-wcf-2">
-                Vorlesung 12 - WCF (2)
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Vorlesung 13 - Reflection / Attributes" href="#vorlesung-13-reflection-attributes">
-                Vorlesung 13 - Reflection / Attributes
-              </a>
-            </li>
-          
-        </ul>
-      
+      <nav class="md-nav md-nav--secondary">
+  
+  
     
-  </li>
-
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
       
-        
-  <li>
-    <a class="" title="SE1" href="../se1/">
-      SE1
-    </a>
-    
-  </li>
-
+        <li class="md-nav__item">
+  <a href="#prufung" title="Prüfung" class="md-nav__link">
+    Prüfung
+  </a>
+  
+</li>
       
+        <li class="md-nav__item">
+  <a href="#vorlesung-1-net-grundlagen" title="Vorlesung 1 - .NET Grundlagen" class="md-nav__link">
+    Vorlesung 1 - .NET Grundlagen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-2-c-grundlagen-selbststudium" title="Vorlesung 2 - C# Grundlagen (Selbststudium)" class="md-nav__link">
+    Vorlesung 2 - C# Grundlagen (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-3-klassen-und-structs" title="Vorlesung 3 - Klassen und Structs" class="md-nav__link">
+    Vorlesung 3 - Klassen und Structs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-  <li>
-    <a class="" title="WED2" href="../wed2/">
-      WED2
-    </a>
-    
-  </li>
-
+          <li class="md-nav__item">
+  <a href="#structs" title="Structs" class="md-nav__link">
+    Structs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#klassen" title="Klassen" class="md-nav__link">
+    Klassen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-4-vererbung-selbststudium" title="Vorlesung 4 - Vererbung (Selbststudium)" class="md-nav__link">
+    Vorlesung 4 - Vererbung (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-5-delegates-events" title="Vorlesung 5 - Delegates &amp; Events" class="md-nav__link">
+    Vorlesung 5 - Delegates &amp; Events
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delegates" title="Delegates" class="md-nav__link">
+    Delegates
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multicast-delegates" title="Multicast-Delegates" class="md-nav__link">
+    Multicast-Delegates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" title="Events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anonyme-methoden" title="Anonyme Methoden" class="md-nav__link">
+    Anonyme Methoden
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-6-generics-selbststudium" title="Vorlesung 6 - Generics (Selbststudium)" class="md-nav__link">
+    Vorlesung 6 - Generics (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-7-iteratoren-exceptions" title="Vorlesung 7 - Iteratoren &amp; Exceptions" class="md-nav__link">
+    Vorlesung 7 - Iteratoren &amp; Exceptions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iteratoren" title="Iteratoren" class="md-nav__link">
+    Iteratoren
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-8-linq-selbststudium" title="Vorlesung 8 - LINQ (Selbststudium)" class="md-nav__link">
+    Vorlesung 8 - LINQ (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-9-entity-framework-1-selbststudium" title="Vorlesung 9 - Entity Framework (1) (Selbststudium)" class="md-nav__link">
+    Vorlesung 9 - Entity Framework (1) (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-10-entitiy-framework-2-selbststudium" title="Vorlesung 10 - Entitiy Framework (2) (Selbststudium)" class="md-nav__link">
+    Vorlesung 10 - Entitiy Framework (2) (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-11-wcf-1" title="Vorlesung 11 - WCF (1)" class="md-nav__link">
+    Vorlesung 11 - WCF (1)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contracts" title="Contracts" class="md-nav__link">
+    Contracts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfiguration" title="Konfiguration" class="md-nav__link">
+    Konfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client" title="Client" class="md-nav__link">
+    Client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kommunikations-muster" title="Kommunikations-Muster" class="md-nav__link">
+    Kommunikations-Muster
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#duplex-kommunikation" title="Duplex-Kommunikation" class="md-nav__link">
+    Duplex-Kommunikation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-12-wcf-2" title="Vorlesung 12 - WCF (2)" class="md-nav__link">
+    Vorlesung 12 - WCF (2)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serialisierung" title="Serialisierung" class="md-nav__link">
+    Serialisierung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-behaviour" title="Service Behaviour" class="md-nav__link">
+    Service Behaviour
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-13-reflection-attributes" title="Vorlesung 13 - Reflection / Attributes" class="md-nav__link">
+    Vorlesung 13 - Reflection / Attributes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reflection" title="Reflection" class="md-nav__link">
+    Reflection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" title="Attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eigenes-attribut" title="Eigenes Attribut" class="md-nav__link">
+    Eigenes Attribut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-emittierung" title="Code Emittierung" class="md-nav__link">
+    Code Emittierung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
-  </li>
-
-          
-            
-  <li>
-    <a class="" title="Playground" href="../../playground/">
-      Playground
-    </a>
+  
+</nav>
     
   </li>
 
           
-        </ul>
         
-          <hr>
-          <span class="section">The author</span>
-          <ul>
-            
-              
-              <li>
-                <a href="https://twitter.com/robin_suter" target="_blank" title="@robin_suter on Twitter">
-                  @robin_suter on Twitter
-                </a>
-              </li>
-            
-            
-              
-              <li>
-                <a href="https://github.com/excape" target="_blank" title="@excape on GitHub">
-                  @excape on GitHub
-                </a>
-              </li>
-            
-          </ul>
-        
-      </div>
-    </div>
-  </div>
-</nav>
-      </div>
-      <article class="article">
-        <div class="wrapper">
           
-          <h1 id="net-technologien">.NET Technologien</h1>
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../se1/" title="SE1" class="md-nav__link">
+        SE1
+      </a>
+    
+  </li>
+
+          
+        
+          
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../wed2/" title="WED2" class="md-nav__link">
+        WED2
+      </a>
+    
+  </li>
+
+          
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../../playground/" title="Playground" class="md-nav__link">
+        Playground
+      </a>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prufung" title="Prüfung" class="md-nav__link">
+    Prüfung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-1-net-grundlagen" title="Vorlesung 1 - .NET Grundlagen" class="md-nav__link">
+    Vorlesung 1 - .NET Grundlagen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-2-c-grundlagen-selbststudium" title="Vorlesung 2 - C# Grundlagen (Selbststudium)" class="md-nav__link">
+    Vorlesung 2 - C# Grundlagen (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-3-klassen-und-structs" title="Vorlesung 3 - Klassen und Structs" class="md-nav__link">
+    Vorlesung 3 - Klassen und Structs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structs" title="Structs" class="md-nav__link">
+    Structs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#klassen" title="Klassen" class="md-nav__link">
+    Klassen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-4-vererbung-selbststudium" title="Vorlesung 4 - Vererbung (Selbststudium)" class="md-nav__link">
+    Vorlesung 4 - Vererbung (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-5-delegates-events" title="Vorlesung 5 - Delegates &amp; Events" class="md-nav__link">
+    Vorlesung 5 - Delegates &amp; Events
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delegates" title="Delegates" class="md-nav__link">
+    Delegates
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multicast-delegates" title="Multicast-Delegates" class="md-nav__link">
+    Multicast-Delegates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" title="Events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anonyme-methoden" title="Anonyme Methoden" class="md-nav__link">
+    Anonyme Methoden
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-6-generics-selbststudium" title="Vorlesung 6 - Generics (Selbststudium)" class="md-nav__link">
+    Vorlesung 6 - Generics (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-7-iteratoren-exceptions" title="Vorlesung 7 - Iteratoren &amp; Exceptions" class="md-nav__link">
+    Vorlesung 7 - Iteratoren &amp; Exceptions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iteratoren" title="Iteratoren" class="md-nav__link">
+    Iteratoren
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-8-linq-selbststudium" title="Vorlesung 8 - LINQ (Selbststudium)" class="md-nav__link">
+    Vorlesung 8 - LINQ (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-9-entity-framework-1-selbststudium" title="Vorlesung 9 - Entity Framework (1) (Selbststudium)" class="md-nav__link">
+    Vorlesung 9 - Entity Framework (1) (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-10-entitiy-framework-2-selbststudium" title="Vorlesung 10 - Entitiy Framework (2) (Selbststudium)" class="md-nav__link">
+    Vorlesung 10 - Entitiy Framework (2) (Selbststudium)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-11-wcf-1" title="Vorlesung 11 - WCF (1)" class="md-nav__link">
+    Vorlesung 11 - WCF (1)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contracts" title="Contracts" class="md-nav__link">
+    Contracts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfiguration" title="Konfiguration" class="md-nav__link">
+    Konfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client" title="Client" class="md-nav__link">
+    Client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kommunikations-muster" title="Kommunikations-Muster" class="md-nav__link">
+    Kommunikations-Muster
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#duplex-kommunikation" title="Duplex-Kommunikation" class="md-nav__link">
+    Duplex-Kommunikation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-12-wcf-2" title="Vorlesung 12 - WCF (2)" class="md-nav__link">
+    Vorlesung 12 - WCF (2)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serialisierung" title="Serialisierung" class="md-nav__link">
+    Serialisierung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-behaviour" title="Service Behaviour" class="md-nav__link">
+    Service Behaviour
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorlesung-13-reflection-attributes" title="Vorlesung 13 - Reflection / Attributes" class="md-nav__link">
+    Vorlesung 13 - Reflection / Attributes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reflection" title="Reflection" class="md-nav__link">
+    Reflection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" title="Attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eigenes-attribut" title="Eigenes Attribut" class="md-nav__link">
+    Eigenes Attribut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-emittierung" title="Code Emittierung" class="md-nav__link">
+    Code Emittierung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+               
+                 <a href="https://github.com/Excape/hsr-docs-hs16/edit/master/docs/hs16/mste.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+               
+              
+                
+                <h1 id="net-technologien">.NET Technologien</h1>
 <h2 id="prufung">Prüfung</h2>
 <ul>
 <li>Voraussetzung: Miniprojekt abschliessen</li>
@@ -577,7 +1168,7 @@
 </ul>
 </li>
 </ul>
-<div class="code"><pre><span></span><span class="n">Base</span> <span class="n">b1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SubSub</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><span class="n">Base</span> <span class="n">b1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SubSub</span><span class="p">();</span>
 <span class="n">b1</span><span class="p">.</span><span class="n">J</span><span class="p">();</span>
 <span class="c1">// Base.J()</span>
 <span class="p">((</span><span class="n">Sub</span><span class="p">)</span><span class="n">b1</span><span class="p">).</span><span class="n">J</span><span class="p">();</span>
@@ -609,7 +1200,7 @@
 </ul>
 </li>
 </ul>
-<div class="code"><pre><span></span><span class="p">~</span><span class="n">DataAccess</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="p">~</span><span class="n">DataAccess</span><span class="p">()</span>
 <span class="p">{</span> <span class="n">Dispose</span><span class="p">(</span><span class="k">false</span><span class="p">);</span> <span class="p">}</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Dispose</span><span class="p">()</span>
 <span class="p">{</span>
@@ -678,7 +1269,7 @@
 </li>
 </ul>
 <h3 id="anonyme-methoden">Anonyme Methoden</h3>
-<div class="code"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="n">ForEach</span><span class="p">(</span><span class="k">delegate</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="n">ForEach</span><span class="p">(</span><span class="k">delegate</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
     <span class="p">{</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">);</span>
 </pre></div>
@@ -714,7 +1305,7 @@
 </ul>
 </li>
 </ul>
-<div class="code"><pre><span></span><span class="n">MyIntList</span> <span class="n">list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyIntList</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><span class="n">MyIntList</span> <span class="n">list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyIntList</span><span class="p">();</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">elem</span> <span class="k">in</span> <span class="n">list</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">7</span><span class="p">))</span>
 <span class="p">{</span>
     <span class="cm">/* ... */</span>
@@ -800,7 +1391,7 @@
 <li>App.config wird immer "heraus" kompiliert vom DLL, kann also auch im nachhinein noch geändert werden</li>
 </ul>
 <h4 id="contracts">Contracts</h4>
-<div class="code"><pre><span></span><span class="na">[ServiceContract]</span>
+<div class="codehilite"><pre><span></span><span class="na">[ServiceContract]</span>
 <span class="k">public</span> <span class="k">interface</span> <span class="n">ITimeService</span>
 <span class="p">{</span>
 <span class="na">    [OperationContract]</span>
@@ -821,7 +1412,7 @@
 <ul>
 <li>DTO:</li>
 </ul>
-<div class="code"><pre><span></span><span class="na">[DataContract]</span>
+<div class="codehilite"><pre><span></span><span class="na">[DataContract]</span>
 <span class="k">public</span> <span class="k">class</span> <span class="nc">TimeDescData</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="nf">TimeDescData</span><span class="p">()</span>
@@ -883,7 +1474,7 @@
 <li><code>[OperationContract(IsOneWay=true)]</code> wartet nicht auf Server (asynchron), erwartet aber auch keine Antwort</li>
 </ul>
 <h4 id="duplex-kommunikation">Duplex-Kommunikation</h4>
-<div class="code"><pre><span></span><span class="na">[ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(ICalcCallback))]</span>
+<div class="codehilite"><pre><span></span><span class="na">[ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(ICalcCallback))]</span>
 <span class="k">public</span> <span class="k">interface</span> <span class="n">ICalculatorDuplex</span> <span class="p">{</span>
     <span class="c1">// IsOneWay = true Operationen</span>
 <span class="p">}</span>
@@ -895,7 +1486,7 @@
 <li>Callback auf Serverseite mit <code>OperationContext.Current.GetCallBackChannel&lt;ICalcCallback&gt;()</code> holen</li>
 <li>Client: (<code>CallbackHandler</code> implementiert Callback-Interface)</li>
 </ul>
-<div class="code"><pre><span></span><span class="n">CallbackHandler</span> <span class="n">h</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CallbackHandler</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><span class="n">CallbackHandler</span> <span class="n">h</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CallbackHandler</span><span class="p">();</span>
 <span class="n">InstanceContext</span> <span class="n">ic</span> <span class="p">=</span> <span class="k">new</span> <span class="n">InstanceContext</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
 <span class="n">CalculatorDuplexClient</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CalculatorDuplexClient</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span>
 </pre></div>
@@ -1004,7 +1595,7 @@ public class BoredStudent : Student { }
 <li>Mit Named Parameter können auch Properties auf dem Attribut gesetzt werden, die nicht über den Konstruktor initialisiert werden</li>
 </ul>
 <h4 id="eigenes-attribut">Eigenes Attribut</h4>
-<div class="code"><pre><span></span><span class="na">[AttributeUsage(</span>
+<div class="codehilite"><pre><span></span><span class="na">[AttributeUsage(</span>
 <span class="na">AttributeTargets.Class |</span>
 <span class="na">AttributeTargets.Constructor |</span>
 <span class="na">AttributeTargets.Field |</span>
@@ -1028,83 +1619,97 @@ public class BoredStudent : Student { }
 <ul>
 <li>Todo</li>
 </ul>
-          <aside class="copyright" role="note">
-            
-              Copyright (c) 2016 Robin Suter &ndash;
-            
-            Documentation built with
-            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
-            using the
-            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
-              Material
-            </a>
-            theme.
-          </aside>
-          
-            <footer class="footer">
               
-  <nav class="pagination" aria-label="Footer">
-    <div class="previous">
+            </article>
+          </div>
+        </div>
+      </main>
       
-        <a href="../mge_summary_android/" title="Summary Android">
-          <span class="direction">
-            Previous
-          </span>
-          <div class="page">
-            <div class="button button-previous" role="button" aria-label="Previous">
-              <i class="icon icon-back"></i>
+        <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../mge_summary_android/" title="Summary Android" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-footer-nav__icon">arrow_back</i>
             </div>
-            <div class="stretch">
-              <div class="title">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
                 Summary Android
-              </div>
+              </span>
             </div>
-          </div>
-        </a>
-      
-    </div>
-    <div class="next">
-      
-        <a href="../se1/" title="SE1">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
+          </a>
+        
+        
+          <a href="../se1/" title="SE1" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
                 SE1
-              </div>
+              </span>
             </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-footer-nav__icon">arrow_forward</i>
             </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2016 Robin Suter
           </div>
-        </a>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
       
     </div>
-  </nav>
-
-            </footer>
-          
-        </div>
-      </article>
-      <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-          <div class="wrapper">
-            <div class="meta"></div>
-            <div class="list"></div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <script>
-      var base_url = '../..';
-      var repo_id  = '';
-    </script>
-    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+  </div>
+</footer>
+      
+    </div>
     
-      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <script src="../../assets/javascripts/application-c57ff8e45a.js"></script>
+      <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+      
     
+    
+      
     
   </body>
 </html>

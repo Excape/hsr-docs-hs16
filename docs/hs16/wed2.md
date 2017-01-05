@@ -5,6 +5,13 @@
 - 2h, closed book
 - Zusammenfassung 1 A4 Seite (muss abgegeben werden)
 
+### Auf Zusammenfassung
+- Node
+    - Node-Modules code
+    - Strukturierung MVC
+    - Handlebars
+- Wichtigste Flexbox attribute
+- Media Query syntax
 ---
 ## Vorlesung 2 - NodeJS
 - "Klassischer" Webserver
@@ -71,7 +78,7 @@
 
 - Definiert mit `display: flex` bzw. `inline-flex`
 - Alle Blocks innerhalb einer Flexbox sind "inline blocks"
-- `flex-direction`: `column` für Elemente untereinander, `row` für Elemente in einer Zeile
+- `flex-direction: column | row | column-reverse | row-reverse`
 - `flex: <flex-grow> <flex-shrink> <flex-basis>`
     - grow, shrink: Faktor, wie die Box verkleinert / vergrössert werden kann
 - `flex: 0 0 50px` heisst eine fixe Grösse von 50px
@@ -79,6 +86,9 @@
     - `flex-start`: An start positionieren (links bzw. oben)
     - `space-between`: Gleicher Abstand zwischen Elementen
     - `space-around`: Gleicher Abstand um Elemente herum
+- `align-items: flex-start | flex-end | center | stretch`: Anordung in der Hauptachse
+- `align-self`: Ein flexbox-Item unabhängig anordnen
+- `align-content`: wie align-items, aber Abstand zwischen gewrapten Zeilen / Spalten
 
 ### Analyse realistischer layouts
 - Mobile Layout mit `display:block`
@@ -104,6 +114,7 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
     - `@media ([height]: 667px) {}`
     - `@media ([device-width||min-device-width||max-device-width]: 375px) {}`
     - `@media ([device-height||min-device-height||max-device-height]: 667px) {}`
+- `device-width` nicht verwenden, weil = `screen.width`, das nicht konsistent definiert ist
 - Spec: <https://www.w3.org/TR/css3-mediaqueries/>
 - Kann auch direkt als sepparates Stylesheet geladen werden (HTML5): `<link rel="stylesheet“ href=“LargeScreenLayout.css" media="(min-width: 30em)">`
 - Mobile First Approach: HTML für Mobile Layout schreiben, dann für grössere Displays mit Media Queries anpassen
@@ -115,7 +126,17 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
 - Deaktiviert die "Intelligenz" von mobilen Browsern
 - Sonst funktionieren Media Queries nicht richtig, da der Viewport skaliert wird vom Browser
 - Details: <https://vimeo.com/100523275>
-
+    - viewport ist auf Desktop-Browser immer die Grösse des Browserfensters
+    - Auf mobile wollte man Browser kompatibel zu desktop-optimized sites machen
+        - Layout Viewport: Eine Grösse wie auf dem Desktop, also breiter als der eigentliche Phone-Screen
+        - Visual Viewport: Die eigentliche Grösse auf dem Phone (was der User sieht). z.B. für `fixed`-Elemente wichtig
+        - Ideal Viewport: Die ideale Grösse (Höhe und Breite) für ein speifisches Phone, damit die Website "optimal" aussieht (responsive)
+        - Die meisten Phones haben aber einen einheitlichen Ideal Viewport
+    - Responsive: Layout Viewport = Ideal Viewport
+    - `ẁidth=device-width`: Setzt den Layout Viewport auf die Breite des Ideal Viewports (`device-width`). Bei Safari wird aber auch im Landscape-mode die Breite des Landscape-Viewports verwendet (und im IE umgekehrt)
+    - `initial-scale: 1`: *Genau der gleiche Effekt* wie `width=device-width`, weil es die Skalierung auf 100% des idealen Viewports setzt (niemand weiss wieso)
+    - Wenn eine Angabe grösser als die andere ist, wird der grössere Wert genommen
+    - Darum beide Werte verwenden, damit alle Browser richtig funktionieren!
 ---
 ## Vorlesung 7 - Responsive Webdesign
 - Resizer zum Testen: http://material.io/resizer/
@@ -157,12 +178,18 @@ normalerweise teurer als "Progressive Enhancement" in der Wartung.
 - XSS: Cross Site Scripting
     - Code des Angreifers wird im Browser des Opfers ausgeführt
     - Interessant z.B. um Cookies von Benutzer per AJAX-Request an Angreifer zu setzen
-    - Encoding ist bei Handlebars per default aktiviert
+        - Encoding ist bei Handlebars per default aktiviert
     - Content Security Policy als Header setzen
     - Bei Cookies `HttpOnly` Flag setzen, damit es nicht mit `document.cookie` ausgelesen werden kann
 - JS Code Injection
     - Angreifer kann Server dazu bringen, seinen Code auszuführen
-
+- Broken Authentication / Session Mangement
+    - Timeouts zu lang, ungesicherte Übertragung, PWs nicht verschlüsselt, etc.
+- Insecure Direct Object References
+    - Ein geschützter bereich wird z.B. über `/portfolio/:userid:` angeboten und nicht zusätzlich geschützt
+- CSRF
+    - Bsp: Nutzer ist auf einer Seite eingelogt (Session aktiv), eine schädliche Seite sendet per JS einen POST-Request an die eingelogte Seite und kann unberechtigte Aktionen ausführen
+    - Gegenmassnahmen: Security-Tokens vom Server generieren und in Formulare (hidden) einbetten, damit sie vom User beim Request mitgesendet werden
 ---
 ## Vorlesung 10 - Layers / OO
 ```javascript

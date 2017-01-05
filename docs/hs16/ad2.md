@@ -175,7 +175,7 @@ $$\rightarrow h \in O(log(n))$$
 
 ---
 ## Vorlesung 5 - Quick-Sort
-- Vergleich Insertion-Sort (\(O(n^2)\)) und Merge-Sort (\(O(n log n)): Bei \(2^{14}\) Elementen ist Merge-Sort 100x schneller, bei 1 Mio. Elementen ist es 6'400x schneller
+- Vergleich Insertion-Sort (\(O(n^2)\)) und Merge-Sort (\(O(n log n)\)): Bei \(2^{14}\) Elementen ist Merge-Sort 100x schneller, bei 1 Mio. Elementen ist es 6'400x schneller
 - Insertion Sort würde für 1 Mio. Elemente ca. 1h 47' benötigen, merge-Sort nur einige Sekunden
 
 ### Quick-Sort

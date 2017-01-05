@@ -379,7 +379,7 @@ new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
 ![Material Design summary](img/mge/material_design_summary.png)
 
 ---
-## Vorlesung 6 - Patterns & Serivces
+## Patterns & Serivces
 ### UI Patterns
 - Multitier Architecture
     - Aufteilung in (typisch) 3 Layer: Presentation, Domain, Data

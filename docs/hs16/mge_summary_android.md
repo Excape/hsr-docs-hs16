@@ -19,7 +19,8 @@
 - Eine geöffnete App ist ein Task, bzw. ist ein Eintrag im "Overview Screen" ein Task
 -  Mit Launch-Modes kann das Verhalten von Tasks verändert werden
 
-![](img/mge/activity_lifecycle.png)
+<img src="../img/mge/activity_lifecycle.png" width=375/>
+
 ### Systemsicht
 - Pro APK wird ein Prozess mit einem Thread gestartet
 - Jede APK wird unter eigenem Linux User installiert
@@ -78,7 +79,7 @@ button.setOnClickListener(new View.OnClickListener() {
 - Es kann nur immer eine Activity gleichzeitig aktiv sein.
 - Fragment hat eigenen Lifecycle
 
-![](img/mge/fragment_lifecycle.png)
+<img src="../img/mge/fragment_lifecycle.png" height=700/>
 
 - Ein Fragment kann in mehrere Activities eingebunden werden und eine Activity kann mehrere Fragments beinhalten
 - Kann zur Laufzeit in Activity eingebunden (`onAttach()`) und wieder entfernt werden (`onDetach()`)
@@ -401,7 +402,8 @@ new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
        android:exported="false" />
 </application>
 ```
-![](img/mge/service_lifecycle.png)
+<img src="../img/mge/service_lifecycle.png" width=250/>
+
 
 - Einmaliger Task -> started Service
     - Läuft im Hintergrund und wird nicht gestoppt, auch wenn die App pausiert / gestoppt wird

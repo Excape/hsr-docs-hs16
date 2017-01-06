@@ -142,52 +142,106 @@
 
 ---
 ## Vorlesung 9 - Design Patterns
-- Folie 12: Dies ist das **Strategy Pattern**
-    - Jede Duck muss eine Strategie implementieren (Flug und Quacken)
-    - Vorteil: Man kann z.B. über eine Liste von Ducks iterieren und auf allen `fly()` aufrufen. Geht z.B. nicht, wenn man Interface `flyable` machen würde
-- Decorator-Pattern
-    - Klassen ineinander verpacken
-    - Kosten werden von Aussen nach Innen addiert
-    - Decorator erbt von Component, aber hat selbst eine Referenz auf eine Component
-- Composite
-    - Jede Composite hat eine oder mehrere Components als Childdren, diese kann jeweils ein Leaf, oder wieder ein Composite sein
-    - Problem: Ein Composite hat keine eigene Operation, es werden nur Operationen auf Leafs ausgeführt
-- Factory
-    - Instanziierung mit komplexer Logik in sepparate Klasse auslagern
 
-### Übung 09
-#### Strategy Pattern
+### Factory Method (~ Concrete Factory)
+![](img/se1-patterns/factory_method.png)
+
+- Ziel: Instanziierung mit komplexer Logik in sepparate Klasse auslagern
+- Wird verwendet, um komplexe Objekte, die stark parameterisiert sind, zu intialisieren
+- Ein Interface (Creator) definiert eine Factory-Methode. Der ConcreateCreator erstellt diese und gibt ein ConceteProduct zurück
+- Es können mehrere konkrete Creators verwendet werden, um verschiedene Arten von Products zu initialisieren
+- Vorteile
+    - Der Creator ist austauschbar, somit ist der Create-Prozess gekapselt
+- Nachteil
+    - Ein konkreter Creator ist stark an ein konkretes Product gekoppelt
+
+### Singleton Pattern
+![](img/se1-patterns/singleton_pattern.png)
+
+```java
+public final class Singleton {
+  private static Singleton theInstance = null;
+  private Singleton() {};
+
+  public static Singleton getInstance() {
+    if (theInstance == null)
+      theInstance = new Singleton();
+    return theInstance;
+  }
+}
+```
+- Sicherstellen, dass genau nur eine Instanz einer Klasse erzeugt wird
+- Das Singleton hat eine Instanz von sich selbst als Member-Variable
+- Der Konstruktor ist `private`
+- Eine *static* Methode `getInstance()` ruft den Konstruktor auf, nur wenn es noch nie initialisiert wurde, und gibt die Instanz zurück
+- Hinweis: Nie über die `getInstance()`-Methode Konstruktor-Parameter übergeben, da sonst ein zweiter Aufrufer eine andere Instanz erhält, als er erwartet (nämlich die gleiche wie der Erste). Dazu Factories verwenden
+
+### Command Pattern
+![](img/se1-patterns/command.png)
+
+- Ziel: Eine Ausführung eines Befehls von deren Aufruf entkoppeln
+- Ein Aufrufer ruft immer ein abstraktes Command auf, er kennt das konkrete nicht
+- Der Client instanziert den konkreten Command und setzt den Empfänger. Der konkrete Command implementiert `Command` und delegiert den Aufruf an den Empfänger weiter
+
+### Strategy Pattern
+![](img/se1-patterns/strategy_pattern.jpg)
+
+- Der client benutzt eine abstrakte "Strategie" - dahinter können sich verschiedenen Varianten (= konkrete Stratgien) befinden
+- Folie: Jede Duck muss eine Strategie implementieren (Flug und Quacken)
+- Vorteil: Man kann z.B. über eine Liste von Ducks iterieren und auf allen `fly()` aufrufen. Geht z.B. nicht, wenn man Interface `flyable` machen würde
 - In Wikipedia ist die Strategie-Klasse ein Interface, im Quiz eine konkrete Klasse
 - Konkrete Klasse für default implementation. Bei Interface nicht möglich
 
-![](img/se1-patterns/strategy_pattern.jpg)
+### Template Method
+![](img/se1-patterns/template_method.png)
 
-#### Observer Pattern
+- Ziel: Einen generischen Algorithmus beschreiben, von dem einzelne Operationen variieren können
+- In der `templateMethod()` wird der Algorithmus definiert, der verschiedene operationen aufruft
+- Operationen können eine Default-Implementation haben, abstract sein oder "dummys"
+- Operationen werden von konkretem Klassen überschrieben / implementiert
+- Vorteil: "Inversion of Control": Die Oberklasse ruft die Operationen auf
+
+### Observer Pattern
+![](img/se1-patterns/observer_pattern.jpg)
+
+- Der konkrete Observer kann das konkrete Subjekt kennen, muss er aber nicht, wenn in der `update()`-Methode die Quelle (also das observable) mitgegeben wird. So kann sich ein Observer auch auf mehreren Observables registrieren
 - Im GOF gibt es ein konkretes Subject, bei Wikipedia nicht. Das concrete Subject ist nötig, da es das effektive Objekt ist, das "observed" wird
 - MVC geht auch ohne Observer-Pattern: Der Controller kennt das Model und die View. Wenn das Model sich ändert, weiss das der Controller und meldet dies der View. Mit dem Observer Pattern werden die Views über den Observer vom Model benachrichtigt, der Controller muss die View nicht mehr kennen
     - MVC ohne Observer nur mit 1 View oder wenn die Daten "unter" dem Modell nicht verändert werden
-![](img/se1-patterns/observer_pattern.jpg)
+    
+### Adapter Pattern
+![](img/se1-patterns/adapter_pattern.png)
+- Ein Adapter „passt die Schnittstelle einer Klasse an eine andere von ihren Klienten erwartete Schnittstelle an. Das Adaptermuster lässt Klassen zusammenarbeiten, die andernfalls dazu nicht in der Lage wären“ [GoF].
+- Hier gezeigt ist ein Adapter, der nicht die vorhandene Komponente ableitet, sondern die benötigten Funktionen an die vorhandene Klasse delegiert
 
-#### Singleton Pattern
-![](img/se1-patterns/singleton_pattern.png)
 
-#### Decorator Pattern
+### Decorator Pattern
 ![](img/se1-patterns/decorator_pattern.png)
 
-#### Facade Pattern
+- Klassen ineinander verpacken
+- Kosten werden von Aussen nach Innen addiert
+- Decorator erbt von Component, aber hat selbst eine Referenz auf eine Component
+
+### Facade Pattern
 ![](img/se1-patterns/facade_pattern.jpg)
 
-#### Command Pattern
-![](img/se1-patterns/command.png)
+### Facade
 
-#### Interpreter Pattern
-![](img/se1-patterns/interpreter-pattern.png)
 
-#### Chain of Responsibility
-![](img/se1-patterns/chain_of_responsibility.png)
+### Composite Pattern
+- Jede Composite hat eine oder mehrere Components als Childdren, diese kann jeweils ein Leaf, oder wieder ein Composite sein
+- Problem: Ein Composite hat keine eigene Operation, es werden nur Operationen auf Leafs ausgeführt
 
-#### Absract Factory
-![](img/se1-patterns/abstract_Factory.png)
+### Use Case / Session / Application Controller
+
+### State Pattern
+
+
+### Null Object
+
+### MVC
+
+
 ---
 ## Vorlesung 10 - SW-Architektur (1)
 

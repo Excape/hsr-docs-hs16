@@ -22,3 +22,28 @@ div.codehilite > pre
 .md-typeset hr {
     border-bottom: none;
 }
+
+@media print {
+    .md-main__inner {
+        margin-top: 1rem;
+    }
+    
+    /* fix bug in new mkdocs-material */
+    a[title="Edit this page"] {
+        display: none;
+    }
+    
+    div.codehilite {
+        /* Avoid page breaks in code blocks */
+        page-break-inside: avoid;
+    }
+    
+    li {
+        page-break-inside: avoid;
+    }
+    
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+}

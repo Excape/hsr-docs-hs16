@@ -20,6 +20,7 @@ pages:
     - MGE: 
         - Notes: 'hs16/mge.md'
         - Summary Android: 'hs16/mge_summary_android.md'
+        - Summary WPF: 'hs16/mge_summary_wpf.md'
     - MsTe: 'hs16/mste.md'
     - SE1: 'hs16/se1.md'
     - WED2: 'hs16/wed2.md'

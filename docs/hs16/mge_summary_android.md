@@ -79,7 +79,7 @@ button.setOnClickListener(new View.OnClickListener() {
 - Es kann nur immer eine Activity gleichzeitig aktiv sein.
 - Fragment hat eigenen Lifecycle
 
-<img src="../img/mge/fragment_lifecycle.png" height=700/>
+<img src="../img/mge/fragment_lifecycle.png" height=600/>
 
 - Ein Fragment kann in mehrere Activities eingebunden werden und eine Activity kann mehrere Fragments beinhalten
 - Kann zur Laufzeit in Activity eingebunden (`onAttach()`) und wieder entfernt werden (`onDetach()`)
@@ -157,6 +157,8 @@ public class MainActivity extends Activity implements OnItemSelected {
 - z.B. hat das Phone-Design nur ein einzelnes Fragment pro Activity, das Tablet-layout zeigt beide Layouts auf der gleichen Activity an
 - Wenn Activity einen Einstiegspunkt in die App sein kann, muss es eine Activity sein, kein Fragment
 
+<div style="page-break-after: always" ></div>
+
 ### Menüs
 Programmatisch:
 ``` java
@@ -202,7 +204,8 @@ public boolean onOptionsItemSelected(MenuItem item) {
 - Nach Android 5.0 ist die "ActionBar" deprecated, neu ist die "Toolbar"
 - Navigation Drawer ("Hamburger Menu") hat schlechte usability
 
----
+<div style="page-break-after: always" ></div>
+
 ## Listen und Persistenz
 ### Listen
 - ListView
@@ -247,6 +250,8 @@ Pair<TextView, CheckBox> views = (Pair<TextView, CheckBox>) convertView.getTag()
 TextView textView = views.first;
 CheckBox checkBox = views.second;
 ```
+
+<div style="page-break-after: always" ></div>
 
 ### Recycler View
 - In `RecyclerView` ist die Optimierung bereits eingebaut
@@ -300,7 +305,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 }
 ```
 
----
 ## Persistenz
 - `onSaveInstanceState()` speichert per default alle Views mit einer ID im Bundle gespeichert
     - Wird aber nicht immer ausgeführt (z.B. über Back-Button verlassen)
@@ -374,12 +378,12 @@ class DownloadBitmapTask extends AsyncTask<String, Void, Bitmap> {
 new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
 ```
 
----
 ## Material Design
 
 ![Material Design summary](img/mge/material_design_summary.png)
 
----
+<div style="page-break-after: always" ></div>
+
 ## Patterns & Serivces
 ### UI Patterns
 - Multitier Architecture
@@ -471,6 +475,9 @@ public void onSensorChanged(SensorEvent event) {
     textView.setText(String.format("Helligkeit: %.0f", event.values[0]));
 }
 ```
+
+<div style="page-break-after: always" ></div>
+
 ### Dependency Injection
 - Problem: Klasse ist von einer anderen direkt abhängig und instanziert diese (z.B. wird eine Server-Adresse gesetzt)
 - Schlecht testbar mit einem Fake-Server

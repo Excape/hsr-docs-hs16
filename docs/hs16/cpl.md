@@ -2,6 +2,16 @@
 - Wiki: <https://wiki.ifs.hsr.ch/CPlusPlus/wiki.cgi?CPlusPlus>
 - C++ Referenz: <http://en.cppreference.com/w/cpp>
 
+## Notes Beratungssession
+- An Prüfung kommt insbesondere: Vererbung, Const, alles aus den Testataufgaben
+- Wichtigste Algorithmen auswendig kennen!
+    - `lexicographical_compare`, `transform`, `find`, etc.
+- r-value und l-value nicht an Prüfung gefragt
+    - l-value ist ein Platz, wo man etwas hinein tun kann (z.B variable)
+    - r-value ist etwas, woraus man etwas heraus holen kann
+- Wenn etwas "moved" wird, darf man den alten Wert nicht mehr benutzen. Das heisst nicht, dass es nicht möglich ist, aber nicht garantiert!
+
+
 ## Vorlesung 1 - Intro
 - "Undefined Behaviour": Verhalten nicht definiert, wenn z.B. Divison durch 0 oder Segmentation fault ("Es kann alles passieren"). Schlimmster Fall: Es läuft!
 - HelloWorld:
@@ -520,7 +530,7 @@ class Sack
 ```
 
 - Mehrere Template-Argumente `typename...`, weil `vector` zwei Template-Argumente nimmt (aber für zweites gibt es default-Wert)
-- `decltype(auto)` impliziert Rückgabewert
+- `decltype(auto)` impliziert Rückgabewert, wenn er von template-parameter abhängig ist
 - Wenn von einem Template geerbt wird, müssen die Template-Parameter der Subklasse und Basisklasse übereinstimmen!
 
 ---

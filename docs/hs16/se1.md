@@ -4,6 +4,17 @@
 - Abgabe von 3 von 4 Testat-Übungen
 - Selbststudium: Jede Woche in Buch lesen, nach Lektionsplan sheet
 
+## Notes Beratungssession
+- GRASP-Patterns nicht teil der Prüfung, Kopplung und Kohäsion schon
+- Komponenten-Diagramm nicht in Prüfungsstoff
+- Diagramme: Auch "Warum" welches Diagramm wo einsetzen (sollte ein Dokument dazu geben)
+    - Aufgabe Zustandsdiagramme:
+        - Zuerst: Was sind Events / Aktionen / Zustände
+- Patterns: Vor allem erkenne können, aber auch zeichnen können
+- Für Microtesting letzte Übung anschauen
+- Fully Dressed UC: Nicht alle Details kennen, aber Hauptfelder
+
+---
 ## Vorlesung 1
 - Ca. 70% aller IT-Projekte laufen schief
 - Erwartungskonflikt Kunde - Programmierer, ...
@@ -14,7 +25,7 @@
 ## Vorlesung 2 - Domain-Modellierung
 - Design-Modell zeigt eine Realisation, ein Domain-Modell auch Dinge, die nicht realisiert werden (Domain-Modell ist Inspiration für Design-Modell)
 - Entitäten (Konzepte) finden: 
-    - Keine Implementations-Konzepte verwenen (z.B. "Datenbank", "Webserver", etc.)
+    - Keine Implementations-Konzepte verwenden (z.B. "Datenbank", "Webserver", etc.)
     - Keine abgeleiteten Konzepte (Dinge, die durch andere Dinge berechnet werden kann, z.B. ein Logfile)
 - Semantic Gap: Unterschied zwischen realer Welt bzw. Domain Model und Design Model bzw. Code. Diese Gap ist bei OO-Design sehr klein, z.B. bei Assembler sehr gross
 - n-m-Assoziationen sind im Domain Modell erlaubt, aber oft nich richtig, da die Assoziation eigene Attribute hat
@@ -66,6 +77,7 @@
     - do-Acitivty läuft, solange System im Zustand ist
     - Kann auch interne Events / Übergänge haben (wiee ein Loop zu sich selbst)
 - Übergänge mit angeschriebenen Pfeilen ("Events")
+    - Können Event, Guard oder beides kombiniert sein
     - `event [guard] / activity`
     - `guard` ist Bedingung (precondition)
     - `activity` wird ausgeführt
@@ -221,26 +233,77 @@ public final class Singleton {
 - Klassen ineinander verpacken
 - Kosten werden von Aussen nach Innen addiert
 - Decorator erbt von Component, aber hat selbst eine Referenz auf eine Component
+- Vorteile:
+    - Komposition statt Vererbung, Klassen bleiben flexibler
+    - Die Komponenten (Espresso, Mocca, etc.) kennen ihre Decorator nicht
+- Nachteil: Bei vielen Funktionen in den Decoratorn können viele ähnliche Klassen entstehen (gemeinsame Klassen abstract im `Decorator` definieren)
 
 ### Facade Pattern
 ![](img/se1-patterns/facade_pattern.jpg)
 
-### Facade
+![](img/se1-patterns/facade_pattern_abstract.png)
 
+Zweck: 
+- Zugriff auf ein komplexes Subsystem vereinfachen. 
+- Die Clients sollten möglichst wenig Details vom Subsystem erfahren
+
+Lösung:
+- Die `Facade`-Klasse dient als Interface von den Clients zu dem Subsystem und steuert dessen Zugriff
+- Die Fassade kann auch auf mehrere Interfaces aufgeteilt werden
+- Die Fassade kann weitere Verantwortlichkeit wie Zugangskontrolle übernehmen
+
+Vorteil: Saubere Abkopplung vom Subsystem zu den Clients
+
+Nachteil: Wenn sich Subsystem häufig ändert, muss man evtl. auch die Fassade und damit das Interface nach aussen häufig anpassen.
 
 ### Composite Pattern
-- Jede Composite hat eine oder mehrere Components als Childdren, diese kann jeweils ein Leaf, oder wieder ein Composite sein
-- Problem: Ein Composite hat keine eigene Operation, es werden nur Operationen auf Leafs ausgeführt
+![](img/se1-patterns/composite_pattern.png)
+
+- Jede Composite hat eine oder mehrere Components als Children, diese kann jeweils ein Leaf, oder wieder ein Composite sein
+- Verschachtelte Struktur (z.B. Baum)
+- Bis zu einem gewissen Grad werden zusammengesetzte Komponenten und "Blattknoten" gleich behandelt
+- Probleme:
+    -  Ein Composite hat keine eigene Operation, es werden nur Operationen auf Leafs ausgeführt
+- Schwierige Namensgebung der gemeinsamen Schnittstelle `Component`. Bei Linux z.B. heissen verzeichnisse und "file"
 
 ### Use Case / Session / Application Controller
 
 ### State Pattern
+![](img/se1-patterns/state_pattern.jpg)
 
+!!! danger
+    Sieht genau gleich aus wie das Strategy Pattern!  
+    Hat aber einen anderen Sinn:
+    
+    - Das *Strategy Pattern* ist eine Alternative zum Vererben
+    - Das *State Pattern* ist eine Alternative zu vielen Kontrollstrukturen
+
+- Wird verwendet, um State-Machines abzubilden
+- Jeder Status hat eine Klasse
+- Die "Maschine" ist der `Context`. Er hält eine Referenz auf jeden konkreten State und eine Member-Variable für den aktuellen State
+- Jeder `request` wird vom aktuellen State behandelt
 
 ### Null Object
+![](img/se1-patterns/null_object.png)
 
-### MVC
+- Eine Klasse, die "nichts" tut
+- Macht Null-Checks unnötig
+- Das `NullObject` implementiert das gleiche Interface (oder leitet von der gleichen Basisklasse ab) wie die richtige Klasse
+- Statt der richtigen Funktionalität wird "nichts" gemacht oder Standardwerte zurück gegeben
+- Wann immer eine Referenz des echten Objekts `null` wäre, wird stattdessen das `NullObject` verwendet
+- Implementierung: z.B. als anonyme innere Klasse im Interface:
 
+```java
+public interface NullObject
+{
+  public void someMethod();
+  public static final NullObject NULL = new NullObject() {
+    public void someMethod() {
+      // leer: tue nichts
+    }
+  };
+}
+```
 
 ---
 ## Vorlesung 10 - SW-Architektur (1)

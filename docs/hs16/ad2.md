@@ -6,6 +6,12 @@
 - Vorgaben auf titelblatt
 - Musterprüfung auf Skripteserver
 
+### Notes Beratungssession
+- Bei Binärbäumen nach Re-Strukturierung Inorder-Traversierung durchgehen für einen Check
+- In-Place-Algorithmus: Darf nicht zusätzlichen Memory *abhängig von n* beanspruchen (konstanter zusätzlicher Speicher aber schon)
+- Minimale Laufzeit für Vergleichs-basierte Sortieralgorithmen ist \(\log(n!)\). Mit der Sterling-Approximation ist das \(O(n\cdot \log(n))\)
+- Java Strings: Bei Substring ist der zweite Index exklusive, auf den Folien inklusive
+- Suffix-Trie: Kann in \(O(n)\) erstellt werden, ist aber sehr schwierig (erst vor 10 Jahren gefunden)
 ---
 ## Vorlesung 1 - Binary Search Tree
 - Ein Heap hat das kleinste oder grösste Element als Root
@@ -389,4 +395,5 @@ T |   |   |   |   |
 - Fast wie Dijkstra
 - Unterschied: `r = weight(e)` statt `r = weight(e) + distance`
 
+- Boruvka ist gleich komplex wie Prim-Jarnik, aber braucht soviele PQ's wie Vertices, ist also in der Praxis langsamer (eher historisch)
 ![](img/spt_vs_mst.jpg)

@@ -6,12 +6,16 @@
 - Zusammenfassung 1 A4 Seite (muss abgegeben werden)
 
 ### Auf Zusammenfassung
+- Wichtigste Teile des Testats (Prüfungsaufgabe!)
 - Node
     - Node-Modules code
     - Strukturierung MVC
     - Handlebars
 - Wichtigste Flexbox attribute
+- Responsive Layouts (css schreiben können)
 - Media Query syntax
+- (Web-Security kein Prüfungsstoff!)
+
 ---
 ## Vorlesung 2 - NodeJS
 - "Klassischer" Webserver

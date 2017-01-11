@@ -3,6 +3,17 @@
 - Voraussetzung: Miniprojekt abschliessen
 - 120 Min, alle Unterlagen (ausser Musterprüfungen)
 
+### Notes Beratungssession
+- Umfang siehe PDF auf Skripteserver
+- Garantiert Aufgabe zu:
+    - GC
+    - Extension Methods
+- Bewertung: 80% für 6 (eher knappe Zeit )
+
+```csharp
+delegate T func<T out>()
+```
+
 ## Vorlesung 1 - .NET Grundlagen
 - .NET-Framework
   - Typen sind im Laufzeitsystem (CLR) nicht wie im Java

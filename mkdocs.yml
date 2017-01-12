@@ -15,7 +15,9 @@ pages:
     - BuRe1:
         - ReIng: 'hs16/reing.md'
         - BuPl: 'hs16/bupl.md'
-    - C++: 'hs16/cpl.md'
+    - C++: 
+        - Notes: 'hs16/cpl.md'
+        - Code: 'hs16/cpl_code.md'
     - EnglHTw: 'hs16/englhtw.md'
     - MGE: 
         - Notes: 'hs16/mge.md'

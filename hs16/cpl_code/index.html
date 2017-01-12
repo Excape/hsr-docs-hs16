@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HSR Study Documentation HS16">
+      
+      
+        <link rel="canonical" href="https://doc.robinsuter.ch/hs16/cpl_code/">
+      
+      
+        <meta name="author" content="Robin Suter">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+      
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.0">
+    
+    
+      
+        <title>Code - HSR Notizen</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-9f4ef1018a.js"></script>
+    
+    
+      
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+  <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-ff220fd69d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02ce7adcc2.palette.css">
+      
+      
+        <link rel="stylesheet" href="../../extra.css">
+      
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="red" data-md-color-accent="amber">
+  
+    <div class="md-svg">
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+  
+</div>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="HSR Notizen" class="md-icon  md-icon--home  md-header-nav__icon">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__icon" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  HS16
+                </span>
+              
+                <span class="md-header-nav__parent">
+                  C++
+                </span>
+              
+            
+            Code
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__icon" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      <label class="md-icon md-search__icon" for="search"></label>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+              
+
+
+  
+
+
+  <a href="https://github.com/Excape/hsr-docs-hs16" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+            
+          </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <i class="md-icon  md-icon--home  md-nav__icon">
+      
+    </i>
+    HSR Notizen
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Excape/hsr-docs-hs16" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../.." title="Home" class="md-nav__link">
+        Home
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      HS16
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2">
+        HS16
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../ad2/" title="AD2" class="md-nav__link">
+        AD2
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      BuRe1
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2-2">
+        BuRe1
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reing/" title="ReIng" class="md-nav__link">
+        ReIng
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../bupl/" title="BuPl" class="md-nav__link">
+        BuPl
+      </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-3">
+      C++
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2-3">
+        C++
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../cpl/" title="Notes" class="md-nav__link">
+        Notes
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Code
+      </label>
+    
+    <a href="./" title="Code" class="md-nav__link md-nav__link--active">
+      Code
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#count-characters-with-whitespace" title="Count Characters (with whitespace)" class="md-nav__link">
+    Count Characters (with whitespace)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#word-list" title="Word List" class="md-nav__link">
+    Word List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithms" title="Algorithms" class="md-nav__link">
+    Algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-certain-elements-from-container" title="Remove certain elements from container" class="md-nav__link">
+    Remove certain elements from container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lexicographical_compare" title="lexicographical_compare" class="md-nav__link">
+    lexicographical_compare
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterators" title="Iterators" class="md-nav__link">
+    Iterators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-vector" title="Print vector" class="md-nav__link">
+    Print vector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-with-the-word-class" title="Functions with the Word Class" class="md-nav__link">
+    Functions with the Word Class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#count-words-in-stream" title="Count words in stream" class="md-nav__link">
+    Count words in stream
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count-different-words-in-stream" title="Count different words in stream" class="md-nav__link">
+    Count different words in stream
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-20-most-common-words-from-input-stream" title="Print 20 most common words from input stream" class="md-nav__link">
+    Print 20 most common words from input stream
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is_prime-ugly" title="is_prime (ugly)" class="md-nav__link">
+    is_prime (ugly)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-conversion-operator" title="Type Conversion Operator" class="md-nav__link">
+    Type Conversion Operator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rekursive-datenstruktur-shared_ptr" title="Rekursive Datenstruktur (shared_ptr)" class="md-nav__link">
+    Rekursive Datenstruktur (shared_ptr)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-file-and-create-modules" title="Read file and create modules" class="md-nav__link">
+    Read file and create modules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../englhtw/" title="EnglHTw" class="md-nav__link">
+        EnglHTw
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      MGE
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2-5">
+        MGE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../mge/" title="Notes" class="md-nav__link">
+        Notes
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../mge_summary_android/" title="Summary Android" class="md-nav__link">
+        Summary Android
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../mge_summary_wpf/" title="Summary WPF" class="md-nav__link">
+        Summary WPF
+      </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../mste/" title="MsTe" class="md-nav__link">
+        MsTe
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../se1/" title="SE1" class="md-nav__link">
+        SE1
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../wed2/" title="WED2" class="md-nav__link">
+        WED2
+      </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../../playground/" title="Playground" class="md-nav__link">
+        Playground
+      </a>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#count-characters-with-whitespace" title="Count Characters (with whitespace)" class="md-nav__link">
+    Count Characters (with whitespace)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#word-list" title="Word List" class="md-nav__link">
+    Word List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithms" title="Algorithms" class="md-nav__link">
+    Algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-certain-elements-from-container" title="Remove certain elements from container" class="md-nav__link">
+    Remove certain elements from container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lexicographical_compare" title="lexicographical_compare" class="md-nav__link">
+    lexicographical_compare
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterators" title="Iterators" class="md-nav__link">
+    Iterators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-vector" title="Print vector" class="md-nav__link">
+    Print vector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions-with-the-word-class" title="Functions with the Word Class" class="md-nav__link">
+    Functions with the Word Class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#count-words-in-stream" title="Count words in stream" class="md-nav__link">
+    Count words in stream
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count-different-words-in-stream" title="Count different words in stream" class="md-nav__link">
+    Count different words in stream
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-20-most-common-words-from-input-stream" title="Print 20 most common words from input stream" class="md-nav__link">
+    Print 20 most common words from input stream
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is_prime-ugly" title="is_prime (ugly)" class="md-nav__link">
+    is_prime (ugly)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-conversion-operator" title="Type Conversion Operator" class="md-nav__link">
+    Type Conversion Operator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rekursive-datenstruktur-shared_ptr" title="Rekursive Datenstruktur (shared_ptr)" class="md-nav__link">
+    Rekursive Datenstruktur (shared_ptr)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-file-and-create-modules" title="Read file and create modules" class="md-nav__link">
+    Read file and create modules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+               
+                 <a href="https://github.com/Excape/hsr-docs-hs16/edit/master/docs/hs16/cpl_code.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+               
+              
+                
+                <!-- For Print -->
+
+<h1 id="c-ubungen">C++ Übungen</h1>
+<h2 id="count-characters-with-whitespace">Count Characters (with whitespace)</h2>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">allcharcount</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">){</span>
+   <span class="k">using</span> <span class="n">it</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">istreambuf_iterator</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">it</span><span class="p">{</span><span class="n">in</span><span class="p">},</span> <span class="n">it</span><span class="p">{});</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="word-list">Word List</h2>
+<p>Reads all words from stream and outputs a set, ignoring case</p>
+<div class="codehilite"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">wlist</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">input</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">input</span> <span class="n">in_iterator</span> <span class="p">{</span> <span class="n">in</span> <span class="p">};</span>
+    <span class="n">input</span> <span class="n">eof</span> <span class="p">{</span> <span class="p">};</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">allwords</span> <span class="p">{</span> <span class="n">in_iterator</span><span class="p">,</span> <span class="n">eof</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">allwords</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">allwords</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">allwords</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
+            <span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="o">::</span><span class="n">tolower</span><span class="p">);</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+            <span class="p">});</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">uniqueWords</span> <span class="p">{</span> <span class="n">allwords</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">allwords</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="p">};</span>
+
+    <span class="k">return</span> <span class="n">uniqueWords</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">printSet</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">set</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">copy</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">set</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">out</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="algorithms">Algorithms</h2>
+<h3 id="remove-certain-elements-from-container">Remove certain elements from container</h3>
+<div class="codehilite"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">myInts</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="c1">// remove() shifts the to be removed elements</span>
+<span class="c1">// to the end and returns an iterator to the new end</span>
+<span class="c1">// of the container</span>
+<span class="n">myInts</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">remove</span><span class="p">(</span><span class="n">myInts</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">myInts</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">3</span><span class="p">),</span> 
+    <span class="n">myInts</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">it_remove</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_if</span><span class="p">(</span><span class="n">myInts</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">myInts</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+        <span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">});</span>
+<span class="n">myInts</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it_remove</span><span class="p">,</span> <span class="n">myInts</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="c1">// myInts = {1, 3}</span>
+</pre></div>
+
+
+<h3 id="lexicographical_compare">lexicographical_compare</h3>
+<div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">lexi_compare</span><span class="p">()(</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">l</span><span class="p">,</span> <span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">lexicographical_compare</span><span class="p">(</span>
+        <span class="n">l</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">l</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">r</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">r</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+        <span class="p">[](</span><span class="kt">char</span> <span class="n">l</span><span class="p">,</span> <span class="kt">char</span> <span class="n">r</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+        <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="iterators">Iterators</h2>
+<h3 id="print-vector">Print vector</h3>
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">out</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">os</span><span class="p">{</span><span class="n">out</span><span class="p">,</span> <span class="s">&quot;, &quot;</span><span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">os</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="functions-with-the-word-class">Functions with the Word Class</h2>
+<h3 id="count-words-in-stream">Count words in stream</h3>
+<div class="codehilite"><pre><span></span><span class="kt">unsigned</span> <span class="nf">wcount</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="n">Word</span><span class="o">&gt;</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="n">Word</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="count-different-words-in-stream">Count different words in stream</h3>
+<div class="codehilite"><pre><span></span><span class="kt">unsigned</span> <span class="nf">wdiffcount</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Word</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="n">Word</span><span class="o">&gt;</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="n">Word</span><span class="o">&gt;</span><span class="p">()};</span>
+    <span class="k">return</span> <span class="n">words</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="print-20-most-common-words-from-input-stream">Print 20 most common words from input stream</h3>
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">wfavorite</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span> <span class="n">out</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">word</span><span class="o">::</span><span class="n">Word</span><span class="p">,</span> <span class="kt">unsigned</span><span class="o">&gt;</span> <span class="n">map</span> <span class="p">{</span> <span class="p">};</span>
+    <span class="n">word</span><span class="o">::</span><span class="n">Word</span> <span class="n">w</span> <span class="p">{</span> <span class="p">};</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">++</span><span class="n">map</span><span class="p">[</span><span class="n">w</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">word</span><span class="o">::</span><span class="n">Word</span><span class="p">,</span> <span class="kt">unsigned</span><span class="o">&gt;&gt;</span> <span class="n">v</span> <span class="p">{</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">map</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">back_inserter</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">a</span><span class="p">,</span> <span class="k">auto</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">second</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">second</span><span class="p">;});</span>
+    <span class="kt">int</span> <span class="n">count</span><span class="p">{};</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="o">?</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">:</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">copy_n</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">count</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">word</span><span class="o">::</span><span class="n">Word</span><span class="p">,</span> <span class="kt">unsigned</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="is_prime-ugly">is_prime (ugly)</h2>
+<div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">is_prime</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="c1">// can you use an algorithm here as well?</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="type-conversion-operator">Type Conversion Operator</h2>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">To</span> <span class="p">{</span>
+    <span class="n">To</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="n">To</span><span class="p">(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">From</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// converting constructor</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">From</span> <span class="p">{</span>
+    <span class="k">operator</span> <span class="n">To</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">To</span><span class="p">();}</span> <span class="c1">// conversion function</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h2 id="rekursive-datenstruktur-shared_ptr">Rekursive Datenstruktur (shared_ptr)</h2>
+<p>Every module has a name, a list of requirements (successors) and back-references to its own predecessors.</p>
+<p>To resolve cyclic dependencies, <code>weak_ptr</code> are used for the predecessors (back-references)</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">module</span><span class="p">;</span>
+
+<span class="k">using</span> <span class="n">module_ptr</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">modules</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">module_ptr</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">module_catalog</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">module_ptr</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nl">module</span> <span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_shared_from_this</span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="c1">// declare explicit to avoid implicit type conversion</span>
+    <span class="k">explicit</span> <span class="nf">module</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">name</span> <span class="p">{</span><span class="n">name</span><span class="p">}{};</span>
+
+    <span class="kt">void</span> <span class="nf">add_predecessor</span><span class="p">(</span><span class="n">module_ptr</span> <span class="n">predecessor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// use weak pointers for back-refs (predecessors)</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span> <span class="n">wp</span><span class="p">{</span><span class="n">predecessor</span><span class="p">};</span> 
+        <span class="n">_predecessors</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">wp</span><span class="p">);</span>
+        <span class="n">predecessor</span><span class="o">-&gt;</span><span class="n">_successors</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">shared_from_this</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="nf">has_predecessor</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">!</span><span class="n">_predecessors</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">update_earliest_semester</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">newEarliestSemester</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">earliest_semester</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">newEarliestSemester</span><span class="p">,</span> <span class="n">earliest_semester</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">unsigned</span> <span class="nf">get_earliest_semester</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">earliest_semester</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">modules</span> <span class="nf">successors</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_successors</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">modules</span> <span class="nf">predecessors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// clean up expired pointers, to make sure every share_pointer is valid</span>
+        <span class="n">remove_expired_predecessors</span><span class="p">();</span>
+        <span class="n">modules</span> <span class="n">predecessors_shared</span><span class="p">{</span><span class="n">_predecessors</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span>
+        <span class="c1">// convert weak_pointers to &quot;real&quot; shared_pointers</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">_predecessors</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">_predecessors</span><span class="p">),</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">predecessors_shared</span><span class="p">),</span> <span class="p">[](</span><span class="n">module_weak_ptr</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">m</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+        <span class="p">});</span>
+        <span class="k">return</span> <span class="n">predecessors_shared</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="k">using</span> <span class="n">module_weak_ptr</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">module_back_references</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">module_weak_ptr</span><span class="o">&gt;</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">remove_expired_predecessors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// clean up expired weak_ptrs</span>
+        <span class="k">auto</span> <span class="n">removed_begin</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">_predecessors</span><span class="p">),</span> 
+            <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">_predecessors</span><span class="p">),</span> <span class="p">[](</span><span class="n">module_weak_ptr</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">m</span><span class="p">.</span><span class="n">expired</span><span class="p">();</span>
+            <span class="p">});</span>
+        <span class="n">_predecessors</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">removed_begin</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">_predecessors</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="kt">unsigned</span> <span class="n">earliest_semester</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">module_back_references</span> <span class="n">_predecessors</span><span class="p">{};</span>
+    <span class="n">modules</span> <span class="n">_successors</span><span class="p">{};</span>
+
+<span class="p">};</span>
+</pre></div>
+
+
+<h3 id="read-file-and-create-modules">Read file and create modules</h3>
+<div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="p">{</span>
+
+<span class="n">module_ptr</span> <span class="n">get_module_ptr</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">module_name</span><span class="p">,</span> <span class="n">module_catalog</span> <span class="o">&amp;</span> <span class="n">catalog</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">catalog</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">m</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">(</span><span class="n">module_name</span><span class="p">);</span>
+        <span class="n">catalog</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">catalog</span><span class="p">[</span><span class="n">module_name</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="n">module_catalog</span><span class="o">&amp;</span> <span class="n">catalog</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">line_stream</span><span class="p">{</span><span class="n">line</span><span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">module_name</span><span class="p">;</span>
+    <span class="n">line_stream</span> <span class="o">&gt;&gt;</span> <span class="n">module_name</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">module</span> <span class="o">=</span> <span class="n">get_module_ptr</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">catalog</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{</span><span class="n">line_stream</span><span class="p">},</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{},</span> 
+        <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">module_name</span><span class="p">){</span>
+            <span class="k">auto</span> <span class="n">dependency</span> <span class="o">=</span> <span class="n">get_module_ptr</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">catalog</span><span class="p">);</span>
+            <span class="n">module</span><span class="o">-&gt;</span><span class="n">add_predecessor</span><span class="p">(</span><span class="n">dependency</span><span class="p">);</span>
+        <span class="p">});</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">module_catalog</span> <span class="n">read_modules</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="o">&amp;</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">module_catalog</span> <span class="n">catalog</span><span class="p">{};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">add</span><span class="p">(</span><span class="n">catalog</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">catalog</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cpl/" title="Notes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__icon"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Notes
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../englhtw/" title="EnglHTw" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                EnglHTw
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__icon"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2016 Robin Suter
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-ca9b3745c3.js"></script>
+      <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -72,6 +72,29 @@ void print(std::vector<int> const & v, std::ostream & out) {
 ```
 
 ## Functions with the Word Class
+### Read function (without loops)
+```c++
+# include <cctype> // for std::isalpha
+void Word::read(std::istream & is) {
+    std::istreambuf_iterator<char> input{is}, eof{};
+    // find_if returns iterator to the first element with wich
+    // the predicate is true
+    auto alpha_start = std::find_if(input, eof, ::isalpha);
+    std::string buffer{};
+    std::find_if(alpha_start, eof, [&buffer](char c) {
+        bool end_of_word {!std::isalpha(c)};
+        if (!end_of_word) {
+            buffer += c;
+        }
+        return end_of_word;
+    });
+    if (isValidWord(buffer)) {
+        value = buffer;
+    } else {
+        is.setstate(std::ios_base::failbit);
+    }
+}
+```
 ### Count words in stream
 ```c++
 unsigned wcount(std::istream& in) {
@@ -126,11 +149,13 @@ bool is_prime(unsigned long long n) {
 ```c++
 struct To {
     To() = default;
-    To(const struct From&) {} // converting constructor
+    // converting constructor
+    explicit To(const struct From&) {}
 };
  
 struct From {
-    operator To() const {return To();} // conversion function
+    // conversion function
+    explicit operator To() const {return To();}
 };
 ```
 

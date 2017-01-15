@@ -31,6 +31,7 @@ void printSet(std::set<std::string> set, std::ostream &out) {
 	copy(set.begin(), set.end(), std::ostream_iterator<std::string> { out, "\n" });
 }
 ```
+<div style="page-break-after: always" ></div>
 
 ## Algorithms
 ### Remove certain elements from container
@@ -71,6 +72,8 @@ void print(std::vector<int> const & v, std::ostream & out) {
 }
 ```
 
+<div style="page-break-after: always" ></div>
+
 ## Functions with the Word Class
 ### Read function (without loops)
 ```c++
@@ -109,6 +112,8 @@ unsigned wdiffcount(std::istream& in) {
 }
 ```
 
+<div style="page-break-after: always" ></div>
+
 ### Print 20 most common words from input stream
 ```c++
 void wfavorite(std::istream & in, std::ostream & out) {
@@ -139,7 +144,7 @@ bool is_prime(unsigned long long n) {
 	for (int i = 3; (i * i) <= n; i += 2) {
 		if (n % i == 0)
 			return false;
-	}
+	}      
 	return true;
 
 }
@@ -159,10 +164,14 @@ struct From {
 };
 ```
 
+
 ## Rekursive Datenstruktur (shared_ptr)
 Every module has a name, a list of requirements (successors) and back-references to its own predecessors.
 
 To resolve cyclic dependencies, `weak_ptr` are used for the predecessors (back-references)
+
+<div style="page-break-after: never" ></div>
+
 ```c++
 struct module;
 

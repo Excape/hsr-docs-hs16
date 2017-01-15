@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
-# install pre-release version of mkdocs-material
-git clone --branch rework git@github.com:squidfunk/mkdocs-material.git
-
 #Build with mkdocs into ./site
 mkdocs build --clean
 

@@ -6,7 +6,6 @@ site_author: Robin Suter
 copyright: 'Copyright (c) 2016 Robin Suter'
 
 theme: 'material'
-theme_dir: 'mkdocs-material/material'
 
 pages:
   - Home: 'index.md'

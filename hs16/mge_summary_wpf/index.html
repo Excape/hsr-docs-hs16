@@ -436,6 +436,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#layouts" title="Layouts" class="md-nav__link">
+    Layouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dialog-fenster" title="Dialog-Fenster" class="md-nav__link">
     Dialog-Fenster
   </a>
@@ -443,9 +450,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#testing" title="Testing" class="md-nav__link">
+    Testing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#teststackwhite-example" title="Teststack.White Example" class="md-nav__link">
     Teststack.White Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -461,6 +481,26 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" title="Resources" class="md-nav__link">
+    Resources
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zugriff-auf-system-ressourcen" title="Zugriff auf System-Ressourcen" class="md-nav__link">
+    Zugriff auf System-Ressourcen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#resource-dictionaries" title="Resource Dictionaries" class="md-nav__link">
@@ -739,6 +779,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#layouts" title="Layouts" class="md-nav__link">
+    Layouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dialog-fenster" title="Dialog-Fenster" class="md-nav__link">
     Dialog-Fenster
   </a>
@@ -746,9 +793,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#testing" title="Testing" class="md-nav__link">
+    Testing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#teststackwhite-example" title="Teststack.White Example" class="md-nav__link">
     Teststack.White Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -764,6 +824,26 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" title="Resources" class="md-nav__link">
+    Resources
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zugriff-auf-system-ressourcen" title="Zugriff auf System-Ressourcen" class="md-nav__link">
+    Zugriff auf System-Ressourcen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#resource-dictionaries" title="Resource Dictionaries" class="md-nav__link">
@@ -925,6 +1005,11 @@
                   <h1>Summary WPF</h1>
                 
                 <h2 id="xaml">XAML</h2>
+<ul>
+<li>Elemente werden zu Objekten übersetzt, deren Attribute zu Properties</li>
+<li>Pixel sind device-independent und definiert als <code>1px = 1/96"</code></li>
+<li><code>SnapsToDevicePixels</code>, damit sich Elemente an Gerätepixel anpassen</li>
+</ul>
 <h3 id="property-syntax">Property Syntax</h3>
 <h4 id="attribute-syntax">Attribute Syntax</h4>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;Button</span> <span class="na">Height=</span><span class="s">&quot;50&quot;</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Content=</span><span class="s">&quot;Watch Now&quot;</span> <span class="nt">/&gt;</span>
@@ -942,12 +1027,19 @@
 
 <h2 id="gui-entwurf">GUI-Entwurf</h2>
 <h3 id="alignment">Alignment</h3>
-<p><img width=500 src="../img/mge/wpf_alignment.png" /></p>
+<p><img width=400 src="../img/mge/wpf_alignment.png" /></p>
 <ul>
 <li>Es gibt <code>HorizontalAligment</code> und <code>VerticalAlignment</code></li>
 </ul>
-<div style="page-break-after: always" ></div>
-
+<h3 id="layouts">Layouts</h3>
+<ul>
+<li><code>WrapPanel</code>: Wie StackPanel, aber mit Zeilen-/Spaltenumbruch</li>
+<li><code>DockPanel</code>: Werden mit <code>Attached Properties</code> auf Elementen mit <code>DockPanel.Dock</code> an eine Seite gedockt. Das letzte Element füllt den restlichen Platz aus</li>
+<li><code>GridPanel</code>: Tabellenanordnung. Zeilen und Spalten müssen explizit angegeben werden. <code>auto</code> nutzt verfügbaren Platz, <code>*</code> nutzt ganzer Platz. <ul>
+<li>Ein Grid mit einem 1x1-Grid kann auch als Layout mit Margins verwendet werden</li>
+</ul>
+</li>
+</ul>
 <h3 id="dialog-fenster">Dialog-Fenster</h3>
 <div class="codehilite"><pre><span></span><span class="k">private</span> <span class="k">void</span> <span class="nf">OpenDialog_OnClick</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">var</span> <span class="n">win</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DialogWindow</span><span class="p">();</span>
@@ -961,7 +1053,11 @@
 </pre></div>
 
 
-<h3 id="teststackwhite-example">Teststack.White Example</h3>
+<ul>
+<li>Im Dialog-Fenster <code>DialogResult</code> setzen, dann wird als Seiteneffekt (!) das Fenster geschlossen und der bool-Wert zurückgegeben</li>
+</ul>
+<h3 id="testing">Testing</h3>
+<h4 id="teststackwhite-example">Teststack.White Example</h4>
 <div class="codehilite"><pre><span></span><span class="na">[TestClass]</span>
 <span class="k">public</span> <span class="k">class</span> <span class="nc">MyFirstUITest</span> <span class="p">{</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="n">BaseDir</span> <span class="p">=&gt;</span> 
@@ -984,6 +1080,31 @@
 
 
 <h2 id="gui-design">GUI-Design</h2>
+<h3 id="resources">Resources</h3>
+<ul>
+<li>Definieren z.B. in application, window oder auf einem Element</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;Application.Resources&gt;</span>
+    <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key =</span><span class="s">&quot;MyButtonBackground&quot;</span> <span class="na">Color=</span><span class="s">&quot;#EEEEEE&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/Application.Resources&gt;</span>
+</pre></div>
+
+
+<ul>
+<li>Über Binding abrufbar</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;{StaticResource MyButtonBackground}&quot;</span> <span class="na">Content=</span><span class="s">&quot;Save&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+
+
+<ul>
+<li>Statische Resources werden nur 1x gebunden, dynamische zur Laufzeit</li>
+</ul>
+<h4 id="zugriff-auf-system-ressourcen">Zugriff auf System-Ressourcen</h4>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;{x:Static SystemColors.ControlBrush}&quot;</span> <span class="na">Content=</span><span class="s">&quot;Save&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+
+
 <h3 id="resource-dictionaries">Resource Dictionaries</h3>
 <ul>
 <li>Externe Resource Dictionaries erlauben Kaskadierung</li>
@@ -999,8 +1120,6 @@
 <span class="nt">&lt;/ResourceDictionary&gt;</span>
 </pre></div>
 
-
-<div style="page-break-after: always" ></div>
 
 <h3 id="externe-ressourcen">Externe Ressourcen</h3>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;Image</span> <span class="na">Source=</span><span class="s">&quot;/BasePicLib;component/media/pix/open.png&quot;</span> <span class="nt">/&gt;</span>
@@ -1116,8 +1235,6 @@
 </pre></div>
 
 
-<div style="page-break-after: always" ></div>
-
 <h2 id="data-binding">Data Binding</h2>
 <h3 id="stringformat">StringFormat</h3>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;TextBox</span> <span class="na">Text=</span><span class="s">&quot;{Binding ScaleX, StringFormat={}{0:0.0}}&quot;</span> <span class="nt">/&gt;</span>
@@ -1159,8 +1276,6 @@
 <li>Merke: Es ist nicht immer klar, wo das Event herkommt</li>
 <li>Daher in den EventArgs die Quelle prüfen, von wem das Event ausgelöst wurde!</li>
 </ul>
-<div style="page-break-after: always" ></div>
-
 <h2 id="internationalization-i18n">Internationalization (i18n)</h2>
 <ul>
 <li>Mit .NET Embedded Resources<ul>
@@ -1208,7 +1323,7 @@
 
 <ul>
 <li>Das ViewModel hält eine Instanz (Property) auf das Command, das von den Controls gebindet wird</li>
-<li>Bessere Variante: Generischen <code>RelayCommand&lt;T&gt;</code> implementieren, der zwei delegates <code>Predicate&lt;T&gt;</code> (für <code>CanExecute()</code>) und <code>Action&lt;T&gt;</code> (für <code>Execute()</code>) entgegen nimmt und diese ausführt</li>
+<li>Bessere Variante: Generischen <code>RelayCommand&lt;T&gt;</code> implementieren, der zwei delegates (<code>Predicate&lt;T&gt;</code> für <code>CanExecute()</code>) und <code>Action&lt;T&gt;</code> für <code>Execute()</code>) entgegen nimmt und diese ausführt</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="k">public</span> <span class="nf">GadgetVm</span><span class="p">()</span>
 <span class="p">{</span>

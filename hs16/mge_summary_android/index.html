@@ -507,8 +507,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hintergrundaktionen" title="Hintergrundaktionen" class="md-nav__link">
-    Hintergrundaktionen
+  <a href="#async-tasks" title="Async-Tasks" class="md-nav__link">
+    Async-Tasks
   </a>
   
 </li>
@@ -550,6 +550,13 @@
           <li class="md-nav__item">
   <a href="#broadcast-receiver" title="Broadcast Receiver" class="md-nav__link">
     Broadcast Receiver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-provider" title="Content Provider" class="md-nav__link">
+    Content Provider
   </a>
   
 </li>
@@ -821,8 +828,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hintergrundaktionen" title="Hintergrundaktionen" class="md-nav__link">
-    Hintergrundaktionen
+  <a href="#async-tasks" title="Async-Tasks" class="md-nav__link">
+    Async-Tasks
   </a>
   
 </li>
@@ -864,6 +871,13 @@
           <li class="md-nav__item">
   <a href="#broadcast-receiver" title="Broadcast Receiver" class="md-nav__link">
     Broadcast Receiver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-provider" title="Content Provider" class="md-nav__link">
+    Content Provider
   </a>
   
 </li>
@@ -924,7 +938,52 @@
                 
                   <h1>Summary Android</h1>
                 
-                <h2 id="android-basics">Android Basics</h2>
+                <div class="toc">
+<ul>
+<li><a href="#android-basics">Android Basics</a><ul>
+<li><a href="#android-basics_1">Android Basics</a></li>
+<li><a href="#activity-lifecycle">Activity Lifecycle</a></li>
+<li><a href="#systemsicht">Systemsicht</a></li>
+<li><a href="#intents">Intents</a></li>
+</ul>
+</li>
+<li><a href="#grundlagen-gui">Grundlagen GUI</a><ul>
+<li><a href="#events">Events</a></li>
+</ul>
+</li>
+<li><a href="#strukturierung-und-navigation">Strukturierung und Navigation</a><ul>
+<li><a href="#navigations-design">Navigations-Design</a></li>
+<li><a href="#fragments">Fragments</a></li>
+<li><a href="#master-detail-navigation">Master-Detail Navigation</a></li>
+<li><a href="#menus">Menüs</a></li>
+</ul>
+</li>
+<li><a href="#listen-und-persistenz">Listen und Persistenz</a><ul>
+<li><a href="#listen">Listen</a></li>
+<li><a href="#recycler-view">Recycler View</a></li>
+</ul>
+</li>
+<li><a href="#persistenz">Persistenz</a><ul>
+<li><a href="#async-tasks">Async-Tasks</a></li>
+</ul>
+</li>
+<li><a href="#material-design">Material Design</a></li>
+<li><a href="#patterns-serivces">Patterns &amp; Serivces</a><ul>
+<li><a href="#ui-patterns">UI Patterns</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#broadcast-receiver">Broadcast Receiver</a></li>
+<li><a href="#content-provider">Content Provider</a></li>
+</ul>
+</li>
+<li><a href="#weiterfuhrende-themen">Weiterführende Themen</a><ul>
+<li><a href="#sensoren">Sensoren</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
+<li><a href="#data-binding">Data Binding</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="android-basics">Android Basics</h2>
 <h3 id="android-basics_1">Android Basics</h3>
 <ul>
 <li>Java 7 auf Android</li>
@@ -950,6 +1009,7 @@
 </ul>
 <p><img src="../img/mge/activity_lifecycle.png" width=375/></p>
 <h3 id="systemsicht">Systemsicht</h3>
+<p><img src="../img/mge/android_components.png" width=500/></p>
 <ul>
 <li>Pro APK wird ein Prozess mit einem Thread gestartet</li>
 <li>Jede APK wird unter eigenem Linux User installiert</li>
@@ -964,6 +1024,7 @@
 </ul>
 <hr />
 <h2 id="grundlagen-gui">Grundlagen GUI</h2>
+<p><img src="../img/mge/android_layouts.png" width=650/></p>
 <ul>
 <li>Eine <strong>View</strong> ist immer eine Rechteckige Fläche, für die die View verantwortlich ist</li>
 <li>Widgets sind fertige Komponenten (buttons, images, checkboxes, ...)</li>
@@ -1014,7 +1075,7 @@
 <li>Es kann nur immer eine Activity gleichzeitig aktiv sein.</li>
 <li>Fragment hat eigenen Lifecycle</li>
 </ul>
-<p><img src="../img/mge/fragment_lifecycle.png" height=600/></p>
+<p><img src="../img/mge/fragment_lifecycle.png" height=500/></p>
 <ul>
 <li>Ein Fragment kann in mehrere Activities eingebunden werden und eine Activity kann mehrere Fragments beinhalten</li>
 <li>Kann zur Laufzeit in Activity eingebunden (<code>onAttach()</code>) und wieder entfernt werden (<code>onDetach()</code>)</li>
@@ -1095,14 +1156,21 @@
 <li>Fragment sollte unabhängig von der Activity sein</li>
 <li>Zur Kommunikation zwischen Fragment und Activity definiert das Fragment ein Interface, dass die Activity implementiert</li>
 </ul>
+<div style="page-break-after: always" ></div>
+
 <h3 id="master-detail-navigation">Master-Detail Navigation</h3>
 <ul>
 <li>Ein Pattern, z.B. eine Liste mit Mails -&gt; einzelne Mail</li>
 <li>z.B. hat das Phone-Design nur ein einzelnes Fragment pro Activity, das Tablet-layout zeigt beide Layouts auf der gleichen Activity an</li>
 <li>Wenn Activity einen Einstiegspunkt in die App sein kann, muss es eine Activity sein, kein Fragment</li>
+<li>Vorgehen<ul>
+<li>Zwei verschiedene Layouts für Tablet und Phone</li>
+<li>Tablet-Layout enthält Platzhalter für Fragment</li>
+<li>In Activity prüfen, ob Platzhalter vorhanden ist</li>
+<li>Dementsprechend Detail-View im Fragment laden oder eine neue Activity dafür starten</li>
 </ul>
-<div style="page-break-after: always" ></div>
-
+</li>
+</ul>
 <h3 id="menus">Menüs</h3>
 <p>Programmatisch:</p>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onCreateOptionsMenu</span><span class="o">(</span><span class="n">Menu</span> <span class="n">menu</span><span class="o">)</span> <span class="o">{</span>
@@ -1151,8 +1219,6 @@
 <li>Nach Android 5.0 ist die "ActionBar" deprecated, neu ist die "Toolbar"</li>
 <li>Navigation Drawer ("Hamburger Menu") hat schlechte usability</li>
 </ul>
-<div style="page-break-after: always" ></div>
-
 <h2 id="listen-und-persistenz">Listen und Persistenz</h2>
 <h3 id="listen">Listen</h3>
 <ul>
@@ -1205,8 +1271,6 @@
 </pre></div>
 
 
-<div style="page-break-after: always" ></div>
-
 <h3 id="recycler-view">Recycler View</h3>
 <ul>
 <li>In <code>RecyclerView</code> ist die Optimierung bereits eingebaut<ul>
@@ -1249,9 +1313,9 @@
 
 
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ViewHolder</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">ViewHolder</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">View</span> <span class="n">parent</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="n">TextView</span> <span class="n">textView</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="n">CheckBox</span> <span class="n">checkBox</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">View</span> <span class="n">parent</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">textView</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">CheckBox</span> <span class="n">checkBox</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">ViewHolder</span><span class="o">(</span><span class="n">View</span> <span class="n">parent</span><span class="o">,</span> <span class="n">TextView</span> <span class="n">textView</span><span class="o">,</span> <span class="n">CheckBox</span> <span class="n">checkBox</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">parent</span><span class="o">);</span>
@@ -1262,6 +1326,8 @@
 <span class="o">}</span>
 </pre></div>
 
+
+<div style="page-break-after: always" ></div>
 
 <h2 id="persistenz">Persistenz</h2>
 <ul>
@@ -1288,10 +1354,10 @@
 <li>Andere Möglichkeiten: Auf Filesystem oder SQLite sichern</li>
 <li>SQLite Helper trackt die Version. Wenn z.B. das Schema geändert wird, kann bei einem Update der App eine neue Version angegeben werden, um die Daten zu migrieren (in <code>onUpgrade</code>)</li>
 </ul>
-<h3 id="hintergrundaktionen">Hintergrundaktionen</h3>
+<h3 id="async-tasks">Async-Tasks</h3>
 <ul>
 <li>Mit <code>Runnable</code> die Methode <code>run()</code> überschreiben</li>
-<li>Einen neuen Threat starten</li>
+<li>Einen neuen Thread starten</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
 
@@ -1325,6 +1391,8 @@
 </li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">DownloadBitmapTask</span> <span class="kd">extends</span> <span class="n">AsyncTask</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Void</span><span class="o">,</span> <span class="n">Bitmap</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="c1">// 1) doInBackGround params 2) return type onPostExecute</span>
+    <span class="c1">// 3) return type doInBackGround and param onPostExecute</span>
 
    <span class="nd">@Override</span>
    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPreExecute</span><span class="o">()</span> <span class="o">{</span>
@@ -1348,8 +1416,7 @@
 
 <h2 id="material-design">Material Design</h2>
 <p><img alt="Material Design summary" src="../img/mge/material_design_summary.png" /></p>
-<div style="page-break-after: always" ></div>
-
+<hr />
 <h2 id="patterns-serivces">Patterns &amp; Serivces</h2>
 <h3 id="ui-patterns">UI Patterns</h3>
 <ul>
@@ -1377,6 +1444,8 @@
    <span class="nt">&lt;service</span> 
        <span class="na">android:name=</span><span class="s">&quot;.ExampleService&quot;</span>
        <span class="na">android:exported=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+   <span class="c">&lt;!-- exported=false - Service steht nur eigener App</span>
+<span class="c">   zur Verfügung --&gt;</span>
 <span class="nt">&lt;/application&gt;</span>
 </pre></div>
 
@@ -1384,22 +1453,41 @@
 <p><img src="../img/mge/service_lifecycle.png" width=250/></p>
 <ul>
 <li>Einmaliger Task -&gt; started Service<ul>
-<li>Läuft im Hintergrund und wird nicht gestoppt, auch wenn die App pausiert / gestoppt wird</li>
+<li>Läuft im Hintergrund und wird nicht gestoppt, auch wenn die App pausiert / gestoppt wird (solange genug Ressourcen vorhanden sind)</li>
 <li>Läuft im gleichen Thread wie das UI!</li>
 <li>Starten über einen Intent <code>startService(intent)</code></li>
 <li><code>onStartCommand()</code> überschreiben, um Task auszuführen</li>
 <li>mit <code>stopSelf()</code> im Service stoppen</li>
 <li>IntentService kommuniziert über Intents, wird dann im <code>onHandleIntent()</code> abgearbeitet</li>
+<li>Soll sich beenden, sobald Arbeit erledigt ist</li>
 <li>Stellt einen Worker Thread zur Verfügung</li>
 <li>Problem: Wie kann der Service die Activity benachrichtigen? -&gt; Broadcasts oder "pending Intent"</li>
+<li>IntentService empfängt Intents und behandelt diese sequenziell</li>
 </ul>
 </li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloIntentService</span> <span class="kd">extends</span> <span class="n">IntentService</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">HelloIntentService</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="s">&quot;HelloIntentService&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>   
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onHandleIntent</span><span class="o">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// handle intent</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<ul>
 <li>Client-Server-Kommunikation -&gt; bound service<ul>
 <li>Auch über einen Intent gestartet</li>
+<li>Wird mit <code>bindService()</code> gebunden</li>
+<li>Mehrere Clients möglich</li>
 <li>Gibt Interface, über den kommuniziert werden kann</li>
+<li>Sobald der letzte Client <code>unbindService()</code> aufruft, wird der Service zerstört</li>
 </ul>
 </li>
-<li>AsyncTask: Aufgabe von Main-Thread entkoppeln. Kombinieren mit Services, um GUI-Thread nicht zu blockieren</li>
+<li><strong>Unterschied AsyncTask</strong>: Aufgabe von Main-Thread entkoppeln. Kombinieren mit Services, um GUI-Thread nicht zu blockieren</li>
 <li>Beide Möglichkeiten brauchen dieselbe Service-Klasse</li>
 </ul>
 <h3 id="broadcast-receiver">Broadcast Receiver</h3>
@@ -1434,7 +1522,14 @@
 </pre></div>
 
 
-<hr />
+<h3 id="content-provider">Content Provider</h3>
+<ul>
+<li>Stellt Daten prozessübergreifend zur Verfügung (Client-Server-Modell)</li>
+<li>Syntax ähnlich wie SQL</li>
+<li>Android stellt Content Provider zur Verfügung, z.B. für Kontakte, Kalender, User Dictionary, usw.</li>
+</ul>
+<div style="page-break-after: always" ></div>
+
 <h2 id="weiterfuhrende-themen">Weiterführende Themen</h2>
 <h3 id="sensoren">Sensoren</h3>
 <ul>
@@ -1459,8 +1554,6 @@
 <span class="o">}</span>
 </pre></div>
 
-
-<div style="page-break-after: always" ></div>
 
 <h3 id="dependency-injection">Dependency Injection</h3>
 <ul>

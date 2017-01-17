@@ -1,4 +1,7 @@
 ## XAML
+- Elemente werden zu Objekten übersetzt, deren Attribute zu Properties
+- Pixel sind device-independent und definiert als `1px = 1/96"`
+- `SnapsToDevicePixels`, damit sich Elemente an Gerätepixel anpassen
 ### Property Syntax
 #### Attribute Syntax
 ```xml
@@ -14,13 +17,17 @@
 ```
 
 ## GUI-Entwurf
+
 ### Alignment
-<img width=500 src="../img/mge/wpf_alignment.png" />
+<img width=400 src="../img/mge/wpf_alignment.png" />
 
 - Es gibt `HorizontalAligment` und `VerticalAlignment`
 
-<div style="page-break-after: always" ></div>
-
+### Layouts
+- `WrapPanel`: Wie StackPanel, aber mit Zeilen-/Spaltenumbruch
+- `DockPanel`: Werden mit `Attached Properties` auf Elementen mit `DockPanel.Dock` an eine Seite gedockt. Das letzte Element füllt den restlichen Platz aus
+- `GridPanel`: Tabellenanordnung. Zeilen und Spalten müssen explizit angegeben werden. `auto` nutzt verfügbaren Platz, `*` nutzt ganzer Platz. 
+    - Ein Grid mit einem 1x1-Grid kann auch als Layout mit Margins verwendet werden
 ### Dialog-Fenster
 ```csharp
 private void OpenDialog_OnClick(object sender, RoutedEventArgs e) {
@@ -33,8 +40,11 @@ private void OpenDialog_OnClick(object sender, RoutedEventArgs e) {
     Debug.WriteLine("OK :-)");
 }
 ```
+- Im Dialog-Fenster `DialogResult` setzen, dann wird als Seiteneffekt (!) das Fenster geschlossen und der bool-Wert zurückgegeben
 
-### Teststack.White Example
+### Testing
+
+#### Teststack.White Example
 ```csharp
 [TestClass]
 public class MyFirstUITest {
@@ -57,6 +67,24 @@ public class MyFirstUITest {
 ```
 
 ## GUI-Design
+### Resources
+- Definieren z.B. in application, window oder auf einem Element
+```xml
+<Application.Resources>
+    <SolidColorBrush x:Key ="MyButtonBackground" Color="#EEEEEE" />
+</Application.Resources>
+```
+- Über Binding abrufbar
+
+```xml
+<Button Background="{StaticResource MyButtonBackground}" Content="Save" />
+```
+- Statische Resources werden nur 1x gebunden, dynamische zur Laufzeit
+
+#### Zugriff auf System-Ressourcen
+```xml
+<Button Background="{x:Static SystemColors.ControlBrush}" Content="Save" />
+```
 ### Resource Dictionaries
 - Externe Resource Dictionaries erlauben Kaskadierung
 
@@ -71,7 +99,6 @@ public class MyFirstUITest {
         Color="{StaticResource ThemeColor1}" />
 </ResourceDictionary>
 ```
-<div style="page-break-after: always" ></div>
 ### Externe Ressourcen
 ```xml
 <Image Source="/BasePicLib;component/media/pix/open.png" />
@@ -161,8 +188,6 @@ Kurzform für:
 <TranslateTransform X="40" Y="-10" />
 ```
 
-<div style="page-break-after: always" ></div>
-
 ## Data Binding
 ### StringFormat
 ```xml
@@ -196,8 +221,6 @@ z.B. um für Multibinding einen String aus mehreren Properties zusammen zu setze
 ## Event Handling
 - Merke: Es ist nicht immer klar, wo das Event herkommt
 - Daher in den EventArgs die Quelle prüfen, von wem das Event ausgelöst wurde!
-
-<div style="page-break-after: always" ></div>
 
 ## Internationalization (i18n)
 - Mit .NET Embedded Resources
@@ -238,7 +261,7 @@ public class SomeCommand : ICommand {
 }
 ```
 - Das ViewModel hält eine Instanz (Property) auf das Command, das von den Controls gebindet wird
-- Bessere Variante: Generischen `RelayCommand<T>` implementieren, der zwei delegates `Predicate<T>` (für `CanExecute()`) und `Action<T>` (für `Execute()`) entgegen nimmt und diese ausführt
+- Bessere Variante: Generischen `RelayCommand<T>` implementieren, der zwei delegates (`Predicate<T>` für `CanExecute()`) und `Action<T>` für `Execute()`) entgegen nimmt und diese ausführt
 ```csharp
 public GadgetVm()
 {

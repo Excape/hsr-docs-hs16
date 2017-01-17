@@ -1,3 +1,4 @@
+[TOC]
 ## Android Basics
 ### Android Basics
 - Java 7 auf Android
@@ -22,6 +23,8 @@
 <img src="../img/mge/activity_lifecycle.png" width=375/>
 
 ### Systemsicht
+<img src="../img/mge/android_components.png" width=500/>
+
 - Pro APK wird ein Prozess mit einem Thread gestartet
 - Jede APK wird unter eigenem Linux User installiert
 - APKs sind quasi JARs (= Zip-Files) 
@@ -33,6 +36,9 @@
 
 ---
 ## Grundlagen GUI
+
+<img src="../img/mge/android_layouts.png" width=650/>
+
 - Eine **View** ist immer eine Rechteckige Fläche, für die die View verantwortlich ist
 - Widgets sind fertige Komponenten (buttons, images, checkboxes, ...)
 - ViewGroup ist eine Unterklasse von View
@@ -79,7 +85,7 @@ button.setOnClickListener(new View.OnClickListener() {
 - Es kann nur immer eine Activity gleichzeitig aktiv sein.
 - Fragment hat eigenen Lifecycle
 
-<img src="../img/mge/fragment_lifecycle.png" height=600/>
+<img src="../img/mge/fragment_lifecycle.png" height=500/>
 
 - Ein Fragment kann in mehrere Activities eingebunden werden und eine Activity kann mehrere Fragments beinhalten
 - Kann zur Laufzeit in Activity eingebunden (`onAttach()`) und wieder entfernt werden (`onDetach()`)
@@ -152,12 +158,17 @@ public class MainActivity extends Activity implements OnItemSelected {
 - Fragment sollte unabhängig von der Activity sein
 - Zur Kommunikation zwischen Fragment und Activity definiert das Fragment ein Interface, dass die Activity implementiert
 
+<div style="page-break-after: always" ></div>
+
 ### Master-Detail Navigation
 - Ein Pattern, z.B. eine Liste mit Mails -> einzelne Mail
 - z.B. hat das Phone-Design nur ein einzelnes Fragment pro Activity, das Tablet-layout zeigt beide Layouts auf der gleichen Activity an
 - Wenn Activity einen Einstiegspunkt in die App sein kann, muss es eine Activity sein, kein Fragment
-
-<div style="page-break-after: always" ></div>
+- Vorgehen
+    - Zwei verschiedene Layouts für Tablet und Phone
+    - Tablet-Layout enthält Platzhalter für Fragment
+    - In Activity prüfen, ob Platzhalter vorhanden ist
+    - Dementsprechend Detail-View im Fragment laden oder eine neue Activity dafür starten
 
 ### Menüs
 Programmatisch:
@@ -204,8 +215,6 @@ public boolean onOptionsItemSelected(MenuItem item) {
 - Nach Android 5.0 ist die "ActionBar" deprecated, neu ist die "Toolbar"
 - Navigation Drawer ("Hamburger Menu") hat schlechte usability
 
-<div style="page-break-after: always" ></div>
-
 ## Listen und Persistenz
 ### Listen
 - ListView
@@ -251,8 +260,6 @@ TextView textView = views.first;
 CheckBox checkBox = views.second;
 ```
 
-<div style="page-break-after: always" ></div>
-
 ### Recycler View
 - In `RecyclerView` ist die Optimierung bereits eingebaut
     - In `onBindViewHolder()` sind die UI-Elemente schon drin im ViewHolder und müssen nur noch abgefüllt werden
@@ -292,9 +299,9 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
 ```
 ```java
 public class ViewHolder extends RecyclerView.ViewHolder {
-    public View parent;
-    public TextView textView;
-    public CheckBox checkBox;
+    private View parent;
+    private TextView textView;
+    private CheckBox checkBox;
 
     public ViewHolder(View parent, TextView textView, CheckBox checkBox) {
         super(parent);
@@ -304,6 +311,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 }
 ```
+
+<div style="page-break-after: always" ></div>
 
 ## Persistenz
 - `onSaveInstanceState()` speichert per default alle Views mit einer ID im Bundle gespeichert
@@ -325,9 +334,9 @@ editor.commit();
 - Andere Möglichkeiten: Auf Filesystem oder SQLite sichern
 - SQLite Helper trackt die Version. Wenn z.B. das Schema geändert wird, kann bei einem Update der App eine neue Version angegeben werden, um die Daten zu migrieren (in `onUpgrade`)
 
-### Hintergrundaktionen
+### Async-Tasks
 - Mit `Runnable` die Methode `run()` überschreiben
-- Einen neuen Threat starten
+- Einen neuen Thread starten
 
 ```java
 public void onClick(View v) {
@@ -358,6 +367,8 @@ public void onClick(View v) {
 
 ```java
 class DownloadBitmapTask extends AsyncTask<String, Void, Bitmap> {
+    // 1) doInBackGround params 2) return type onPostExecute
+    // 3) return type doInBackGround and param onPostExecute
 
    @Override
    protected void onPreExecute() {
@@ -382,7 +393,7 @@ new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
 
 ![Material Design summary](img/mge/material_design_summary.png)
 
-<div style="page-break-after: always" ></div>
+---
 
 ## Patterns & Serivces
 ### UI Patterns
@@ -404,24 +415,42 @@ new DownloadBitmapTask().execute("http://slow.hsr.ch/hsr_cat.bmp");
    <service 
        android:name=".ExampleService"
        android:exported="false" />
+   <!-- exported=false - Service steht nur eigener App
+   zur Verfügung -->
 </application>
 ```
+
 <img src="../img/mge/service_lifecycle.png" width=250/>
 
-
 - Einmaliger Task -> started Service
-    - Läuft im Hintergrund und wird nicht gestoppt, auch wenn die App pausiert / gestoppt wird
+    - Läuft im Hintergrund und wird nicht gestoppt, auch wenn die App pausiert / gestoppt wird (solange genug Ressourcen vorhanden sind)
     - Läuft im gleichen Thread wie das UI!
     - Starten über einen Intent `startService(intent)`
     - `onStartCommand()` überschreiben, um Task auszuführen
     - mit `stopSelf()` im Service stoppen
     - IntentService kommuniziert über Intents, wird dann im `onHandleIntent()` abgearbeitet
+    - Soll sich beenden, sobald Arbeit erledigt ist
     - Stellt einen Worker Thread zur Verfügung
     - Problem: Wie kann der Service die Activity benachrichtigen? -> Broadcasts oder "pending Intent"
+    - IntentService empfängt Intents und behandelt diese sequenziell
+```java
+public class HelloIntentService extends IntentService {
+    public HelloIntentService() {
+        super("HelloIntentService");
+    }
+    @Override   
+    protected void onHandleIntent(Intent intent) {
+        // handle intent
+    }
+}
+```
 - Client-Server-Kommunikation -> bound service
     - Auch über einen Intent gestartet
+    - Wird mit `bindService()` gebunden
+    - Mehrere Clients möglich
     - Gibt Interface, über den kommuniziert werden kann
-- AsyncTask: Aufgabe von Main-Thread entkoppeln. Kombinieren mit Services, um GUI-Thread nicht zu blockieren
+    - Sobald der letzte Client `unbindService()` aufruft, wird der Service zerstört
+- **Unterschied AsyncTask**: Aufgabe von Main-Thread entkoppeln. Kombinieren mit Services, um GUI-Thread nicht zu blockieren
 - Beide Möglichkeiten brauchen dieselbe Service-Klasse
 
 ### Broadcast Receiver
@@ -451,7 +480,13 @@ private class MyBroadcastReceiver extends BroadcastReceiver {
 }
 ```
 
----
+### Content Provider
+- Stellt Daten prozessübergreifend zur Verfügung (Client-Server-Modell)
+- Syntax ähnlich wie SQL
+- Android stellt Content Provider zur Verfügung, z.B. für Kontakte, Kalender, User Dictionary, usw.
+
+<div style="page-break-after: always" ></div>
+
 ## Weiterführende Themen
 ### Sensoren
 - Unterstützung von Gerät zu Gerät verschieden
@@ -475,8 +510,6 @@ public void onSensorChanged(SensorEvent event) {
     textView.setText(String.format("Helligkeit: %.0f", event.values[0]));
 }
 ```
-
-<div style="page-break-after: always" ></div>
 
 ### Dependency Injection
 - Problem: Klasse ist von einer anderen direkt abhängig und instanziert diese (z.B. wird eine Server-Adresse gesetzt)

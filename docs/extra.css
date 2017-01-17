@@ -28,14 +28,16 @@ div.codehilite > pre
         margin-top: 1rem;
     }
     
-    /* fix bug in new mkdocs-material */
-    a[title="Edit this page"] {
+    /* hide links */
+    a:after {
         display: none;
     }
     
     div.codehilite {
         /* Avoid page breaks in code blocks */
         page-break-inside: avoid;
+        font-size: 1.1em !important;
+        background-color: white !important;
     }
     
     li {

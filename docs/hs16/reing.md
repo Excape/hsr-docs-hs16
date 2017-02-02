@@ -1,4 +1,10 @@
 # Recht
+## Einführung Rechtsordnung
+- **Formelles Gesetz**: Gesetz, dass von der Legislative (i.d.R. Parlament) auf üblichem Weg (ordentlichen Gestzgebungsverfahren) erlassen worden ist.
+- **Materielles Gesetz**: Ein Gesetz, das allgemein gültig ist (z.B. ZGB) und nicht nur innerhalb des Parlaments
+- Ein normales Gesetz, das für alle gültig ist, z.B. ZGB, ist ein Gesetz im *materiellen und formellen* Sinn
+- Ein Gesetz, das vom Parlament erlassen wurde, aber nur innerhalb des Parlaments gilt, ist ein Gesetz *nur im formellen Sinn*
+- Ein Gesetz, das nicht durch das Parlament, sondern z.B. der Regierung erlassen worden ist, aber für alle gültig ist (z.B. Strassenverkehrsverordnung, Datenschutzverordnung) ist ein Gesetz *nur im materiellen* Sinne
 ## Vorlesung 1 - Vertragsrecht (I)
 - Öffentliches Recht: Vom Staat aus, Staat handelt hoheitlich
     - Bundesstaatsrecht, Verwaltungsrecht, Strafrecht, etc.
@@ -155,6 +161,7 @@
 ---
 ## Vorlesung 13-14 - Datenrecht
 ### Bedeutung des Datenschutzes
+
 !!! info
     **Datenschutz**: Schutz der Persönlichkeit und der Grundrechte der Person, über die Daten bearbeitet werden
 
